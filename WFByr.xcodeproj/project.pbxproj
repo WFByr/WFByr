@@ -1,0 +1,1077 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10CED7A1ED96EBC0085026B /* WFThreadsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED791ED96EBC0085026B /* WFThreadsModule.m */; };
+		A10CED7E1EDD648F0085026B /* WFKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED7D1EDD648F0085026B /* WFKeyboard.m */; };
+		A10CED811EDD65440085026B /* WFArticleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED801EDD65440085026B /* WFArticleApi.m */; };
+		A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED831EDD75570085026B /* UIAlertController+Extension.m */; };
+		A10CED891EDD75570085026B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED851EDD75570085026B /* UIColor+Hex.m */; };
+		A10CED8A1EDD75570085026B /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED871EDD75570085026B /* UILabel+Extension.m */; };
+		A10CED971EDE5D5B0085026B /* ASDebugger.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED8F1EDE5D5B0085026B /* ASDebugger.m */; };
+		A10CED981EDE5D5B0085026B /* ASLexer.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED911EDE5D5B0085026B /* ASLexer.m */; };
+		A10CED991EDE5D5B0085026B /* ASParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED931EDE5D5B0085026B /* ASParser.m */; };
+		A10CED9D1EDE6B630085026B /* ASTranslater.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED9C1EDE6B630085026B /* ASTranslater.m */; };
+		A10E2FAB1EC5A2160060CC1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FAA1EC5A2160060CC1C /* main.m */; };
+		A10E2FAE1EC5A2160060CC1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FAD1EC5A2160060CC1C /* AppDelegate.m */; };
+		A10E2FB11EC5A2160060CC1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FB01EC5A2160060CC1C /* ViewController.m */; };
+		A10E2FB41EC5A2160060CC1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10E2FB21EC5A2160060CC1C /* Main.storyboard */; };
+		A10E2FB61EC5A2160060CC1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10E2FB51EC5A2160060CC1C /* Assets.xcassets */; };
+		A10E2FB91EC5A2160060CC1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10E2FB71EC5A2160060CC1C /* LaunchScreen.storyboard */; };
+		A10E2FC41EC5A2160060CC1C /* WFByrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FC31EC5A2160060CC1C /* WFByrTests.m */; };
+		A10E2FCF1EC5A2160060CC1C /* WFByrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FCE1EC5A2160060CC1C /* WFByrUITests.m */; };
+		A10E309E1EC5A72C0060CC1C /* WFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E309D1EC5A72C0060CC1C /* WFLoginVC.m */; };
+		A10E30A21EC5A7F00060CC1C /* WFToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30A11EC5A7F00060CC1C /* WFToken.m */; };
+		A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30A41EC5A8020060CC1C /* WFOAth2.m */; };
+		A10E30B41EC5ABD40060CC1C /* WFTop10Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30A71EC5ABD40060CC1C /* WFTop10Cell.m */; };
+		A10E30B51EC5ABD40060CC1C /* WFTop10Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10E30A81EC5ABD40060CC1C /* WFTop10Cell.xib */; };
+		A10E30B61EC5ABD40060CC1C /* WFTop10ListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30AA1EC5ABD40060CC1C /* WFTop10ListVC.m */; };
+		A10E30B71EC5ABD40060CC1C /* WFTop10Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30AC1EC5ABD40060CC1C /* WFTop10Manager.m */; };
+		A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30AE1EC5ABD40060CC1C /* WFTop10ManageVC.m */; };
+		A10E30B91EC5ABD40060CC1C /* WFTop10RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30B01EC5ABD40060CC1C /* WFTop10RootVC.m */; };
+		A10E30BA1EC5ABD40060CC1C /* WFTop10SeperatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30B21EC5ABD40060CC1C /* WFTop10SeperatorCell.m */; };
+		A10E30BB1EC5ABD50060CC1C /* WFTop10SeperatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10E30B31EC5ABD40060CC1C /* WFTop10SeperatorCell.xib */; };
+		A112B7F81EDF211D0007A712 /* WFPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B7F61EDF211D0007A712 /* WFPostVC.m */; };
+		A112B7FC1EDF21DA0007A712 /* WFAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B7F91EDF21DA0007A712 /* WFAccessoryView.m */; };
+		A112B7FD1EDF21DA0007A712 /* WFAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A112B7FA1EDF21DA0007A712 /* WFAccessoryView.xib */; };
+		A112B8021EDF22930007A712 /* WFEmotionInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = A112B7FF1EDF22930007A712 /* WFEmotionInput.xib */; };
+		A112B8031EDF22930007A712 /* WFEmotionInput.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B8001EDF22930007A712 /* WFEmotionInput.m */; };
+		A112B8071EDF291E0007A712 /* WFAttachmentApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B8051EDF291E0007A712 /* WFAttachmentApi.m */; };
+		A112B80A1EDF2BB80007A712 /* ThreadsModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A112B8091EDF2BB80007A712 /* ThreadsModule.xcassets */; };
+		A138AF461ED6AE7A00070852 /* WFTop10Module.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF451ED6AE7A00070852 /* WFTop10Module.m */; };
+		A138AF4A1ED6B0A000070852 /* WFModuleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF491ED6B0A000070852 /* WFModuleFactory.m */; };
+		A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF4C1ED6B71A00070852 /* WFHelpers.m */; };
+		A138AF531ED6D05400070852 /* WFArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF521ED6D05400070852 /* WFArticle.m */; };
+		A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF551ED6D1B300070852 /* WFAttachment.m */; };
+		A138AF5B1ED6D1B300070852 /* WFFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF571ED6D1B300070852 /* WFFile.m */; };
+		A138AF5C1ED6D1B300070852 /* WFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF591ED6D1B300070852 /* WFUser.m */; };
+		A138AF601ED6D82600070852 /* WFWidgetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF5F1ED6D82600070852 /* WFWidgetApi.m */; };
+		A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF621ED6D84C00070852 /* WFBaseApi.m */; };
+		A138AF6C1ED7F95100070852 /* Top10.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6B1ED7F95100070852 /* Top10.xcassets */; };
+		A138AF6E1ED7F99F00070852 /* SectionModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */; };
+		A138AF731ED816C600070852 /* WFLoginModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF721ED816C600070852 /* WFLoginModule.m */; };
+		A18819C21ED962A500E4F2F4 /* WFThreadsBodyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819B81ED962A500E4F2F4 /* WFThreadsBodyCell.m */; };
+		A18819C31ED962A500E4F2F4 /* WFThreadsBodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819B91ED962A500E4F2F4 /* WFThreadsBodyCell.xib */; };
+		A18819C41ED962A500E4F2F4 /* WFThreadsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819BB1ED962A500E4F2F4 /* WFThreadsVC.m */; };
+		A18819C51ED962A500E4F2F4 /* WFThreadsReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819BD1ED962A500E4F2F4 /* WFThreadsReplyCell.m */; };
+		A18819C61ED962A500E4F2F4 /* WFThreadsReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819BE1ED962A500E4F2F4 /* WFThreadsReplyCell.xib */; };
+		A18819C71ED962A500E4F2F4 /* WFThreadsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */; };
+		A18819C81ED962A500E4F2F4 /* WFThreadsTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */; };
+		A1B75C811EDE97D3008D46DC /* WFBBCodeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B75C801EDE97D3008D46DC /* WFBBCodeParser.m */; };
+		A1B75C831EDEA6E4008D46DC /* WFBBCodeParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B75C821EDEA6E4008D46DC /* WFBBCodeParserTests.m */; };
+		A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC14981ED927D900A2AD0B /* WFRouter.m */; };
+		A1ECB4141ED966D0006DD061 /* WFBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ECB4111ED966D0006DD061 /* WFBoard.m */; };
+		A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ECB4131ED966D0006DD061 /* WFPagination.m */; };
+		A6B9790D904B1ED84AA5240A /* Pods_WFByr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE7B9BF82D3DFB5877505EC /* Pods_WFByr.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A10E2FC01EC5A2160060CC1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10E2F9E1EC5A2160060CC1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10E2FA51EC5A2160060CC1C;
+			remoteInfo = WFByr;
+		};
+		A10E2FCB1EC5A2160060CC1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10E2F9E1EC5A2160060CC1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10E2FA51EC5A2160060CC1C;
+			remoteInfo = WFByr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		34A3387E435DFADCF72398AD /* Pods-WFByr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFByr.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFByr/Pods-WFByr.release.xcconfig"; sourceTree = "<group>"; };
+		58E20FABF04786A4D1DEED10 /* Pods-WFByr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFByr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WFByr/Pods-WFByr.debug.xcconfig"; sourceTree = "<group>"; };
+		5CE7B9BF82D3DFB5877505EC /* Pods_WFByr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WFByr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10CED781ED96EBC0085026B /* WFThreadsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsModule.h; sourceTree = "<group>"; };
+		A10CED791ED96EBC0085026B /* WFThreadsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsModule.m; sourceTree = "<group>"; };
+		A10CED7B1ED96EE60085026B /* WFThreadsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThreadsProtocol.h; sourceTree = "<group>"; };
+		A10CED7C1EDD648F0085026B /* WFKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFKeyboard.h; sourceTree = "<group>"; };
+		A10CED7D1EDD648F0085026B /* WFKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFKeyboard.m; sourceTree = "<group>"; };
+		A10CED7F1EDD65440085026B /* WFArticleApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFArticleApi.h; sourceTree = "<group>"; };
+		A10CED801EDD65440085026B /* WFArticleApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFArticleApi.m; sourceTree = "<group>"; };
+		A10CED821EDD75570085026B /* UIAlertController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Extension.h"; sourceTree = "<group>"; };
+		A10CED831EDD75570085026B /* UIAlertController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Extension.m"; sourceTree = "<group>"; };
+		A10CED841EDD75570085026B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		A10CED851EDD75570085026B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		A10CED861EDD75570085026B /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
+		A10CED871EDD75570085026B /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
+		A10CED8F1EDE5D5B0085026B /* ASDebugger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDebugger.m; sourceTree = "<group>"; };
+		A10CED901EDE5D5B0085026B /* ASLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLexer.h; sourceTree = "<group>"; };
+		A10CED911EDE5D5B0085026B /* ASLexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLexer.m; sourceTree = "<group>"; };
+		A10CED921EDE5D5B0085026B /* ASParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASParser.h; sourceTree = "<group>"; };
+		A10CED931EDE5D5B0085026B /* ASParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASParser.m; sourceTree = "<group>"; };
+		A10CED941EDE5D5B0085026B /* ASDebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDebugger.h; sourceTree = "<group>"; };
+		A10CED9B1EDE6B630085026B /* ASTranslater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTranslater.h; sourceTree = "<group>"; };
+		A10CED9C1EDE6B630085026B /* ASTranslater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTranslater.m; sourceTree = "<group>"; };
+		A10E2FA61EC5A2160060CC1C /* WFByr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFByr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10E2FAA1EC5A2160060CC1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A10E2FAC1EC5A2160060CC1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A10E2FAD1EC5A2160060CC1C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A10E2FAF1EC5A2160060CC1C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A10E2FB01EC5A2160060CC1C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A10E2FB31EC5A2160060CC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A10E2FB51EC5A2160060CC1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10E2FB81EC5A2160060CC1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A10E2FBA1EC5A2160060CC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10E2FBF1EC5A2160060CC1C /* WFByrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WFByrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10E2FC31EC5A2160060CC1C /* WFByrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFByrTests.m; sourceTree = "<group>"; };
+		A10E2FC51EC5A2160060CC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10E2FCA1EC5A2160060CC1C /* WFByrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WFByrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10E2FCE1EC5A2160060CC1C /* WFByrUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFByrUITests.m; sourceTree = "<group>"; };
+		A10E2FD01EC5A2160060CC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10E309C1EC5A72C0060CC1C /* WFLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginVC.h; sourceTree = "<group>"; };
+		A10E309D1EC5A72C0060CC1C /* WFLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginVC.m; sourceTree = "<group>"; };
+		A10E30A01EC5A7F00060CC1C /* WFToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFToken.h; sourceTree = "<group>"; };
+		A10E30A11EC5A7F00060CC1C /* WFToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFToken.m; sourceTree = "<group>"; };
+		A10E30A31EC5A8020060CC1C /* WFOAth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFOAth2.h; sourceTree = "<group>"; };
+		A10E30A41EC5A8020060CC1C /* WFOAth2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFOAth2.m; sourceTree = "<group>"; };
+		A10E30A71EC5ABD40060CC1C /* WFTop10Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10Cell.m; sourceTree = "<group>"; };
+		A10E30A81EC5ABD40060CC1C /* WFTop10Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFTop10Cell.xib; sourceTree = "<group>"; };
+		A10E30A91EC5ABD40060CC1C /* WFTop10ListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10ListVC.h; sourceTree = "<group>"; };
+		A10E30AA1EC5ABD40060CC1C /* WFTop10ListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10ListVC.m; sourceTree = "<group>"; };
+		A10E30AB1EC5ABD40060CC1C /* WFTop10Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10Manager.h; sourceTree = "<group>"; };
+		A10E30AC1EC5ABD40060CC1C /* WFTop10Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10Manager.m; sourceTree = "<group>"; };
+		A10E30AD1EC5ABD40060CC1C /* WFTop10ManageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10ManageVC.h; sourceTree = "<group>"; };
+		A10E30AE1EC5ABD40060CC1C /* WFTop10ManageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10ManageVC.m; sourceTree = "<group>"; };
+		A10E30AF1EC5ABD40060CC1C /* WFTop10RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10RootVC.h; sourceTree = "<group>"; };
+		A10E30B01EC5ABD40060CC1C /* WFTop10RootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10RootVC.m; sourceTree = "<group>"; };
+		A10E30B11EC5ABD40060CC1C /* WFTop10SeperatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10SeperatorCell.h; sourceTree = "<group>"; };
+		A10E30B21EC5ABD40060CC1C /* WFTop10SeperatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10SeperatorCell.m; sourceTree = "<group>"; };
+		A10E30B31EC5ABD40060CC1C /* WFTop10SeperatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFTop10SeperatorCell.xib; sourceTree = "<group>"; };
+		A10E30BD1EC5ACBE0060CC1C /* WFTop10Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10Cell.h; sourceTree = "<group>"; };
+		A112B7F61EDF211D0007A712 /* WFPostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFPostVC.m; sourceTree = "<group>"; };
+		A112B7F71EDF211D0007A712 /* WFPostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPostVC.h; sourceTree = "<group>"; };
+		A112B7F91EDF21DA0007A712 /* WFAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFAccessoryView.m; sourceTree = "<group>"; };
+		A112B7FA1EDF21DA0007A712 /* WFAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFAccessoryView.xib; sourceTree = "<group>"; };
+		A112B7FB1EDF21DA0007A712 /* WFAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFAccessoryView.h; sourceTree = "<group>"; };
+		A112B7FF1EDF22930007A712 /* WFEmotionInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFEmotionInput.xib; sourceTree = "<group>"; };
+		A112B8001EDF22930007A712 /* WFEmotionInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFEmotionInput.m; sourceTree = "<group>"; };
+		A112B8011EDF22930007A712 /* WFEmotionInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFEmotionInput.h; sourceTree = "<group>"; };
+		A112B8041EDF22EE0007A712 /* WFPostCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPostCommon.h; sourceTree = "<group>"; };
+		A112B8051EDF291E0007A712 /* WFAttachmentApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFAttachmentApi.m; sourceTree = "<group>"; };
+		A112B8061EDF291E0007A712 /* WFAttachmentApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFAttachmentApi.h; sourceTree = "<group>"; };
+		A112B8091EDF2BB80007A712 /* ThreadsModule.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThreadsModule.xcassets; sourceTree = "<group>"; };
+		A138AF3F1ED6AD9B00070852 /* WFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFPrefixHeader.pch; sourceTree = "<group>"; };
+		A138AF441ED6AE7A00070852 /* WFTop10Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10Module.h; sourceTree = "<group>"; };
+		A138AF451ED6AE7A00070852 /* WFTop10Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10Module.m; sourceTree = "<group>"; };
+		A138AF471ED6AEA300070852 /* WFTop10ModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFTop10ModuleProtocol.h; sourceTree = "<group>"; };
+		A138AF481ED6B0A000070852 /* WFModuleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFModuleFactory.h; sourceTree = "<group>"; };
+		A138AF491ED6B0A000070852 /* WFModuleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFModuleFactory.m; sourceTree = "<group>"; };
+		A138AF4B1ED6B70B00070852 /* WFHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFHelpers.h; sourceTree = "<group>"; };
+		A138AF4C1ED6B71A00070852 /* WFHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHelpers.m; sourceTree = "<group>"; };
+		A138AF4E1ED6BF6F00070852 /* WFConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFConst.h; sourceTree = "<group>"; };
+		A138AF511ED6D05400070852 /* WFArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFArticle.h; sourceTree = "<group>"; };
+		A138AF521ED6D05400070852 /* WFArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFArticle.m; sourceTree = "<group>"; };
+		A138AF541ED6D1B300070852 /* WFAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFAttachment.h; sourceTree = "<group>"; };
+		A138AF551ED6D1B300070852 /* WFAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFAttachment.m; sourceTree = "<group>"; };
+		A138AF561ED6D1B300070852 /* WFFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFile.h; sourceTree = "<group>"; };
+		A138AF571ED6D1B300070852 /* WFFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFile.m; sourceTree = "<group>"; };
+		A138AF581ED6D1B300070852 /* WFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUser.h; sourceTree = "<group>"; };
+		A138AF591ED6D1B300070852 /* WFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUser.m; sourceTree = "<group>"; };
+		A138AF5D1ED6D2AB00070852 /* WFModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFModels.h; sourceTree = "<group>"; };
+		A138AF5E1ED6D82600070852 /* WFWidgetApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFWidgetApi.h; sourceTree = "<group>"; };
+		A138AF5F1ED6D82600070852 /* WFWidgetApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFWidgetApi.m; sourceTree = "<group>"; };
+		A138AF611ED6D84C00070852 /* WFBaseApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseApi.h; sourceTree = "<group>"; };
+		A138AF621ED6D84C00070852 /* WFBaseApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseApi.m; sourceTree = "<group>"; };
+		A138AF641ED6FE3400070852 /* WFByrConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFByrConst.h; sourceTree = "<group>"; };
+		A138AF651ED7D01300070852 /* WFTop10Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFTop10Const.h; sourceTree = "<group>"; };
+		A138AF6B1ED7F95100070852 /* Top10.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Top10.xcassets; sourceTree = "<group>"; };
+		A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SectionModule.xcassets; sourceTree = "<group>"; };
+		A138AF6F1ED8144600070852 /* WFLoginModuleConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFLoginModuleConst.h; sourceTree = "<group>"; };
+		A138AF701ED8163F00070852 /* WFLoginModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFLoginModuleProtocol.h; sourceTree = "<group>"; };
+		A138AF711ED816C600070852 /* WFLoginModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginModule.h; sourceTree = "<group>"; };
+		A138AF721ED816C600070852 /* WFLoginModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginModule.m; sourceTree = "<group>"; };
+		A18819B71ED962A500E4F2F4 /* WFThreadsBodyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsBodyCell.h; sourceTree = "<group>"; };
+		A18819B81ED962A500E4F2F4 /* WFThreadsBodyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsBodyCell.m; sourceTree = "<group>"; };
+		A18819B91ED962A500E4F2F4 /* WFThreadsBodyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFThreadsBodyCell.xib; sourceTree = "<group>"; };
+		A18819BA1ED962A500E4F2F4 /* WFThreadsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsVC.h; sourceTree = "<group>"; };
+		A18819BB1ED962A500E4F2F4 /* WFThreadsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsVC.m; sourceTree = "<group>"; };
+		A18819BC1ED962A500E4F2F4 /* WFThreadsReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsReplyCell.h; sourceTree = "<group>"; };
+		A18819BD1ED962A500E4F2F4 /* WFThreadsReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsReplyCell.m; sourceTree = "<group>"; };
+		A18819BE1ED962A500E4F2F4 /* WFThreadsReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFThreadsReplyCell.xib; sourceTree = "<group>"; };
+		A18819BF1ED962A500E4F2F4 /* WFThreadsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsTitleCell.h; sourceTree = "<group>"; };
+		A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsTitleCell.m; sourceTree = "<group>"; };
+		A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFThreadsTitleCell.xib; sourceTree = "<group>"; };
+		A1B75C7F1EDE97D3008D46DC /* WFBBCodeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBBCodeParser.h; sourceTree = "<group>"; };
+		A1B75C801EDE97D3008D46DC /* WFBBCodeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBBCodeParser.m; sourceTree = "<group>"; };
+		A1B75C821EDEA6E4008D46DC /* WFBBCodeParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBBCodeParserTests.m; sourceTree = "<group>"; };
+		A1EC14971ED927D900A2AD0B /* WFRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFRouter.h; sourceTree = "<group>"; };
+		A1EC14981ED927D900A2AD0B /* WFRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFRouter.m; sourceTree = "<group>"; };
+		A1ECB4101ED966D0006DD061 /* WFBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBoard.h; sourceTree = "<group>"; };
+		A1ECB4111ED966D0006DD061 /* WFBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBoard.m; sourceTree = "<group>"; };
+		A1ECB4121ED966D0006DD061 /* WFPagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPagination.h; sourceTree = "<group>"; };
+		A1ECB4131ED966D0006DD061 /* WFPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFPagination.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10E2FA31EC5A2160060CC1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6B9790D904B1ED84AA5240A /* Pods_WFByr.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10E2FBC1EC5A2160060CC1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10E2FC71EC5A2160060CC1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		492218D67B3647798D31534B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CE7B9BF82D3DFB5877505EC /* Pods_WFByr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EABF03E299953E6C80F6DC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58E20FABF04786A4D1DEED10 /* Pods-WFByr.debug.xcconfig */,
+				34A3387E435DFADCF72398AD /* Pods-WFByr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A10CED771ED96E580085026B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A18819B71ED962A500E4F2F4 /* WFThreadsBodyCell.h */,
+				A18819B81ED962A500E4F2F4 /* WFThreadsBodyCell.m */,
+				A18819B91ED962A500E4F2F4 /* WFThreadsBodyCell.xib */,
+				A18819BC1ED962A500E4F2F4 /* WFThreadsReplyCell.h */,
+				A18819BD1ED962A500E4F2F4 /* WFThreadsReplyCell.m */,
+				A18819BE1ED962A500E4F2F4 /* WFThreadsReplyCell.xib */,
+				A18819BF1ED962A500E4F2F4 /* WFThreadsTitleCell.h */,
+				A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */,
+				A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A10CED8E1EDE5D2E0085026B /* ASBBCodeParser */ = {
+			isa = PBXGroup;
+			children = (
+				A10CED901EDE5D5B0085026B /* ASLexer.h */,
+				A10CED911EDE5D5B0085026B /* ASLexer.m */,
+				A10CED921EDE5D5B0085026B /* ASParser.h */,
+				A10CED931EDE5D5B0085026B /* ASParser.m */,
+				A10CED9B1EDE6B630085026B /* ASTranslater.h */,
+				A10CED9C1EDE6B630085026B /* ASTranslater.m */,
+				A10CED941EDE5D5B0085026B /* ASDebugger.h */,
+				A10CED8F1EDE5D5B0085026B /* ASDebugger.m */,
+				A1B75C7F1EDE97D3008D46DC /* WFBBCodeParser.h */,
+				A1B75C801EDE97D3008D46DC /* WFBBCodeParser.m */,
+			);
+			name = ASBBCodeParser;
+			sourceTree = "<group>";
+		};
+		A10E2F9D1EC5A2160060CC1C = {
+			isa = PBXGroup;
+			children = (
+				A10E2FA81EC5A2160060CC1C /* WFByr */,
+				A10E2FC21EC5A2160060CC1C /* WFByrTests */,
+				A10E2FCD1EC5A2160060CC1C /* WFByrUITests */,
+				A10E2FA71EC5A2160060CC1C /* Products */,
+				6EABF03E299953E6C80F6DC7 /* Pods */,
+				492218D67B3647798D31534B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A10E2FA71EC5A2160060CC1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10E2FA61EC5A2160060CC1C /* WFByr.app */,
+				A10E2FBF1EC5A2160060CC1C /* WFByrTests.xctest */,
+				A10E2FCA1EC5A2160060CC1C /* WFByrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A10E2FA81EC5A2160060CC1C /* WFByr */ = {
+			isa = PBXGroup;
+			children = (
+				A1EC14961ED9279B00A2AD0B /* Router */,
+				A138AF431ED6AE5700070852 /* ModuleProtocols */,
+				A10E309B1EC5A6DF0060CC1C /* Top10Module */,
+				A1EC149A1ED953A600A2AD0B /* ThreadsModule */,
+				A112B7F51EDF20600007A712 /* PostModule */,
+				A138AF3D1ED6AAEA00070852 /* SectionModule */,
+				A10E309A1EC5A4670060CC1C /* LoginModule */,
+				A138AF3E1ED6AC6B00070852 /* MeModule */,
+				A10E309F1EC5A7940060CC1C /* SDKModule */,
+				A10CED8E1EDE5D2E0085026B /* ASBBCodeParser */,
+				A138AF3C1ED6AAC400070852 /* AppDelegate */,
+				A10E2FB51EC5A2160060CC1C /* Assets.xcassets */,
+				A10E2FB71EC5A2160060CC1C /* LaunchScreen.storyboard */,
+				A10E2FBA1EC5A2160060CC1C /* Info.plist */,
+				A10E2FA91EC5A2160060CC1C /* Supporting Files */,
+			);
+			path = WFByr;
+			sourceTree = "<group>";
+		};
+		A10E2FA91EC5A2160060CC1C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A10CED821EDD75570085026B /* UIAlertController+Extension.h */,
+				A10CED831EDD75570085026B /* UIAlertController+Extension.m */,
+				A10CED841EDD75570085026B /* UIColor+Hex.h */,
+				A10CED851EDD75570085026B /* UIColor+Hex.m */,
+				A10CED861EDD75570085026B /* UILabel+Extension.h */,
+				A10CED871EDD75570085026B /* UILabel+Extension.m */,
+				A10E2FAA1EC5A2160060CC1C /* main.m */,
+				A138AF3F1ED6AD9B00070852 /* WFPrefixHeader.pch */,
+				A138AF4B1ED6B70B00070852 /* WFHelpers.h */,
+				A138AF4C1ED6B71A00070852 /* WFHelpers.m */,
+				A138AF4E1ED6BF6F00070852 /* WFConst.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A10E2FC21EC5A2160060CC1C /* WFByrTests */ = {
+			isa = PBXGroup;
+			children = (
+				A10E2FC31EC5A2160060CC1C /* WFByrTests.m */,
+				A1B75C821EDEA6E4008D46DC /* WFBBCodeParserTests.m */,
+				A10E2FC51EC5A2160060CC1C /* Info.plist */,
+			);
+			path = WFByrTests;
+			sourceTree = "<group>";
+		};
+		A10E2FCD1EC5A2160060CC1C /* WFByrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A10E2FCE1EC5A2160060CC1C /* WFByrUITests.m */,
+				A10E2FD01EC5A2160060CC1C /* Info.plist */,
+			);
+			path = WFByrUITests;
+			sourceTree = "<group>";
+		};
+		A10E309A1EC5A4670060CC1C /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF711ED816C600070852 /* WFLoginModule.h */,
+				A138AF721ED816C600070852 /* WFLoginModule.m */,
+				A10E309C1EC5A72C0060CC1C /* WFLoginVC.h */,
+				A10E309D1EC5A72C0060CC1C /* WFLoginVC.m */,
+				A138AF6F1ED8144600070852 /* WFLoginModuleConst.h */,
+			);
+			name = LoginModule;
+			sourceTree = "<group>";
+		};
+		A10E309B1EC5A6DF0060CC1C /* Top10Module */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF6A1ED7F87E00070852 /* Resource */,
+				A10E30BC1EC5ABE00060CC1C /* View */,
+				A138AF441ED6AE7A00070852 /* WFTop10Module.h */,
+				A138AF451ED6AE7A00070852 /* WFTop10Module.m */,
+				A10E30A91EC5ABD40060CC1C /* WFTop10ListVC.h */,
+				A10E30AA1EC5ABD40060CC1C /* WFTop10ListVC.m */,
+				A10E30AB1EC5ABD40060CC1C /* WFTop10Manager.h */,
+				A10E30AC1EC5ABD40060CC1C /* WFTop10Manager.m */,
+				A10E30AD1EC5ABD40060CC1C /* WFTop10ManageVC.h */,
+				A10E30AE1EC5ABD40060CC1C /* WFTop10ManageVC.m */,
+				A10E30AF1EC5ABD40060CC1C /* WFTop10RootVC.h */,
+				A10E30B01EC5ABD40060CC1C /* WFTop10RootVC.m */,
+				A138AF651ED7D01300070852 /* WFTop10Const.h */,
+			);
+			name = Top10Module;
+			sourceTree = "<group>";
+		};
+		A10E309F1EC5A7940060CC1C /* SDKModule */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF501ED6C86500070852 /* Apis */,
+				A138AF4F1ED6C85D00070852 /* Models */,
+				A138AF5D1ED6D2AB00070852 /* WFModels.h */,
+			);
+			name = SDKModule;
+			sourceTree = "<group>";
+		};
+		A10E30BC1EC5ABE00060CC1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A10E30BD1EC5ACBE0060CC1C /* WFTop10Cell.h */,
+				A10E30A71EC5ABD40060CC1C /* WFTop10Cell.m */,
+				A10E30A81EC5ABD40060CC1C /* WFTop10Cell.xib */,
+				A10E30B11EC5ABD40060CC1C /* WFTop10SeperatorCell.h */,
+				A10E30B21EC5ABD40060CC1C /* WFTop10SeperatorCell.m */,
+				A10E30B31EC5ABD40060CC1C /* WFTop10SeperatorCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A112B7F51EDF20600007A712 /* PostModule */ = {
+			isa = PBXGroup;
+			children = (
+				A112B7FE1EDF21E40007A712 /* View */,
+				A112B7F71EDF211D0007A712 /* WFPostVC.h */,
+				A112B7F61EDF211D0007A712 /* WFPostVC.m */,
+			);
+			name = PostModule;
+			sourceTree = "<group>";
+		};
+		A112B7FE1EDF21E40007A712 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A112B8041EDF22EE0007A712 /* WFPostCommon.h */,
+				A112B7FF1EDF22930007A712 /* WFEmotionInput.xib */,
+				A112B8011EDF22930007A712 /* WFEmotionInput.h */,
+				A112B8001EDF22930007A712 /* WFEmotionInput.m */,
+				A112B7FB1EDF21DA0007A712 /* WFAccessoryView.h */,
+				A112B7F91EDF21DA0007A712 /* WFAccessoryView.m */,
+				A112B7FA1EDF21DA0007A712 /* WFAccessoryView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A112B8081EDF2B930007A712 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A112B8091EDF2BB80007A712 /* ThreadsModule.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		A138AF3C1ED6AAC400070852 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				A10E2FAC1EC5A2160060CC1C /* AppDelegate.h */,
+				A10E2FAD1EC5A2160060CC1C /* AppDelegate.m */,
+				A10E2FAF1EC5A2160060CC1C /* ViewController.h */,
+				A10E2FB01EC5A2160060CC1C /* ViewController.m */,
+				A10E2FB21EC5A2160060CC1C /* Main.storyboard */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		A138AF3D1ED6AAEA00070852 /* SectionModule */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */,
+			);
+			name = SectionModule;
+			sourceTree = "<group>";
+		};
+		A138AF3E1ED6AC6B00070852 /* MeModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MeModule;
+			sourceTree = "<group>";
+		};
+		A138AF431ED6AE5700070852 /* ModuleProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF471ED6AEA300070852 /* WFTop10ModuleProtocol.h */,
+				A138AF701ED8163F00070852 /* WFLoginModuleProtocol.h */,
+				A10CED7B1ED96EE60085026B /* WFThreadsProtocol.h */,
+				A138AF481ED6B0A000070852 /* WFModuleFactory.h */,
+				A138AF491ED6B0A000070852 /* WFModuleFactory.m */,
+			);
+			name = ModuleProtocols;
+			sourceTree = "<group>";
+		};
+		A138AF4F1ED6C85D00070852 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1ECB4101ED966D0006DD061 /* WFBoard.h */,
+				A1ECB4111ED966D0006DD061 /* WFBoard.m */,
+				A1ECB4121ED966D0006DD061 /* WFPagination.h */,
+				A1ECB4131ED966D0006DD061 /* WFPagination.m */,
+				A138AF541ED6D1B300070852 /* WFAttachment.h */,
+				A138AF551ED6D1B300070852 /* WFAttachment.m */,
+				A138AF561ED6D1B300070852 /* WFFile.h */,
+				A138AF571ED6D1B300070852 /* WFFile.m */,
+				A138AF581ED6D1B300070852 /* WFUser.h */,
+				A138AF591ED6D1B300070852 /* WFUser.m */,
+				A138AF511ED6D05400070852 /* WFArticle.h */,
+				A138AF521ED6D05400070852 /* WFArticle.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A138AF501ED6C86500070852 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				A112B8061EDF291E0007A712 /* WFAttachmentApi.h */,
+				A112B8051EDF291E0007A712 /* WFAttachmentApi.m */,
+				A10CED7F1EDD65440085026B /* WFArticleApi.h */,
+				A10CED801EDD65440085026B /* WFArticleApi.m */,
+				A138AF611ED6D84C00070852 /* WFBaseApi.h */,
+				A138AF621ED6D84C00070852 /* WFBaseApi.m */,
+				A138AF5E1ED6D82600070852 /* WFWidgetApi.h */,
+				A138AF5F1ED6D82600070852 /* WFWidgetApi.m */,
+				A10E30A31EC5A8020060CC1C /* WFOAth2.h */,
+				A10E30A41EC5A8020060CC1C /* WFOAth2.m */,
+				A10E30A01EC5A7F00060CC1C /* WFToken.h */,
+				A10E30A11EC5A7F00060CC1C /* WFToken.m */,
+				A138AF641ED6FE3400070852 /* WFByrConst.h */,
+			);
+			name = Apis;
+			sourceTree = "<group>";
+		};
+		A138AF6A1ED7F87E00070852 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF6B1ED7F95100070852 /* Top10.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		A1EC14961ED9279B00A2AD0B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A1EC14971ED927D900A2AD0B /* WFRouter.h */,
+				A1EC14981ED927D900A2AD0B /* WFRouter.m */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		A1EC149A1ED953A600A2AD0B /* ThreadsModule */ = {
+			isa = PBXGroup;
+			children = (
+				A112B8081EDF2B930007A712 /* Resource */,
+				A10CED771ED96E580085026B /* View */,
+				A10CED7C1EDD648F0085026B /* WFKeyboard.h */,
+				A10CED7D1EDD648F0085026B /* WFKeyboard.m */,
+				A18819BA1ED962A500E4F2F4 /* WFThreadsVC.h */,
+				A18819BB1ED962A500E4F2F4 /* WFThreadsVC.m */,
+				A10CED781ED96EBC0085026B /* WFThreadsModule.h */,
+				A10CED791ED96EBC0085026B /* WFThreadsModule.m */,
+			);
+			name = ThreadsModule;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10E2FA51EC5A2160060CC1C /* WFByr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10E2FD31EC5A2160060CC1C /* Build configuration list for PBXNativeTarget "WFByr" */;
+			buildPhases = (
+				B73460BB938F3FA9185C23C7 /* [CP] Check Pods Manifest.lock */,
+				A10E2FA21EC5A2160060CC1C /* Sources */,
+				A10E2FA31EC5A2160060CC1C /* Frameworks */,
+				A10E2FA41EC5A2160060CC1C /* Resources */,
+				AC1833644DF09C2FD8EBAE46 /* [CP] Embed Pods Frameworks */,
+				9FBACD46BA9B0998B1F06441 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WFByr;
+			productName = WFByr;
+			productReference = A10E2FA61EC5A2160060CC1C /* WFByr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A10E2FBE1EC5A2160060CC1C /* WFByrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10E2FD61EC5A2160060CC1C /* Build configuration list for PBXNativeTarget "WFByrTests" */;
+			buildPhases = (
+				A10E2FBB1EC5A2160060CC1C /* Sources */,
+				A10E2FBC1EC5A2160060CC1C /* Frameworks */,
+				A10E2FBD1EC5A2160060CC1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A10E2FC11EC5A2160060CC1C /* PBXTargetDependency */,
+			);
+			name = WFByrTests;
+			productName = WFByrTests;
+			productReference = A10E2FBF1EC5A2160060CC1C /* WFByrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A10E2FC91EC5A2160060CC1C /* WFByrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10E2FD91EC5A2160060CC1C /* Build configuration list for PBXNativeTarget "WFByrUITests" */;
+			buildPhases = (
+				A10E2FC61EC5A2160060CC1C /* Sources */,
+				A10E2FC71EC5A2160060CC1C /* Frameworks */,
+				A10E2FC81EC5A2160060CC1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A10E2FCC1EC5A2160060CC1C /* PBXTargetDependency */,
+			);
+			name = WFByrUITests;
+			productName = WFByrUITests;
+			productReference = A10E2FCA1EC5A2160060CC1C /* WFByrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10E2F9E1EC5A2160060CC1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = andy;
+				TargetAttributes = {
+					A10E2FA51EC5A2160060CC1C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9E9C2ZNYDA;
+						ProvisioningStyle = Automatic;
+					};
+					A10E2FBE1EC5A2160060CC1C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9E9C2ZNYDA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A10E2FA51EC5A2160060CC1C;
+					};
+					A10E2FC91EC5A2160060CC1C = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9E9C2ZNYDA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A10E2FA51EC5A2160060CC1C;
+					};
+				};
+			};
+			buildConfigurationList = A10E2FA11EC5A2160060CC1C /* Build configuration list for PBXProject "WFByr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10E2F9D1EC5A2160060CC1C;
+			productRefGroup = A10E2FA71EC5A2160060CC1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10E2FA51EC5A2160060CC1C /* WFByr */,
+				A10E2FBE1EC5A2160060CC1C /* WFByrTests */,
+				A10E2FC91EC5A2160060CC1C /* WFByrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10E2FA41EC5A2160060CC1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10E30BB1EC5ABD50060CC1C /* WFTop10SeperatorCell.xib in Resources */,
+				A112B80A1EDF2BB80007A712 /* ThreadsModule.xcassets in Resources */,
+				A112B7FD1EDF21DA0007A712 /* WFAccessoryView.xib in Resources */,
+				A112B8021EDF22930007A712 /* WFEmotionInput.xib in Resources */,
+				A10E30B51EC5ABD40060CC1C /* WFTop10Cell.xib in Resources */,
+				A138AF6C1ED7F95100070852 /* Top10.xcassets in Resources */,
+				A18819C61ED962A500E4F2F4 /* WFThreadsReplyCell.xib in Resources */,
+				A18819C31ED962A500E4F2F4 /* WFThreadsBodyCell.xib in Resources */,
+				A138AF6E1ED7F99F00070852 /* SectionModule.xcassets in Resources */,
+				A10E2FB91EC5A2160060CC1C /* LaunchScreen.storyboard in Resources */,
+				A10E2FB61EC5A2160060CC1C /* Assets.xcassets in Resources */,
+				A18819C81ED962A500E4F2F4 /* WFThreadsTitleCell.xib in Resources */,
+				A10E2FB41EC5A2160060CC1C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10E2FBD1EC5A2160060CC1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10E2FC81EC5A2160060CC1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FBACD46BA9B0998B1F06441 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFByr/Pods-WFByr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC1833644DF09C2FD8EBAE46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WFByr/Pods-WFByr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B73460BB938F3FA9185C23C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10E2FA21EC5A2160060CC1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10CED8A1EDD75570085026B /* UILabel+Extension.m in Sources */,
+				A10CED9D1EDE6B630085026B /* ASTranslater.m in Sources */,
+				A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */,
+				A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */,
+				A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */,
+				A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */,
+				A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */,
+				A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */,
+				A138AF461ED6AE7A00070852 /* WFTop10Module.m in Sources */,
+				A138AF731ED816C600070852 /* WFLoginModule.m in Sources */,
+				A138AF531ED6D05400070852 /* WFArticle.m in Sources */,
+				A18819C71ED962A500E4F2F4 /* WFThreadsTitleCell.m in Sources */,
+				A10CED891EDD75570085026B /* UIColor+Hex.m in Sources */,
+				A10CED7A1ED96EBC0085026B /* WFThreadsModule.m in Sources */,
+				A10E30B41EC5ABD40060CC1C /* WFTop10Cell.m in Sources */,
+				A10CED7E1EDD648F0085026B /* WFKeyboard.m in Sources */,
+				A112B7F81EDF211D0007A712 /* WFPostVC.m in Sources */,
+				A10E30B61EC5ABD40060CC1C /* WFTop10ListVC.m in Sources */,
+				A112B8071EDF291E0007A712 /* WFAttachmentApi.m in Sources */,
+				A10E2FB11EC5A2160060CC1C /* ViewController.m in Sources */,
+				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
+				A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */,
+				A1B75C811EDE97D3008D46DC /* WFBBCodeParser.m in Sources */,
+				A112B8031EDF22930007A712 /* WFEmotionInput.m in Sources */,
+				A10E30B71EC5ABD40060CC1C /* WFTop10Manager.m in Sources */,
+				A112B7FC1EDF21DA0007A712 /* WFAccessoryView.m in Sources */,
+				A10E30BA1EC5ABD40060CC1C /* WFTop10SeperatorCell.m in Sources */,
+				A10E2FAE1EC5A2160060CC1C /* AppDelegate.m in Sources */,
+				A18819C51ED962A500E4F2F4 /* WFThreadsReplyCell.m in Sources */,
+				A138AF5C1ED6D1B300070852 /* WFUser.m in Sources */,
+				A18819C41ED962A500E4F2F4 /* WFThreadsVC.m in Sources */,
+				A10CED811EDD65440085026B /* WFArticleApi.m in Sources */,
+				A138AF5B1ED6D1B300070852 /* WFFile.m in Sources */,
+				A10E30B91EC5ABD40060CC1C /* WFTop10RootVC.m in Sources */,
+				A10CED991EDE5D5B0085026B /* ASParser.m in Sources */,
+				A10CED971EDE5D5B0085026B /* ASDebugger.m in Sources */,
+				A10E2FAB1EC5A2160060CC1C /* main.m in Sources */,
+				A1ECB4141ED966D0006DD061 /* WFBoard.m in Sources */,
+				A10CED981EDE5D5B0085026B /* ASLexer.m in Sources */,
+				A10E30A21EC5A7F00060CC1C /* WFToken.m in Sources */,
+				A138AF601ED6D82600070852 /* WFWidgetApi.m in Sources */,
+				A18819C21ED962A500E4F2F4 /* WFThreadsBodyCell.m in Sources */,
+				A10E309E1EC5A72C0060CC1C /* WFLoginVC.m in Sources */,
+				A138AF4A1ED6B0A000070852 /* WFModuleFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10E2FBB1EC5A2160060CC1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B75C831EDEA6E4008D46DC /* WFBBCodeParserTests.m in Sources */,
+				A10E2FC41EC5A2160060CC1C /* WFByrTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10E2FC61EC5A2160060CC1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10E2FCF1EC5A2160060CC1C /* WFByrUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A10E2FC11EC5A2160060CC1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10E2FA51EC5A2160060CC1C /* WFByr */;
+			targetProxy = A10E2FC01EC5A2160060CC1C /* PBXContainerItemProxy */;
+		};
+		A10E2FCC1EC5A2160060CC1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10E2FA51EC5A2160060CC1C /* WFByr */;
+			targetProxy = A10E2FCB1EC5A2160060CC1C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A10E2FB21EC5A2160060CC1C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A10E2FB31EC5A2160060CC1C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A10E2FB71EC5A2160060CC1C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A10E2FB81EC5A2160060CC1C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A10E2FD11EC5A2160060CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A10E2FD21EC5A2160060CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A10E2FD41EC5A2160060CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58E20FABF04786A4D1DEED10 /* Pods-WFByr.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WFByr/WFPrefixHeader.pch";
+				INFOPLIST_FILE = WFByr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A10E2FD51EC5A2160060CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34A3387E435DFADCF72398AD /* Pods-WFByr.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WFByr/WFPrefixHeader.pch";
+				INFOPLIST_FILE = WFByr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A10E2FD71EC5A2160060CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				INFOPLIST_FILE = WFByrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WFByr.app/WFByr";
+			};
+			name = Debug;
+		};
+		A10E2FD81EC5A2160060CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				INFOPLIST_FILE = WFByrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WFByr.app/WFByr";
+			};
+			name = Release;
+		};
+		A10E2FDA1EC5A2160060CC1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				INFOPLIST_FILE = WFByrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WFByr;
+			};
+			name = Debug;
+		};
+		A10E2FDB1EC5A2160060CC1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				INFOPLIST_FILE = WFByrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WFByr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10E2FA11EC5A2160060CC1C /* Build configuration list for PBXProject "WFByr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10E2FD11EC5A2160060CC1C /* Debug */,
+				A10E2FD21EC5A2160060CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10E2FD31EC5A2160060CC1C /* Build configuration list for PBXNativeTarget "WFByr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10E2FD41EC5A2160060CC1C /* Debug */,
+				A10E2FD51EC5A2160060CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10E2FD61EC5A2160060CC1C /* Build configuration list for PBXNativeTarget "WFByrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10E2FD71EC5A2160060CC1C /* Debug */,
+				A10E2FD81EC5A2160060CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10E2FD91EC5A2160060CC1C /* Build configuration list for PBXNativeTarget "WFByrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10E2FDA1EC5A2160060CC1C /* Debug */,
+				A10E2FDB1EC5A2160060CC1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10E2F9E1EC5A2160060CC1C /* Project object */;
+}

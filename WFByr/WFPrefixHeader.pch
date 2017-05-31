@@ -1,0 +1,29 @@
+//
+//  WFPrefixHeader.pch
+//  WFByr
+//
+//  Created by Andy on 2017/5/25.
+//  Copyright © 2017年 andy. All rights reserved.
+//
+
+#ifndef WFPrefixHeader_pch
+#define WFPrefixHeader_pch
+
+#ifdef DEBUG
+#define NSLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif
+
+@import UIKit;
+@import Foundation;
+
+#import "WFRouter.h"
+#import "WFHelpers.h"
+#import "WFConst.h"
+
+#define WFSCREEN_W [UIScreen mainScreen].bounds.size.width
+#define WFSCREEN_H [UIScreen mainScreen].bounds.size.height
+
+
+#endif /* WFPrefixHeader_pch */
