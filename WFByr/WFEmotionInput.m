@@ -8,11 +8,13 @@
 
 #import "WFEmotionInput.h"
 #import "UIImage+GIF.h"
+#import "FLAnimatedImage.h"
+#import "FLAnimatedImageView.h"
 #import "Masonry.h"
 
 @interface WFEmotionCell ()
 
-@property (nonatomic, strong) UIImageView *imgView;
+@property (nonatomic, strong) FLAnimatedImageView *imgView;
 
 @end
 
@@ -35,12 +37,12 @@
     [super layoutSubviews];
 }
 - (void)setEmotion:(NSString *)imgName {
-    [self.imgView setImage:[UIImage sd_animatedGIFNamed:imgName]];
+    [self.imgView setAnimatedImage:[FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfFile:imgName]]];
 }
 
 - (UIImageView*)imgView {
     if (_imgView == nil) {
-        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        _imgView = [[FLAnimatedImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     }
     return _imgView;
 }

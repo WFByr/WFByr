@@ -42,7 +42,6 @@
     if (self != nil) {
         _translator = [ASTranslater new];
         _translator.isDebugging = true;
-        _translatedString = [[NSMutableAttributedString alloc] init];
         _fontName = @"Avenir-Light";
         _fontSize = 14;
         _font = [UIFont fontWithName:_fontName size:_fontSize];
@@ -62,6 +61,7 @@
 }
 
 - (NSAttributedString*)parseBBCode:(NSString *)aBBCode {
+    _translatedString = [NSMutableAttributedString new];
     [_translatedString beginEditing];
     [_translator translate:aBBCode withTranslater:self];
     [_translatedString endEditing];

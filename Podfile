@@ -1,6 +1,8 @@
 platform :ios, '8.0'
-use_frameworks!
+
 target 'WFByr' do
+    use_frameworks!
+    pod 'IDMPhotoBrowser'
     pod 'AFNetworking'
     pod 'MJRefresh'
     pod 'WMPageController'
@@ -12,6 +14,8 @@ target 'WFByr' do
     pod 'Masonry'
     pod 'MBProgressHUD', '~> 0.9.2'
     pod 'TTTAttributedLabel'
-    pod 'SDWebImage', '~>3.8'
+    pod 'SDWebImage'
+    pod 'SDWebImage/GIF'
     pod 'ReactiveCocoa', '~>2.5’
+    pod 'FLAnimatedImage'
 end

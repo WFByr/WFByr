@@ -16,6 +16,8 @@
 
 - (void)linkClicked:(NSURL*) url;
 
+- (void)presentImageWithUrls:(NSArray*)urls;
+
 @end
 
 @interface WFThreadsBodyCell : UITableViewCell

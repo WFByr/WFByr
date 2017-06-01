@@ -11,11 +11,14 @@
 #import "WFBBCodeParser.h"
 #import "UIImageView+WebCache.h"
 #import "YYText.h"
+#import "IDMPhotoBrowser.h"
 
 
 @interface WFThreadsBodyCell()
 
 @property (weak, nonatomic) IBOutlet YYLabel *contentLabel;
+
+@property (nonatomic, strong) NSMutableArray<UIImageView*> *imgViews;
 
 @end
 
@@ -59,6 +62,7 @@
 }
 
 - (void)setupWithArticle:(WFArticle*)article {
+    self.imgViews = [NSMutableArray array];
     _article = article;
     self.contentLabel.attributedText = [_parser parseBBCode:_article.content];
 }
@@ -82,10 +86,11 @@
         }
         NSString *imgUrl = _article.attachment.file[attachmentNo].thumbnail_middle;
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-        if (imgUrl)
-        [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+        imgView.userInteractionEnabled = YES;
         imgView.contentMode = UIViewContentModeScaleAspectFit;
-        
+        [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClicked:)]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+        [self.imgViews addObject:imgView];
         NSAttributedString *imgStr = [NSAttributedString yy_attachmentStringWithContent:imgView
                                                                             contentMode:UIViewContentModeCenter
                                                                          attachmentSize:imgView.frame.size
@@ -100,4 +105,11 @@
     
 }
 
+- (void)imgClicked:(UITapGestureRecognizer*)recognizer {
+    NSMutableArray<NSURL*> *urls = [NSMutableArray array];
+    for (WFFile *file in _article.attachment.file) {
+        [urls addObject:[NSURL URLWithString:file.url]];
+    }
+    [self.delegate presentImageWithUrls:urls];
+}
 @end

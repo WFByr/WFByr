@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WFByr/ASTranslater.m"
-            timestampString = "517915701.822375"
+            filePath = "WFByr/WFBBCodeParser.m"
+            timestampString = "518020584.946855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-translate:withTranslater:"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-translateTagWithName:value:attrs:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

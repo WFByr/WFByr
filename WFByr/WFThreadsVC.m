@@ -20,6 +20,7 @@
 #import "WFArticleApi.h"
 #import "WFToken.h"
 #import "YYModel.h"
+#import "IDMPhotoBrowser.h"
 
 const NSUInteger kTitleRow = 0;
 const NSUInteger kBodyRow  = 1;
@@ -281,6 +282,10 @@ const NSUInteger kReplyRow = 2;
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 
+- (void)presentImageWithUrls:(NSArray *)urls {
+    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urls];
+    [self presentViewController:browser animated:YES completion:nil];
+}
 #pragma mark - ASThreadsBodyCellDelegate
 
 

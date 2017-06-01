@@ -67,9 +67,7 @@
     self.uidLabel.text = article.user.uid;
     self.postDateLabel.text = [WFHelpers formatDateWithNow:[NSDate date] past:[NSDate dateWithTimeIntervalSince1970:article.post_time]];
     self.contentLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16.0];
-    self.contentLabel.attributedText = [[WFBBCodeParser new] parseBBCode:article.content];
-    NSLog(@"%ld", article.aid);
-    NSLog(@"%@", article.board_name);
+    self.contentLabel.attributedText = [_parser parseBBCode:article.content];
 }
 
 @end
@@ -81,9 +79,10 @@
 }
 
 - (NSAttributedString*)renderTag:(NSString *)tagName withValue:(NSString *)val {
+    NSMutableAttributedString *renderedStr = [NSMutableAttributedString new];
     if ([tagName isEqualToString:@"upload"] && _article.has_attachment) {
         NSUInteger attachmentNo = [val integerValue] - 1;
-        NSMutableAttributedString *renderedStr = [NSMutableAttributedString new];
+        
         
         if (attachmentNo >= _article.attachment.file.count) {
             return renderedStr;
@@ -104,7 +103,8 @@
         [renderedStr yy_appendString:@"\n"];
         return renderedStr;
     }
-    return nil;
+    [renderedStr yy_appendString:[NSString stringWithFormat:@"[%@=%@][/%@]", tagName, val, tagName]];
+    return renderedStr;
     
 }
 @end
