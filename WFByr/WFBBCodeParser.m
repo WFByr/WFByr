@@ -9,6 +9,7 @@
 #import "WFBBCodeParser.h"
 #import "ASTranslater.h"
 #import "YYText.h"
+#import "UIImage+GIF.h"
 #import "UIColor+Hex.h"
 #import "UIImageView+WebCache.h"
 
@@ -85,10 +86,13 @@ void wf_setUrl(NSMutableAttributedString *targetStr, NSString *url) {
     }];
 }
 
-void wf_setImage(NSMutableAttributedString *targetStr, NSString *imgUrl) {
+void wf_setImage(NSMutableAttributedString *targetStr, NSString *imgUrl, NSString *fileName) {
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    if (imgUrl)
     [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
-    
+    else
+    [imgView setImage:[UIImage imageNamed:fileName]];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
     
     NSAttributedString *imgStr = [NSAttributedString yy_attachmentStringWithContent:imgView
                                                                         contentMode:UIViewContentModeCenter
@@ -98,9 +102,22 @@ void wf_setImage(NSMutableAttributedString *targetStr, NSString *imgUrl) {
     [targetStr yy_appendString:@"\n"];
     [targetStr appendAttributedString:imgStr];
     [targetStr yy_appendString:@"\n"];
-    NSLog(@"add image");
 }
 
+void wf_setWebImage(NSMutableAttributedString *targetStr, NSString *imgUrl) {
+    wf_setImage(targetStr, imgUrl, nil);
+}
+
+void wf_setLocalImage(NSMutableAttributedString *targetStr, NSString *fileName) {
+    wf_setImage(targetStr, nil, fileName);
+}
+
+void wf_setEmotion(NSMutableAttributedString *target, NSString *emotion) {
+    UIImage *emotionImg = [UIImage imageNamed:[emotion stringByAppendingString:@".gif"]];
+    NSAttributedString *emotionStr = [NSAttributedString yy_attachmentStringWithEmojiImage:emotionImg fontSize:14];
+    
+    [target appendAttributedString:emotionStr];
+}
 
 void wf_setB(NSMutableAttributedString *targetStr) {
     [targetStr yy_setExpansion:@1 range:NSMakeRange(0, targetStr.length)];
@@ -145,13 +162,13 @@ void wf_setLink(NSMutableAttributedString *targetStr) {
     tmp.yy_font = _font;
     for (ASAttribute *attr in attrs) {
         if ([attr.name isEqualToString:@"size"]) {
-            wf_setSize(tmp, @"Avenir-Light", attr.value);
+            wf_setSize(tmp, @"AvenirNext-Regular", attr.value);
         } else if ([attr.name isEqualToString:@"color"]) {
             wf_setColor(tmp, attr.value);
         } else if ([attr.name isEqualToString:@"url"]) {
             wf_setUrl(tmp, attr.value);
         } else if ([attr.name isEqualToString:@"img"]) {
-            wf_setImage(tmp, attr.value);
+            wf_setWebImage(tmp, attr.value);
         } else if ([attr.name isEqualToString:@"code"]) {
             wf_setCode(tmp);
         } else if ([attr.name isEqualToString:@"b"]) {
@@ -173,7 +190,15 @@ void wf_setLink(NSMutableAttributedString *targetStr) {
 - (void)translateTagWithName:(NSString *)name value:(NSString *)val attrs:(NSArray<ASAttribute *> *)attrs {
     NSMutableAttributedString *tmp = [NSMutableAttributedString new];
     if ([name isEqualToString:@"img"]) {
-        wf_setImage(tmp, val);
+        wf_setWebImage(tmp, val);
+    } else if([name hasPrefix:@"em"]) {
+        wf_setEmotion(tmp, name);
+    } else if ([name isEqualToString:@"upload"]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(customizeTag:)] && [self.delegate customizeTag:@"upload"]) {
+            tmp = [[self.delegate renderTag:@"upload" withValue:val] mutableCopy];
+        } else {
+            wf_setLocalImage(tmp, @"placeholder");
+        }
     }
     [_translatedString appendAttributedString:tmp];
 }

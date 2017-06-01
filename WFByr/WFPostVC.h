@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class WFArticle;
+
 @interface WFPostVC : UIViewController
 
 - (instancetype)initWithReplyArticle:(WFArticle*) article;
 
 - (instancetype)initWithReplyArticle:(WFArticle *)article input:(NSString*)input;
+
+@end
+
+@interface WFPostVC (WFRouter) <WFRouterProtocol>
 
 @end

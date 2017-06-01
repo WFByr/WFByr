@@ -23,9 +23,12 @@
    // return YES;
   [WFRouter registerRoute:@"/user" withVC:[UIViewController class]];
     UITabBarItem *top10Tab = [[UITabBarItem alloc] initWithTitle:@"十大" image:[UIImage imageNamed:@"fire"] selectedImage:nil];
-    UITabBarItem *likeTab = [[UITabBarItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"heart"] selectedImage:nil];
+    UITabBarItem *favoriteTab = [[UITabBarItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"bookmark"] selectedImage:nil];
+    
+    UITabBarItem *postTab = [[UITabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"newpost"] selectedImage:nil];
+    
     UITabBarItem *sectionTab = [[UITabBarItem alloc] initWithTitle:@"版面" image:[UIImage imageNamed:@"list"] selectedImage:nil];
-    UITabBarItem *meTab = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"gear"] selectedImage:nil];
+    UITabBarItem *meTab = [[UITabBarItem alloc] initWithTitle:@"我" image:[UIImage imageNamed:@"me"] selectedImage:nil];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
     
@@ -37,15 +40,19 @@
     UIViewController *sectionVC = [UIViewController new];
     sectionVC.tabBarItem = sectionTab;
     
-    UIViewController *likeVC = [UIViewController new];
-    likeVC.tabBarItem = likeTab;
+    UIViewController *postVC = [UIViewController new];
+    postVC.tabBarItem = postTab;
+    
+    UIViewController *favoriteTabVC = [UIViewController new];
+    favoriteTabVC.tabBarItem = favoriteTab;
     
     UIViewController *meVC = [UIViewController new];
     meVC.tabBarItem = meTab;
     
     tabBarVC.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:top10VC],
                                  [[UINavigationController alloc] initWithRootViewController:sectionVC],
-                                 [[UINavigationController alloc] initWithRootViewController:likeVC],
+                                 postVC,
+                                 [[UINavigationController alloc] initWithRootViewController:favoriteTabVC],
                                  [[UINavigationController alloc] initWithRootViewController:meVC]];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class WFArticle;
+
 @protocol WFThreadsBodyCellDelegate <NSObject>
 
 @required
@@ -21,5 +23,7 @@
 @property(nonatomic, weak) id <WFThreadsBodyCellDelegate> delegate;
 
 - (void)setupWithContent:(NSString*)content;
+
+- (void)setupWithArticle:(WFArticle*)article;
 
 @end

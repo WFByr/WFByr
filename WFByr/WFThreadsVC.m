@@ -6,6 +6,7 @@
 //  Copyright © 2016年 andy. All rights reserved.
 //
 
+#import "WFReplyHeader.h"
 #import "WFThreadsVC.h"
 #import "WFThreadsTitleCell.h"
 #import "WFThreadsBodyCell.h"
@@ -51,10 +52,6 @@ const NSUInteger kReplyRow = 2;
 @implementation WFThreadsVC
 
 #pragma mark - life cycle
-
-+ (void)load {
-    [WFRouter registerRoute:@"threads" withVC:[WFThreadsVC class]];
-}
 
 
 - (instancetype)initWithParams:(NSDictionary *)params {
@@ -182,8 +179,6 @@ const NSUInteger kReplyRow = 2;
     }
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kTitleRow) {
         WFThreadsTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threadsTitle" forIndexPath:indexPath];
@@ -193,7 +188,7 @@ const NSUInteger kReplyRow = 2;
     }else if(indexPath.section == kBodyRow){
         WFThreadsBodyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"threadsBody"];
         cell.delegate = self;
-        [cell setupWithContent:self.replyArticles[0].content];
+        [cell setupWithArticle:self.replyArticles[0]];
         return cell;
     }else{
         WFThreadsReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threadsReply" forIndexPath:indexPath];
@@ -206,6 +201,18 @@ const NSUInteger kReplyRow = 2;
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (self.replyArticles.count != 0 && section == kReplyRow) {
+        return 30.0;
+    }
+    return 0;
+}
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == kReplyRow) {
+        return [[NSBundle mainBundle] loadNibNamed:@"WFReplyHeader" owner:nil options:nil][0];
+    }
+    return nil;
+}
 #pragma mark - WFKeyBoardDelegate
 
 
@@ -225,6 +232,7 @@ const NSUInteger kReplyRow = 2;
 }
 
 - (void)moreAction:(id)context {
+    [WFRouter go:@"post" withParams:nil from:self];
     //[self.navigationController pushViewController:[[ASInputVC alloc] initWithReplyArticle:context[@"replyTo"] input:context[@"currentInput"]] animated:YES];
 }
 
@@ -243,6 +251,10 @@ const NSUInteger kReplyRow = 2;
     } else {
         [self.tableView.mj_footer endRefreshing];
     }
+    [self.tableView layoutIfNeeded];
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
 }
 
 #pragma mark - ASByrArticleResponseReformer

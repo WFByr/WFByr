@@ -36,8 +36,8 @@
                         <rect key="frame" x="8" y="46" width="584" height="41"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHk-Ch-G9a">
-                        <rect key="frame" x="46" y="23" width="31" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHk-Ch-G9a">
+                        <rect key="frame" x="46" y="25.5" width="26.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.75899439099999999" green="0.75899439099999999" blue="0.75899439099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                 <outlet property="postDateLabel" destination="hHk-Ch-G9a" id="Yvf-JW-XYb"/>
                 <outlet property="uidLabel" destination="kSb-Gz-3ea" id="lkT-qG-Gut"/>
             </connections>
-            <point key="canvasLocation" x="289" y="245"/>
+            <point key="canvasLocation" x="123" y="-37"/>
         </tableViewCell>
     </objects>
 </document>

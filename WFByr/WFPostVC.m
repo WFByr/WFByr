@@ -46,16 +46,22 @@
 
 @implementation WFPostVC
 
+- (instancetype)init {
+    return [self initWithReplyArticle:nil];
+}
+
 - (instancetype)initWithReplyArticle:(WFArticle *)article {
-    return [self initWithReplyArticle:article input:@""];
+    return [self initWithReplyArticle:article input:nil];
 }
 
 - (instancetype)initWithReplyArticle:(WFArticle *)article input:(NSString *)input {
-    self = [self init];
+    self = [super init];
     if (self != nil) {
         self.replyTo = article;
-        [self.textView insertText:input];
-        [self.textView insertText:[NSString stringWithFormat:@"\n\n【 在 %@ 的大作中提到: 】\n%@", self.replyTo.user.user_name, self.replyTo.content]];
+        if (input)
+            [self.textView insertText:input];
+        if (self.replyTo)
+            [self.textView insertText:[NSString stringWithFormat:@"\n\n【 在 %@ 的大作中提到: 】\n%@", self.replyTo.user.user_name, self.replyTo.content]];
         
         self.textView.selectedRange = NSMakeRange(input.length, 0);
     }
@@ -252,7 +258,7 @@
 
 - (WFEmotionInput*)emotionInputView {
     if (_emotionInputView == nil) {
-        _emotionInputView = [[NSBundle mainBundle] loadNibNamed:@"ASEmotionInput" owner:nil options:nil][0];
+        _emotionInputView = [[NSBundle mainBundle] loadNibNamed:@"WFEmotionInput" owner:nil options:nil][0];
         
         __weak typeof(self)wself = self;
         _emotionInputView.addEmotionBlock = ^(id context){
@@ -314,6 +320,19 @@
     }
     [_postHud show:YES];
     return _postHud;
+}
+
+@end
+
+@implementation WFPostVC (WFRouter)
+
+- (instancetype) initWithParams:(NSDictionary *)params {
+    id replyTarget = [params objectForKey:@"article"];
+    id inputed     = [params objectForKey:@"input"];
+    if ([replyTarget isMemberOfClass:[WFArticle class]]) {
+        return [self initWithReplyArticle:replyTarget input:inputed];
+    }
+    return [self init];
 }
 
 @end

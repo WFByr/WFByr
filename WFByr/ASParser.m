@@ -36,7 +36,7 @@
     self = [super init];
     if (self != nil) {
         _twinTags = [NSSet setWithObjects:@"size", @"color", @"url", @"img", @"upload", @"b", @"code", @"email", @"face", @"i", @"u", @"link", nil];
-        _singleTags = [NSSet setWithObjects:@"em0", @"em1", nil];
+        _singleTags = [NSSet setWithObjects:nil];
     }
     return self;
 }

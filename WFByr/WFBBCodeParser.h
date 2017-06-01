@@ -8,7 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol WFBBCodeParserDelegate <NSObject>
+
+@optional
+
+- (BOOL)customizeTag:(NSString*) tagName;
+
+- (NSAttributedString*)renderTag:(NSString*) tagName withValue:(NSString*)val;
+
+@end
+
+
 @interface WFBBCodeParser : NSObject
+
+@property (nonatomic, weak) id<WFBBCodeParserDelegate> delegate;
 
 - (NSAttributedString*)parseBBCode:(NSString*) aBBCode;
 

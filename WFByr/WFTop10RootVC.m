@@ -100,7 +100,8 @@
 
 - (void)manageTop10 {
     WFTop10ManageVC *tmp = [[WFTop10ManageVC alloc] init];
-    [self presentViewController:tmp
+    tmp.rootVC = self;
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:tmp]
                        animated:YES
                      completion:nil];
 }
