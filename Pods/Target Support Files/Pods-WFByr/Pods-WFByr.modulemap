@@ -1,6 +1,0 @@
-framework module Pods_WFByr {
-  umbrella header "Pods-WFByr-umbrella.h"
-
-  export *
-  module * { export * }
-}
