@@ -15,5 +15,6 @@
 #import "WFAttachment.h"
 #import "WFToken.h"
 #import "WFPagination.h"
+#import "WFBoard.h"
 
 #endif /* WFModels_h */

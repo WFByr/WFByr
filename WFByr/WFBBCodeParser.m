@@ -89,7 +89,7 @@ void wf_setUrl(NSMutableAttributedString *targetStr, NSString *url) {
 void wf_setImage(NSMutableAttributedString *targetStr, NSString *imgUrl, NSString *fileName) {
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
     if (imgUrl)
-    [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     else
     [imgView setImage:[UIImage imageNamed:fileName]];
     imgView.contentMode = UIViewContentModeScaleAspectFit;

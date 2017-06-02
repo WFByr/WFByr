@@ -76,6 +76,7 @@ const NSUInteger kReplyRow = 2;
         self.articleApi.responseDelegate = self;
         self.articleApi.responseReformer = self;
         self.hidesBottomBarWhenPushed = YES;
+     
     }
     return self;
 }
@@ -93,7 +94,7 @@ const NSUInteger kReplyRow = 2;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    [self.tableView.mj_header beginRefreshing];
     
     
     //NSUInteger length = [self.navigationController.viewControllers count];
@@ -108,7 +109,7 @@ const NSUInteger kReplyRow = 2;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView.mj_header beginRefreshing];
+    
 }
 
 - (void)didReceiveMemoryWarning {

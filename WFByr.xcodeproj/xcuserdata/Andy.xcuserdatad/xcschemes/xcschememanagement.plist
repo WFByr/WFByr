@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WFTop10Today.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>A10E2FC91EC5A2160060CC1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A112B9C01EE1328C0007A712</key>
 		<dict>
 			<key>primary</key>
 			<true/>

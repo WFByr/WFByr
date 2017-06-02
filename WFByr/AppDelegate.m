@@ -11,6 +11,9 @@
 #import "WFToken.h"
 #import "WFLoginVC.h"
 #import "WFRouter.h"
+#import "WFTop10ModuleProtocol.h"
+#import "WFLoginModuleProtocol.h"
+#import "WFSectionModuleProtocol.h"
 
 @interface AppDelegate ()
 
@@ -20,14 +23,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-   // return YES;
-  [WFRouter registerRoute:@"/user" withVC:[UIViewController class]];
-    UITabBarItem *top10Tab = [[UITabBarItem alloc] initWithTitle:@"十大" image:[UIImage imageNamed:@"fire"] selectedImage:nil];
+    //return YES;
+
     UITabBarItem *favoriteTab = [[UITabBarItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"bookmark"] selectedImage:nil];
     
     UITabBarItem *postTab = [[UITabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"newpost"] selectedImage:nil];
     
-    UITabBarItem *sectionTab = [[UITabBarItem alloc] initWithTitle:@"版面" image:[UIImage imageNamed:@"list"] selectedImage:nil];
+
     UITabBarItem *meTab = [[UITabBarItem alloc] initWithTitle:@"我" image:[UIImage imageNamed:@"me"] selectedImage:nil];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
@@ -35,10 +37,9 @@
   
     id<WFTop10Module> top10Module = [WFModuleFactory moduleWithProtocol:@"WFTop10Module"];
     UIViewController *top10VC = [top10Module rootVC];
-    top10VC.tabBarItem = top10Tab;
     
-    UIViewController *sectionVC = [UIViewController new];
-    sectionVC.tabBarItem = sectionTab;
+    id<WFSectionModule> sectionModule = [WFModuleFactory moduleWithProtocol:@"WFSectionModule"];
+    UIViewController *sectionVC = [sectionModule rootVC];
     
     UIViewController *postVC = [UIViewController new];
     postVC.tabBarItem = postTab;
@@ -56,7 +57,7 @@
                                  [[UINavigationController alloc] initWithRootViewController:meVC]];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = tabBarVC;
     
     

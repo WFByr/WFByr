@@ -9,7 +9,7 @@
 #ifndef WFThreadsProtocol_h
 #define WFThreadsProtocol_h
 
-@protocol WFThreads <NSObject>
+@protocol WFThreadsModule <NSObject>
 
 @required
 - (UIViewController*) rootVC;

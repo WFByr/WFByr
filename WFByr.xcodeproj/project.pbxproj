@@ -249,6 +249,16 @@
 		A112B9AC1EDFF9290007A712 /* MeModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A112B9AB1EDFF9290007A712 /* MeModule.xcassets */; };
 		A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9AE1EDFFA210007A712 /* WFMeVC.m */; };
 		A112B9B31EE000CB0007A712 /* FavoriteModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A112B9B21EE000CB0007A712 /* FavoriteModule.xcassets */; };
+		A112B9B71EE10F280007A712 /* WFSectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9B61EE10F280007A712 /* WFSectionModule.m */; };
+		A112B9BB1EE111470007A712 /* WFArticleListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9BA1EE111470007A712 /* WFArticleListVC.m */; };
+		A112B9C31EE1328C0007A712 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A112B9C21EE1328C0007A712 /* NotificationCenter.framework */; };
+		A112B9C71EE1328C0007A712 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9C61EE1328C0007A712 /* TodayViewController.m */; };
+		A112B9CA1EE1328C0007A712 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A112B9C81EE1328C0007A712 /* MainInterface.storyboard */; };
+		A112B9CE1EE1328C0007A712 /* WFTop10Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A112B9C11EE1328C0007A712 /* WFTop10Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A112B9D51EE13F0C0007A712 /* WFSectionListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9D41EE13F0C0007A712 /* WFSectionListVC.m */; };
+		A112B9D81EE13F9D0007A712 /* WFBoardApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9D71EE13F9D0007A712 /* WFBoardApi.m */; };
+		A112B9DD1EE146470007A712 /* WFArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A112B9DB1EE146470007A712 /* WFArticleCell.m */; };
+		A112B9DE1EE146470007A712 /* WFArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A112B9DC1EE146470007A712 /* WFArticleCell.xib */; };
 		A138AF461ED6AE7A00070852 /* WFTop10Module.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF451ED6AE7A00070852 /* WFTop10Module.m */; };
 		A138AF4A1ED6B0A000070852 /* WFModuleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF491ED6B0A000070852 /* WFModuleFactory.m */; };
 		A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF4C1ED6B71A00070852 /* WFHelpers.m */; };
@@ -291,7 +301,28 @@
 			remoteGlobalIDString = A10E2FA51EC5A2160060CC1C;
 			remoteInfo = WFByr;
 		};
+		A112B9CC1EE1328C0007A712 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10E2F9E1EC5A2160060CC1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A112B9C01EE1328C0007A712;
+			remoteInfo = WFTop10Today;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A112B9D21EE1328C0007A712 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A112B9CE1EE1328C0007A712 /* WFTop10Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		34A3387E435DFADCF72398AD /* Pods-WFByr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WFByr.release.xcconfig"; path = "Pods/Target Support Files/Pods-WFByr/Pods-WFByr.release.xcconfig"; sourceTree = "<group>"; };
@@ -299,7 +330,7 @@
 		5CE7B9BF82D3DFB5877505EC /* Pods_WFByr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WFByr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10CED781ED96EBC0085026B /* WFThreadsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsModule.h; sourceTree = "<group>"; };
 		A10CED791ED96EBC0085026B /* WFThreadsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsModule.m; sourceTree = "<group>"; };
-		A10CED7B1ED96EE60085026B /* WFThreadsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThreadsProtocol.h; sourceTree = "<group>"; };
+		A10CED7B1ED96EE60085026B /* WFThreadsModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThreadsModuleProtocol.h; sourceTree = "<group>"; };
 		A10CED7C1EDD648F0085026B /* WFKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFKeyboard.h; sourceTree = "<group>"; };
 		A10CED7D1EDD648F0085026B /* WFKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFKeyboard.m; sourceTree = "<group>"; };
 		A10CED7F1EDD65440085026B /* WFArticleApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFArticleApi.h; sourceTree = "<group>"; };
@@ -575,6 +606,24 @@
 		A112B9AD1EDFFA210007A712 /* WFMeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMeVC.h; sourceTree = "<group>"; };
 		A112B9AE1EDFFA210007A712 /* WFMeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMeVC.m; sourceTree = "<group>"; };
 		A112B9B21EE000CB0007A712 /* FavoriteModule.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FavoriteModule.xcassets; sourceTree = "<group>"; };
+		A112B9B51EE10F280007A712 /* WFSectionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSectionModule.h; sourceTree = "<group>"; };
+		A112B9B61EE10F280007A712 /* WFSectionModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSectionModule.m; sourceTree = "<group>"; };
+		A112B9B81EE10F570007A712 /* WFSectionModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFSectionModuleProtocol.h; sourceTree = "<group>"; };
+		A112B9B91EE111470007A712 /* WFArticleListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFArticleListVC.h; sourceTree = "<group>"; };
+		A112B9BA1EE111470007A712 /* WFArticleListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFArticleListVC.m; sourceTree = "<group>"; };
+		A112B9C11EE1328C0007A712 /* WFTop10Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WFTop10Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A112B9C21EE1328C0007A712 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A112B9C51EE1328C0007A712 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		A112B9C61EE1328C0007A712 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		A112B9C91EE1328C0007A712 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A112B9CB1EE1328C0007A712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A112B9D31EE13F0C0007A712 /* WFSectionListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSectionListVC.h; sourceTree = "<group>"; };
+		A112B9D41EE13F0C0007A712 /* WFSectionListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSectionListVC.m; sourceTree = "<group>"; };
+		A112B9D61EE13F9D0007A712 /* WFBoardApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBoardApi.h; sourceTree = "<group>"; };
+		A112B9D71EE13F9D0007A712 /* WFBoardApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBoardApi.m; sourceTree = "<group>"; };
+		A112B9DA1EE146470007A712 /* WFArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFArticleCell.h; sourceTree = "<group>"; };
+		A112B9DB1EE146470007A712 /* WFArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFArticleCell.m; sourceTree = "<group>"; };
+		A112B9DC1EE146470007A712 /* WFArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFArticleCell.xib; sourceTree = "<group>"; };
 		A138AF3F1ED6AD9B00070852 /* WFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFPrefixHeader.pch; sourceTree = "<group>"; };
 		A138AF441ED6AE7A00070852 /* WFTop10Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTop10Module.h; sourceTree = "<group>"; };
 		A138AF451ED6AE7A00070852 /* WFTop10Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10Module.m; sourceTree = "<group>"; };
@@ -650,6 +699,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A112B9BE1EE1328C0007A712 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A112B9C31EE1328C0007A712 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -657,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				5CE7B9BF82D3DFB5877505EC /* Pods_WFByr.framework */,
+				A112B9C21EE1328C0007A712 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -710,6 +768,7 @@
 			isa = PBXGroup;
 			children = (
 				A10E2FA81EC5A2160060CC1C /* WFByr */,
+				A112B9C41EE1328C0007A712 /* WFTop10Today */,
 				A10E2FC21EC5A2160060CC1C /* WFByrTests */,
 				A10E2FCD1EC5A2160060CC1C /* WFByrUITests */,
 				A10E2FA71EC5A2160060CC1C /* Products */,
@@ -724,6 +783,7 @@
 				A10E2FA61EC5A2160060CC1C /* WFByr.app */,
 				A10E2FBF1EC5A2160060CC1C /* WFByrTests.xctest */,
 				A10E2FCA1EC5A2160060CC1C /* WFByrUITests.xctest */,
+				A112B9C11EE1328C0007A712 /* WFTop10Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1157,6 +1217,35 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		A112B9B41EE10F050007A712 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		A112B9C41EE1328C0007A712 /* WFTop10Today */ = {
+			isa = PBXGroup;
+			children = (
+				A112B9C51EE1328C0007A712 /* TodayViewController.h */,
+				A112B9C61EE1328C0007A712 /* TodayViewController.m */,
+				A112B9C81EE1328C0007A712 /* MainInterface.storyboard */,
+				A112B9CB1EE1328C0007A712 /* Info.plist */,
+			);
+			path = WFTop10Today;
+			sourceTree = "<group>";
+		};
+		A112B9D91EE146250007A712 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A112B9DA1EE146470007A712 /* WFArticleCell.h */,
+				A112B9DB1EE146470007A712 /* WFArticleCell.m */,
+				A112B9DC1EE146470007A712 /* WFArticleCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		A138AF3C1ED6AAC400070852 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1172,7 +1261,14 @@
 		A138AF3D1ED6AAEA00070852 /* SectionModule */ = {
 			isa = PBXGroup;
 			children = (
-				A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */,
+				A112B9B41EE10F050007A712 /* Resource */,
+				A112B9D91EE146250007A712 /* View */,
+				A112B9B51EE10F280007A712 /* WFSectionModule.h */,
+				A112B9B61EE10F280007A712 /* WFSectionModule.m */,
+				A112B9B91EE111470007A712 /* WFArticleListVC.h */,
+				A112B9BA1EE111470007A712 /* WFArticleListVC.m */,
+				A112B9D31EE13F0C0007A712 /* WFSectionListVC.h */,
+				A112B9D41EE13F0C0007A712 /* WFSectionListVC.m */,
 			);
 			name = SectionModule;
 			sourceTree = "<group>";
@@ -1192,7 +1288,8 @@
 			children = (
 				A138AF471ED6AEA300070852 /* WFTop10ModuleProtocol.h */,
 				A138AF701ED8163F00070852 /* WFLoginModuleProtocol.h */,
-				A10CED7B1ED96EE60085026B /* WFThreadsProtocol.h */,
+				A10CED7B1ED96EE60085026B /* WFThreadsModuleProtocol.h */,
+				A112B9B81EE10F570007A712 /* WFSectionModuleProtocol.h */,
 				A138AF481ED6B0A000070852 /* WFModuleFactory.h */,
 				A138AF491ED6B0A000070852 /* WFModuleFactory.m */,
 			);
@@ -1221,6 +1318,8 @@
 		A138AF501ED6C86500070852 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
+				A112B9D61EE13F9D0007A712 /* WFBoardApi.h */,
+				A112B9D71EE13F9D0007A712 /* WFBoardApi.m */,
 				A112B8061EDF291E0007A712 /* WFAttachmentApi.h */,
 				A112B8051EDF291E0007A712 /* WFAttachmentApi.m */,
 				A10CED7F1EDD65440085026B /* WFArticleApi.h */,
@@ -1283,10 +1382,12 @@
 				A10E2FA41EC5A2160060CC1C /* Resources */,
 				AC1833644DF09C2FD8EBAE46 /* [CP] Embed Pods Frameworks */,
 				9FBACD46BA9B0998B1F06441 /* [CP] Copy Pods Resources */,
+				A112B9D21EE1328C0007A712 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A112B9CD1EE1328C0007A712 /* PBXTargetDependency */,
 			);
 			name = WFByr;
 			productName = WFByr;
@@ -1329,6 +1430,23 @@
 			productReference = A10E2FCA1EC5A2160060CC1C /* WFByrUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A112B9C01EE1328C0007A712 /* WFTop10Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A112B9CF1EE1328C0007A712 /* Build configuration list for PBXNativeTarget "WFTop10Today" */;
+			buildPhases = (
+				A112B9BD1EE1328C0007A712 /* Sources */,
+				A112B9BE1EE1328C0007A712 /* Frameworks */,
+				A112B9BF1EE1328C0007A712 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WFTop10Today;
+			productName = WFTop10Today;
+			productReference = A112B9C11EE1328C0007A712 /* WFTop10Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1355,6 +1473,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = A10E2FA51EC5A2160060CC1C;
 					};
+					A112B9C01EE1328C0007A712 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9E9C2ZNYDA;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = A10E2FA11EC5A2160060CC1C /* Build configuration list for PBXProject "WFByr" */;
@@ -1373,6 +1496,7 @@
 				A10E2FA51EC5A2160060CC1C /* WFByr */,
 				A10E2FBE1EC5A2160060CC1C /* WFByrTests */,
 				A10E2FC91EC5A2160060CC1C /* WFByrUITests */,
+				A112B9C01EE1328C0007A712 /* WFTop10Today */,
 			);
 		};
 /* End PBXProject section */
@@ -1396,6 +1520,7 @@
 				A112B9A11EDFF0D40007A712 /* emc54.gif in Resources */,
 				A112B95B1EDFF0D40007A712 /* emb13.gif in Resources */,
 				A112B9A31EDFF0D40007A712 /* emc56.gif in Resources */,
+				A112B9DE1EE146470007A712 /* WFArticleCell.xib in Resources */,
 				A112B8FB1EDFF0D40007A712 /* em31.gif in Resources */,
 				A112B8F61EDFF0D40007A712 /* em27.gif in Resources */,
 				A112B95E1EDFF0D40007A712 /* emb16.gif in Resources */,
@@ -1615,6 +1740,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A112B9BF1EE1328C0007A712 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A112B9CA1EE1328C0007A712 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1685,11 +1818,14 @@
 				A10CED891EDD75570085026B /* UIColor+Hex.m in Sources */,
 				A10CED7A1ED96EBC0085026B /* WFThreadsModule.m in Sources */,
 				A10E30B41EC5ABD40060CC1C /* WFTop10Cell.m in Sources */,
+				A112B9D51EE13F0C0007A712 /* WFSectionListVC.m in Sources */,
 				A10CED7E1EDD648F0085026B /* WFKeyboard.m in Sources */,
 				A112B7F81EDF211D0007A712 /* WFPostVC.m in Sources */,
 				A10E30B61EC5ABD40060CC1C /* WFTop10ListVC.m in Sources */,
 				A112B8071EDF291E0007A712 /* WFAttachmentApi.m in Sources */,
+				A112B9D81EE13F9D0007A712 /* WFBoardApi.m in Sources */,
 				A10E2FB11EC5A2160060CC1C /* ViewController.m in Sources */,
+				A112B9B71EE10F280007A712 /* WFSectionModule.m in Sources */,
 				A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */,
 				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
 				A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */,
@@ -1698,6 +1834,7 @@
 				A10E30B71EC5ABD40060CC1C /* WFTop10Manager.m in Sources */,
 				A112B7FC1EDF21DA0007A712 /* WFAccessoryView.m in Sources */,
 				A10E30BA1EC5ABD40060CC1C /* WFTop10SeperatorCell.m in Sources */,
+				A112B9DD1EE146470007A712 /* WFArticleCell.m in Sources */,
 				A10E2FAE1EC5A2160060CC1C /* AppDelegate.m in Sources */,
 				A18819C51ED962A500E4F2F4 /* WFThreadsReplyCell.m in Sources */,
 				A138AF5C1ED6D1B300070852 /* WFUser.m in Sources */,
@@ -1707,6 +1844,7 @@
 				A10CED811EDD65440085026B /* WFArticleApi.m in Sources */,
 				A138AF5B1ED6D1B300070852 /* WFFile.m in Sources */,
 				A10E30B91EC5ABD40060CC1C /* WFTop10RootVC.m in Sources */,
+				A112B9BB1EE111470007A712 /* WFArticleListVC.m in Sources */,
 				A10CED991EDE5D5B0085026B /* ASParser.m in Sources */,
 				A10CED971EDE5D5B0085026B /* ASDebugger.m in Sources */,
 				A10E2FAB1EC5A2160060CC1C /* main.m in Sources */,
@@ -1737,6 +1875,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A112B9BD1EE1328C0007A712 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A112B9C71EE1328C0007A712 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1749,6 +1895,11 @@
 			isa = PBXTargetDependency;
 			target = A10E2FA51EC5A2160060CC1C /* WFByr */;
 			targetProxy = A10E2FCB1EC5A2160060CC1C /* PBXContainerItemProxy */;
+		};
+		A112B9CD1EE1328C0007A712 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A112B9C01EE1328C0007A712 /* WFTop10Today */;
+			targetProxy = A112B9CC1EE1328C0007A712 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1767,6 +1918,14 @@
 				A10E2FB81EC5A2160060CC1C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A112B9C81EE1328C0007A712 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A112B9C91EE1328C0007A712 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1942,6 +2101,30 @@
 			};
 			name = Release;
 		};
+		A112B9D01EE1328C0007A712 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				INFOPLIST_FILE = WFTop10Today/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByr.WFTop10Today;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A112B9D11EE1328C0007A712 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				INFOPLIST_FILE = WFTop10Today/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByr.WFTop10Today;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1980,6 +2163,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A112B9CF1EE1328C0007A712 /* Build configuration list for PBXNativeTarget "WFTop10Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A112B9D01EE1328C0007A712 /* Debug */,
+				A112B9D11EE1328C0007A712 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

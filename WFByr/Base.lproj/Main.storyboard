@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="psb.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5kS-nZ-Nvx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5kS-nZ-Nvx">
                                 <rect key="frame" x="60" y="519" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -43,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="psb.jpg" width="640" height="853"/>
+        <image name="placeholder" width="250" height="268"/>
     </resources>
 </document>

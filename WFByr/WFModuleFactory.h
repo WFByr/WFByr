@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WFTop10ModuleProtocol.h"
-#import "WFLoginModuleProtocol.h"
+
 
 @interface WFModuleFactory : NSObject
 
