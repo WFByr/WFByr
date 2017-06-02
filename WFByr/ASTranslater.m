@@ -51,6 +51,9 @@ void travelASTTree(ASTNode* root, NSArray<ASAttribute*> *attrs, id<ASTranslaterP
 
 
 - (void)translate:(NSString *)source withTranslater:(id<ASTranslaterProtocol>)translater{
+    if (_isDebugging) {
+        NSLog(@"%@", source);
+    }
     NSArray<ASToken*> *tokens = [ASLexer scanSource:source];
     if (_isDebugging) {
         for (ASToken* token in tokens) {

@@ -95,7 +95,7 @@ const NSUInteger kReplyRow = 2;
     [super viewWillAppear:animated];
 
     
-    [self.tableView.mj_header beginRefreshing];
+    
     //NSUInteger length = [self.navigationController.viewControllers count];
   
    // if([[self.navigationController.viewControllers objectAtIndex:(length-2)] isKindOfClass:[WFArticleListVC class]]){
@@ -108,6 +108,7 @@ const NSUInteger kReplyRow = 2;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -79,7 +79,7 @@ ASToken* getToken(NSString *str, NSRangePointer rangePointer) {
     dispatch_once(&onceToken, ^{
         closeTagRegx = [NSRegularExpression regularExpressionWithPattern:@"^(\\[/\\w*\\])" options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators error:nil];
         openTagRegx = [NSRegularExpression regularExpressionWithPattern:@"^(\\[.*?\\])" options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators error:nil];
-        valueTagRegx = [NSRegularExpression regularExpressionWithPattern:@"^([^\\[]*)" options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators error:nil];
+        valueTagRegx = [NSRegularExpression regularExpressionWithPattern:@"^((?!(\\[.*?\\])).)+" options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators error:nil];
     });
     
     NSTextCheckingResult *res = [closeTagRegx firstMatchInString:str options:kNilOptions range:*rangePointer];

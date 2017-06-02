@@ -36,6 +36,7 @@
 - (instancetype)initWithTitle:(NSString *)title
                     top10Type:(WFTop10Type)top10Type
                     sectionNo:(NSInteger)section{
+    self = [super init];
     if (self) {
         self.sectionNo = section;
         self.top10Type = top10Type;
@@ -48,9 +49,7 @@
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10Cell" bundle:nil] forCellReuseIdentifier:@"WFTop10Cell"];
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:@"WFTop10SeperatorCell"];
         
-        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-        self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(moreData)];
-        self.tableView.mj_footer.hidden = YES;
+        
         
         self.widgerApi = [[WFWidgetApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
         self.widgerApi.responseDelegate = self;
@@ -63,6 +62,9 @@
 #pragma mark - Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(moreData)];
+    self.tableView.mj_footer.hidden = YES;
     [super viewWillAppear:animated];
 }
 
@@ -146,8 +148,6 @@
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
     _isLoaded = true;
-    
-    
 }
 
 
