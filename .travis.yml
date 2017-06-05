@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode8.2
 cache: cocoapods
-xcode_workspace: ASByrApp.xcworkspace
-xcode_scheme: ASByrApp
+xcode_workspace: WFByr.xcworkspace
+xcode_scheme: WFByr
 script:
-- xcodebuild clean build -sdk iphonesimulator -workspace ASByrApp.xcworkspace -scheme ASByrApp CODE_SIGNING_REQUIRED=NO
+- xcodebuild clean build -sdk iphonesimulator -workspace WFByr.xcworkspace -scheme WFByr CODE_SIGNING_REQUIRED=NO
