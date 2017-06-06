@@ -11,6 +11,11 @@
 #import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+const CGFloat WFProfileImageWidth = 30;
+const CGFloat WFPaddingToContentview = 5;
+const CGFloat WFPaddingWithin = 6;
+const CGFloat WFDistractorHeight = 0.3;
+
 @implementation WFFavoriteCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -28,8 +33,8 @@
         self.wapDownView = wapDownView;
         [self.contentView addSubview:wapDownView];
         
-        UIImageView * imView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, PROFILE_IMAGE_WIDTH, PROFILE_IMAGE_WIDTH)];
-        [imView xq_addCorner:PROFILE_IMAGE_WIDTH/2];
+        UIImageView * imView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, WFProfileImageWidth, WFProfileImageWidth)];
+        [imView wf_addCorner:WFPaddingToContentview/2];
         self.userImageView=imView;
         [self.imageView removeFromSuperview];
         
@@ -59,10 +64,10 @@
         [wapDownView addSubview:titleLabel];
         
         [wapView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView.mas_left).offset(PADDING_TO_CONTENTVIEW);
-            make.top.equalTo(self.contentView.mas_top).offset(PADDING_TO_CONTENTVIEW);
-            make.bottom.equalTo(self.contentView.mas_bottom).offset(-PADDING_TO_CONTENTVIEW);
-            make.right.equalTo(self.contentView.mas_right).offset(-PADDING_TO_CONTENTVIEW);
+            make.left.equalTo(self.contentView.mas_left).offset(WFPaddingToContentview);
+            make.top.equalTo(self.contentView.mas_top).offset(WFPaddingToContentview);
+            make.bottom.equalTo(self.contentView.mas_bottom).offset(-WFPaddingToContentview);
+            make.right.equalTo(self.contentView.mas_right).offset(-WFPaddingToContentview);
         }];
         
         [wapUpView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,21 +78,21 @@
         }];
         
         [wapDownView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(wapUpView.mas_bottom).offset(PADDING_TO_CONTENTVIEW);
+            make.top.equalTo(wapUpView.mas_bottom).offset(WFPaddingToContentview);
             make.left.equalTo(wapView.mas_left);
             make.right.equalTo(wapView.mas_right);
             make.bottom.equalTo(wapView.mas_bottom);
         }];
         
         [imView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(wapUpView).offset(PADDING_WITHIN);
-            make.left.equalTo(wapUpView).offset(PADDING_WITHIN);
-            make.size.mas_equalTo(CGSizeMake(PROFILE_IMAGE_WIDTH, PROFILE_IMAGE_WIDTH));
-            make.bottom.equalTo(wapUpView).offset(-PADDING_WITHIN);
+            make.top.equalTo(wapUpView).offset(WFPaddingWithin);
+            make.left.equalTo(wapUpView).offset(WFPaddingWithin);
+            make.size.mas_equalTo(CGSizeMake(WFProfileImageWidth, WFProfileImageWidth));
+            make.bottom.equalTo(wapUpView).offset(-WFPaddingWithin);
         }];
         
         [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(imView.mas_right).offset(PADDING_WITHIN);
+            make.left.equalTo(imView.mas_right).offset(WFPaddingWithin);
             make.centerY.equalTo(imView.mas_centerY);
             make.width.mas_lessThanOrEqualTo(@100);
         }];
@@ -106,10 +111,10 @@
 //        }];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(wapDownView.mas_top).offset(PADDING_WITHIN);
-            make.left.equalTo(wapDownView.mas_left).offset(PADDING_WITHIN);
-            make.right.equalTo(wapDownView).offset(-PADDING_WITHIN);
-            make.bottom.equalTo(wapDownView).offset(-PADDING_WITHIN);
+            make.top.equalTo(wapDownView.mas_top).offset(WFPaddingWithin);
+            make.left.equalTo(wapDownView.mas_left).offset(WFPaddingWithin);
+            make.right.equalTo(wapDownView).offset(-WFPaddingWithin);
+            make.bottom.equalTo(wapDownView).offset(-WFPaddingWithin);
         }];
         
         [super updateConstraints];
@@ -128,18 +133,18 @@
     // Configure the view for the selected state
 }
 
-- (void)setUpParameters:(id)parameters{
+- (void)setUpParameters:(id)WFCollection{
     NSString * profileImageUrl;
-    if ([parameters isKindOfClass:[NSDictionary class]]) {
-        self.titleLabel.text = [[parameters objectForKey:@"title"]copy];
-        self.userNameLabel.text = [[parameters objectForKey:@"user_name"] copy];
+    if ([WFCollection isKindOfClass:[NSDictionary class]]) {
+        self.titleLabel.text = [[WFCollection objectForKey:@"title"]copy];
+        self.userNameLabel.text = [[WFCollection objectForKey:@"user_name"] copy];
         //self.replyCount.text = [NSString stringWithFormat:@"%@条回复",[parameters objectForKey:@"replyCount"]];
-        profileImageUrl = [parameters objectForKey:@"face_url"];
+        profileImageUrl = [WFCollection objectForKey:@"face_url"];
     }else{
-        self.titleLabel.text = [[parameters valueForKey:@"title"]copy];
-        self.userNameLabel.text = [[parameters valueForKeyPath:@"user.user_name"] copy];
+        self.titleLabel.text = [[WFCollection valueForKey:@"title"]copy];
+        self.userNameLabel.text = [[WFCollection valueForKeyPath:@"user.user_name"] copy];
         //self.replyCount.text = [NSString stringWithFormat:@"%@条回复",[parameters valueForKey:@"replyCount"]];
-        profileImageUrl = [parameters valueForKeyPath:@"user.face_url"];
+        profileImageUrl = [WFCollection valueForKeyPath:@"user.face_url"];
         
     }
     if(profileImageUrl && ![profileImageUrl isEqual:@""]){

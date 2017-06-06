@@ -12,7 +12,7 @@
 
 @optional
 
-- (void)fentchCollectionsResponse:(WFResponse *)response;
+- (void)fetchCollectionsResponse:(WFResponse *)response;
 
 @end
 

@@ -14,7 +14,7 @@
 
 @property (assign, nonatomic) NSInteger page;
 
-@property (copy, nonatomic) NSNumber* maxPage;
+@property (strong, nonatomic) NSNumber* maxPage;
 
 @property (strong, nonatomic) WFCollectionApi * collectionApi;
 

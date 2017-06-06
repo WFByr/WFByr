@@ -10,6 +10,6 @@
 
 @interface UIImageView (Corner)
 
-- (void)xq_addCorner:(CGFloat)cornerRadius;
+- (void)wf_addCorner:(CGFloat)cornerRadius;
 
 @end

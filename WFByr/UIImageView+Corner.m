@@ -10,12 +10,12 @@
 
 @implementation UIImageView (Corner)
 
-- (void)xq_addCorner:(CGFloat)cornerRadius{
-    UIImageView * imageView = [[UIImageView alloc]initWithImage:[self xq_addCorner:cornerRadius borderWidth:1 backgroundColor:[UIColor whiteColor] borderColor:[UIColor whiteColor]]];
+- (void)wf_addCorner:(CGFloat)cornerRadius{
+    UIImageView * imageView = [[UIImageView alloc]initWithImage:[self wf_addCorner:cornerRadius borderWidth:1 backgroundColor:[UIColor whiteColor] borderColor:[UIColor whiteColor]]];
     [self insertSubview:imageView atIndex:0];
 }
 
-- (UIImage *)xq_addCorner:(CGFloat)cornerRadius borderWidth:(CGFloat)boarderWidth backgroundColor:(UIColor*)backgroundColor borderColor:(UIColor*)borderColor{
+- (UIImage *)wf_addCorner:(CGFloat)cornerRadius borderWidth:(CGFloat)boarderWidth backgroundColor:(UIColor*)backgroundColor borderColor:(UIColor*)borderColor{
     
     CGSize sizeToFit = CGSizeMake(self.bounds.size.width, self.bounds.size.height);
     CGFloat halfBoarderWidth = boarderWidth/2.0;

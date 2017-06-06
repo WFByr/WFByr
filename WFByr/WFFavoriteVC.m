@@ -26,19 +26,20 @@
 
 @property (strong, nonatomic) WFFavoriteDataCenter * dataCenter;
 
-@property (copy, nonatomic) NSMutableArray * collectionList;
+@property (strong, nonatomic) NSMutableArray * collectionList;
 
 @end
 
 @implementation WFFavoriteVC
 
-static NSString * const reuseIdentifier = @"WFFavoriteCell";
+static NSString * const reuseIdentifier = @"com.BUPT.WFByr.WFFavoriteCell";
 
-static NSString * const seperatorCellReuseIdentifier = @"WFSeperatorCell";
+static NSString * const seperatorCellReuseIdentifier = @"com.BUPT.WFByr.WFSeperatorCell";
 
-static NSString * const addCollectArcNotification = @"WFAddCollection";
+NSString * const addCollectArcNotification = @"com.BUPT.WFByr.WFAddCollection";
 
-static NSString * const deleteCollectArcNotification = @"WFDeleteCollection";
+NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollection";
+
 
 - (instancetype)init{
     self = [super init];

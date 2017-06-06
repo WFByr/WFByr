@@ -10,6 +10,11 @@
 
 @class WFCollection;
 
+extern const CGFloat WFProfileImageWidth;
+extern const CGFloat WFPaddingToContentview;
+extern const CGFloat WFPaddingWithin;
+extern const CGFloat WFDistractorHeight;
+
 @interface WFFavoriteCell : UITableViewCell
 
 @property (strong, nonatomic) UIView *wapUpView;

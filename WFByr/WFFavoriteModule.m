@@ -12,7 +12,7 @@
 @implementation WFFavoriteModule
 
 - (UIViewController*)rootVC {
-    UITabBarItem *sectionTab = [[UITabBarItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"heart"] selectedImage:nil];
+    UITabBarItem *sectionTab = [[UITabBarItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"bookmark"] selectedImage:nil];
     WFFavoriteVC *rootVC = [[WFFavoriteVC alloc] init];
     rootVC.tabBarItem = sectionTab;
     return rootVC;

@@ -36,7 +36,7 @@
     if (page > 0) {
         [parameters setObject:[@(page) stringValue] forKey:@"page"];
     }
-    [self sendRequestWithUrl:WFByrCollectionUrl method:WFHTTPGet parameters:parameters delegate:self.responseDelegate callback:@selector(fentchCollectionsResponse:) reformer:self.responseReformer reformFunc:@selector(reformCollectionResponse:)];
+    [self sendRequestWithUrl:WFByrCollectionUrl method:WFHTTPGet parameters:parameters delegate:self.responseDelegate callback:@selector(fetchCollectionsResponse:) reformer:self.responseReformer reformFunc:@selector(reformCollectionResponse:)];
 }
 
 - (void)addCollectionWithBoard:(NSString *)board
