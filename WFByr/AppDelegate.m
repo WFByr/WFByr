@@ -14,6 +14,7 @@
 #import "WFTop10ModuleProtocol.h"
 #import "WFLoginModuleProtocol.h"
 #import "WFSectionModuleProtocol.h"
+#import "WFFavoriteModuleProtocol.h"
 
 @interface AppDelegate ()
 
@@ -39,12 +40,14 @@
     UIViewController *top10VC = [top10Module rootVC];
     
     id<WFSectionModule> sectionModule = [WFModuleFactory moduleWithProtocol:@"WFSectionModule"];
+    
+    id<WFFavoriteModule> favoriteModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
     UIViewController *sectionVC = [sectionModule rootVC];
     
     UIViewController *postVC = [UIViewController new];
     postVC.tabBarItem = postTab;
     
-    UIViewController *favoriteTabVC = [UIViewController new];
+    UIViewController *favoriteTabVC = [favoriteModule rootVC];
     favoriteTabVC.tabBarItem = favoriteTab;
     
     UIViewController *meVC = [UIViewController new];

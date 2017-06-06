@@ -10,6 +10,7 @@
 #import "WFTop10Module.h"
 #import "WFLoginModule.h"
 #import "WFSectionModule.h"
+#import "WFFavoriteModule.h"
 
 @implementation WFModuleFactory
 
@@ -22,6 +23,9 @@
     }
     if ([aProtocol isEqualToString:@"WFSectionModule"]) {
         return [WFSectionModule new];
+    }
+    if ([aProtocol isEqualToString:@"WFFavoriteModule"]) {
+        return [WFFavoriteModule new];
     }
     return nil;
 }
