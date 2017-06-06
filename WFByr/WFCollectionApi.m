@@ -19,7 +19,7 @@
 }
 
 - (void)fetchCollectionsWithCount:(NSInteger)count page:(NSInteger)page SuccessBlock:(WFSuccessCallback)success
-                     failureBlock:(WFSuccessCallback)failure {
+                     failureBlock:(WFFailureCallback)failure {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     [parameters setObject:[@(count) stringValue] forKey:@"count"];
     [parameters setObject:[@(page) stringValue] forKey:@"page"];
@@ -42,7 +42,7 @@
 - (void)addCollectionWithBoard:(NSString *)board
                            aid:(NSString *)aid
                   successBlock:(WFSuccessCallback)success
-                  failureBlock:(WFSuccessCallback)failure {
+                  failureBlock:(WFFailureCallback)failure {
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:board, @"board", aid, @"id", nil];
     
     [self sendRequestWithUrl:[NSString stringWithFormat:@"%@/add", WFByrCollectionUrl] method:WFHTTPGet parameters:parameters success:success failure:failure];
@@ -50,7 +50,7 @@
 
 - (void)deleteCollectionWithAid:(NSString *)aid
                    successBlock:(WFSuccessCallback)success
-                   failureBlock:(WFSuccessCallback)failure {
+                   failureBlock:(WFFailureCallback)failure {
     NSDictionary *parameters = [NSDictionary dictionaryWithObject:aid forKey:@"id"];
     [self sendRequestWithUrl:[NSString stringWithFormat:@"%@/delete", WFByrCollectionUrl] method:WFHTTPPost parameters:parameters success:success failure:failure];
 }
