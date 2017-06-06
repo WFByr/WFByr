@@ -9,10 +9,14 @@
 #ifndef WFFavoriteProtocol_h
 #define WFFavoriteProtocol_h
 
+@class WFArticle;
+
 @protocol WFFavoriteModule <NSObject>
 
 @required
 - (UIViewController*) rootVC;
+
+- (void)addFavoriteWithArticle:(WFArticle*)article success:(void (^)(void)) successBlk failure:(void (^)(void)) failureBlk;
 
 @end
 

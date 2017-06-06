@@ -65,7 +65,7 @@
     //self.contentLabel.textParser = parser;
     //parser.attachment = article.attachment;
     self.uidLabel.text = article.user.uid;
-    self.postDateLabel.text = [WFHelpers formatDateWithNow:[NSDate date] past:[NSDate dateWithTimeIntervalSince1970:article.post_time]];
+    self.postDateLabel.text = wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time]);
     self.contentLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16.0];
     self.contentLabel.attributedText = [_parser parseBBCode:article.content];
 }

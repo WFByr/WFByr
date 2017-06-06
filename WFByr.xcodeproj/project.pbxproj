@@ -285,6 +285,7 @@
 		A18819C61ED962A500E4F2F4 /* WFThreadsReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819BE1ED962A500E4F2F4 /* WFThreadsReplyCell.xib */; };
 		A18819C71ED962A500E4F2F4 /* WFThreadsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */; };
 		A18819C81ED962A500E4F2F4 /* WFThreadsTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */; };
+		A19A3A541EE68D4300F07346 /* WFFavoriteService.m in Sources */ = {isa = PBXBuildFile; fileRef = A19A3A531EE68D4300F07346 /* WFFavoriteService.m */; };
 		A1B75C811EDE97D3008D46DC /* WFBBCodeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B75C801EDE97D3008D46DC /* WFBBCodeParser.m */; };
 		A1B75C831EDEA6E4008D46DC /* WFBBCodeParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B75C821EDEA6E4008D46DC /* WFBBCodeParserTests.m */; };
 		A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC14981ED927D900A2AD0B /* WFRouter.m */; };
@@ -687,6 +688,8 @@
 		A18819BF1ED962A500E4F2F4 /* WFThreadsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsTitleCell.h; sourceTree = "<group>"; };
 		A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsTitleCell.m; sourceTree = "<group>"; };
 		A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFThreadsTitleCell.xib; sourceTree = "<group>"; };
+		A19A3A521EE68D4300F07346 /* WFFavoriteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFavoriteService.h; sourceTree = "<group>"; };
+		A19A3A531EE68D4300F07346 /* WFFavoriteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFavoriteService.m; sourceTree = "<group>"; };
 		A1B75C7F1EDE97D3008D46DC /* WFBBCodeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBBCodeParser.h; sourceTree = "<group>"; };
 		A1B75C801EDE97D3008D46DC /* WFBBCodeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBBCodeParser.m; sourceTree = "<group>"; };
 		A1B75C821EDEA6E4008D46DC /* WFBBCodeParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBBCodeParserTests.m; sourceTree = "<group>"; };
@@ -1243,6 +1246,8 @@
 				756D007B1EE1A5720062B2BB /* WFFavoriteVC.m */,
 				7587AFFC1EE299CD00C4721E /* WFFavoriteDataCenter.h */,
 				7587AFFD1EE299CD00C4721E /* WFFavoriteDataCenter.m */,
+				A19A3A521EE68D4300F07346 /* WFFavoriteService.h */,
+				A19A3A531EE68D4300F07346 /* WFFavoriteService.m */,
 				752735251EE2C338000804EF /* WFFavoriteModule.h */,
 				752735261EE2C338000804EF /* WFFavoriteModule.m */,
 			);
@@ -1520,7 +1525,7 @@
 					};
 					A112B9C01EE1328C0007A712 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = BASG852M4V;
+						DevelopmentTeam = 9E9C2ZNYDA;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1872,6 +1877,7 @@
 				A112B8071EDF291E0007A712 /* WFAttachmentApi.m in Sources */,
 				A112B9D81EE13F9D0007A712 /* WFBoardApi.m in Sources */,
 				A10E2FB11EC5A2160060CC1C /* ViewController.m in Sources */,
+				A19A3A541EE68D4300F07346 /* WFFavoriteService.m in Sources */,
 				A112B9B71EE10F280007A712 /* WFSectionModule.m in Sources */,
 				A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */,
 				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
@@ -2158,7 +2164,7 @@
 		A112B9D01EE1328C0007A712 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = BASG852M4V;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				INFOPLIST_FILE = WFTop10Today/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.WFByr.WFTop10Today;
@@ -2170,7 +2176,7 @@
 		A112B9D11EE1328C0007A712 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = BASG852M4V;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				INFOPLIST_FILE = WFTop10Today/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.WFByr.WFTop10Today;

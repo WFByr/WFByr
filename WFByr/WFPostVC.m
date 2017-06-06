@@ -132,7 +132,7 @@
     UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
     NSString *imageName = [[info objectForKey:UIImagePickerControllerReferenceURL] lastPathComponent];
     
-    NSURL *fileUrl = [WFHelpers saveImage:img withName:imageName];
+    NSURL *fileUrl = wf_saveImage(img, imageName);
     /*
     __weak typeof(self)wself = self;
     [self.attachmentApi addAttachmentWithBoard:self.replyTo.board_name file:fileUrl successBlock:^(NSInteger statusCode, id response) {

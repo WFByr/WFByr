@@ -33,7 +33,7 @@
 - (instancetype)initWithAccessToken:(NSString *)token;
 
 - (void)fetchCollectionsWithCount:(NSInteger)count page:(NSInteger)page SuccessBlock:(WFSuccessCallback)success
-                     failureBlock:(WFSuccessCallback)failure;
+                     failureBlock:(WFFailureCallback)failure;
 
 - (void)fetchCollectionsWithCount:(NSInteger)count
                              page:(NSInteger)page;
@@ -41,9 +41,9 @@
 - (void)addCollectionWithBoard:(NSString*)board
                            aid:(NSString*)aid
                   successBlock:(WFSuccessCallback)success
-                  failureBlock:(WFSuccessCallback)failure;
+                  failureBlock:(WFFailureCallback)failure;
 
 - (void)deleteCollectionWithAid:(NSString*)aid
                    successBlock:(WFSuccessCallback)success
-                   failureBlock:(WFSuccessCallback)failure;
+                   failureBlock:(WFFailureCallback)failure;
 @end

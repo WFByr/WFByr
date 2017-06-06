@@ -19,8 +19,7 @@
 #import "YYModel.h"
 #import "WFTop10SeperatorCell.h"
 
-#import <SDWebImage/SDImageCache.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 
 @interface WFFavoriteVC ()<UITableViewDelegate, UITableViewDataSource, WFCollectionResponseDelegate, WFCollectionResponseReformer>
 
@@ -52,7 +51,6 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:seperatorCellReuseIdentifier];
         self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
         self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(moreData)];
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         
         self.tableView.estimatedRowHeight = 110;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -109,15 +107,8 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         WFFavoriteCell *cell = (WFFavoriteCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-        
-        if (cell == nil) {
-            cell = [[WFFavoriteCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-        }
-        
         [cell setUpParameters:self.collectionList[indexPath.row]];
-        
         return cell;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -134,7 +125,7 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
 - (void)addCollectArticle:(NSNotification *)notis{
     NSLog(@"添加通知激活！");
     WFArticle * article = notis.userInfo[@"article"];
-    [self.dataCenter.collectionApi addCollectionWithBoard:article.board_name aid:[NSString stringWithFormat:@"%ld",(long)article.group_id] successBlock:^(NSInteger statusCode, id response) {
+    [self.dataCenter.collectionApi addCollectionWithBoard:article.board_name aid:[NSString stringWithFormat:@"%ld", article.group_id] successBlock:^(NSInteger statusCode, id response) {
         NSLog(@"添加收藏请求成功");
     } failureBlock:^(NSInteger statusCode, id response) {
         NSLog(@"添加收藏请求失败");
@@ -144,7 +135,7 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
 - (void)deleteCollectArticle:(NSNotification *)notis{
     NSLog(@"删除通知激活！");
     WFArticle * article = notis.userInfo[@"article"];
-    [self.dataCenter.collectionApi deleteCollectionWithAid:[NSString stringWithFormat:@"%ld",(long)article.group_id] successBlock:^(NSInteger statusCode, id response) {
+    [self.dataCenter.collectionApi deleteCollectionWithAid:[NSString stringWithFormat:@"%ld", article.group_id] successBlock:^(NSInteger statusCode, id response) {
         NSLog(@"删除收藏请求成功.");
         
     } failureBlock:^(NSInteger statusCode, id response) {
@@ -155,8 +146,8 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
 #pragma mark getter and setter
 
 -(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"addNewCollectedArticle" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"deleteCollectedArticle" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:addCollectArcNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:deleteCollectArcNotification object:nil];
 }
 
 @end

@@ -28,6 +28,6 @@ extern const CGFloat WFDistractorHeight;
 @property (strong, nonatomic) UILabel * userNameLabel;
 //@property (strong, nonatomic) UILabel * replyCount;
 
-- (void)setUpParameters:(WFCollection *)parameters;
+- (void)setUpParameters:(WFCollection *)collection;
 
 @end

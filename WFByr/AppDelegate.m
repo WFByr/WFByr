@@ -62,11 +62,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = tabBarVC;
-    
+    self.window.tintColor = MAIN_BLUE;
     
     [self.window makeKeyAndVisible];
     
-    if (![WFHelpers checkAccessToken:[WFToken shareToken]]) {
+    if (!wf_checkToken([WFToken shareToken])) {
         id<WFLoginModule> loginModule = [WFModuleFactory moduleWithProtocol:@"WFLoginModule"];
         [self.window.rootViewController presentViewController:[loginModule rootVC] animated:YES completion:nil];
     }

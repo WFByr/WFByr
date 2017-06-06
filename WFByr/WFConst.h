@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+//#define MAIN_BLUE [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.00]
 #define MAIN_BLUE [UIColor colorWithRed:0.00 green:0.63 blue:0.95 alpha:1.00]
 #define FACE_BORDER_COLOR [UIColor colorWithRed:0.827 green:0.827 blue:0.827 alpha:1.00]
 

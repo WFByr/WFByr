@@ -18,4 +18,5 @@ target 'WFByr' do
     pod 'SDWebImage/GIF', '>= 0'
     pod 'ReactiveCocoa', '~>2.5’
     pod 'FLAnimatedImage'
+    pod 'Reachability'
 end

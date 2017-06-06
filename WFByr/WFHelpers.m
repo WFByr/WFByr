@@ -7,17 +7,25 @@
 //
 #import "WFHelpers.h"
 #import "WFModels.h"
+#import "MBProgressHUD.h"
+#import "Reachability.h"
 
-@implementation WFHelpers
 
-+ (BOOL)checkAccessToken:(WFToken*) aToken {
+BOOL wf_checkToken(WFToken *aToken) {
+#warning todo
     if (!aToken.accessToken) {
         return false;
     }
     return true;
 }
 
-+ (NSString*)formatDateWithNow:(NSDate*) now past:(NSDate*)past {
+
+BOOL wf_checkByrReachable() {
+    //Reachability *reach = [Reachability reachabilityWithHostName:@"https://bbs.byr.cn"];
+    return true;
+}
+
+NSString *wf_formatDateWithNowAndPast(NSDate *now, NSDate *past) {
     NSTimeInterval oneMinute = 60;
     NSTimeInterval oneHour = oneMinute * 60;
     NSTimeInterval oneDay  = oneHour * 24;
@@ -30,7 +38,7 @@
     else return @"刚刚";
 }
 
-+ (NSURL*)saveImage:(UIImage*)image withName:(NSString*) name {
+NSURL *wf_saveImage(UIImage *image, NSString *name) {
     NSString *dir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSURL *fileUrl = [NSURL fileURLWithPath:[dir stringByAppendingPathComponent:name]];
     NSData *data = UIImageJPEGRepresentation(image, 1);
@@ -43,4 +51,10 @@
     return fileUrl;
 }
 
-@end
+void wf_showHud(UIView *toView, NSString *text, CGFloat duration) {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:toView animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = text;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hide:YES afterDelay:duration];
+}

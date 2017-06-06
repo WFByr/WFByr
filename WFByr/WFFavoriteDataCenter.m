@@ -37,7 +37,7 @@
     [RACObserve(self, page) subscribeNext:^(id x) {
         @strongify(self);
         [self.collectionApi fetchCollectionsWithCount:_count page:_page SuccessBlock:^(NSInteger statusCode, id response) {
-            NSMutableArray * reformedArticles = [NSMutableArray array];
+            NSMutableArray<WFCollection*> * reformedArticles = [NSMutableArray array];
             for(NSDictionary * article in response[@"article"]){
                 @autoreleasepool {
                     WFCollection * collection = [WFCollection yy_modelWithJSON:article];

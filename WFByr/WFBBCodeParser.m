@@ -41,8 +41,8 @@
     self = [super init];
     if (self != nil) {
         _translator = [ASTranslater new];
-        _translator.isDebugging = true;
-        _fontName = @"Avenir-Light";
+        //_translator.isDebugging = true;
+        _fontName = @"AvenirNext-Regular";
         _fontSize = 14;
         _font = [UIFont fontWithName:_fontName size:_fontSize];
         _boldFont = YYTextFontWithBold(_font);
@@ -93,7 +93,7 @@ void wf_setImage(NSMutableAttributedString *targetStr, NSString *imgUrl, NSStrin
     else
     [imgView setImage:[UIImage imageNamed:fileName]];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
-    
+
     NSAttributedString *imgStr = [NSAttributedString yy_attachmentStringWithContent:imgView
                                                                         contentMode:UIViewContentModeCenter
                                                                      attachmentSize:imgView.frame.size

@@ -8,6 +8,7 @@
 
 #import "WFReplyHeader.h"
 #import "WFThreadsVC.h"
+#import "WFReplyHeader.h"
 #import "WFThreadsTitleCell.h"
 #import "WFThreadsBodyCell.h"
 #import "WFThreadsReplyCell.h"
@@ -17,6 +18,8 @@
 #import "Masonry.h"
 #import "MBProgressHUD.h"
 #import "UIAlertController+Extension.h"
+#import "WFFavoriteModule.h"
+#import "WFModuleFactory.h"
 #import "WFArticleApi.h"
 #import "WFToken.h"
 #import "YYModel.h"
@@ -32,7 +35,7 @@ const NSUInteger kReplyRow = 2;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) WFKeyboard * keyboard;
 @property (nonatomic, strong) MBProgressHUD * hud;
-@property (nonatomic, strong) UIBarButtonItem * moreOperBtn;
+@property (nonatomic, strong) UIBarButtonItem * moreOpBtn;
 
 @property (nonatomic, strong) MBProgressHUD *endHud;
 @property (nonatomic, strong) MBProgressHUD *replyStatusHud;
@@ -45,7 +48,7 @@ const NSUInteger kReplyRow = 2;
 @property (nonatomic, assign) BOOL isLoadThreads;
 
 @property (nonatomic, strong) NSDictionary * articleData;
-@property (nonatomic, strong) NSMutableArray<WFArticle*> * replyArticles;
+@property (nonatomic, strong) NSMutableArray<WFArticle*> * articles;
 
 @property (nonatomic, strong) WFPagination *pagination;
 @end
@@ -71,7 +74,7 @@ const NSUInteger kReplyRow = 2;
         self.aid = aid;
         self.page = 1;
         self.isLoadThreads = YES;
-        self.replyArticles = [NSMutableArray array];
+        self.articles = [NSMutableArray array];
         self.articleApi = [[WFArticleApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
         self.articleApi.responseDelegate = self;
         self.articleApi.responseReformer = self;
@@ -88,23 +91,12 @@ const NSUInteger kReplyRow = 2;
     [self.view setNeedsUpdateConstraints];
     self.navigationItem.title = @"详情";
     
-    //self.moreOperBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moreOperation)];
-    //self.navigationItem.rightBarButtonItem = self.moreOperBtn;
+    self.navigationItem.rightBarButtonItem = self.moreOpBtn;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView.mj_header beginRefreshing];
-    
-    
-    //NSUInteger length = [self.navigationController.viewControllers count];
-  
-   // if([[self.navigationController.viewControllers objectAtIndex:(length-2)] isKindOfClass:[WFArticleListVC class]]){
-    //    self.threadType = WFThreadsEnterTypeNormal;
-    //    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    //}else if([[self.navigationController.viewControllers objectAtIndex:(length-2)] isKindOfClass:[XQCollectArticleTVC class]]){
-    //    self.threadType = WFThreadsEnterTypeCollection;
-    //}
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -128,7 +120,7 @@ const NSUInteger kReplyRow = 2;
     [super updateViewConstraints];
 }
 
-#pragma mark - private function
+#pragma mark - Private Method
 
 - (void)refreshData{
     [self.tableView reloadData];
@@ -138,7 +130,7 @@ const NSUInteger kReplyRow = 2;
     self.isLoadThreads = YES;
 
     [self.tableView.mj_footer resetNoMoreData];
-    [self.replyArticles removeAllObjects];
+    [self.articles removeAllObjects];
     self.page = 1;
     
     [self.articleApi fetchThreadsWithBoard:self.board aid:self.aid page:self.page];
@@ -153,13 +145,40 @@ const NSUInteger kReplyRow = 2;
     [self.articleApi fetchThreadsWithBoard:self.board aid:self.aid page:++self.page];
 }
 
-
+- (void)moreOpBtnClicked {
+    __weak typeof(self) wself = self;
+    
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *addFavAction = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        __strong typeof(wself) sself = wself;
+        if (sself == nil) return;
+        id<WFFavoriteModule> favModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
+        [favModule addFavoriteWithArticle:sself.articles[0] success:^{
+            wf_showHud(sself.view, @"收藏成功", 1);
+        } failure:^{
+            wf_showHud(sself.view, @"收藏失败", 1);
+        }];
+    }];
+    
+    UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"reply");
+    }];
+    
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertVC addAction:addFavAction];
+    [alertVC addAction:replyAction];
+    [alertVC addAction:cancleAction];
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
 
 #pragma mark - TableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self.keyboard popWithContext:@{@"replyTo":self.replyArticles[indexPath.row + 1]}];
+    [self.keyboard popWithContext:@{@"replyTo":self.articles[indexPath.row + 1]}];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -174,11 +193,11 @@ const NSUInteger kReplyRow = 2;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ( section == kTitleRow ){
-        return self.replyArticles.count > 0 ? 1 : 0;
+        return self.articles.count > 0 ? 1 : 0;
     }else if( section == kBodyRow) {
-        return self.replyArticles.count > 0 ? 1 : 0;
+        return self.articles.count > 0 ? 1 : 0;
     }else{
-        return [self.replyArticles count] - 1;
+        return [self.articles count] - 1;
     }
 }
 
@@ -186,33 +205,35 @@ const NSUInteger kReplyRow = 2;
     if (indexPath.section == kTitleRow) {
         WFThreadsTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threadsTitle" forIndexPath:indexPath];
         cell.delegate = self;
-        [cell setupWithTitle:self.replyArticles[0].title];
+        [cell setupWithTitle:self.articles[0].title];
         return cell;
     }else if(indexPath.section == kBodyRow){
         WFThreadsBodyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"threadsBody"];
         cell.delegate = self;
-        [cell setupWithArticle:self.replyArticles[0]];
+        [cell setupWithArticle:self.articles[0]];
         return cell;
     }else{
         WFThreadsReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threadsReply" forIndexPath:indexPath];
         cell.delegate = self;
-        [cell setupWithArticle:self.replyArticles[indexPath.row + 1]];
+        [cell setupWithArticle:self.articles[indexPath.row + 1]];
         
         
-        //[[ASDebugger new] debug:self.replyArticles[indexPath.row + 1].content];
+        //[[ASDebugger new] debug:self.articles[indexPath.row + 1].content];
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.replyArticles.count != 0 && section == kReplyRow) {
+    if (self.articles.count != 0 && section == kReplyRow) {
         return 30.0;
     }
     return 0;
 }
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == kReplyRow) {
-        return [[NSBundle mainBundle] loadNibNamed:@"WFReplyHeader" owner:nil options:nil][0];
+        WFReplyHeader *header = [[NSBundle mainBundle] loadNibNamed:@"WFReplyHeader" owner:nil options:nil][0];;
+        [header setupWithArticle:self.articles[0]];
+        return header;
     }
     return nil;
 }
@@ -236,7 +257,6 @@ const NSUInteger kReplyRow = 2;
 
 - (void)moreAction:(id)context {
     [WFRouter go:@"post" withParams:nil from:self];
-    //[self.navigationController pushViewController:[[ASInputVC alloc] initWithReplyArticle:context[@"replyTo"] input:context[@"currentInput"]] animated:YES];
 }
 
 
@@ -247,7 +267,7 @@ const NSUInteger kReplyRow = 2;
         [self presentViewController:[UIAlertController alertControllerWithBriefInfo:response.response[@"msg"]] animated:YES completion:nil];
         return;
     }
-    [self.replyArticles addObjectsFromArray:response.reformedData];
+    [self.articles addObjectsFromArray:response.reformedData];
     [self.tableView reloadData];
     if (self.isLoadThreads) {
         [self.tableView.mj_header endRefreshing];
@@ -288,15 +308,15 @@ const NSUInteger kReplyRow = 2;
     IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urls];
     [self presentViewController:browser animated:YES completion:nil];
 }
-#pragma mark - ASThreadsBodyCellDelegate
-
-
-#pragma mark - ASThreadsReplyCellDelegate
-
-
-#pragma mark - WKWebViewNavigationDelegate
 
 #pragma mark - getter and setter
+
+- (UIBarButtonItem*)moreOpBtn {
+    if (_moreOpBtn == nil) {
+        _moreOpBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"more"] style:UIBarButtonItemStylePlain target:self action:@selector(moreOpBtnClicked)];
+    }
+    return _moreOpBtn;
+}
 
 - (UITableView *)tableView {
     if (_tableView == nil) {

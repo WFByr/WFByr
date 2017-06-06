@@ -124,7 +124,7 @@ static NSString * const reuseId = @"WFTop10Cell";
 - (void)setupWithArticle:(WFArticle*)article
                      num:(NSUInteger)num{
     [self.faceView setImageWithURL:[NSURL URLWithString:article.user.face_url]];
-    self.uidLabel.text = article.user.uid;
+    self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@ · %@", article.user.uid, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time]), article.board_name];
     self.titleLabel.text = article.title;
     self.contentLabel.text = article.content;
 

@@ -9,19 +9,16 @@
 #ifndef WFHelpers_h
 #define WFHelpers_h
 
-#import <Foundation/Foundation.h>
-
 @class WFToken;
 
-@interface WFHelpers : NSObject
+extern BOOL wf_checkToken(WFToken *aToken);
 
-+ (BOOL)checkAccessToken:(WFToken*) aToken;
+extern BOOL wf_checkByrReachable();
 
-+ (NSString*)formatDateWithNow:(NSDate*) now past:(NSDate*)past;
+extern NSString *wf_formatDateWithNowAndPast(NSDate *now, NSDate *past);
 
-+ (NSURL*)saveImage:(UIImage*)image withName:(NSString*) name;
+extern NSURL *wf_saveImage(UIImage *image, NSString *name);
 
-@end
-
+extern void wf_showHud(UIView *toView, NSString *text, CGFloat duration);
 
 #endif /* WFHelpers_h */

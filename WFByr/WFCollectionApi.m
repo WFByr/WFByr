@@ -45,7 +45,7 @@
                   failureBlock:(WFFailureCallback)failure {
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:board, @"board", aid, @"id", nil];
     
-    [self sendRequestWithUrl:[NSString stringWithFormat:@"%@/add", WFByrCollectionUrl] method:WFHTTPGet parameters:parameters success:success failure:failure];
+    [self sendRequestWithUrl:[NSString stringWithFormat:@"%@/add", WFByrCollectionUrl] method:WFHTTPPost parameters:parameters success:success failure:failure];
 }
 
 - (void)deleteCollectionWithAid:(NSString *)aid

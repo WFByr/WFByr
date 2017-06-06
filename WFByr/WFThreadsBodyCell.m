@@ -16,6 +16,7 @@
 
 @interface WFThreadsBodyCell()
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet YYLabel *contentLabel;
 
 @property (nonatomic, strong) NSMutableArray<UIImageView*> *imgViews;
@@ -64,6 +65,7 @@
 - (void)setupWithArticle:(WFArticle*)article {
     self.imgViews = [NSMutableArray array];
     _article = article;
+    self.titleLabel.text = article.title;
     self.contentLabel.attributedText = [_parser parseBBCode:_article.content];
 }
 

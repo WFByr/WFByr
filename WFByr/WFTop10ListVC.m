@@ -17,6 +17,9 @@
 #import "YYModel.h"
 #import "WFRouter.h"
 
+static NSString * const WFTop10CellReuseId          = @"WFTop10Cell";
+static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
+
 @interface WFTop10ListVC()<WFWidgetResponseDelegate, WFWidgetResponseReformer>
 
 @property(nonatomic, strong) WFWidgetApi *widgerApi;
@@ -46,8 +49,8 @@
         
         [self.tableView setBackgroundColor:[UIColor colorWithRed:0.97 green:0.97 blue:0.96 alpha:1.00]];
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10Cell" bundle:nil] forCellReuseIdentifier:@"WFTop10Cell"];
-        [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:@"WFTop10SeperatorCell"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10Cell" bundle:nil] forCellReuseIdentifier:WFTop10CellReuseId];
+        [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:WFTop10SeperatorCellReuseId];
         
         
         
@@ -84,11 +87,11 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row % 2 == 0) {
-        WFTop10Cell *cell = (WFTop10Cell*)[tableView dequeueReusableCellWithIdentifier:@"WFTop10Cell"];
+        WFTop10Cell *cell = (WFTop10Cell*)[tableView dequeueReusableCellWithIdentifier:WFTop10CellReuseId];
         [cell setupWithArticle:self.top10[indexPath.row / 2] num:indexPath.row / 2 + 1];
         return cell;
     } else {
-        WFTop10SeperatorCell *cell = (WFTop10SeperatorCell*)[tableView dequeueReusableCellWithIdentifier:@"WFTop10SeperatorCell"];
+        WFTop10SeperatorCell *cell = (WFTop10SeperatorCell*)[tableView dequeueReusableCellWithIdentifier:WFTop10SeperatorCellReuseId];
         return cell;
     }
     

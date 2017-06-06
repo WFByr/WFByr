@@ -7,9 +7,10 @@
 //
 
 #import "WFFavoriteCell.h"
+#import "WFModels.h"
 #import "UIImageView+Corner.h"
 #import "Masonry.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 const CGFloat WFProfileImageWidth = 30;
 const CGFloat WFPaddingToContentview = 5;
@@ -133,20 +134,12 @@ const CGFloat WFDistractorHeight = 0.3;
     // Configure the view for the selected state
 }
 
-- (void)setUpParameters:(id)WFCollection{
+- (void)setUpParameters:(WFCollection*)collection{
     NSString * profileImageUrl;
-    if ([WFCollection isKindOfClass:[NSDictionary class]]) {
-        self.titleLabel.text = [[WFCollection objectForKey:@"title"]copy];
-        self.userNameLabel.text = [[WFCollection objectForKey:@"user_name"] copy];
-        //self.replyCount.text = [NSString stringWithFormat:@"%@条回复",[parameters objectForKey:@"replyCount"]];
-        profileImageUrl = [WFCollection objectForKey:@"face_url"];
-    }else{
-        self.titleLabel.text = [[WFCollection valueForKey:@"title"]copy];
-        self.userNameLabel.text = [[WFCollection valueForKeyPath:@"user.user_name"] copy];
-        //self.replyCount.text = [NSString stringWithFormat:@"%@条回复",[parameters valueForKey:@"replyCount"]];
-        profileImageUrl = [WFCollection valueForKeyPath:@"user.face_url"];
-        
-    }
+    self.titleLabel.text = collection.title.copy;
+    self.userNameLabel.text = collection.user.user_name.copy;
+    profileImageUrl = collection.user.face_url.copy;
+
     if(profileImageUrl && ![profileImageUrl isEqual:@""]){
         [self.userImageView sd_setImageWithURL:[NSURL URLWithString:profileImageUrl] placeholderImage:[UIImage imageNamed:@"blank"] options:SDWebImageRefreshCached];
     }
