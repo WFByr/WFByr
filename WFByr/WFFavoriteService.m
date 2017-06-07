@@ -35,6 +35,14 @@
     }];
 }
 
+- (void)deleteFavoriteWithAricle:(WFArticle *)article success:(void (^)(void))successBlk failure:(void (^)(void))failureBlk {
+    [self.collectionApi deleteCollectionWithAid:@(article.aid).stringValue successBlock:^(NSInteger statusCode, id response) {
+        if (successBlk) successBlk();
+    } failureBlock:^(NSInteger statusCode, id response) {
+        if (failureBlk) failureBlk();
+    }];
+}
+
 # pragma mark - Setters and Getters
 
 - (WFCollectionApi*)collectionApi {

@@ -37,6 +37,7 @@ const NSUInteger kReplyRow = 2;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) WFKeyboard * keyboard;
 @property (nonatomic, strong) MBProgressHUD * hud;
+
 @property (nonatomic, strong) UIBarButtonItem * moreOpBtn;
 
 @property (nonatomic, strong) MBProgressHUD *endHud;
@@ -93,7 +94,6 @@ const NSUInteger kReplyRow = 2;
     [self.view addSubview:self.keyboard];
     [self.view setNeedsUpdateConstraints];
     self.navigationItem.title = @"详情";
-    
     self.navigationItem.rightBarButtonItem = self.moreOpBtn;
 }
 
@@ -133,6 +133,7 @@ const NSUInteger kReplyRow = 2;
     self.isLoadThreads = YES;
 
     [self.tableView.mj_footer resetNoMoreData];
+    self.thread = nil;
     [self.articles removeAllObjects];
     self.page = 1;
     
@@ -175,6 +176,37 @@ const NSUInteger kReplyRow = 2;
     [alertVC addAction:cancleAction];
     
     [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+- (void)addFav {
+    id<WFFavoriteModule> favModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
+    __weak typeof(self) wself = self;
+    [favModule addFavoriteWithArticle:self.articles[0] success:^{
+        wf_showHud(wself.view, @"收藏成功", 1);
+    } failure:^{
+        wf_showHud(wself.view, @"收藏失败", 1);
+    }];
+}
+
+- (void)deleteFav {
+    id<WFFavoriteModule> favModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
+    __weak typeof(self) wself = self;
+    [favModule deleteFavoriteWithArticle:self.articles[0] success:^{
+        wf_showHud(wself.view, @"删除收藏成功", 1);
+    } failure:^{
+        wf_showHud(wself.view, @"删除收藏失败", 1);
+    }];
+}
+
+- (void)addFavBtn {
+    UIBarButtonItem *favBtn;
+    if (!_thread.collect) {
+        favBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark-add"] style:UIBarButtonItemStylePlain target:self action:@selector(addFav)];
+    } else {
+        favBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark-added"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteFav)];
+    }
+    NSArray *rightBtns = self.navigationItem.rightBarButtonItems;
+    [self.navigationItem setRightBarButtonItems:@[rightBtns[0], favBtn] animated:YES];
 }
 
 #pragma mark - TableView delegate
@@ -274,6 +306,7 @@ const NSUInteger kReplyRow = 2;
     [self.tableView reloadData];
     if (self.isLoadThreads) {
         [self.tableView.mj_header endRefreshing];
+        [self addFavBtn];
     } else {
         [self.tableView.mj_footer endRefreshing];
     }
@@ -320,6 +353,7 @@ const NSUInteger kReplyRow = 2;
     }
     return _moreOpBtn;
 }
+
 
 - (UITableView *)tableView {
     if (_tableView == nil) {

@@ -31,4 +31,8 @@
     [[WFFavoriteService sharedService] addFavoriteWithAricle:article success:successBlk failure:failureBlk];
 }
 
+- (void)deleteFavoriteWithArticle:(WFArticle *)article success:(void (^)(void))successBlk failure:(void (^)(void))failureBlk {
+   [[WFFavoriteService sharedService] deleteFavoriteWithAricle:article success:successBlk failure:failureBlk];
+}
+
 @end

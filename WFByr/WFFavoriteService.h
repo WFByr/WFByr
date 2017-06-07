@@ -16,4 +16,6 @@
 
 - (void)addFavoriteWithAricle:(WFArticle*)article success:(void(^)(void)) successBlk failure:(void (^)(void))failureBlk;
 
+- (void)deleteFavoriteWithAricle:(WFArticle*)article success:(void(^)(void)) successBlk failure:(void (^)(void))failureBlk;
+
 @end

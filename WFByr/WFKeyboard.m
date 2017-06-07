@@ -156,7 +156,7 @@
         _textView = [[UITextView alloc] init];
         [_textView setFont:[UIFont systemFontOfSize:15.0]];
         [_textView.layer setBorderWidth:1.0];
-        [_textView.layer setCornerRadius:10.0];
+        [_textView.layer setCornerRadius:2.0];
     }
     return _textView;
 }
@@ -168,9 +168,9 @@
         [_sendBtn addTarget:self action:@selector(sendBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [_sendBtn setTitleColor:[UIColor whiteColor]
                        forState:UIControlStateHighlighted];
-        [_sendBtn setBackgroundColor:[UIColor colorWithRed:0.19 green:0.49 blue:0.95 alpha:1.00]];
-        [_sendBtn.layer setBorderWidth:1.0];
-        [_sendBtn.layer setCornerRadius:5.0];
+        [_sendBtn setBackgroundColor:MAIN_BLUE];
+        //[_sendBtn.layer setBorderWidth:1.0];
+        [_sendBtn.layer setCornerRadius:2.0];
     }
     return _sendBtn;
 }
