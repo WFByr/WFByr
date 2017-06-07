@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *uidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postDateLabel;
 @property (weak, nonatomic) IBOutlet YYLabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *replyNoLabel;
 
 @end
 
@@ -58,16 +59,13 @@
     // Configure the view for the selected state
 }
 
-- (void)setupWithArticle:(WFArticle*) article {
+- (void)setupWithArticle:(WFArticle*)article replyNo:(NSInteger)replyNo{
     _article = article;
     [self.faceImage sd_setImageWithURL:[NSURL URLWithString:article.user.face_url]];
-    //ASUbbParser *parser = [[ASUbbParser alloc] init];
-    //self.contentLabel.textParser = parser;
-    //parser.attachment = article.attachment;
-    self.uidLabel.text = article.user.uid;
-    self.postDateLabel.text = wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time]);
+    self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@", article.user.user_name, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time])];
     self.contentLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16.0];
     self.contentLabel.attributedText = [_parser parseBBCode:article.content];
+    self.replyNoLabel.text = [NSString stringWithFormat:@"# %ld", replyNo];
 }
 
 @end

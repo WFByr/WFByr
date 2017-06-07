@@ -278,6 +278,7 @@
 		A138AF6C1ED7F95100070852 /* Top10.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6B1ED7F95100070852 /* Top10.xcassets */; };
 		A138AF6E1ED7F99F00070852 /* SectionModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */; };
 		A138AF731ED816C600070852 /* WFLoginModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF721ED816C600070852 /* WFLoginModule.m */; };
+		A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A182C71C1EE7AA2D004BB8CB /* WFThread.m */; };
 		A18819C21ED962A500E4F2F4 /* WFThreadsBodyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819B81ED962A500E4F2F4 /* WFThreadsBodyCell.m */; };
 		A18819C31ED962A500E4F2F4 /* WFThreadsBodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819B91ED962A500E4F2F4 /* WFThreadsBodyCell.xib */; };
 		A18819C41ED962A500E4F2F4 /* WFThreadsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819BB1ED962A500E4F2F4 /* WFThreadsVC.m */; };
@@ -677,6 +678,8 @@
 		A138AF701ED8163F00070852 /* WFLoginModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFLoginModuleProtocol.h; sourceTree = "<group>"; };
 		A138AF711ED816C600070852 /* WFLoginModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginModule.h; sourceTree = "<group>"; };
 		A138AF721ED816C600070852 /* WFLoginModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginModule.m; sourceTree = "<group>"; };
+		A182C71B1EE7AA2D004BB8CB /* WFThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThread.h; sourceTree = "<group>"; };
+		A182C71C1EE7AA2D004BB8CB /* WFThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThread.m; sourceTree = "<group>"; };
 		A18819B71ED962A500E4F2F4 /* WFThreadsBodyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsBodyCell.h; sourceTree = "<group>"; };
 		A18819B81ED962A500E4F2F4 /* WFThreadsBodyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsBodyCell.m; sourceTree = "<group>"; };
 		A18819B91ED962A500E4F2F4 /* WFThreadsBodyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFThreadsBodyCell.xib; sourceTree = "<group>"; };
@@ -1359,6 +1362,8 @@
 				A138AF521ED6D05400070852 /* WFArticle.m */,
 				75C662051EE2625700D372F7 /* WFCollection.h */,
 				75C662061EE2625700D372F7 /* WFCollection.m */,
+				A182C71B1EE7AA2D004BB8CB /* WFThread.h */,
+				A182C71C1EE7AA2D004BB8CB /* WFThread.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1857,6 +1862,7 @@
 				A10CED9D1EDE6B630085026B /* ASTranslater.m in Sources */,
 				A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */,
 				A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */,
+				A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */,
 				A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */,
 				A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */,
 				A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */,

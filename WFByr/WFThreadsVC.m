@@ -32,6 +32,8 @@ const NSUInteger kReplyRow = 2;
 
 @interface WFThreadsVC ()<UITableViewDelegate, UITableViewDataSource, WFArticleResponseDelegate, WFArticleResponseReformer, WFKeyBoardDelegate, WFThreadsTitleCellDelegate,WFThreadsBodyCellDelegate, WFThreadsReplyCellDelegate, WFRouterProtocol>
 
+@property (nonatomic, strong) WFThread *thread;
+
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) WFKeyboard * keyboard;
 @property (nonatomic, strong) MBProgressHUD * hud;
@@ -61,9 +63,9 @@ const NSUInteger kReplyRow = 2;
 - (instancetype)initWithParams:(NSDictionary *)params {
     NSString *board = params[@"board"];
     NSUInteger aid = [params[@"aid"] integerValue];
-    NSLog(@"%@,%ld", board, aid);
     return [self initWithWithBoard:board aid:aid];
 }
+
 
 - (instancetype)initWithWithBoard:(NSString *)board
                               aid:(NSUInteger)aid {
@@ -76,6 +78,7 @@ const NSUInteger kReplyRow = 2;
         self.isLoadThreads = YES;
         self.articles = [NSMutableArray array];
         self.articleApi = [[WFArticleApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        self.thread = nil;
         self.articleApi.responseDelegate = self;
         self.articleApi.responseReformer = self;
         self.hidesBottomBarWhenPushed = YES;
@@ -138,7 +141,7 @@ const NSUInteger kReplyRow = 2;
 
 - (void)moreData {
     self.isLoadThreads = NO;
-    if (self.pagination.page_all_count == self.page) {
+    if (self.thread.pagination.page_all_count == self.page) {
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
         return;
     }
@@ -193,7 +196,7 @@ const NSUInteger kReplyRow = 2;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ( section == kTitleRow ){
-        return self.articles.count > 0 ? 1 : 0;
+        return 0;
     }else if( section == kBodyRow) {
         return self.articles.count > 0 ? 1 : 0;
     }else{
@@ -215,7 +218,7 @@ const NSUInteger kReplyRow = 2;
     }else{
         WFThreadsReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"threadsReply" forIndexPath:indexPath];
         cell.delegate = self;
-        [cell setupWithArticle:self.articles[indexPath.row + 1]];
+        [cell setupWithArticle:self.articles[indexPath.row + 1] replyNo:indexPath.row + 1];
         
         
         //[[ASDebugger new] debug:self.articles[indexPath.row + 1].content];
@@ -232,7 +235,7 @@ const NSUInteger kReplyRow = 2;
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == kReplyRow) {
         WFReplyHeader *header = [[NSBundle mainBundle] loadNibNamed:@"WFReplyHeader" owner:nil options:nil][0];;
-        [header setupWithArticle:self.articles[0]];
+        [header setupWithThread:self.thread];
         return header;
     }
     return nil;
@@ -285,10 +288,10 @@ const NSUInteger kReplyRow = 2;
 - (WFResponse*)reformThreadsResponse:(WFResponse *)response {
     if (response.isSucceeded) {
         NSMutableArray *reformedArticles = [NSMutableArray array];
-        
+       if (!_thread) _thread = [WFThread yy_modelWithJSON:response.response];
         @autoreleasepool {
-            self.pagination = [WFPagination yy_modelWithJSON:[response.response objectForKey:@"pagination"]];
             for (id article in [response.response objectForKey:@"article"]) {
+                
                 WFArticle *tmp = [WFArticle yy_modelWithJSON:article];
                 [reformedArticles addObject:tmp];
             }

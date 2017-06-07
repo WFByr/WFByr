@@ -118,25 +118,25 @@ static NSString * const reuseId = @"WFTop10Cell";
     self.uidLabel.text = uid;
     self.titleLabel.text = title;
     self.contentLabel.text = content;
-    self.numLabel.text = [NSString stringWithFormat:@"%ld", num];
+    self.numLabel.text = [NSString stringWithFormat:@"# %ld", num];
 }
 
 - (void)setupWithArticle:(WFArticle*)article
                      num:(NSUInteger)num{
     [self.faceView setImageWithURL:[NSURL URLWithString:article.user.face_url]];
-    self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@ · %@", article.user.uid, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time]), article.board_name];
+    self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@ · %@", article.user.uid, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time]), article.board_description];
     self.titleLabel.text = article.title;
     self.contentLabel.text = article.content;
 
-    NSMutableAttributedString *userCountStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"% ld", article.id_count]];
+    NSMutableAttributedString *userCountStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", article.id_count]];
     [userCountStr insertAttributedString:self.userImgStr atIndex:0];
     self.idCountLabel.attributedText = userCountStr;
     
-    NSMutableAttributedString *replyCountStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@" %ld", article.reply_count]];
+    NSMutableAttributedString *replyCountStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", article.reply_count]];
     [replyCountStr insertAttributedString:self.commentImgStr atIndex:0];
     self.replyCountLabel.attributedText = replyCountStr;
 
-    self.numLabel.text = [NSString stringWithFormat:@"%ld", num];
+    self.numLabel.text = [NSString stringWithFormat:@"# %ld", num];
 }
 
 #pragma mark - setter and getter

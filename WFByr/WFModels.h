@@ -17,5 +17,6 @@
 #import "WFPagination.h"
 #import "WFBoard.h"
 #import "WFCollection.h"
+#import "WFThread.h"
 
 #endif /* WFModels_h */

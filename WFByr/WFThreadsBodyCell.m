@@ -11,12 +11,15 @@
 #import "WFBBCodeParser.h"
 #import "UIImageView+WebCache.h"
 #import "YYText.h"
+#import "UIImageView+WebCache.h"
 #import "IDMPhotoBrowser.h"
 
 
 @interface WFThreadsBodyCell()
 
+@property (weak, nonatomic) IBOutlet UIImageView *faceImg;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet YYLabel *contentLabel;
 
 @property (nonatomic, strong) NSMutableArray<UIImageView*> *imgViews;
@@ -40,7 +43,10 @@
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     //self.contentLabel.textParser = [[YYTextSimpleMarkdownParser alloc] init];
-    
+    self.faceImg.layer.masksToBounds = YES;
+    self.faceImg.layer.cornerRadius = 15;
+    self.faceImg.layer.borderWidth = 1;
+    self.faceImg.layer.borderColor = FACE_BORDER_COLOR.CGColor;
     YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
     modifier.fixedLineHeight = 24;
     //self.contentLabel.linePositionModifier = modifier;
@@ -65,6 +71,8 @@
 - (void)setupWithArticle:(WFArticle*)article {
     self.imgViews = [NSMutableArray array];
     _article = article;
+    [self.faceImg sd_setImageWithURL:[NSURL URLWithString:article.user.face_url]];
+    self.nameLabel.text = article.user.user_name;
     self.titleLabel.text = article.title;
     self.contentLabel.attributedText = [_parser parseBBCode:_article.content];
 }

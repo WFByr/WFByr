@@ -22,6 +22,6 @@
 
 @property(nonatomic, weak) id <WFThreadsReplyCellDelegate> delegate;
 
-- (void)setupWithArticle:(WFArticle*) article;
+- (void)setupWithArticle:(WFArticle*) article replyNo:(NSInteger)replyNo;
 
 @end

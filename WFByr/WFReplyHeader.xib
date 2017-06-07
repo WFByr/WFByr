@@ -15,19 +15,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布:5小时前" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPQ-0V-SP0">
-                    <rect key="frame" x="0.0" y="0.0" width="131.5" height="49"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参与人数:100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZs-8V-o2G">
-                    <rect key="frame" x="139.5" y="0.0" width="131" height="49"/>
+                    <rect key="frame" x="0.0" y="0.0" width="201" height="49"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复数:100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mez-wn-ZEg">
-                    <rect key="frame" x="278.5" y="0.0" width="131.5" height="49"/>
+                    <rect key="frame" x="209" y="0.0" width="201" height="49"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,17 +29,13 @@
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Mez-wn-ZEg" firstAttribute="leading" secondItem="oZs-8V-o2G" secondAttribute="trailing" constant="8" id="EHa-Cb-3Rb"/>
                 <constraint firstAttribute="bottom" secondItem="pPQ-0V-SP0" secondAttribute="bottom" id="Hbr-m7-r4w"/>
                 <constraint firstItem="pPQ-0V-SP0" firstAttribute="leading" secondItem="CXa-U6-Ye5" secondAttribute="leading" id="Psq-WQ-kyX"/>
-                <constraint firstItem="oZs-8V-o2G" firstAttribute="leading" secondItem="pPQ-0V-SP0" secondAttribute="trailing" constant="8" id="Sen-5I-KU4"/>
-                <constraint firstAttribute="bottom" secondItem="oZs-8V-o2G" secondAttribute="bottom" id="Waf-q5-waM"/>
                 <constraint firstItem="Mez-wn-ZEg" firstAttribute="top" secondItem="CXa-U6-Ye5" secondAttribute="top" id="Wk1-Nn-8pR"/>
                 <constraint firstAttribute="bottom" secondItem="Mez-wn-ZEg" secondAttribute="bottom" id="bo5-g7-9SP"/>
                 <constraint firstAttribute="trailing" secondItem="Mez-wn-ZEg" secondAttribute="trailing" id="hvI-Q1-cWO"/>
-                <constraint firstItem="oZs-8V-o2G" firstAttribute="width" secondItem="pPQ-0V-SP0" secondAttribute="width" id="ifk-S3-CpQ"/>
+                <constraint firstItem="Mez-wn-ZEg" firstAttribute="leading" secondItem="pPQ-0V-SP0" secondAttribute="trailing" constant="8" id="nmP-Mo-6G6"/>
                 <constraint firstItem="pPQ-0V-SP0" firstAttribute="top" secondItem="CXa-U6-Ye5" secondAttribute="top" id="qDv-js-F1Z"/>
-                <constraint firstItem="oZs-8V-o2G" firstAttribute="top" secondItem="CXa-U6-Ye5" secondAttribute="top" id="xHZ-EQ-pjG"/>
                 <constraint firstItem="Mez-wn-ZEg" firstAttribute="width" secondItem="pPQ-0V-SP0" secondAttribute="width" id="y8h-rc-9Cu"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -53,7 +43,6 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="idCountLabel" destination="oZs-8V-o2G" id="QeE-4r-2Ec"/>
                 <outlet property="postTimeLabel" destination="pPQ-0V-SP0" id="cwp-WG-jqc"/>
                 <outlet property="replyCountLabel" destination="Mez-wn-ZEg" id="gMB-5R-BjZ"/>
             </connections>

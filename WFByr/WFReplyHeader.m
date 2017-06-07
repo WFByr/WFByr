@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *postTimeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *idCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *replyCountLabel;
 
 @end
@@ -29,10 +28,9 @@
 }
 */
 
-- (void)setupWithArticle:(WFArticle *)article {
-    self.postTimeLabel.text = [NSString stringWithFormat:@"发布于:%@", wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time])];
-    self.idCountLabel.text = [NSString stringWithFormat:@"参与人数:%ld", article.id_count];
-    self.replyCountLabel.text = [NSString stringWithFormat:@"回复数:%ld", article.reply_count];
+- (void)setupWithThread:(WFThread *)thread {
+    self.postTimeLabel.text = [NSString stringWithFormat:@"发布于:%@", wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:thread.post_time])];
+    self.replyCountLabel.text = [NSString stringWithFormat:@"回复数:%ld", thread.reply_count];
 }
 
 @end

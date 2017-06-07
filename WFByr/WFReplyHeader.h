@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class WFArticle;
+@class WFThread;
 
 @interface WFReplyHeader : UIView
 
-- (void)setupWithArticle:(WFArticle*)article;
+- (void)setupWithThread:(WFThread*)thread;
 
 @end
