@@ -20,7 +20,7 @@
 # pragma mark - WFTop10Module
 
 - (UIViewController*) rootVC {
-    UITabBarItem *top10Tab = [[UITabBarItem alloc] initWithTitle:@"十大" image:[UIImage imageNamed:@"fire"] selectedImage:nil];
+    UITabBarItem *top10Tab = [[UITabBarItem alloc] initWithTitle:@"十大" image:[UIImage imageNamed:@"home"] selectedImage:nil];
     UIViewController *rootVC = [WFTop10RootVC new];
     rootVC.tabBarItem = top10Tab;
     return rootVC;

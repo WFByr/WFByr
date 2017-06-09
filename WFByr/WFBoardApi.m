@@ -8,11 +8,54 @@
 
 #import "WFBoardApi.h"
 #import "WFByrConst.h"
+#import "YYModel.h"
+#import "WFModels.h"
+
+@interface WFBoardApi (WFBoardResponseReformer) <WFBoardResponseReformer>
+
+@end
+
+@implementation WFBoardApi (WFBoardResponseReformer)
+
+- (WFResponse*)reformRootSectionsResponse:(WFResponse*)response {
+    if (response.isSucceeded) {
+        NSMutableArray<WFSection*> *sections = [NSMutableArray array];
+        for (id section in response.response[@"section"]) {
+            [sections addObject:[WFSection yy_modelWithJSON:section]];
+        }
+        response.reformedData = sections;
+    }
+    return response;
+}
+
+- (WFResponse*)reformSectionsResponse:(WFResponse*)response {
+    if (response.isSucceeded) {
+        
+        NSMutableArray<WFSection*> *sections = [NSMutableArray array];
+        for (id sectionName in response.response[@"sub_section"]) {
+            [sections addObject:[WFSection yy_modelWithDictionary:@{@"name":sectionName}]];
+        }
+        
+        NSMutableArray<WFBoard*> *boards = [NSMutableArray array];
+        for (id board in response.response[@"board"]) {
+            [boards addObject:[WFBoard yy_modelWithJSON:board]];
+        }
+        response.reformedData = @{@"section":sections, @"board":boards};
+    }
+    return response;
+    
+}
+
+@end
+
 
 @implementation WFBoardApi
 
 - (instancetype)initWithAccessToken:(NSString *)token {
     self = [super initWithAccessToken:token];
+    if (self != nil) {
+        _responseReformer = self;
+    }
     return self;
 }
 
@@ -31,12 +74,26 @@
 
 }
 
+- (void)fetchSectionInfoWithName:(NSString*)name {
+    [self sendRequestWithUrl:[NSString stringWithFormat:@"%@/%@", WFByrSectionUrl, name]
+                      method:WFHTTPGet
+                  parameters:nil
+                    delegate:self.responseDelegate
+                    callback:@selector(fetchSectionsResponse:)
+                    reformer:self.responseReformer
+                  reformFunc:@selector(reformSectionsResponse:)];
+}
+
 - (void)fetchSectionInfoWithName:(NSString *)name
                     successBlock:(WFSuccessCallback)success
                     failureBlock:(WFFailureCallback)failure {
     NSDictionary *parameters = [NSDictionary dictionaryWithObject:name forKey:@"name"];
     
     [self sendRequestWithUrl:[NSString stringWithFormat:@"%@/%@", WFByrSectionUrl, name] method:WFHTTPGet parameters:parameters success:success failure:failure];
+}
+
+- (void)fetchRootSections {
+    [self sendRequestWithUrl:WFByrSectionUrl method:WFHTTPGet parameters:nil delegate:self.responseDelegate callback:@selector(fetchRootSectionsResponse:) reformer:self.responseReformer reformFunc:@selector(reformRootSectionsResponse:)];
 }
 
 - (void)fetchRootSectionsWithSuccessBlock:(WFSuccessCallback)success

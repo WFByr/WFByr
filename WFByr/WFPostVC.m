@@ -16,11 +16,13 @@
 #import "YYText.h"
 #import "MBProgressHUD.h"
 
-@interface WFPostVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, YYTextViewDelegate>
+@interface WFPostVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, YYTextViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
 @property (nonatomic, strong) UIBarButtonItem *sendBtn;
+
+@property (nonatomic, strong) UITextField *titleInput;
 
 @property (nonatomic, strong) YYTextView *textView;
 
@@ -50,6 +52,14 @@
     return [self initWithReplyArticle:nil];
 }
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if ([params objectForKey:@"article"]) {
+        return [self initWithReplyArticle:params[@"article"] input:params[@"input"]];
+    } else {
+        return [self init];
+    }
+}
+
 - (instancetype)initWithReplyArticle:(WFArticle *)article {
     return [self initWithReplyArticle:article input:nil];
 }
@@ -58,6 +68,8 @@
     self = [super init];
     if (self != nil) {
         self.replyTo = article;
+        self.titleInput.text = [NSString stringWithFormat:@"Re:%@", article.title];
+        self.titleInput.enabled = NO;
         if (input)
             [self.textView insertText:input];
         if (self.replyTo)
@@ -74,6 +86,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = self.sendBtn;
     //self.inputView
+    [self.scrollView addSubview:self.titleInput];
     [self.scrollView addSubview:self.textView];
     [self.scrollView addSubview:self.preshowView];
     [self.view addSubview:self.scrollView];
@@ -88,21 +101,31 @@
 }
 - (void)updateViewConstraints {
     
+    [self.titleInput mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.textView.mas_width);
+        make.height.equalTo(@(30));
+        make.centerX.equalTo(self.textView);
+        make.top.equalTo(self.scrollView.mas_top).offset(8);
+    }];
+    
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.equalTo(self.scrollView).offset(8);
-        make.size.equalTo(self.scrollView).sizeOffset(CGSizeMake(-16, -16));
+        make.top.equalTo(self.titleInput.mas_bottom).offset(1);
+        make.bottom.left.equalTo(self.scrollView).offset(8);
+        make.width.equalTo(self.scrollView).sizeOffset(CGSizeMake(-16, -39));
     }];
     
     [self.preshowView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.textView.mas_right).offset(16);
         make.top.bottom.equalTo(self.scrollView).offset(8);
         make.right.equalTo(self.scrollView).offset(-8);
-        make.size.equalTo(self.textView);
+        make.size.equalTo(self.scrollView).sizeOffset(CGSizeMake(-16, -16));
     }];
+    
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.bottom.left.equalTo(self.view);
         make.height.equalTo(@(self.view.frame.size.height - 64));
     }];
+    
     [super updateViewConstraints];
 }
 
@@ -123,6 +146,21 @@
     }
 }
 
+#pragma  mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    NSLog(@"end");
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"scrolling");
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.x > 0) {
+        [self.textView resignFirstResponder];
+    }
+}
 # pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
@@ -162,12 +200,10 @@
     __weak typeof(self) wself = self;
     [self.articleApi postArticleWithBoard:self.replyTo.board_name title:@"" content:self.textView.text reid:self.replyTo.aid successBlock:^(NSInteger statusCode, id response) {
         
-        wself.postHud.labelText = @"回复成功";
-        [wself.postHud hide:YES afterDelay:1];
+        wf_showHud(wself.view, @"回复成功", 1);
         [wself.navigationController popViewControllerAnimated:YES];
     } failureBlock:^(NSInteger statusCode, id response) {
-        wself.postHud.labelText = @"回复失败";
-        [wself.postHud hide:YES afterDelay:1];
+        wf_showHud(wself.view, @"回复失败", 1);
     }];
 }
 
@@ -215,6 +251,7 @@
         _scrollView.bounces = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.backgroundColor = [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.00];
+        _scrollView.delegate = self;
     }
     return _scrollView;
 }
@@ -223,7 +260,7 @@
     if (_textView == nil) {
         _textView = [[YYTextView alloc] init];
         _textView.textAlignment = NSTextAlignmentNatural;
-        _textView.placeholderFont = [UIFont systemFontOfSize:14];
+        _textView.placeholderFont = [UIFont fontWithName:WFFontName size:14];
         _textView.placeholderText = @"输入帖子内容";
         WFAccessoryView *accessoryView = (WFAccessoryView*)[[NSBundle mainBundle] loadNibNamed:@"WFAccessoryView" owner:nil options:nil][0];
         
@@ -250,7 +287,7 @@
         };
         _textView.delegate = self;
         _textView.inputAccessoryView = accessoryView;
-        [_textView setFont:[UIFont systemFontOfSize:14]];
+        [_textView setFont:[UIFont fontWithName:WFFontName size:14]];
         _textView.backgroundColor = [UIColor whiteColor];
     }
     return _textView;
@@ -271,13 +308,24 @@
     return _emotionInputView;
 }
 
+- (UITextField*)titleInput {
+    if (_titleInput == nil) {
+        _titleInput = [UITextField new];
+        _titleInput.placeholder = @" 输入标题";
+        _titleInput.font = [UIFont fontWithName:WFFontName size:14];
+        _titleInput.backgroundColor = [UIColor whiteColor];
+    }
+    return _titleInput;
+}
+
 - (YYTextView*)preshowView {
     if (_preshowView == nil) {
         _preshowView = [[YYTextView alloc] init];
         _preshowView.placeholderText = @"预览";
         _preshowView.editable = NO;
+        _preshowView.placeholderFont = [UIFont fontWithName:WFFontName size:14];
         //_preshowView.textParser = self.ubbParser;
-        _preshowView.font = [UIFont systemFontOfSize:14];
+        _preshowView.font = [UIFont fontWithName:WFFontName size:14];
         _preshowView.backgroundColor = [UIColor whiteColor];
     }
     return _preshowView;

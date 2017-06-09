@@ -10,7 +10,7 @@
 #import "WFArticle.h"
 @implementation WFBoard
 + (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"clazz" : @"class"};
+    return @{@"clazz" : @"class", @"desc":@"description"};
 }
 
 + (NSDictionary *)objectClassInArray{

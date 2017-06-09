@@ -18,5 +18,5 @@
 #import "WFBoard.h"
 #import "WFCollection.h"
 #import "WFThread.h"
-
+#import "WFSection.h"
 #endif /* WFModels_h */

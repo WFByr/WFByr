@@ -14,6 +14,10 @@
 
 - (void)fetchBoardResponse:(WFResponse*) response;
 
+- (void)fetchRootSectionsResponse:(WFResponse*)response;
+
+- (void)fetchSectionsResponse:(WFResponse*)response;
+
 @end
 
 @protocol WFBoardResponseReformer <NSObject>
@@ -21,6 +25,10 @@
 @optional
 
 - (WFResponse*)reformBoardResponse:(WFResponse*) response;
+
+- (WFResponse*)reformRootSectionsResponse:(WFResponse*)response;
+
+- (WFResponse*)reformSectionsResponse:(WFResponse*)response;
 
 @end
 
@@ -42,8 +50,12 @@
 
 - (void)fetchBoard:(NSString *)name pageNumber:(NSInteger)page;
 
+- (void)fetchRootSections;
+
 - (void)fetchRootSectionsWithSuccessBlock:(WFSuccessCallback)success
                              failureBlock:(WFFailureCallback)failure;
+
+- (void)fetchSectionInfoWithName:(NSString*)name;
 
 - (void)fetchSectionInfoWithName:(NSString*)name
                     successBlock:(WFSuccessCallback)success

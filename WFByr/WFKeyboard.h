@@ -24,15 +24,9 @@
 
 @property(weak, nonatomic) id<WFKeyBoardDelegate> delegate;
 
-@property(strong, nonatomic) UIView * inputView;
-
-@property(strong, nonatomic) UIView * pluginView;
-
 @property(strong, nonatomic) UITextView * textView;
 
 @property(strong, nonatomic) UIButton * sendBtn;
-
-@property(strong, nonatomic) UIButton * faceBtn;
 
 @property(strong, nonatomic) UIButton * moreBtn;
 

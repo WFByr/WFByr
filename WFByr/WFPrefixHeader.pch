@@ -22,8 +22,7 @@
 #import "WFHelpers.h"
 #import "WFConst.h"
 
-#define WFSCREEN_W [UIScreen mainScreen].bounds.size.width
-#define WFSCREEN_H [UIScreen mainScreen].bounds.size.height
+
 
 
 #endif /* WFPrefixHeader_pch */

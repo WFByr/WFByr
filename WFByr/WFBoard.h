@@ -51,6 +51,6 @@
 
 @property (nonatomic, copy) NSString *section;
 
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *desc;
 
 @end

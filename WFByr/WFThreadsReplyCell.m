@@ -65,7 +65,7 @@
     self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@", article.user.user_name, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time])];
     self.contentLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16.0];
     self.contentLabel.attributedText = [_parser parseBBCode:article.content];
-    self.replyNoLabel.text = [NSString stringWithFormat:@"# %ld", replyNo];
+    self.replyNoLabel.text = [NSString stringWithFormat:@"#%ld", replyNo];
 }
 
 @end

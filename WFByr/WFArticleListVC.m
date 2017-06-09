@@ -7,7 +7,7 @@
 //
 
 #import "WFArticleListVC.h"
-#import "WFSectionListVC.h"
+#import "WFBoardPicker.h"
 #import "WFArticleCell.h"
 #import "WFModels.h"
 #import "WFToken.h"
@@ -16,7 +16,7 @@
 #import "YYModel.h"
 #import "Masonry.h"
 
-@interface WFArticleListVC()<UITableViewDelegate, UITableViewDataSource, WFBoardResponseDelegate, WFBoardResponseReformer>
+@interface WFArticleListVC()<UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate,WFBoardResponseDelegate, WFBoardResponseReformer, WFBoardPickerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray<WFArticle*> *articles;
@@ -34,12 +34,15 @@
 @end
 
 
-@implementation WFArticleListVC
+@implementation WFArticleListVC {
+    BOOL _isLoaded;
+}
 
 - (instancetype)initWithBoardName:(NSString*)name {
     self = [super init];
     if (self != nil) {
         self.boardName = name;
+        _isLoaded = false;
     }
     return self;
 }
@@ -48,13 +51,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = self.sectionListBtn;
     [self.view addSubview:self.tableView];
     [self.view setNeedsUpdateConstraints];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[self.tableView.mj_header beginRefreshing];
+    if (!_isLoaded) {
+       [self.tableView.mj_header beginRefreshing];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -76,6 +82,7 @@
     
     [super updateViewConstraints];
 }
+
 # pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,9 +109,21 @@
     return cell;
 }
 
-# pragma mark - WFBoardResonseDelegate
+# pragma mark - WFBoardPickerDelegate
+
+- (void)boardPicker:(id)boardPicker didFinishPickingWithInfo:(NSDictionary<NSString *,id> *)info {
+    WFBoard *pickedBoard = [info objectForKey:WFBoardPickerBoardKey];
+    self.boardName = pickedBoard.name;
+    self.navigationItem.title = pickedBoard.desc;
+    
+    //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self loadData];
+}
+
+# pragma mark - WFBoardResponseDelegate
 
 - (void)fetchBoardResponse:(WFResponse*)response {
+    _isLoaded = true;
     [self.articles addObjectsFromArray:response.reformedData];
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
@@ -144,6 +163,12 @@
     [self.boardApi fetchBoard:self.boardName pageNumber:self.page];
 }
 
+- (void)sectionListBtnClicked {
+    WFBoardPicker *vc = [WFBoardPicker new];
+    vc.pickerDelegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 # pragma mark - Setters and Getters
 
 - (NSMutableArray*)articles {
@@ -181,6 +206,13 @@
         _tableView.mj_footer = footer;
     }
     return _tableView;
+}
+
+- (UIBarButtonItem*)sectionListBtn {
+    if (_sectionListBtn == nil) {
+        _sectionListBtn = [[UIBarButtonItem alloc] initWithTitle:@"选择版面" style:UIBarButtonItemStylePlain target:self action:@selector(sectionListBtnClicked)];
+    }
+    return _sectionListBtn;
 }
 
 @end

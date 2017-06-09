@@ -291,7 +291,7 @@ const NSUInteger kReplyRow = 2;
 }
 
 - (void)moreAction:(id)context {
-    [WFRouter go:@"post" withParams:nil from:self];
+    [WFRouter go:@"post" withParams:@{@"article":context[@"replyTo"], @"input":context[@"currentInput"]} from:self];
 }
 
 
@@ -334,7 +334,7 @@ const NSUInteger kReplyRow = 2;
     return response;
 }
 
-#pragma mark - ASThreadsTitleCellDelegate
+#pragma mark - WFThreadsTitleCellDelegate
 
 - (void)linkClicked:(NSURL *)url {
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
@@ -345,7 +345,7 @@ const NSUInteger kReplyRow = 2;
     [self presentViewController:browser animated:YES completion:nil];
 }
 
-#pragma mark - getter and setter
+#pragma mark - Getters and Setters
 
 - (UIBarButtonItem*)moreOpBtn {
     if (_moreOpBtn == nil) {

@@ -16,11 +16,85 @@
 #import "WFSectionModuleProtocol.h"
 #import "WFFavoriteModuleProtocol.h"
 
+
+#import "WFPostRootVC.h"
+
+
+
+@interface WFAnimationController : NSObject <UIViewControllerAnimatedTransitioning>
+
+@end
+
+@implementation WFAnimationController
+
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+    return 0.5;
+}
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    
+    
+    UIView *containerView = transitionContext.containerView;
+    UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+    UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    
+    toView.frame = CGRectMake(0, toView.frame.size.height, toView.frame.size.width, toView.frame.size.height);
+    
+    //UIVisualEffectView *mask = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    UIView *mask = [[UIView alloc] initWithFrame:fromView.frame];
+    mask.backgroundColor = [UIColor blackColor];
+    mask.alpha = 0.5;
+    
+    UIView *snapShot = [[UIApplication sharedApplication].keyWindow snapshotViewAfterScreenUpdates:YES];//[fromView snapshotViewAfterScreenUpdates:YES];
+    containerView.backgroundColor = [UIColor redColor];
+    [containerView addSubview:snapShot];
+    [containerView addSubview:mask];
+    [containerView addSubview:toView];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        snapShot.frame = CGRectMake(10, 20, snapShot.frame.size.width - 20, snapShot.frame.size.height - 40);
+        toView.transform = CGAffineTransformMakeTranslation(0, -(toView.frame.size.height - 100));
+    } completion:^(BOOL finished) {
+       [transitionContext completeTransition:YES];
+    }];
+    
+}
+
+@end
+
+@interface WFTabBarController : UITabBarController <UITabBarControllerDelegate>
+
+@end
+
+@implementation WFTabBarController
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.delegate = self;
+    }
+    return self;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController animationControllerForTransitionFromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    if ([toVC isMemberOfClass:[WFPostRootVC class]]) {
+        [UIView animateWithDuration:0.5 animations:^{
+            tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, tabBarController.tabBar.frame.size.height);
+        }];
+        return [WFAnimationController new];
+    }
+    return nil;
+}
+
+@end
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -33,8 +107,9 @@
 
     UITabBarItem *meTab = [[UITabBarItem alloc] initWithTitle:@"我" image:[UIImage imageNamed:@"me"] selectedImage:nil];
     
-    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+    WFTabBarController *tabBarVC = [[WFTabBarController alloc] init];
     
+
   
     id<WFTop10Module> top10Module = [WFModuleFactory moduleWithProtocol:@"WFTop10Module"];
     UIViewController *top10VC = [top10Module rootVC];
@@ -44,7 +119,7 @@
     id<WFFavoriteModule> favoriteModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
     UIViewController *sectionVC = [sectionModule rootVC];
     
-    UIViewController *postVC = [UIViewController new];
+    UIViewController *postVC = [WFPostRootVC new];
     postVC.tabBarItem = postTab;
     
     UIViewController *favoriteTabVC = [favoriteModule rootVC];
