@@ -44,11 +44,10 @@
     self.faceImage.layer.borderWidth = 1;
     self.faceImage.layer.borderColor = FACE_BORDER_COLOR.CGColor;
     
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUser)];
     self.faceImage.userInteractionEnabled = YES;
-    [self.faceImage addGestureRecognizer:tapGestureRecognizer];
+    [self.faceImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUser)]];
     self.uidLabel.userInteractionEnabled = YES;
-    [self.uidLabel addGestureRecognizer:tapGestureRecognizer];
+    [self.uidLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUser)]];
     
     YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
     modifier.fixedLineHeight = 24;

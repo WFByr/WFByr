@@ -10,7 +10,7 @@
 
 @protocol WFBoardPickerDelegate;
 
-@interface WFSectionListVC : UITableViewController
+@interface WFSectionListVC : UIViewController
 
 @property (nonatomic, weak) id<WFBoardPickerDelegate> pickerDelegate;
 

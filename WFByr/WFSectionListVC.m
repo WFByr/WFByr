@@ -12,8 +12,9 @@
 #import "WFBoardApi.h"
 #import "WFModels.h"
 #import "MJRefresh.h"
+#import "Masonry.h"
 
-@interface WFSectionListVC () <WFBoardResponseDelegate, WFBoardResponseReformer>
+@interface WFSectionListVC () <UITableViewDelegate, UITableViewDataSource, WFBoardResponseDelegate, WFBoardResponseReformer>
 
 @property (nonatomic, strong) WFBoardApi *boardApi;
 
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) NSMutableArray<WFSection*> *sections;
 
 @property (nonatomic, strong) NSMutableArray<WFBoard*> *boards;
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -40,21 +43,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.view addSubview:self.tableView];
+    
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"WFSectionCell" bundle:nil] forCellReuseIdentifier:@"WFSectionCell"];
     UIBarButtonItem *dismissBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = dismissBtn;
-    //MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    //self.tableView.mj_header = header;
+
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.hidden = YES;
+    
+    [self updateViewConstraints];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (_sections.count == 0 && _boards.count == 0) {
         [self loadData];
-        //[self.tableView.mj_header beginRefreshing];
     }
+}
+
+- (void)updateViewConstraints {
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    [super updateViewConstraints];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +95,6 @@
         [_sections addObjectsFromArray:response.reformedData];
     }
     [self.tableView reloadData];
-    //[self.tableView.mj_header endRefreshing];
     self.tableView.hidden = NO;
 }
 
@@ -138,6 +150,7 @@
         WFSectionListVC *vc = [[WFSectionListVC alloc] initWithSectionName:self.sections[indexPath.row].name];
         vc.pickerDelegate = _pickerDelegate;
         [self.navigationController pushViewController:vc animated:YES];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     } else {
         NSMutableDictionary<NSString *, id> *info = [NSMutableDictionary dictionary];
         [info setObject:_boards[indexPath.row - _sections.count] forKey:WFBoardPickerBoardKey];
@@ -146,6 +159,17 @@
         }
         [self dismiss];
     }
+}
+
+# pragma mark - Getters and Setters
+
+- (UITableView*)tableView {
+    if (!_tableView) {
+        _tableView = [UITableView new];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
 }
 
 @end

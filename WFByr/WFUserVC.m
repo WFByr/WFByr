@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, WFUserProperty) {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (![_uid isEqualToString:@""]) {
+    if (_uid && ![_uid isEqualToString:@""]) {
         [self.userApi fetchUserInfoWithUid:_uid];
     } else {
        [self.userApi fetchUserInfo];
@@ -222,20 +222,22 @@ typedef NS_ENUM(NSUInteger, WFUserProperty) {
             break;
         case WFUserPropertyFirstLoginTime:
             [properityStr appendString:[NSString stringWithFormat:@"注册时间:%@", [NSDate dateWithTimeIntervalSince1970:_user.first_login_time]]];
+            break;
         case WFUserPropertyLoginCount:
             [properityStr appendString:[NSString stringWithFormat:@"登陆次数:%ld", _user.login_count]];
             break;
         case WFUserPropertyIsAdmin:
             [properityStr appendString:[NSString stringWithFormat:@"是否为管理员:%d", _user.is_admin]];
+            break;
         case WFUserPropertyStayCount:
             [properityStr appendString:[NSString stringWithFormat:@"挂站时间:%ld天", _user.stay_count / (24 * 3600)]];
             break;
         default:
             break;
     }
-    UITableViewCell *cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
     cell.textLabel.text = properityStr.copy;
-    cell.textLabel.font = [UIFont fontWithName:WFFontName size:16];
+    cell.textLabel.font = [UIFont fontWithName:WFFontName size:14];
     return cell;
 }
 

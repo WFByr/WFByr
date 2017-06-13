@@ -19,4 +19,5 @@ target 'WFByr' do
     pod 'ReactiveCocoa', '~>2.5’
     pod 'FLAnimatedImage'
     pod 'Reachability'
+    pod 'HysteriaPlayer'
 end

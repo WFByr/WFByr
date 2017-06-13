@@ -12,11 +12,13 @@
 
 @protocol WFThreadsBodyCellDelegate <NSObject>
 
-@required
+@optional
 
 - (void)linkClicked:(NSURL*) url;
 
 - (void)presentImageWithUrls:(NSArray*)urls;
+
+- (void)goToUser:(NSString*)uid;
 
 @end
 

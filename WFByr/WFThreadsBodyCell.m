@@ -47,14 +47,18 @@
     self.faceImg.layer.cornerRadius = 15;
     self.faceImg.layer.borderWidth = 1;
     self.faceImg.layer.borderColor = FACE_BORDER_COLOR.CGColor;
+    
+    self.faceImg.userInteractionEnabled = YES;
+    [self.faceImg addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUser)]];
+    
+    self.nameLabel.userInteractionEnabled = YES;
+    [self.nameLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUser)]];
+    
     YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
     modifier.fixedLineHeight = 24;
-    //self.contentLabel.linePositionModifier = modifier;
     self.contentLabel.numberOfLines = 0;
     self.contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.contentLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width;
-//    self.contentLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
-    //self.contentLabel.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -75,6 +79,12 @@
     self.nameLabel.text = article.user.uid;
     self.titleLabel.text = article.title;
     self.contentLabel.attributedText = [_parser parseBBCode:_article.content];
+}
+
+- (void)goToUser {
+    if ([_delegate respondsToSelector:@selector(goToUser:)]) {
+        [_delegate goToUser:_article.user.uid];
+    }
 }
 
 @end
