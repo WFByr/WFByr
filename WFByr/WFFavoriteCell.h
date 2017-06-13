@@ -26,6 +26,7 @@ extern const CGFloat WFDistractorHeight;
 //@property (strong, nonatomic) UIImageView * firstImageView;
 @property (strong, nonatomic) UIImageView * userImageView;
 @property (strong, nonatomic) UILabel * userNameLabel;
+@property (strong, nonatomic) UILabel *createdTimeLabel;
 //@property (strong, nonatomic) UILabel * replyCount;
 
 - (void)setUpParameters:(WFCollection *)collection;

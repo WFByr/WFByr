@@ -278,6 +278,8 @@
 		A138AF6C1ED7F95100070852 /* Top10.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6B1ED7F95100070852 /* Top10.xcassets */; };
 		A138AF6E1ED7F99F00070852 /* SectionModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */; };
 		A138AF731ED816C600070852 /* WFLoginModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF721ED816C600070852 /* WFLoginModule.m */; };
+		A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A162EDCA1EEE408C00338F7E /* WFUserVC.m */; };
+		A162EDCE1EEE40BD00338F7E /* WFMeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A162EDCD1EEE40BD00338F7E /* WFMeModule.m */; };
 		A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A182C71C1EE7AA2D004BB8CB /* WFThread.m */; };
 		A18819C21ED962A500E4F2F4 /* WFThreadsBodyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819B81ED962A500E4F2F4 /* WFThreadsBodyCell.m */; };
 		A18819C31ED962A500E4F2F4 /* WFThreadsBodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819B91ED962A500E4F2F4 /* WFThreadsBodyCell.xib */; };
@@ -297,6 +299,7 @@
 		A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC14981ED927D900A2AD0B /* WFRouter.m */; };
 		A1ECB4141ED966D0006DD061 /* WFBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ECB4111ED966D0006DD061 /* WFBoard.m */; };
 		A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ECB4131ED966D0006DD061 /* WFPagination.m */; };
+		A1FE41E61EEF906000F5DE03 /* WFUserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FE41E51EEF906000F5DE03 /* WFUserApi.m */; };
 		A6B9790D904B1ED84AA5240A /* Pods_WFByr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE7B9BF82D3DFB5877505EC /* Pods_WFByr.framework */; };
 /* End PBXBuildFile section */
 
@@ -683,6 +686,10 @@
 		A138AF701ED8163F00070852 /* WFLoginModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFLoginModuleProtocol.h; sourceTree = "<group>"; };
 		A138AF711ED816C600070852 /* WFLoginModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginModule.h; sourceTree = "<group>"; };
 		A138AF721ED816C600070852 /* WFLoginModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginModule.m; sourceTree = "<group>"; };
+		A162EDC91EEE408C00338F7E /* WFUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserVC.h; sourceTree = "<group>"; };
+		A162EDCA1EEE408C00338F7E /* WFUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserVC.m; sourceTree = "<group>"; };
+		A162EDCC1EEE40BD00338F7E /* WFMeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMeModule.h; sourceTree = "<group>"; };
+		A162EDCD1EEE40BD00338F7E /* WFMeModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMeModule.m; sourceTree = "<group>"; };
 		A182C71B1EE7AA2D004BB8CB /* WFThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThread.h; sourceTree = "<group>"; };
 		A182C71C1EE7AA2D004BB8CB /* WFThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThread.m; sourceTree = "<group>"; };
 		A18819B71ED962A500E4F2F4 /* WFThreadsBodyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsBodyCell.h; sourceTree = "<group>"; };
@@ -716,6 +723,9 @@
 		A1ECB4111ED966D0006DD061 /* WFBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBoard.m; sourceTree = "<group>"; };
 		A1ECB4121ED966D0006DD061 /* WFPagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFPagination.h; sourceTree = "<group>"; };
 		A1ECB4131ED966D0006DD061 /* WFPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFPagination.m; sourceTree = "<group>"; };
+		A1FE41E31EEE6BDA00F5DE03 /* WFMeModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFMeModuleProtocol.h; sourceTree = "<group>"; };
+		A1FE41E41EEF906000F5DE03 /* WFUserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserApi.h; sourceTree = "<group>"; };
+		A1FE41E51EEF906000F5DE03 /* WFUserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1338,6 +1348,10 @@
 				A112B9AA1EDFF9150007A712 /* Resource */,
 				A112B9AD1EDFFA210007A712 /* WFMeVC.h */,
 				A112B9AE1EDFFA210007A712 /* WFMeVC.m */,
+				A162EDC91EEE408C00338F7E /* WFUserVC.h */,
+				A162EDCA1EEE408C00338F7E /* WFUserVC.m */,
+				A162EDCC1EEE40BD00338F7E /* WFMeModule.h */,
+				A162EDCD1EEE40BD00338F7E /* WFMeModule.m */,
 			);
 			name = MeModule;
 			sourceTree = "<group>";
@@ -1352,6 +1366,7 @@
 				A138AF481ED6B0A000070852 /* WFModuleFactory.h */,
 				A138AF491ED6B0A000070852 /* WFModuleFactory.m */,
 				752735281EE2C38A000804EF /* WFFavoriteModuleProtocol.h */,
+				A1FE41E31EEE6BDA00F5DE03 /* WFMeModuleProtocol.h */,
 			);
 			name = ModuleProtocols;
 			sourceTree = "<group>";
@@ -1384,6 +1399,8 @@
 		A138AF501ED6C86500070852 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
+				A1FE41E41EEF906000F5DE03 /* WFUserApi.h */,
+				A1FE41E51EEF906000F5DE03 /* WFUserApi.m */,
 				A112B9D61EE13F9D0007A712 /* WFBoardApi.h */,
 				A112B9D71EE13F9D0007A712 /* WFBoardApi.m */,
 				A112B8061EDF291E0007A712 /* WFAttachmentApi.h */,
@@ -1544,12 +1561,12 @@
 				TargetAttributes = {
 					A10E2FA51EC5A2160060CC1C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = E8LJ49NMXA;
+						DevelopmentTeam = 9E9C2ZNYDA;
 						ProvisioningStyle = Automatic;
 					};
 					A10E2FBE1EC5A2160060CC1C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = BASG852M4V;
+						DevelopmentTeam = 9E9C2ZNYDA;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A10E2FA51EC5A2160060CC1C;
 					};
@@ -1896,6 +1913,8 @@
 				A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */,
 				A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */,
 				A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */,
+				A1FE41E61EEF906000F5DE03 /* WFUserApi.m in Sources */,
+				A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */,
 				A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */,
 				A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */,
 				A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */,
@@ -1926,6 +1945,7 @@
 				A112B8031EDF22930007A712 /* WFEmotionInput.m in Sources */,
 				A10E30B71EC5ABD40060CC1C /* WFTop10Manager.m in Sources */,
 				A112B7FC1EDF21DA0007A712 /* WFAccessoryView.m in Sources */,
+				A162EDCE1EEE40BD00338F7E /* WFMeModule.m in Sources */,
 				A10E30BA1EC5ABD40060CC1C /* WFTop10SeperatorCell.m in Sources */,
 				A1A468F41EE940C5006022A5 /* WFSectionCell.m in Sources */,
 				A112B9DD1EE146470007A712 /* WFArticleCell.m in Sources */,
@@ -2126,13 +2146,13 @@
 			baseConfigurationReference = 58E20FABF04786A4D1DEED10 /* Pods-WFByr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = E8LJ49NMXA;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WFByr/WFPrefixHeader.pch";
 				INFOPLIST_FILE = WFByr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.WFByr;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2142,13 +2162,13 @@
 			baseConfigurationReference = 34A3387E435DFADCF72398AD /* Pods-WFByr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = E8LJ49NMXA;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WFByr/WFPrefixHeader.pch";
 				INFOPLIST_FILE = WFByr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.WFByr;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2157,7 +2177,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = BASG852M4V;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				INFOPLIST_FILE = WFByrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByrTests;
@@ -2170,7 +2190,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = BASG852M4V;
+				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				INFOPLIST_FILE = WFByrTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BUPT.WFByrTests;
@@ -2209,7 +2229,7 @@
 				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				INFOPLIST_FILE = WFTop10Today/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.WFByr.WFTop10Today;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2221,7 +2241,7 @@
 				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
 				INFOPLIST_FILE = WFTop10Today/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.WFByr.WFTop10Today;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

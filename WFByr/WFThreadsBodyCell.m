@@ -72,7 +72,7 @@
     self.imgViews = [NSMutableArray array];
     _article = article;
     [self.faceImg sd_setImageWithURL:[NSURL URLWithString:article.user.face_url]];
-    self.nameLabel.text = article.user.user_name;
+    self.nameLabel.text = article.user.uid;
     self.titleLabel.text = article.title;
     self.contentLabel.attributedText = [_parser parseBBCode:_article.content];
 }

@@ -10,6 +10,7 @@
 #import "WFModels.h"
 #import "WFBBCodeParser.h"
 #import "YYText.h"
+#import "WFRouter.h"
 #import "UIImageView+WebCache.h"
 
 @interface WFThreadsReplyCell()
@@ -43,7 +44,11 @@
     self.faceImage.layer.borderWidth = 1;
     self.faceImage.layer.borderColor = FACE_BORDER_COLOR.CGColor;
     
-    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToUser)];
+    self.faceImage.userInteractionEnabled = YES;
+    [self.faceImage addGestureRecognizer:tapGestureRecognizer];
+    self.uidLabel.userInteractionEnabled = YES;
+    [self.uidLabel addGestureRecognizer:tapGestureRecognizer];
     
     YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
     modifier.fixedLineHeight = 24;
@@ -62,10 +67,16 @@
 - (void)setupWithArticle:(WFArticle*)article replyNo:(NSInteger)replyNo{
     _article = article;
     [self.faceImage sd_setImageWithURL:[NSURL URLWithString:article.user.face_url]];
-    self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@", article.user.user_name, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time])];
-    self.contentLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16.0];
+    self.uidLabel.text = [NSString stringWithFormat:@"%@ · %@", article.user.uid, wf_formatDateWithNowAndPast([NSDate date], [NSDate dateWithTimeIntervalSince1970:article.post_time])];
+    self.contentLabel.font = [UIFont fontWithName:WFFontName size:16.0];
     self.contentLabel.attributedText = [_parser parseBBCode:article.content];
     self.replyNoLabel.text = [NSString stringWithFormat:@"#%ld", replyNo];
+}
+
+- (void)goToUser {
+    if ([_delegate respondsToSelector:@selector(goToUser:)]) {
+        [_delegate goToUser:_article.user.uid];
+    }
 }
 
 @end

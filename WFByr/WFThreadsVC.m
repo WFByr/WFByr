@@ -303,6 +303,7 @@ const NSUInteger kReplyRow = 2;
         return;
     }
     [self.articles addObjectsFromArray:response.reformedData];
+    self.keyboard.context = @{@"replyTo":self.articles[0], @"input":@""};
     [self.tableView reloadData];
     if (self.isLoadThreads) {
         [self.tableView.mj_header endRefreshing];
@@ -316,7 +317,7 @@ const NSUInteger kReplyRow = 2;
     
 }
 
-#pragma mark - ASByrArticleResponseReformer
+#pragma mark - WFArticleResponseReformer
 
 - (WFResponse*)reformThreadsResponse:(WFResponse *)response {
     if (response.isSucceeded) {
@@ -343,6 +344,12 @@ const NSUInteger kReplyRow = 2;
 - (void)presentImageWithUrls:(NSArray *)urls {
     IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urls];
     [self presentViewController:browser animated:YES completion:nil];
+}
+
+# pragma mark - WFThreadReplyCellDelegate
+
+- (void)goToUser:(NSString *)uid {
+    [WFRouter go:@"/user" withParams:@{@"uid":uid} from:self];
 }
 
 #pragma mark - Getters and Setters

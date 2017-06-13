@@ -49,18 +49,21 @@ const CGFloat WFDistractorHeight = 0.3;
         
         UILabel * nameLabel = [UILabel new];
         self.userNameLabel = nameLabel;
-        nameLabel.font = [UIFont systemFontOfSize:12];
-        nameLabel.textColor = [UIColor blueColor];
+        nameLabel.font = [UIFont fontWithName:WFFontName size:14];
+        nameLabel.textColor = MAIN_GRAY;
         nameLabel.numberOfLines=1;
         [wapUpView addSubview:nameLabel];
         
-//        UIImageView * firstImageView = [UIImageView new];
-//        self.firstImageView = firstImageView;
-//        [wapDownView addSubview:firstImageView];
-        
+        UILabel *createdTimeLabel = [UILabel new];
+        self.createdTimeLabel = createdTimeLabel;
+        createdTimeLabel.textAlignment = NSTextAlignmentRight;
+        createdTimeLabel.font = [UIFont fontWithName:WFFontName size:13];
+        createdTimeLabel.textColor = MAIN_GRAY;
+        [wapUpView addSubview:createdTimeLabel];
+
         UILabel * titleLabel = [UILabel new];
         self.titleLabel = titleLabel;
-        titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        titleLabel.font = [UIFont fontWithName:WFFontName size:16];
         titleLabel.numberOfLines = 2;
         [wapDownView addSubview:titleLabel];
         
@@ -95,9 +98,12 @@ const CGFloat WFDistractorHeight = 0.3;
         [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(imView.mas_right).offset(WFPaddingWithin);
             make.centerY.equalTo(imView.mas_centerY);
-            make.width.mas_lessThanOrEqualTo(@100);
         }];
         
+        [createdTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(nameLabel);
+            make.right.equalTo(wapUpView);
+        }];
 //        [replyCount mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.right.equalTo(wapUpView.mas_right).offset(-PADDING_WITHIN);
 //            make.centerY.equalTo(imView.mas_centerY);
@@ -126,6 +132,7 @@ const CGFloat WFDistractorHeight = 0.3;
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -137,7 +144,13 @@ const CGFloat WFDistractorHeight = 0.3;
 - (void)setUpParameters:(WFCollection*)collection{
     NSString * profileImageUrl;
     self.titleLabel.text = collection.title.copy;
-    self.userNameLabel.text = collection.user.user_name.copy;
+    self.userNameLabel.text = [NSString stringWithFormat:@"%@ · %@", collection.user.user_name, collection.bname];
+    
+    
+    NSDate *createdDate = [NSDate dateWithTimeIntervalSince1970:collection.createdTime.integerValue];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    self.createdTimeLabel.text = [formatter stringFromDate:createdDate];
     profileImageUrl = collection.user.face_url.copy;
 
     if(profileImageUrl && ![profileImageUrl isEqual:@""]){

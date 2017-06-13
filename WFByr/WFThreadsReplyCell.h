@@ -12,9 +12,11 @@
 
 @protocol WFThreadsReplyCellDelegate <NSObject>
 
-@required
+@optional
 
 - (void)linkClicked:(NSURL*) url;
+
+- (void)goToUser:(NSString*)uid;
 
 @end
 

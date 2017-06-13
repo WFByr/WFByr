@@ -15,6 +15,7 @@
 #import "WFLoginModuleProtocol.h"
 #import "WFSectionModuleProtocol.h"
 #import "WFFavoriteModuleProtocol.h"
+#import "WFMeModuleProtocol.h"
 
 
 #import "WFPostRootVC.h"
@@ -105,7 +106,6 @@
     UITabBarItem *postTab = [[UITabBarItem alloc] initWithTitle:@"" image:[UIImage imageNamed:@"newpost"] selectedImage:nil];
     
 
-    UITabBarItem *meTab = [[UITabBarItem alloc] initWithTitle:@"我" image:[UIImage imageNamed:@"me"] selectedImage:nil];
     
     WFTabBarController *tabBarVC = [[WFTabBarController alloc] init];
     
@@ -125,8 +125,8 @@
     UIViewController *favoriteTabVC = [favoriteModule rootVC];
     favoriteTabVC.tabBarItem = favoriteTab;
     
-    UIViewController *meVC = [UIViewController new];
-    meVC.tabBarItem = meTab;
+    id<WFMeModule> meModule = [WFModuleFactory moduleWithProtocol:@"WFMeModule"];
+    UIViewController *meVC = [meModule rootVC];
     
     tabBarVC.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:top10VC],
                                  [[UINavigationController alloc] initWithRootViewController:sectionVC],
