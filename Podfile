@@ -14,8 +14,8 @@ target 'WFByr' do
     pod 'Masonry'
     pod 'MBProgressHUD', '~> 0.9.2'
     pod 'TTTAttributedLabel'
-    pod 'SDWebImage'
-    pod 'SDWebImage/GIF', '>= 4.0.0'
+    pod 'SDWebImage' , '>= 4.0.0'
+    pod 'SDWebImage/GIF'
     pod 'ReactiveCocoa', '~>2.5’
     pod 'FLAnimatedImage'
     pod 'Reachability'
