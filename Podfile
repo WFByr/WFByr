@@ -12,9 +12,9 @@ target 'WFByr' do
     pod 'YYWebImage'
     pod 'Reveal-iOS-SDK', :configurations => ['Debug']
     pod 'Masonry'
-    pod 'MBProgressHUD', '~> 0.9.2'
+    pod 'MBProgressHUD'
     pod 'TTTAttributedLabel'
-    pod 'SDWebImage' , '~> 4.0.0'
+    pod 'SDWebImage'
     pod 'SDWebImage/GIF'
     pod 'ReactiveCocoa', '~>2.5’
     pod 'FLAnimatedImage'

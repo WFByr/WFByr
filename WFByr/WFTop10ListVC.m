@@ -52,11 +52,6 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10Cell" bundle:nil] forCellReuseIdentifier:WFTop10CellReuseId];
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:WFTop10SeperatorCellReuseId];
         
-        
-        
-        self.widgerApi = [[WFWidgetApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
-        self.widgerApi.responseDelegate = self;
-        
         _isLoaded = false;
     }
     return self;
@@ -68,6 +63,10 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(moreData)];
     self.tableView.mj_footer.hidden = YES;
+    
+    self.widgerApi = [[WFWidgetApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+    self.widgerApi.responseDelegate = self;
+    
     [super viewWillAppear:animated];
 }
 
