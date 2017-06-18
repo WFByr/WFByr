@@ -194,7 +194,7 @@
         _tableView.dataSource = self;
         _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.estimatedRowHeight = 50.0;
-        
+        _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         [_tableView registerNib:[UINib nibWithNibName:@"WFArticleCell" bundle:nil] forCellReuseIdentifier:@"WFArticleCell"];
 
         

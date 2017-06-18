@@ -51,7 +51,7 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:seperatorCellReuseIdentifier];
         self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
         self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(moreData)];
-        
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.tableView.estimatedRowHeight = 110;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
     }

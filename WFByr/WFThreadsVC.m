@@ -369,6 +369,7 @@ const NSUInteger kReplyRow = 2;
         _tableView.dataSource = self;
         _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.estimatedRowHeight = 50.0;
+        _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         [_tableView registerNib:[UINib nibWithNibName:@"WFThreadsTitleCell" bundle:nil] forCellReuseIdentifier:@"threadsTitle"];
         [_tableView registerNib:[UINib nibWithNibName:@"WFThreadsBodyCell" bundle:nil] forCellReuseIdentifier:@"threadsBody"];
         [_tableView registerNib:[UINib nibWithNibName:@"WFThreadsReplyCell" bundle:nil] forCellReuseIdentifier:@"threadsReply"];
