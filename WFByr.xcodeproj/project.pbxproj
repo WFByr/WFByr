@@ -288,6 +288,9 @@
 		A18819C61ED962A500E4F2F4 /* WFThreadsReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819BE1ED962A500E4F2F4 /* WFThreadsReplyCell.xib */; };
 		A18819C71ED962A500E4F2F4 /* WFThreadsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */; };
 		A18819C81ED962A500E4F2F4 /* WFThreadsTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */; };
+		A198BFA71F03ECE70051794A /* WFMainModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A198BFA61F03ECE70051794A /* WFMainModule.m */; };
+		A198BFAE1F03F8390051794A /* WFReachabilityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A198BFAC1F03F8390051794A /* WFReachabilityVC.m */; };
+		A198BFAF1F03F8390051794A /* WFReachabilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A198BFAD1F03F8390051794A /* WFReachabilityVC.xib */; };
 		A19A3A541EE68D4300F07346 /* WFFavoriteService.m in Sources */ = {isa = PBXBuildFile; fileRef = A19A3A531EE68D4300F07346 /* WFFavoriteService.m */; };
 		A1A468F41EE940C5006022A5 /* WFSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A468F21EE940C5006022A5 /* WFSectionCell.m */; };
 		A1A468F51EE940C5006022A5 /* WFSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A468F31EE940C5006022A5 /* WFSectionCell.xib */; };
@@ -703,6 +706,12 @@
 		A18819BF1ED962A500E4F2F4 /* WFThreadsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsTitleCell.h; sourceTree = "<group>"; };
 		A18819C01ED962A500E4F2F4 /* WFThreadsTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsTitleCell.m; sourceTree = "<group>"; };
 		A18819C11ED962A500E4F2F4 /* WFThreadsTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFThreadsTitleCell.xib; sourceTree = "<group>"; };
+		A198BFA41F03ECA90051794A /* WFMainModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFMainModuleProtocol.h; sourceTree = "<group>"; };
+		A198BFA51F03ECE70051794A /* WFMainModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMainModule.h; sourceTree = "<group>"; };
+		A198BFA61F03ECE70051794A /* WFMainModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMainModule.m; sourceTree = "<group>"; };
+		A198BFAB1F03F8390051794A /* WFReachabilityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFReachabilityVC.h; sourceTree = "<group>"; };
+		A198BFAC1F03F8390051794A /* WFReachabilityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFReachabilityVC.m; sourceTree = "<group>"; };
+		A198BFAD1F03F8390051794A /* WFReachabilityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFReachabilityVC.xib; sourceTree = "<group>"; };
 		A19A3A521EE68D4300F07346 /* WFFavoriteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFavoriteService.h; sourceTree = "<group>"; };
 		A19A3A531EE68D4300F07346 /* WFFavoriteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFavoriteService.m; sourceTree = "<group>"; };
 		A1A468F11EE940C5006022A5 /* WFSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSectionCell.h; sourceTree = "<group>"; };
@@ -864,6 +873,7 @@
 				A10E309A1EC5A4670060CC1C /* LoginModule */,
 				A138AF3E1ED6AC6B00070852 /* MeModule */,
 				A10E309F1EC5A7940060CC1C /* SDKModule */,
+				A198BFA31F03EC760051794A /* MainModule */,
 				A10CED8E1EDE5D2E0085026B /* ASBBCodeParser */,
 				A138AF3C1ED6AAC400070852 /* AppDelegate */,
 				A10E2FB71EC5A2160060CC1C /* LaunchScreen.storyboard */,
@@ -1367,6 +1377,7 @@
 				A138AF491ED6B0A000070852 /* WFModuleFactory.m */,
 				752735281EE2C38A000804EF /* WFFavoriteModuleProtocol.h */,
 				A1FE41E31EEE6BDA00F5DE03 /* WFMeModuleProtocol.h */,
+				A198BFA41F03ECA90051794A /* WFMainModuleProtocol.h */,
 			);
 			name = ModuleProtocols;
 			sourceTree = "<group>";
@@ -1428,6 +1439,18 @@
 				A138AF6B1ED7F95100070852 /* Top10.xcassets */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		A198BFA31F03EC760051794A /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				A198BFA51F03ECE70051794A /* WFMainModule.h */,
+				A198BFA61F03ECE70051794A /* WFMainModule.m */,
+				A198BFAB1F03F8390051794A /* WFReachabilityVC.h */,
+				A198BFAC1F03F8390051794A /* WFReachabilityVC.m */,
+				A198BFAD1F03F8390051794A /* WFReachabilityVC.xib */,
+			);
+			name = MainModule;
 			sourceTree = "<group>";
 		};
 		A1A50D041EE81ED600C94C44 /* Utils */ = {
@@ -1822,6 +1845,7 @@
 				A112B9211EDFF0D40007A712 /* em66.gif in Resources */,
 				A112B9791EDFF0D40007A712 /* emc18.gif in Resources */,
 				A112B9221EDFF0D40007A712 /* em67.gif in Resources */,
+				A198BFAF1F03F8390051794A /* WFReachabilityVC.xib in Resources */,
 				A112B8EA1EDFF0D40007A712 /* em16.gif in Resources */,
 				A1A468F51EE940C5006022A5 /* WFSectionCell.xib in Resources */,
 				A112B9961EDFF0D40007A712 /* emc44.gif in Resources */,
@@ -1922,6 +1946,7 @@
 				A138AF461ED6AE7A00070852 /* WFTop10Module.m in Sources */,
 				A138AF731ED816C600070852 /* WFLoginModule.m in Sources */,
 				A1A468FB1EE941C3006022A5 /* WFSection.m in Sources */,
+				A198BFA71F03ECE70051794A /* WFMainModule.m in Sources */,
 				A138AF531ED6D05400070852 /* WFArticle.m in Sources */,
 				A18819C71ED962A500E4F2F4 /* WFThreadsTitleCell.m in Sources */,
 				A10CED891EDD75570085026B /* UIColor+Hex.m in Sources */,
@@ -1958,6 +1983,7 @@
 				A112B8151EDFE5590007A712 /* WFReplyHeader.m in Sources */,
 				A1A50D031EE81EBD00C94C44 /* WFPostRootVC.m in Sources */,
 				A10CED811EDD65440085026B /* WFArticleApi.m in Sources */,
+				A198BFAE1F03F8390051794A /* WFReachabilityVC.m in Sources */,
 				7587AFFE1EE299CD00C4721E /* WFFavoriteDataCenter.m in Sources */,
 				A138AF5B1ED6D1B300070852 /* WFFile.m in Sources */,
 				A10E30B91EC5ABD40060CC1C /* WFTop10RootVC.m in Sources */,

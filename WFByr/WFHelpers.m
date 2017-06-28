@@ -21,8 +21,8 @@ BOOL wf_checkToken(WFToken *aToken) {
 
 
 BOOL wf_checkByrReachable() {
-    //Reachability *reach = [Reachability reachabilityWithHostName:@"https://bbs.byr.cn"];
-    return true;
+    Reachability *reach = [Reachability reachabilityWithHostName:@"https://bbs.byr.cn"];
+    return [reach isReachable];
 }
 
 NSString *wf_formatDateWithNowAndPast(NSDate *now, NSDate *past) {
