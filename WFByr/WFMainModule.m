@@ -80,8 +80,8 @@
     [super viewDidAppear:animated];
     if (!wf_checkByrReachable()) {
         [self presentViewController:[[WFReachabilityVC alloc] initWithNibName:@"WFReachabilityVC" bundle:nil] animated:NO completion:nil];
-    }
-    if (!wf_checkToken([WFToken shareToken])) {
+        
+    } else if (!wf_checkToken([WFToken shareToken])) {
         id<WFLoginModule> loginModule = [WFModuleFactory moduleWithProtocol:@"WFLoginModule"];
         [self presentViewController:[loginModule rootVC] animated:YES completion:nil];
     }
