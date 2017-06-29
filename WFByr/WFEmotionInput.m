@@ -161,7 +161,7 @@ const NSInteger kYangcongtou = 3;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WFEmotionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WFEmotionCell" forIndexPath:indexPath];
-    [cell setEmotion:[NSString stringWithFormat:@"%@%ld", self.emotionConfig[self.selectedSection][@"prefix"], indexPath.row + 1]];
+    [cell setEmotion:[NSString stringWithFormat:@"%@%ld.gif", self.emotionConfig[self.selectedSection][@"prefix"], indexPath.row + 1]];
     return cell;
 }
 
