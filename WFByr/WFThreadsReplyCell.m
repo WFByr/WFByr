@@ -35,7 +35,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _parser = [WFBBCodeParser new];
     _parser.delegate = self;
     

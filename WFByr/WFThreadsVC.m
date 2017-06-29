@@ -264,6 +264,7 @@ const NSUInteger kReplyRow = 2;
     }
     return 0;
 }
+
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == kReplyRow) {
         WFReplyHeader *header = [[NSBundle mainBundle] loadNibNamed:@"WFReplyHeader" owner:nil options:nil][0];;
