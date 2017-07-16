@@ -9,18 +9,25 @@
 #import "WFPostVC.h"
 #import "WFAccessoryView.h"
 #import "WFEmotionInput.h"
+#import "WFBoardPicker.h"
 #import "WFArticleApi.h"
 #import "WFAttachmentApi.h"
 #import "WFModels.h"
+#import "WFRouter.h"
 #import "Masonry.h"
 #import "YYText.h"
+#import "YYModel.h"
 #import "MBProgressHUD.h"
 
-@interface WFPostVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, YYTextViewDelegate>
+@interface WFPostVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, YYTextViewDelegate, WFBoardPickerDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
+@property (nonatomic, strong) UIBarButtonItem *cancleBtn;
+
 @property (nonatomic, strong) UIBarButtonItem *sendBtn;
+
+@property (nonatomic, strong) UIButton *selectBoardBtn;
 
 @property (nonatomic, strong) UITextField *titleInput;
 
@@ -43,6 +50,8 @@
 @property (nonatomic, strong) MBProgressHUD *uploadHud;
 
 @property (nonatomic, strong) MBProgressHUD *postHud;
+
+@property (nonatomic, strong) WFBoard *postBoard;
 
 @end
 
@@ -68,12 +77,19 @@
     self = [super init];
     if (self != nil) {
         self.replyTo = article;
-        self.titleInput.text = [NSString stringWithFormat:@"Re:%@", article.title];
-        self.titleInput.enabled = NO;
-        if (input)
+        if (article) {
+            self.titleInput.text = [NSString stringWithFormat:@"Re:%@", article.title];
+            self.titleInput.enabled = NO;
+        }
+        
+        if (input) {
             [self.textView insertText:input];
-        if (self.replyTo)
-            [self.textView insertText:[NSString stringWithFormat:@"\n\n【 在 %@ 的大作中提到: 】\n%@", self.replyTo.user.user_name, self.replyTo.content]];
+        }
+        if (self.replyTo) {
+            _postBoard = [WFBoard new];
+            _postBoard.name = _replyTo.board_name;
+            [self.textView  insertText:[NSString stringWithFormat:@"\n\n【 在 %@ 的大作中提到: 】\n%@", self.replyTo.user.user_name, self.replyTo.content]];
+        }
         
         self.textView.selectedRange = NSMakeRange(input.length, 0);
     }
@@ -84,8 +100,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = self.sendBtn;
-    //self.inputView
+    
+    [self setupNavi];
+    
     [self.scrollView addSubview:self.titleInput];
     [self.scrollView addSubview:self.textView];
     [self.scrollView addSubview:self.preshowView];
@@ -99,6 +116,7 @@
     [self.textView becomeFirstResponder];
     
 }
+
 - (void)updateViewConstraints {
     
     [self.titleInput mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,6 +154,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)setupNavi {
+    self.navigationItem.leftBarButtonItem = self.cancleBtn;
+    self.navigationItem.titleView = self.selectBoardBtn;
+    self.navigationItem.rightBarButtonItem = self.sendBtn;
+    
+}
+
+# pragma mark - WFBoardPickerDelegate
+- (void)boardPicker:(WFBoardPicker *)boardPicker didFinishPickingWithInfo:(NSDictionary<NSString *,id> *)info {
+    WFBoard *selectedBoard = [info objectForKey:WFBoardPickerBoardKey];
+    _postBoard = selectedBoard;
+    [self.selectBoardBtn setTitle:selectedBoard.desc forState:UIControlStateNormal];
 }
 
 # pragma mark - YYTextViewDelegate
@@ -196,15 +229,61 @@
 
 # pragma mark - Private methods
 
+- (void)cancle {
+    self.tabBarController.selectedIndex = 0;
+}
+
 - (void)send {
+    NSString *errorMsg;
+    if (![self checkForm:&errorMsg]) {
+        wf_showHud(self.view, errorMsg, 1);
+        return;
+    }
     __weak typeof(self) wself = self;
-    [self.articleApi postArticleWithBoard:self.replyTo.board_name title:@"" content:self.textView.text reid:self.replyTo.aid successBlock:^(NSInteger statusCode, id response) {
-        
-        wf_showHud(wself.view, @"回复成功", 1);
-        [wself.navigationController popViewControllerAnimated:YES];
-    } failureBlock:^(NSInteger statusCode, id response) {
-        wf_showHud(wself.view, @"回复失败", 1);
-    }];
+    if (_replyTo) {
+         [self.articleApi postArticleWithBoard:_postBoard.name title:_titleInput.text content:_textView.text reid:self.replyTo.aid successBlock:^(NSInteger statusCode, id response) {
+             wf_showHud(wself.view, @"回复成功", 1);
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [wself.navigationController popViewControllerAnimated:YES];
+             });
+         } failureBlock:^(NSInteger statusCode, id response) {
+             wf_showHud(wself.view, @"回复失败", 1);
+         }];
+    } else {
+        [self.articleApi postArticleWithBoard:_postBoard.name title:_titleInput.text content:_textView.text successBlock:^(NSInteger statusCode, id response) {
+            wf_showHud(wself.view, @"发布成功", 1);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.tabBarController.selectedIndex = 0;
+                WFArticle *article = [WFArticle yy_modelWithJSON:response];
+                [WFRouter go:@"threads" withParams:@{@"board":article.board_name, @"aid":@(article.aid)} from:wself.tabBarController.viewControllers[0]];
+            });
+        } failureBlock:^(NSInteger statusCode, id response) {
+            wf_showHud(wself.view, @"发布失败", 1);
+        }];
+    }
+    
+}
+
+- (BOOL)checkForm:(NSString **)errorMsg {
+    if ([_titleInput.text length] == 0) {
+        (*errorMsg) = @"请填写标题";
+        return NO;
+    }
+    if ([_textView.text length] == 0) {
+        (*errorMsg) = @"请填写内容";
+        return NO;
+    }
+    if (!_postBoard.name) {
+        (*errorMsg) = @"请选择版面";
+        return NO;
+    }
+    return YES;
+}
+
+- (void)selectBoard {
+    WFBoardPicker *picker = [WFBoardPicker new];
+    picker.pickerDelegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)addPhoto {
@@ -223,7 +302,17 @@
     [UIView commitAnimations];
 }
 
-# pragma makr - Setters and Getters
+# pragma mark - Setters and Getters
+
+- (UIBarButtonItem*)cancleBtn {
+    if (!_cancleBtn) {
+        _cancleBtn = [UIBarButtonItem new];
+        _cancleBtn.title = @"取消";
+        _cancleBtn.target = self;
+        _cancleBtn.action = @selector(cancle);
+    }
+    return _cancleBtn;
+}
 
 - (UIBarButtonItem*)sendBtn {
     if (_sendBtn == nil) {
@@ -233,6 +322,22 @@
         _sendBtn.action = @selector(send);
     }
     return _sendBtn;
+}
+
+- (UIButton*)selectBoardBtn {
+    if (!_selectBoardBtn) {
+        _selectBoardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_selectBoardBtn setTitleColor:MAIN_BLUE forState:UIControlStateNormal];
+        [_selectBoardBtn setTitle:@"选择版面" forState:UIControlStateNormal];
+        if (_postBoard && _postBoard.name) {
+            [_selectBoardBtn setTitle:_postBoard.name forState:UIControlStateNormal];
+        }
+        if (_postBoard && _postBoard.desc) {
+            [_selectBoardBtn setTitle:_postBoard.desc forState:UIControlStateNormal];
+        }
+        [_selectBoardBtn addTarget:self action:@selector(selectBoard) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _selectBoardBtn;
 }
 
 - (UIImagePickerController*)imagePicker {

@@ -18,7 +18,7 @@
 #import "WFMeModuleProtocol.h"
 #import "WFReachabilityVC.h"
 
-#import "WFPostRootVC.h"
+#import "WFPostVC.h"
 
 
 @interface WFAnimationController : NSObject <UIViewControllerAnimatedTransitioning>
@@ -37,26 +37,61 @@
     UIView *containerView = transitionContext.containerView;
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    UIView *snapShoot = [[UIApplication sharedApplication].keyWindow snapshotViewAfterScreenUpdates:YES];
     
-    toView.frame = CGRectMake(0, toView.frame.size.height, toView.frame.size.width, toView.frame.size.height);
+    containerView.backgroundColor = [UIColor blueColor];
     
-    //UIVisualEffectView *mask = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-    UIView *mask = [[UIView alloc] initWithFrame:fromView.frame];
-    mask.backgroundColor = [UIColor blackColor];
-    mask.alpha = 0.5;
-    
-    UIView *snapShot = [[UIApplication sharedApplication].keyWindow snapshotViewAfterScreenUpdates:YES];//[fromView snapshotViewAfterScreenUpdates:YES];
-    containerView.backgroundColor = [UIColor redColor];
-    [containerView addSubview:snapShot];
-    [containerView addSubview:mask];
     [containerView addSubview:toView];
+    [transitionContext completeTransition:YES];
+    return;
     
-    [UIView animateWithDuration:0.5 animations:^{
-        snapShot.frame = CGRectMake(10, 20, snapShot.frame.size.width - 20, snapShot.frame.size.height - 40);
-        toView.transform = CGAffineTransformMakeTranslation(0, -(toView.frame.size.height - 100));
+    
+    [containerView addSubview:snapShoot];
+    
+    toView.hidden = YES;
+    toView.transform = CGAffineTransformMakeScale(0.6, 0.6);
+    toView.layer.transform = CATransform3DMakeRotation(M_PI_2, 0, 1, 0);
+    
+    [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
+        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.2 animations:^{
+            snapShoot.transform = CGAffineTransformMakeScale(0.6, 0.6);
+        }];
+        
+        [UIView addKeyframeWithRelativeStartTime:0.3 relativeDuration:0.4 animations:^{
+            CATransform3D transform = CATransform3DIdentity;
+            transform.m34 = - 1.0 / 500.0;
+            transform = CATransform3DRotate(transform, -M_PI_2, 0, 1, 0);
+            snapShoot.layer.transform = transform;
+            toView.hidden = NO;
+        }];
+        
+       [UIView addKeyframeWithRelativeStartTime:0.6 relativeDuration:0.4 animations:^{
+            CATransform3D transform = CATransform3DIdentity;
+            transform.m34 = - 1.0 / 500.0;
+            transform = CATransform3DRotate(transform, -M_PI_2, 0, 1, 0);
+            toView.layer.transform = transform;
+        }];
+//
+//        [UIView addKeyframeWithRelativeStartTime:0.7 relativeDuration:1 animations:^{
+//            toView.transform = CGAffineTransformIdentity;
+//        }];
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];
+   // fromView.transform = CGAffineTransformMakeScale(0.6, 0.6);
+    
+    
+    
+    
+    
+    
+//    
+//    [UIView animateWithDuration:0.5 animations:^{
+//        snapShoot.frame = CGRectMake(10, 20, snapShoot.frame.size.width - 20, snapShoot.frame.size.height - 40);
+//        toView.transform = CGAffineTransformMakeTranslation(0, -(toView.frame.size.height - 100));
+//    } completion:^(BOOL finished) {
+//        [transitionContext completeTransition:YES];
+//    }];
     
 }
 
@@ -88,11 +123,16 @@
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController animationControllerForTransitionFromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    if ([toVC isMemberOfClass:[WFPostRootVC class]]) {
+    if (toVC == tabBarController.viewControllers[2]) {
         [UIView animateWithDuration:0.5 animations:^{
             tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, tabBarController.tabBar.frame.size.height);
         }];
-        return [WFAnimationController new];
+        //return [WFAnimationController new];
+    }
+    if (fromVC == tabBarController.viewControllers[2]) {
+        [UIView animateWithDuration:0.5 animations:^{
+            tabBarController.tabBar.transform = CGAffineTransformIdentity;
+        }];
     }
     return nil;
 }
@@ -122,7 +162,7 @@
     id<WFFavoriteModule> favoriteModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
     UIViewController *sectionVC = [sectionModule rootVC];
     
-    UIViewController *postVC = [WFPostRootVC new];
+    UIViewController *postVC = [WFPostVC new];
     postVC.tabBarItem = postTab;
     
     UIViewController *favoriteTabVC = [favoriteModule rootVC];
@@ -133,7 +173,7 @@
     
     tabBarVC.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:top10VC],
                                  [[UINavigationController alloc] initWithRootViewController:sectionVC],
-                                 postVC,
+                                 [[UINavigationController alloc] initWithRootViewController:postVC],
                                  [[UINavigationController alloc] initWithRootViewController:favoriteTabVC],
                                  [[UINavigationController alloc] initWithRootViewController:meVC]];
    

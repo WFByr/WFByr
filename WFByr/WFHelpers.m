@@ -10,9 +10,7 @@
 #import "MBProgressHUD.h"
 #import "Reachability.h"
 
-
 BOOL wf_checkToken(WFToken *aToken) {
-#warning todo
     if (!aToken.accessToken) {
         return false;
     }

@@ -38,19 +38,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.webview = [[UIWebView alloc] init];
-    self.webview.delegate = self;
-    
-    
-    
-    [self.webview loadRequest:[NSURLRequest requestWithURL:[self.oath oathUrl]]];
-    [self.view addSubview:self.webview];
-    
+    [self setupWebview];
+    [self setupBtns];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+}
+
+- (void)setupWebview {
+    self.webview = [[UIWebView alloc] init];
+    self.webview.delegate = self;
+    [self.webview loadRequest:[NSURLRequest requestWithURL:[self.oath oathUrl]]];
+    [self.view addSubview:self.webview];
     [self.webview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
         make.trailing.equalTo(self.view.mas_trailing);
@@ -59,9 +59,41 @@
     }];
 }
 
+- (void)setupBtns {
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeBtn setTitle:@"close" forState:UIControlStateNormal];
+    [closeBtn setTitleColor:MAIN_BLUE forState:UIControlStateNormal];
+    [closeBtn addTarget:self action:@selector(closeBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeBtn];
+    [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+       // make.height.width.equalTo(@(40));
+        make.top.equalTo(self.view).offset(8);
+        make.right.equalTo(self.view).offset(-8);
+    }];
+    
+    UIButton *reloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [reloadBtn setTitle:@"refresh" forState:UIControlStateNormal];
+    [reloadBtn setTitleColor:MAIN_BLUE forState:UIControlStateNormal];
+    [reloadBtn addTarget:self action:@selector(reloadBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:reloadBtn];
+    [reloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(closeBtn);
+        make.right.equalTo(closeBtn.mas_left).offset(-8);
+    }];
+    
+}
+
+#pragma mark - Private Methods
+
+- (void)closeBtnClicked {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)reloadBtnClicked {
+    [self.webview reload];
+}
 
 #pragma mark - UIWebViewDelegate
-
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if ([self.oath parseRedirectUri:webView.request.URL.absoluteString]) {
@@ -71,9 +103,6 @@
         NSLog(@"fail");
     }
 }
-
-
-
 
 
 

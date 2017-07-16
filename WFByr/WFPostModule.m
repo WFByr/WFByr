@@ -15,4 +15,8 @@
     [WFRouter registerRoute:@"post" withVC:[WFPostVC class]];
 }
 
+- (__kindof UIViewController*)rootVC {
+    return [WFPostVC new];
+}
+
 @end
