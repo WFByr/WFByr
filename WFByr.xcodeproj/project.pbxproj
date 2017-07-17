@@ -291,6 +291,7 @@
 		A198BFA71F03ECE70051794A /* WFMainModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A198BFA61F03ECE70051794A /* WFMainModule.m */; };
 		A198BFAE1F03F8390051794A /* WFReachabilityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A198BFAC1F03F8390051794A /* WFReachabilityVC.m */; };
 		A198BFAF1F03F8390051794A /* WFReachabilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A198BFAD1F03F8390051794A /* WFReachabilityVC.xib */; };
+		A198BFF51F1D17EB0051794A /* LoginModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A198BFF41F1D17EB0051794A /* LoginModule.xcassets */; };
 		A19A3A541EE68D4300F07346 /* WFFavoriteService.m in Sources */ = {isa = PBXBuildFile; fileRef = A19A3A531EE68D4300F07346 /* WFFavoriteService.m */; };
 		A1A468F41EE940C5006022A5 /* WFSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A468F21EE940C5006022A5 /* WFSectionCell.m */; };
 		A1A468F51EE940C5006022A5 /* WFSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A468F31EE940C5006022A5 /* WFSectionCell.xib */; };
@@ -712,6 +713,7 @@
 		A198BFAB1F03F8390051794A /* WFReachabilityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFReachabilityVC.h; sourceTree = "<group>"; };
 		A198BFAC1F03F8390051794A /* WFReachabilityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFReachabilityVC.m; sourceTree = "<group>"; };
 		A198BFAD1F03F8390051794A /* WFReachabilityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFReachabilityVC.xib; sourceTree = "<group>"; };
+		A198BFF41F1D17EB0051794A /* LoginModule.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoginModule.xcassets; sourceTree = "<group>"; };
 		A19A3A521EE68D4300F07346 /* WFFavoriteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFavoriteService.h; sourceTree = "<group>"; };
 		A19A3A531EE68D4300F07346 /* WFFavoriteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFavoriteService.m; sourceTree = "<group>"; };
 		A1A468F11EE940C5006022A5 /* WFSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSectionCell.h; sourceTree = "<group>"; };
@@ -914,6 +916,7 @@
 		A10E309A1EC5A4670060CC1C /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
+				A198BFF31F1D17CD0051794A /* Resource */,
 				A138AF711ED816C600070852 /* WFLoginModule.h */,
 				A138AF721ED816C600070852 /* WFLoginModule.m */,
 				A10E309C1EC5A72C0060CC1C /* WFLoginVC.h */,
@@ -1006,6 +1009,7 @@
 		A112B80E1EDFB0C60007A712 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A112B8171EDFF0D40007A712 /* em */,
 				A112B80F1EDFB0DE0007A712 /* PostModule.xcassets */,
 			);
 			name = Resource;
@@ -1015,7 +1019,6 @@
 			isa = PBXGroup;
 			children = (
 				A10E2FB51EC5A2160060CC1C /* Assets.xcassets */,
-				A112B8171EDFF0D40007A712 /* em */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -1453,6 +1456,14 @@
 			name = MainModule;
 			sourceTree = "<group>";
 		};
+		A198BFF31F1D17CD0051794A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A198BFF41F1D17EB0051794A /* LoginModule.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		A1A50D041EE81ED600C94C44 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1723,6 +1734,7 @@
 				A112B9511EDFF0D40007A712 /* ema5.gif in Resources */,
 				A112B99E1EDFF0D40007A712 /* emc51.gif in Resources */,
 				A112B9331EDFF0D40007A712 /* ema15.gif in Resources */,
+				A198BFF51F1D17EB0051794A /* LoginModule.xcassets in Resources */,
 				A112B8FC1EDFF0D40007A712 /* em32.gif in Resources */,
 				A112B93B1EDFF0D40007A712 /* ema22.gif in Resources */,
 				A112B9A21EDFF0D40007A712 /* emc55.gif in Resources */,
