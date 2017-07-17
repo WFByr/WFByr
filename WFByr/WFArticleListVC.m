@@ -42,6 +42,7 @@
     self = [super init];
     if (self != nil) {
         self.boardName = name;
+        self.navigationItem.title = name;
         _isLoaded = false;
     }
     return self;

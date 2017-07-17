@@ -99,7 +99,9 @@ const NSUInteger kReplyRow = 2;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView.mj_header beginRefreshing];
+    if (_articles.count == 0) {
+        [self.tableView.mj_header beginRefreshing];    
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -2,6 +2,7 @@ platform :ios, '8.0'
 
 target 'WFByr' do
     use_frameworks!
+    pod 'YYCache'
     pod 'IDMPhotoBrowser'
     pod 'AFNetworking'
     pod 'MJRefresh'
@@ -10,7 +11,7 @@ target 'WFByr' do
     pod 'YYModel'
     pod 'YYImage'
     pod 'YYWebImage'
-    pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+    pod 'Reveal-SDK', :configurations => ['Debug']
     pod 'Masonry'
     pod 'MBProgressHUD'
     pod 'TTTAttributedLabel'

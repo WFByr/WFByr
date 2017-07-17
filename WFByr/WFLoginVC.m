@@ -18,6 +18,9 @@
 
 @property(nonatomic, strong) WFOAth2 * oath;
 
+@property (nonatomic, strong) UIButton *closeBtn;
+@property (nonatomic, strong) UIButton *reloadBtn;
+
 @end
 
 @implementation WFLoginVC
@@ -60,25 +63,24 @@
 }
 
 - (void)setupBtns {
-    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeBtn setTitle:@"close" forState:UIControlStateNormal];
-    [closeBtn setTitleColor:MAIN_BLUE forState:UIControlStateNormal];
-    [closeBtn addTarget:self action:@selector(closeBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:closeBtn];
-    [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-       // make.height.width.equalTo(@(40));
-        make.top.equalTo(self.view).offset(8);
-        make.right.equalTo(self.view).offset(-8);
+    _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    [_closeBtn addTarget:self action:@selector(closeBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_closeBtn];
+    [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.equalTo(@(20));
+        make.top.equalTo(self.view).offset(30);
+        make.right.equalTo(self.view).offset(-32);
     }];
     
-    UIButton *reloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [reloadBtn setTitle:@"refresh" forState:UIControlStateNormal];
-    [reloadBtn setTitleColor:MAIN_BLUE forState:UIControlStateNormal];
-    [reloadBtn addTarget:self action:@selector(reloadBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:reloadBtn];
-    [reloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(closeBtn);
-        make.right.equalTo(closeBtn.mas_left).offset(-8);
+    _reloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_reloadBtn setImage:[UIImage imageNamed:@"refresh"] forState:UIControlStateNormal];
+    [_reloadBtn addTarget:self action:@selector(reloadBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_reloadBtn];
+    [_reloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(_closeBtn);
+        make.top.equalTo(_closeBtn);
+        make.right.equalTo(_closeBtn.mas_left).offset(-16);
     }];
     
 }
