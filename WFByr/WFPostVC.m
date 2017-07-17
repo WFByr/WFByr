@@ -230,7 +230,11 @@
 # pragma mark - Private methods
 
 - (void)cancle {
-    self.tabBarController.selectedIndex = 0;
+    if (self.tabBarController.selectedIndex == 2) {
+        self.tabBarController.selectedIndex = 0;
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)send {
