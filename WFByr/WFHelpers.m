@@ -52,7 +52,8 @@ NSURL *wf_saveImage(UIImage *image, NSString *name) {
 void wf_showHud(UIView *toView, NSString *text, CGFloat duration) {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:toView animated:YES];
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = text;
+    hud.label.text = text;
+    hud.label.textColor = MAIN_BLUE;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:duration];
+    [hud hideAnimated:YES afterDelay:duration];
 }
