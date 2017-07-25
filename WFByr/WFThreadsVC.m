@@ -39,6 +39,7 @@ const NSUInteger kReplyRow = 2;
 @property (nonatomic, strong) MBProgressHUD * hud;
 
 @property (nonatomic, strong) UIBarButtonItem * moreOpBtn;
+@property (nonatomic, strong) UIBarButtonItem * addFavBtn;
 
 @property (nonatomic, strong) MBProgressHUD *endHud;
 @property (nonatomic, strong) MBProgressHUD *replyStatusHud;
@@ -83,7 +84,6 @@ const NSUInteger kReplyRow = 2;
         self.articleApi.responseDelegate = self;
         self.articleApi.responseReformer = self;
         self.hidesBottomBarWhenPushed = YES;
-     
     }
     return self;
 }
@@ -93,8 +93,12 @@ const NSUInteger kReplyRow = 2;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.keyboard];
     [self.view setNeedsUpdateConstraints];
+    [self setupNavi];
+}
+
+- (void)setupNavi {
     self.navigationItem.title = @"详情";
-    self.navigationItem.rightBarButtonItem = self.moreOpBtn;
+    self.navigationItem.rightBarButtonItems = @[self.moreOpBtn, self.addFavBtn];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -124,6 +128,7 @@ const NSUInteger kReplyRow = 2;
    
     [super updateViewConstraints];
 }
+
 
 #pragma mark - Private Method
 
@@ -180,35 +185,34 @@ const NSUInteger kReplyRow = 2;
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
-- (void)addFav {
+- (void)addOrDeleteFav {
     id<WFFavoriteModule> favModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
     __weak typeof(self) wself = self;
-    [favModule addFavoriteWithArticle:self.articles[0] success:^{
-        wf_showHud(wself.view, @"收藏成功", 1);
-    } failure:^{
-        wf_showHud(wself.view, @"收藏失败", 1);
-    }];
-}
-
-- (void)deleteFav {
-    id<WFFavoriteModule> favModule = [WFModuleFactory moduleWithProtocol:@"WFFavoriteModule"];
-    __weak typeof(self) wself = self;
-    [favModule deleteFavoriteWithArticle:self.articles[0] success:^{
-        wf_showHud(wself.view, @"删除收藏成功", 1);
-    } failure:^{
-        wf_showHud(wself.view, @"删除收藏失败", 1);
-    }];
-}
-
-- (void)addFavBtn {
-    UIBarButtonItem *favBtn;
-    if (!_thread.collect) {
-        favBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark-add"] style:UIBarButtonItemStylePlain target:self action:@selector(addFav)];
+    if (_thread.collect) {
+        [favModule deleteFavoriteWithArticle:self.articles[0] success:^{
+            wf_showHud(wself.view, @"删除收藏成功", 1);
+            wself.thread.collect = NO;
+            [wself updateAddFavBtn];
+        } failure:^{
+            wf_showHud(wself.view, @"删除收藏失败", 1);
+        }];
     } else {
-        favBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark-added"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteFav)];
+        [favModule addFavoriteWithArticle:self.articles[0] success:^{
+            wf_showHud(wself.view, @"收藏成功", 1);
+            wself.thread.collect = YES;
+            [wself updateAddFavBtn];
+        } failure:^{
+            wf_showHud(wself.view, @"收藏失败", 1);
+        }];
     }
-    NSArray *rightBtns = self.navigationItem.rightBarButtonItems;
-    [self.navigationItem setRightBarButtonItems:@[rightBtns[0], favBtn] animated:YES];
+    
+}
+
+- (UIBarButtonItem*)addFavBtn {
+    if (!_addFavBtn) {
+        _addFavBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bookmark-add"] style:UIBarButtonItemStylePlain target:self action:@selector(addOrDeleteFav)];;
+    }
+    return _addFavBtn;
 }
 
 #pragma mark - TableView delegate
@@ -283,13 +287,9 @@ const NSUInteger kReplyRow = 2;
     NSLog(@"%ld", reid);
     __weak typeof(self) weakSelf = self;
     [self.articleApi postArticleWithBoard:self.board title:@"" content:input reid:reid successBlock:^(NSInteger statusCode, id response) {
-        weakSelf.replyStatusHud.labelText = @"回复成功";
-        [weakSelf.replyStatusHud show:YES];
-        [weakSelf.replyStatusHud hide:YES afterDelay:1];
+        wf_showHud(weakSelf.view, @"回复成功", 1);
     } failureBlock:^(NSInteger statusCode, id response) {
-        weakSelf.replyStatusHud.labelText = @"回复失败";
-        [weakSelf.replyStatusHud show:YES];
-        [weakSelf.replyStatusHud hide:YES afterDelay:1];
+        wf_showHud(weakSelf.view, @"回复失败", 1);
     }];
 }
 
@@ -326,6 +326,7 @@ const NSUInteger kReplyRow = 2;
     if (response.isSucceeded) {
         NSMutableArray *reformedArticles = [NSMutableArray array];
        if (!_thread) _thread = [WFThread yy_modelWithJSON:response.response];
+        [self updateAddFavBtn];
         @autoreleasepool {
             for (id article in [response.response objectForKey:@"article"]) {
                 
@@ -336,6 +337,14 @@ const NSUInteger kReplyRow = 2;
         }
     }
     return response;
+}
+
+- (void)updateAddFavBtn {
+    if (_thread.collect) {
+        [self.addFavBtn setImage:[UIImage imageNamed:@"bookmark-added"]];
+    } else {
+        [self.addFavBtn setImage:[UIImage imageNamed:@"bookmark-add"]];
+    }
 }
 
 #pragma mark - WFThreadsTitleCellDelegate
@@ -400,7 +409,7 @@ const NSUInteger kReplyRow = 2;
     if (_hud == nil) {
         _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         _hud.mode = MBProgressHUDModeAnnularDeterminate;
-        _hud.labelText = @"Loading";
+        _hud.label.text = @"Loading";
     }
     return _hud;
 }
@@ -409,7 +418,7 @@ const NSUInteger kReplyRow = 2;
     if (_endHud == nil) {
         _endHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         _endHud.mode = MBProgressHUDModeText;
-        _endHud.labelText = @"到底了";
+        _endHud.label.text = @"到底了";
     }
     return _endHud;
 }
