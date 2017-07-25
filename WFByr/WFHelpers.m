@@ -39,7 +39,7 @@ NSString *wf_formatDateWithNowAndPast(NSDate *now, NSDate *past) {
 NSURL *wf_saveImage(UIImage *image, NSString *name) {
     NSString *dir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSURL *fileUrl = [NSURL fileURLWithPath:[dir stringByAppendingPathComponent:name]];
-    NSData *data = UIImageJPEGRepresentation(image, 1);
+    NSData *data = UIImageJPEGRepresentation(image, 0.7);
     NSError *err3;
     if (![data writeToURL:fileUrl options:NSDataWritingAtomic error:&err3]) {
         NSLog(@"save error:%@", err3);
