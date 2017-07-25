@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-@property (nonatomic, strong) UIBarButtonItem *cancleBtn;
+@property (nonatomic, strong) UIBarButtonItem *cancelBtn;
 
 @property (nonatomic, strong) UIBarButtonItem *sendBtn;
 
@@ -158,7 +158,7 @@
 
 
 - (void)setupNavi {
-    self.navigationItem.leftBarButtonItem = self.cancleBtn;
+    self.navigationItem.leftBarButtonItem = self.cancelBtn;
     self.navigationItem.titleView = self.selectBoardBtn;
     self.navigationItem.rightBarButtonItem = self.sendBtn;
     
@@ -229,7 +229,7 @@
 
 # pragma mark - Private methods
 
-- (void)cancle {
+- (void)cancel {
     if (self.tabBarController.selectedIndex == 2) {
         self.tabBarController.selectedIndex = 0;
     } else {
@@ -308,14 +308,14 @@
 
 # pragma mark - Setters and Getters
 
-- (UIBarButtonItem*)cancleBtn {
-    if (!_cancleBtn) {
-        _cancleBtn = [UIBarButtonItem new];
-        _cancleBtn.title = @"取消";
-        _cancleBtn.target = self;
-        _cancleBtn.action = @selector(cancle);
+- (UIBarButtonItem*)cancelBtn {
+    if (!_cancelBtn) {
+        _cancelBtn = [UIBarButtonItem new];
+        _cancelBtn.title = @"取消";
+        _cancelBtn.target = self;
+        _cancelBtn.action = @selector(cancel);
     }
-    return _cancleBtn;
+    return _cancelBtn;
 }
 
 - (UIBarButtonItem*)sendBtn {
