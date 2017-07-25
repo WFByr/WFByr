@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) NSMutableArray<WFCollection*> * collectionList;
 
+- (void)deleteCollection:(NSString*)gid successBlk:(void(^)(NSInteger statusCode, id reponse))successBlk failureBlk:(void(^)(NSInteger statusCode, id reponse))failureBlk;
+
 @end

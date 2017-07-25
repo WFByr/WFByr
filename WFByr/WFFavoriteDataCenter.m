@@ -55,4 +55,8 @@
 
 }
 
+- (void)deleteCollection:(NSString*)gid successBlk:(void (^)(NSInteger, id))successBlk failureBlk:(void (^)(NSInteger, id))failureBlk {
+    [_collectionApi deleteCollectionWithAid:gid successBlock:successBlk failureBlock:failureBlk];
+}
+
 @end

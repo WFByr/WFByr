@@ -98,7 +98,33 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
+# pragma mark - TableView delegate
+
+
+
+# pragma mark - Table view data source
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __weak typeof(self) weakSelf = self;
+    return @[[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除收藏" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        WFCollection *collection = _collectionList[indexPath.row];
+        [weakSelf.dataCenter deleteCollection:collection.gid successBlk:^(NSInteger statusCode, id response){
+            wf_showHud(weakSelf.view, @"删除成功", 1);
+        } failureBlk:^(NSInteger statusCode, id reponse) {
+            wf_showHud(weakSelf.view, @"删除失败", 1);
+        }];
+        [_collectionList removeObjectAtIndex:indexPath.row];
+        [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    }]];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
