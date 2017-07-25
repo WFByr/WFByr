@@ -200,7 +200,11 @@ void wf_setLink(NSMutableAttributedString *targetStr) {
             wf_setLocalImage(tmp, @"placeholder");
         }
     }
-    [_translatedString appendAttributedString:tmp];
+    if (tmp) {
+        [_translatedString appendAttributedString:tmp];
+    } else {
+        [_translatedString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"[%@=%@][/%@]", name, val, name]]];
+    }
 }
 
 @end
