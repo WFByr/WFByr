@@ -7,22 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WFThreadsCellDelegate.h"
 @class WFArticle;
 
-@protocol WFThreadsReplyCellDelegate <NSObject>
-
-@optional
-
-- (void)linkClicked:(NSURL*) url;
-
-- (void)goToUser:(NSString*)uid;
-
-@end
 
 @interface WFThreadsReplyCell : UITableViewCell
 
-@property(nonatomic, weak) id <WFThreadsReplyCellDelegate> delegate;
+@property(nonatomic, weak) id <WFThreadsCellDelegate> delegate;
 
 - (void)setupWithArticle:(WFArticle*) article replyNo:(NSInteger)replyNo;
 

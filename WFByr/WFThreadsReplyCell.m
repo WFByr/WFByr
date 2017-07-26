@@ -12,6 +12,7 @@
 #import "YYText.h"
 #import "WFRouter.h"
 #import "UIImageView+WebCache.h"
+#import "UITapGestureRecognizer+ASUserInfo.h"
 
 @interface WFThreadsReplyCell()
 
@@ -20,10 +21,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *postDateLabel;
 @property (weak, nonatomic) IBOutlet YYLabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *replyNoLabel;
+//@property (nonatomic, strong) NSMutableArray<UIImageView*> *imgViews;
 
 @end
 
 @interface WFThreadsReplyCell (WFBBCodeDelegate) <WFBBCodeParserDelegate>
+
+
 
 @end
 
@@ -87,20 +91,23 @@
 }
 
 - (NSAttributedString*)renderTag:(NSString *)tagName withValue:(NSString *)val {
-    NSMutableAttributedString *renderedStr = [NSMutableAttributedString new];
     if ([tagName isEqualToString:@"upload"] && _article.has_attachment) {
         NSUInteger attachmentNo = [val integerValue] - 1;
-        
+        NSMutableAttributedString *renderedStr = [NSMutableAttributedString new];
         
         if (attachmentNo >= _article.attachment.file.count) {
             return renderedStr;
         }
         NSString *imgUrl = _article.attachment.file[attachmentNo].thumbnail_middle;
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-        if (imgUrl)
-            [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+        imgView.userInteractionEnabled = YES;
         imgView.contentMode = UIViewContentModeScaleAspectFit;
         
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClicked:)];
+        recognizer.userInfo = @{@"index":@(attachmentNo), @"view":imgView};
+        [imgView addGestureRecognizer:recognizer];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+        //[self.imgViews addObject:imgView];
         NSAttributedString *imgStr = [NSAttributedString yy_attachmentStringWithContent:imgView
                                                                             contentMode:UIViewContentModeCenter
                                                                          attachmentSize:imgView.frame.size
@@ -111,8 +118,17 @@
         [renderedStr yy_appendString:@"\n"];
         return renderedStr;
     }
-    [renderedStr yy_appendString:[NSString stringWithFormat:@"[%@=%@][/%@]", tagName, val, tagName]];
-    return renderedStr;
+    return nil;
     
+}
+
+- (void)imgClicked:(UITapGestureRecognizer*)recognizer {
+    if ([self.delegate respondsToSelector:@selector(presentImageWithUrls:selected:fromView:)]) {
+        NSMutableArray<NSURL*> *urls = [NSMutableArray array];
+        for (WFFile *file in _article.attachment.file) {
+            [urls addObject:[NSURL URLWithString:file.url]];
+        }
+        [self.delegate presentImageWithUrls:urls selected:[[recognizer.userInfo objectForKey:@"index"] integerValue] fromView:[recognizer.userInfo objectForKey:@"view"]];
+    }
 }
 @end

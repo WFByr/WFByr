@@ -731,6 +731,7 @@
 		A1B75C821EDEA6E4008D46DC /* WFBBCodeParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBBCodeParserTests.m; sourceTree = "<group>"; };
 		A1BBDD261F28FCD6000C2D3F /* UITapGestureRecognizer+ASUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITapGestureRecognizer+ASUserInfo.h"; sourceTree = "<group>"; };
 		A1BBDD271F28FCD6000C2D3F /* UITapGestureRecognizer+ASUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITapGestureRecognizer+ASUserInfo.m"; sourceTree = "<group>"; };
+		A1BBDD291F2903C3000C2D3F /* WFThreadsCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsCellDelegate.h; sourceTree = "<group>"; };
 		A1EC14971ED927D900A2AD0B /* WFRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFRouter.h; sourceTree = "<group>"; };
 		A1EC14981ED927D900A2AD0B /* WFRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFRouter.m; sourceTree = "<group>"; };
 		A1ECB4101ED966D0006DD061 /* WFBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBoard.h; sourceTree = "<group>"; };
@@ -818,6 +819,7 @@
 				A112B8111EDFE31C0007A712 /* WFReplyHeader.xib */,
 				A112B8131EDFE5590007A712 /* WFReplyHeader.h */,
 				A112B8141EDFE5590007A712 /* WFReplyHeader.m */,
+				A1BBDD291F2903C3000C2D3F /* WFThreadsCellDelegate.h */,
 			);
 			name = View;
 			sourceTree = "<group>";

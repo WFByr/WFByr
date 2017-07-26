@@ -7,24 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WFThreadsCellDelegate.h"
 
 @class WFArticle;
 
-@protocol WFThreadsBodyCellDelegate <NSObject>
-
-@optional
-
-- (void)linkClicked:(NSURL*) url;
-
-- (void)presentImageWithUrls:(NSArray*)urls selected:(NSInteger)index fromView:(UIView*)view;
-
-- (void)goToUser:(NSString*)uid;
-
-@end
 
 @interface WFThreadsBodyCell : UITableViewCell
 
-@property(nonatomic, weak) id <WFThreadsBodyCellDelegate> delegate;
+@property(nonatomic, weak) id <WFThreadsCellDelegate> delegate;
 
 - (void)setupWithContent:(NSString*)content;
 

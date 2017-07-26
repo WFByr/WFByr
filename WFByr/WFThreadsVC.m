@@ -22,6 +22,7 @@
 #import "WFModuleFactory.h"
 #import "WFArticleApi.h"
 #import "WFToken.h"
+#import "WFThreadsCellDelegate.h"
 #import "YYModel.h"
 #import "IDMPhotoBrowser.h"
 
@@ -30,7 +31,7 @@ const NSUInteger kBodyRow  = 1;
 const NSUInteger kReplyRow = 2;
 
 
-@interface WFThreadsVC ()<UITableViewDelegate, UITableViewDataSource, WFArticleResponseDelegate, WFArticleResponseReformer, WFKeyBoardDelegate, WFThreadsTitleCellDelegate,WFThreadsBodyCellDelegate, WFThreadsReplyCellDelegate, WFRouterProtocol>
+@interface WFThreadsVC ()<UITableViewDelegate, UITableViewDataSource, WFArticleResponseDelegate, WFArticleResponseReformer, WFKeyBoardDelegate, WFThreadsCellDelegate, WFRouterProtocol>
 
 @property (nonatomic, strong) WFThread *thread;
 
