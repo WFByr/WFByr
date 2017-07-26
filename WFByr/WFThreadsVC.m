@@ -353,8 +353,14 @@ const NSUInteger kReplyRow = 2;
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 
-- (void)presentImageWithUrls:(NSArray *)urls {
-    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urls];
+- (void)presentImageWithUrls:(NSArray *)urls selected:(NSInteger)index fromView:(UIView *)view {
+    IDMPhotoBrowser *browser;
+    if (view) {
+       browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urls animatedFromView:view];
+    } else {
+    browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urls];
+    }
+    [browser setInitialPageIndex:index];
     [self presentViewController:browser animated:YES completion:nil];
 }
 

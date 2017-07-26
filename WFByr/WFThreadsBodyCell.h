@@ -16,7 +16,7 @@
 
 - (void)linkClicked:(NSURL*) url;
 
-- (void)presentImageWithUrls:(NSArray*)urls;
+- (void)presentImageWithUrls:(NSArray*)urls selected:(NSInteger)index fromView:(UIView*)view;
 
 - (void)goToUser:(NSString*)uid;
 

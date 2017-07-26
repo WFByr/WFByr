@@ -13,7 +13,7 @@
 #import "YYText.h"
 #import "UIImageView+WebCache.h"
 #import "IDMPhotoBrowser.h"
-
+#import "UITapGestureRecognizer+ASUserInfo.h"
 
 @interface WFThreadsBodyCell()
 
@@ -108,7 +108,10 @@
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
         imgView.userInteractionEnabled = YES;
         imgView.contentMode = UIViewContentModeScaleAspectFit;
-        [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClicked:)]];
+        
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClicked:)];
+        recognizer.userInfo = @{@"index":@(attachmentNo), @"view":imgView};
+        [imgView addGestureRecognizer:recognizer];
         [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
         [self.imgViews addObject:imgView];
         NSAttributedString *imgStr = [NSAttributedString yy_attachmentStringWithContent:imgView
@@ -130,6 +133,6 @@
     for (WFFile *file in _article.attachment.file) {
         [urls addObject:[NSURL URLWithString:file.url]];
     }
-    [self.delegate presentImageWithUrls:urls];
+    [self.delegate presentImageWithUrls:urls selected:[[recognizer.userInfo objectForKey:@"index"] integerValue] fromView:[recognizer.userInfo objectForKey:@"view"]];
 }
 @end
