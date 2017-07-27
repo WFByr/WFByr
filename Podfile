@@ -13,7 +13,7 @@ target 'WFByr' do
     pod 'YYWebImage'
     pod 'Reveal-SDK', :configurations => ['Debug']
     pod 'Masonry'
-    pod 'MBProgressHUD'
+    pod 'MBProgressHUD', '0.9.2'
     pod 'TTTAttributedLabel'
     pod 'SDWebImage'
     pod 'SDWebImage/GIF'
