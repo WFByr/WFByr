@@ -6,12 +6,12 @@ target 'WFByr' do
     pod 'IDMPhotoBrowser'
     pod 'AFNetworking'
     pod 'MJRefresh'
-    pod 'WMPageController'
+    pod 'WMPageController', '2.3.0'
     pod 'YYText'
     pod 'YYModel'
     pod 'YYImage'
     pod 'YYWebImage'
-    pod 'Reveal-SDK', :configurations => ['Debug']
+    pod 'Reveal-SDK', '4', :configurations => ['Debug']
     pod 'Masonry'
     pod 'MBProgressHUD', '0.9.2'
     pod 'TTTAttributedLabel'
@@ -21,4 +21,5 @@ target 'WFByr' do
     pod 'FLAnimatedImage'
     pod 'Reachability'
     pod 'HysteriaPlayer'
+    pod 'CPDataDrivenLayout', :git => 'git@github.com:caoping/CPDataDrivenLayout.git', :branch => 'develop', :tag => '0.2.7'
 end
