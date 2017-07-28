@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupTableView];
+    [self setupNavi];
 }
 
 - (void)setupTableView {
@@ -42,6 +43,14 @@
         [sectionInfo appendCellInfos:@[cellInfo]];
     }];
     [_tableView cp_reloadSections:@[sectionInfo]];
+}
+
+- (void)setupNavi {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"add" style:UIBarButtonItemStyleDone target:self action:@selector(add)];
+}
+
+- (void)add {
+    [self.navigationController pushViewController:[[ASUserDefaultDetailVC alloc] initWithKey:nil] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
