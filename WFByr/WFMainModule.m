@@ -121,7 +121,12 @@
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if (motion == UIEventSubtypeMotionShake) {
-        [self presentViewController:[ASDebugVC debugVCEmbedInNavigationController] animated:YES completion:nil];
+        ASDebugVC *debugVC = [ASDebugVC debugVCEmbedInNavigationController];
+        UIViewController *targetVC = self;
+        if (self.presentedViewController) {
+            targetVC = self.presentedViewController;
+        }
+        [targetVC presentViewController:debugVC animated:YES completion:nil];
     }
 }
 #endif
