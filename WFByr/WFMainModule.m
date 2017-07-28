@@ -20,6 +20,9 @@
 
 #import "WFPostVC.h"
 
+#if DEBUG
+#import "ASDebugVC.h"
+#endif
 
 @interface WFAnimationController : NSObject <UIViewControllerAnimatedTransitioning>
 
@@ -110,6 +113,18 @@
     }
     return self;
 }
+
+#if DEBUG
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    if (motion == UIEventSubtypeMotionShake) {
+        [self presentViewController:[ASDebugVC debugVCEmbedInNavigationController] animated:YES completion:nil];
+    }
+}
+#endif
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
