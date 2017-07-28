@@ -162,6 +162,11 @@ const NSUInteger kReplyRow = 2;
     
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[@"hehe"] applicationActivities:nil];
+        [wself presentViewController:activityVC animated:YES completion:nil];
+    }];
+    
     UIAlertAction *addFavAction = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         __strong typeof(wself) sself = wself;
         if (sself == nil) return;
@@ -172,13 +177,14 @@ const NSUInteger kReplyRow = 2;
             wf_showHud(sself.view, @"收藏失败", 1);
         }];
     }];
-    
+   
     UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"reply");
     }];
     
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
+    [alertVC addAction:shareAction];
     [alertVC addAction:addFavAction];
     [alertVC addAction:replyAction];
     [alertVC addAction:cancleAction];

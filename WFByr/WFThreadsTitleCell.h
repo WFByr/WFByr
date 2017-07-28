@@ -7,18 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol WFThreadsTitleCellDelegate <NSObject>
-
-@required
-
-- (void)linkClicked:(NSURL*) url;
-
-@end
+#import "WFThreadsCellDelegate.h"
 
 @interface WFThreadsTitleCell : UITableViewCell
 
-@property(nonatomic, weak) id <WFThreadsTitleCellDelegate> delegate;
+@property(nonatomic, weak) id <WFThreadsCellDelegate> delegate;
 
 - (void)setupWithTitle:(NSString*) title;
 
