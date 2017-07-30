@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WFMp3PlayerView">
+            <rect key="frame" x="0.0" y="0.0" width="459" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9T-iX-Ej1">
+                    <rect key="frame" x="8" y="8" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="JDv-dp-q4f"/>
+                        <constraint firstAttribute="width" constant="40" id="vft-4o-oCc"/>
+                    </constraints>
+                    <state key="normal" image="play"/>
+                    <connections>
+                        <action selector="playBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="NQi-dT-eMe"/>
+                    </connections>
+                </button>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uRI-RA-ajx">
+                    <rect key="frame" x="54" y="13" width="399" height="31"/>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Y9T-iX-Ej1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="7fh-PA-8aK"/>
+                <constraint firstAttribute="bottom" secondItem="Y9T-iX-Ej1" secondAttribute="bottom" constant="8" id="SXL-CD-fLN"/>
+                <constraint firstItem="Y9T-iX-Ej1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Try-Td-Fju"/>
+                <constraint firstItem="uRI-RA-ajx" firstAttribute="leading" secondItem="Y9T-iX-Ej1" secondAttribute="trailing" constant="8" id="WOt-Bd-qNS"/>
+                <constraint firstItem="uRI-RA-ajx" firstAttribute="centerY" secondItem="Y9T-iX-Ej1" secondAttribute="centerY" id="d9g-tO-BTG"/>
+                <constraint firstAttribute="trailing" secondItem="uRI-RA-ajx" secondAttribute="trailing" constant="8" id="sIk-Zi-LZL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="84.5" y="-79.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="play" width="60" height="60"/>
+    </resources>
+</document>

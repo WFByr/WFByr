@@ -21,5 +21,6 @@ target 'WFByr' do
     pod 'FLAnimatedImage'
     pod 'Reachability'
     pod 'HysteriaPlayer'
+    pod 'XXNibBridge'
     pod 'CPDataDrivenLayout', :git => 'git@github.com:caoping/CPDataDrivenLayout.git', :branch => 'develop', :tag => '0.2.7'
 end

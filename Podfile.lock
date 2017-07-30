@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CPDataDrivenLayout (0.2.5):
+    - UITableView+FDTemplateLayoutCell (= 1.6)
   - DACircularProgress (2.3.1)
   - FLAnimatedImage (1.0.12)
   - HysteriaPlayer (2.2.2)
@@ -24,7 +26,7 @@ PODS:
   - Masonry (1.0.2)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.12)
-  - pop (1.0.9)
+  - pop (1.0.10)
   - Reachability (3.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -33,7 +35,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - Reveal-SDK (8)
+  - Reveal-SDK (4)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -41,7 +43,9 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - TTTAttributedLabel (2.0.0)
+  - UITableView+FDTemplateLayoutCell (1.6)
   - WMPageController (2.3.0)
+  - XXNibBridge (2.3.1)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -54,27 +58,42 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CPDataDrivenLayout (from `git@github.com:caoping/CPDataDrivenLayout.git`, branch `develop`, tag `0.2.7`)
   - FLAnimatedImage
   - HysteriaPlayer
   - IDMPhotoBrowser
   - Masonry
-  - MBProgressHUD
+  - MBProgressHUD (= 0.9.2)
   - MJRefresh
   - Reachability
   - ReactiveCocoa (~> 2.5)
-  - Reveal-SDK
+  - Reveal-SDK (= 4)
   - SDWebImage
   - SDWebImage/GIF
   - TTTAttributedLabel
-  - WMPageController
+  - WMPageController (= 2.3.0)
+  - XXNibBridge
   - YYCache
   - YYImage
   - YYModel
   - YYText
   - YYWebImage
 
+EXTERNAL SOURCES:
+  CPDataDrivenLayout:
+    :branch: develop
+    :git: git@github.com:caoping/CPDataDrivenLayout.git
+    :tag: 0.2.7
+
+CHECKOUT OPTIONS:
+  CPDataDrivenLayout:
+    :commit: 6ecbb75c666fe05224c957fa2b4f4f0357577ca3
+    :git: git@github.com:caoping/CPDataDrivenLayout.git
+    :tag: 0.2.7
+
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CPDataDrivenLayout: 3bc3cff46ac33357cac9bfb65cdf67eb7c2ef2c3
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   HysteriaPlayer: 8fb4f3dac9b55f060de7bfdd2b8027503b441d3b
@@ -82,19 +101,21 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
+  Reveal-SDK: 178c927f1a3230648d3a92b96f6e730a35b2750a
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WMPageController: 9f219bb8912a1a1f51af11fde61e2682a7b7e7f2
+  XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 8f2d1d868d0b858265d160fbd44a56421b4977ef
+PODFILE CHECKSUM: d7111b2f32396d2cebc3a21b417dc29c703f2bad
 
 COCOAPODS: 1.2.0
