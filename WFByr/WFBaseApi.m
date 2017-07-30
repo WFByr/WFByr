@@ -57,7 +57,9 @@
     WFSessionManager * manager = [WFSessionManager sharedHttpSessionManager];
     //AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BYR_BASE_URL]];
     if ([method  isEqual: WFHTTPGet]) {
-        
+        if (![[manager reachabilityManager] isReachable]) {
+            manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+        }
         [manager GET:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
             dispatch_async(dispatch_get_main_queue(), ^{

@@ -18,6 +18,7 @@
 #import "YYText.h"
 #import "YYModel.h"
 #import "MBProgressHUD.h"
+#import "WFBBCodeParser.h"
 
 @interface WFPostVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, YYTextViewDelegate, WFBoardPickerDelegate>
 
@@ -34,6 +35,8 @@
 @property (nonatomic, strong) YYTextView *textView;
 
 @property (nonatomic, strong) YYTextView *preshowView;
+
+@property (nonatomic, strong) WFBBCodeParser *bbcodeParser;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 
@@ -192,6 +195,10 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.x > 0) {
         [self.textView resignFirstResponder];
+        __weak typeof(self) weakSelf = self;
+        [self.bbcodeParser parseBBCode:_textView.text finish:^(NSAttributedString *attrString) {
+            weakSelf.preshowView.attributedText = attrString;
+        }];
     }
 }
 # pragma mark - UIImagePickerControllerDelegate
@@ -433,7 +440,6 @@
         _preshowView.placeholderText = @"预览";
         _preshowView.editable = NO;
         _preshowView.placeholderFont = [UIFont fontWithName:WFFontName size:14];
-        //_preshowView.textParser = self.ubbParser;
         _preshowView.font = [UIFont fontWithName:WFFontName size:14];
         _preshowView.backgroundColor = [UIColor whiteColor];
     }
@@ -466,7 +472,7 @@
     if (_uploadHud == nil) {
         _uploadHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     }
-    [_uploadHud show:YES];
+    [_uploadHud showAnimated:YES];
     return _uploadHud;
 }
 
@@ -475,8 +481,15 @@
         _postHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         _postHud.mode = MBProgressHUDModeText;
     }
-    [_postHud show:YES];
+    [_postHud showAnimated:YES];
     return _postHud;
+}
+
+- (WFBBCodeParser*)bbcodeParser {
+    if (!_bbcodeParser) {
+        _bbcodeParser = [WFBBCodeParser new];
+    }
+    return _bbcodeParser;
 }
 
 @end

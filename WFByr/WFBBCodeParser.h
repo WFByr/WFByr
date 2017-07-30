@@ -25,4 +25,6 @@
 
 - (NSAttributedString*)parseBBCode:(NSString*) aBBCode;
 
+- (void)parseBBCode:(NSString*)aBBCode finish:(void(^)(NSAttributedString *attrString))finishBlock;
+
 @end

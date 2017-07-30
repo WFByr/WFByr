@@ -68,6 +68,19 @@
     return _translatedString;
 }
 
+- (void)parseBBCode:(NSString *)aBBCode finish:(void (^)(NSAttributedString *))finishBlock {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        _translatedString = [NSMutableAttributedString new];
+        [_translatedString beginEditing];
+        [_translator translate:aBBCode withTranslater:self];
+        [_translatedString endEditing];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (finishBlock) {
+                finishBlock(_translatedString);
+            }
+        });
+    });
+}
 
 @end
 
