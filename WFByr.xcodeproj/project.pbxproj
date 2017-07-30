@@ -304,6 +304,8 @@
 		A1C331B31F2B886200417E47 /* ASDebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C331B21F2B886200417E47 /* ASDebugVC.m */; };
 		A1C331C31F2B911F00417E47 /* ASUserDefaultListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C331C21F2B911F00417E47 /* ASUserDefaultListVC.m */; };
 		A1C331C71F2BA1EA00417E47 /* ASUserDefaultDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C331C61F2BA1EA00417E47 /* ASUserDefaultDetailVC.m */; };
+		A1CA63DB1F2E47CB00A867A6 /* WFMp3PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CA63DA1F2E47CB00A867A6 /* WFMp3PlayerView.m */; };
+		A1CA63DD1F2E47DD00A867A6 /* WFMp3PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CA63DC1F2E47DD00A867A6 /* WFMp3PlayerView.xib */; };
 		A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC14981ED927D900A2AD0B /* WFRouter.m */; };
 		A1ECB4141ED966D0006DD061 /* WFBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ECB4111ED966D0006DD061 /* WFBoard.m */; };
 		A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ECB4131ED966D0006DD061 /* WFPagination.m */; };
@@ -741,6 +743,9 @@
 		A1C331C21F2B911F00417E47 /* ASUserDefaultListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASUserDefaultListVC.m; sourceTree = "<group>"; };
 		A1C331C51F2BA1EA00417E47 /* ASUserDefaultDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASUserDefaultDetailVC.h; sourceTree = "<group>"; };
 		A1C331C61F2BA1EA00417E47 /* ASUserDefaultDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASUserDefaultDetailVC.m; sourceTree = "<group>"; };
+		A1CA63D91F2E47CB00A867A6 /* WFMp3PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMp3PlayerView.h; sourceTree = "<group>"; };
+		A1CA63DA1F2E47CB00A867A6 /* WFMp3PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFMp3PlayerView.m; sourceTree = "<group>"; };
+		A1CA63DC1F2E47DD00A867A6 /* WFMp3PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFMp3PlayerView.xib; sourceTree = "<group>"; };
 		A1EC14971ED927D900A2AD0B /* WFRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFRouter.h; sourceTree = "<group>"; };
 		A1EC14981ED927D900A2AD0B /* WFRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFRouter.m; sourceTree = "<group>"; };
 		A1ECB4101ED966D0006DD061 /* WFBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBoard.h; sourceTree = "<group>"; };
@@ -829,6 +834,9 @@
 				A112B8131EDFE5590007A712 /* WFReplyHeader.h */,
 				A112B8141EDFE5590007A712 /* WFReplyHeader.m */,
 				A1BBDD291F2903C3000C2D3F /* WFThreadsCellDelegate.h */,
+				A1CA63D91F2E47CB00A867A6 /* WFMp3PlayerView.h */,
+				A1CA63DA1F2E47CB00A867A6 /* WFMp3PlayerView.m */,
+				A1CA63DC1F2E47DD00A867A6 /* WFMp3PlayerView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1699,6 +1707,7 @@
 				A112B96A1EDFF0D40007A712 /* emb5.gif in Resources */,
 				A112B9981EDFF0D40007A712 /* emc46.gif in Resources */,
 				A112B9581EDFF0D40007A712 /* emb10.gif in Resources */,
+				A1CA63DD1F2E47DD00A867A6 /* WFMp3PlayerView.xib in Resources */,
 				A112B98A1EDFF0D40007A712 /* emc33.gif in Resources */,
 				A112B9A11EDFF0D40007A712 /* emc54.gif in Resources */,
 				A112B95B1EDFF0D40007A712 /* emb13.gif in Resources */,
@@ -2026,6 +2035,7 @@
 				A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */,
 				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
 				A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */,
+				A1CA63DB1F2E47CB00A867A6 /* WFMp3PlayerView.m in Sources */,
 				A1B75C811EDE97D3008D46DC /* WFBBCodeParser.m in Sources */,
 				A112B8031EDF22930007A712 /* WFEmotionInput.m in Sources */,
 				A10E30B71EC5ABD40060CC1C /* WFTop10Manager.m in Sources */,

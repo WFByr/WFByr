@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "IDMPhotoBrowser.h"
 #import "UITapGestureRecognizer+ASUserInfo.h"
+#import "WFMp3PlayerView.h"
 
 @interface WFThreadsBodyCell()
 
@@ -93,7 +94,7 @@
 @implementation WFThreadsBodyCell (WFBBCodeParserDelegate)
 
 - (BOOL)customizeTag:(NSString *)tagName {
-    return [tagName isEqualToString:@"upload"];
+    return [tagName isEqualToString:@"upload"] || [tagName isEqualToString:@"mp3"];
 }
 
 - (NSAttributedString*)renderTag:(NSString *)tagName withValue:(NSString *)val {
@@ -104,25 +105,45 @@
         if (attachmentNo >= _article.attachment.file.count) {
             return renderedStr;
         }
-        NSString *imgUrl = _article.attachment.file[attachmentNo].thumbnail_middle;
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-        imgView.userInteractionEnabled = YES;
-        imgView.contentMode = UIViewContentModeScaleAspectFit;
-        
-        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClicked:)];
-        recognizer.userInfo = @{@"index":@(attachmentNo), @"view":imgView};
-        [imgView addGestureRecognizer:recognizer];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
-        //[self.imgViews addObject:imgView];
-        NSAttributedString *imgStr = [NSAttributedString yy_attachmentStringWithContent:imgView
-                                                                            contentMode:UIViewContentModeCenter
-                                                                         attachmentSize:imgView.frame.size
-                                                                            alignToFont:[UIFont systemFontOfSize:16]
-                                                                              alignment:YYTextVerticalAlignmentCenter];
+        NSAttributedString *attachmentStr;
+        WFFile *file =  _article.attachment.file[attachmentNo];
+        if ([file.name hasSuffix:@"mp3"] || [file.name hasSuffix:@"m4a"]) {
+            CGFloat playerWidth = WFSCREEN_W - 16;
+            WFMp3PlayerView *mp3Player = [WFMp3PlayerView mp3PlayerViewWithUrl:file.url];
+            CGRect frame = mp3Player.frame;
+            frame.size = CGSizeMake(playerWidth, 50);
+            mp3Player.frame = frame;
+            [mp3Player setNeedsLayout];
+            [mp3Player layoutIfNeeded];
+            attachmentStr = [NSAttributedString yy_attachmentStringWithContent:mp3Player
+                                                                   contentMode:UIViewContentModeCenter
+                                                                attachmentSize:CGSizeMake(playerWidth, 50)
+                                                                   alignToFont:[UIFont systemFontOfSize:16]
+                                                                     alignment:YYTextVerticalAlignmentCenter];
+        } else {
+            NSString *imgUrl = file.thumbnail_middle;
+            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+            imgView.userInteractionEnabled = YES;
+            imgView.contentMode = UIViewContentModeScaleAspectFit;
+            
+            UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClicked:)];
+            recognizer.userInfo = @{@"index":@(attachmentNo), @"view":imgView};
+            [imgView addGestureRecognizer:recognizer];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
+            attachmentStr = [NSAttributedString yy_attachmentStringWithContent:imgView
+                                                                   contentMode:UIViewContentModeCenter
+                                                                attachmentSize:imgView.frame.size
+                                                                   alignToFont:[UIFont systemFontOfSize:16]
+                                                                     alignment:YYTextVerticalAlignmentCenter];
+        }
+
         [renderedStr yy_appendString:@"\n"];
-        [renderedStr appendAttributedString:imgStr];
+        [renderedStr appendAttributedString:attachmentStr];
         [renderedStr yy_appendString:@"\n"];
         return renderedStr;
+    }
+    if ([tagName isEqualToString:@"mp3"]) {
+        NSLog(@"mp3:%@", val);
     }
     return nil;
     
