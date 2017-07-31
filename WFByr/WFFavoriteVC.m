@@ -79,12 +79,12 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
 
 - (void)loadData{
     [self.collectionList removeAllObjects];
-    self.dataCenter.page = 0;
+    self.dataCenter.page = 1;
 }
 
 - (void)moreData{
     if (!self.dataCenter.maxPage ||self.dataCenter.maxPage == (id)[NSNull null] || self.dataCenter.page < [self.dataCenter.maxPage integerValue]) {
-        self.dataCenter.page = [[NSNumber numberWithInteger:self.dataCenter.page] integerValue] + 1;
+        self.dataCenter.page = self.dataCenter.page + 1;
     }else{
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     }
