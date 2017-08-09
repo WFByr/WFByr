@@ -25,6 +25,8 @@
 #import "WFThreadsCellDelegate.h"
 #import "YYModel.h"
 #import "IDMPhotoBrowser.h"
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 const NSUInteger kTitleRow = 0;
 const NSUInteger kBodyRow  = 1;
@@ -56,6 +58,8 @@ const NSUInteger kReplyRow = 2;
 @property (nonatomic, strong) NSMutableArray<WFArticle*> * articles;
 
 @property (nonatomic, strong) WFPagination *pagination;
+
+@property (nonatomic, strong) AVPlayer *avplayer;
 @end
 
 @implementation WFThreadsVC
@@ -371,10 +375,13 @@ const NSUInteger kReplyRow = 2;
     [self presentViewController:browser animated:YES completion:nil];
 }
 
-# pragma mark - WFThreadReplyCellDelegate
-
 - (void)goToUser:(NSString *)uid {
     [WFRouter go:@"/user" withParams:@{@"uid":uid} from:self];
+}
+
+- (void)playAudioWithUrl:(NSURL *)url {
+    _avplayer = [AVPlayer playerWithURL:url];
+    [_avplayer play];
 }
 
 #pragma mark - Getters and Setters

@@ -278,6 +278,7 @@
 		A138AF6C1ED7F95100070852 /* Top10.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6B1ED7F95100070852 /* Top10.xcassets */; };
 		A138AF6E1ED7F99F00070852 /* SectionModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */; };
 		A138AF731ED816C600070852 /* WFLoginModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF721ED816C600070852 /* WFLoginModule.m */; };
+		A13CE1781F3B865E009792D8 /* UIButton+WFActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */; };
 		A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A162EDCA1EEE408C00338F7E /* WFUserVC.m */; };
 		A162EDCE1EEE40BD00338F7E /* WFMeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A162EDCD1EEE40BD00338F7E /* WFMeModule.m */; };
 		A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A182C71C1EE7AA2D004BB8CB /* WFThread.m */; };
@@ -696,6 +697,8 @@
 		A138AF701ED8163F00070852 /* WFLoginModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFLoginModuleProtocol.h; sourceTree = "<group>"; };
 		A138AF711ED816C600070852 /* WFLoginModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginModule.h; sourceTree = "<group>"; };
 		A138AF721ED816C600070852 /* WFLoginModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginModule.m; sourceTree = "<group>"; };
+		A13CE1761F3B865E009792D8 /* UIButton+WFActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WFActionBlock.h"; sourceTree = "<group>"; };
+		A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WFActionBlock.m"; sourceTree = "<group>"; };
 		A162EDC91EEE408C00338F7E /* WFUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserVC.h; sourceTree = "<group>"; };
 		A162EDCA1EEE408C00338F7E /* WFUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserVC.m; sourceTree = "<group>"; };
 		A162EDCC1EEE40BD00338F7E /* WFMeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMeModule.h; sourceTree = "<group>"; };
@@ -1501,6 +1504,8 @@
 				A138AF4E1ED6BF6F00070852 /* WFConst.h */,
 				75C662081EE26AA900D372F7 /* UIImageView+Corner.h */,
 				75C662091EE26AA900D372F7 /* UIImageView+Corner.m */,
+				A13CE1761F3B865E009792D8 /* UIButton+WFActionBlock.h */,
+				A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -2000,6 +2005,7 @@
 			files = (
 				A10CED8A1EDD75570085026B /* UILabel+Extension.m in Sources */,
 				A10CED9D1EDE6B630085026B /* ASTranslater.m in Sources */,
+				A13CE1781F3B865E009792D8 /* UIButton+WFActionBlock.m in Sources */,
 				A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */,
 				A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */,
 				A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */,
