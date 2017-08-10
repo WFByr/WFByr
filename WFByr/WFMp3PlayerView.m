@@ -13,7 +13,7 @@
 
 @interface WFMp3PlayerView ()
 
-@property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic, strong) AVPlayer *player;
 
 @end
 
@@ -30,21 +30,12 @@
 + (instancetype)mp3PlayerViewWithUrl:(NSString *)urlString {
     WFMp3PlayerView *playerView = [WFMp3PlayerView xx_instantiateFromNib];
     playerView.url = [NSURL URLWithString:urlString];
+    playerView.player = [AVPlayer playerWithURL:playerView.url];
     return playerView;
 }
 
 - (IBAction)playBtnClicked:(id)sender {
-    if ([_player isPlaying]) {
-        [_player stop];
-    } else {
-        __weak  typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            NSData *mp3Data = [NSData dataWithContentsOfURL:weakSelf.url];
-            NSError *error;
-            weakSelf.player = [[AVAudioPlayer alloc] initWithData:mp3Data error:&error];
-            [weakSelf.player play];
-        });
-    }
+    [_player play];
 }
 
 

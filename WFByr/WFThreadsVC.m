@@ -25,6 +25,8 @@
 #import "WFThreadsCellDelegate.h"
 #import "YYModel.h"
 #import "IDMPhotoBrowser.h"
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 const NSUInteger kTitleRow = 0;
 const NSUInteger kBodyRow  = 1;
@@ -56,6 +58,10 @@ const NSUInteger kReplyRow = 2;
 @property (nonatomic, strong) NSMutableArray<WFArticle*> * articles;
 
 @property (nonatomic, strong) WFPagination *pagination;
+
+@property (nonatomic, strong) UIButton *playBtn;
+@property (nonatomic, strong) AVPlayer *avplayer;
+
 @end
 
 @implementation WFThreadsVC
@@ -371,12 +377,36 @@ const NSUInteger kReplyRow = 2;
     [self presentViewController:browser animated:YES completion:nil];
 }
 
-# pragma mark - WFThreadReplyCellDelegate
-
 - (void)goToUser:(NSString *)uid {
     [WFRouter go:@"/user" withParams:@{@"uid":uid} from:self];
 }
 
+- (void)playAudioWithUrl:(NSURL *)url {
+    if (!_avplayer) {
+        _avplayer = [AVPlayer playerWithURL:url];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playToEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+        [self playBtnReset];
+    }
+}
+
+- (void)playBtnReset {
+    [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+}
+
+- (void)playAudio {
+    if (self.avplayer.rate != 0 && self.avplayer.error == nil) {
+        [self playBtnReset];
+        [self.avplayer pause];
+    } else {
+        [self.playBtn setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        [self.avplayer play];
+    }
+}
+
+- (void)playToEnd {
+    [self.avplayer seekToTime:kCMTimeZero];
+    [self playBtnReset];
+}
 #pragma mark - Getters and Setters
 
 - (UIBarButtonItem*)moreOpBtn {
@@ -442,6 +472,21 @@ const NSUInteger kReplyRow = 2;
         _replyStatusHud.mode = MBProgressHUDModeText;
     }
     return _replyStatusHud;
+}
+
+- (UIButton*)playBtn {
+    if (!_playBtn) {
+        _playBtn = [UIButton new];
+        [self.view addSubview:_playBtn];
+        [_playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        [_playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@(40));
+            make.right.equalTo(self.view).offset(-16);
+            make.bottom.equalTo(self.view).offset(-50);
+        }];
+        [_playBtn addTarget:self action:@selector(playAudio) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _playBtn;
 }
 
 - (void)dealloc {

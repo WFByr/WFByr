@@ -18,5 +18,6 @@
 
 - (void)goToUser:(NSString*)uid;
 
+- (void)playAudioWithUrl:(NSURL*)url;
 
 @end

@@ -15,6 +15,7 @@
 #import "IDMPhotoBrowser.h"
 #import "UITapGestureRecognizer+ASUserInfo.h"
 #import "WFMp3PlayerView.h"
+#import "UIButton+WFActionBlock.h"
 
 @interface WFThreadsBodyCell()
 
@@ -108,18 +109,20 @@
         NSAttributedString *attachmentStr;
         WFFile *file =  _article.attachment.file[attachmentNo];
         if ([file.name hasSuffix:@"mp3"] || [file.name hasSuffix:@"m4a"]) {
-            CGFloat playerWidth = WFSCREEN_W - 16;
-            WFMp3PlayerView *mp3Player = [WFMp3PlayerView mp3PlayerViewWithUrl:file.url];
-            CGRect frame = mp3Player.frame;
-            frame.size = CGSizeMake(playerWidth, 50);
-            mp3Player.frame = frame;
-            [mp3Player setNeedsLayout];
-            [mp3Player layoutIfNeeded];
-            attachmentStr = [NSAttributedString yy_attachmentStringWithContent:mp3Player
-                                                                   contentMode:UIViewContentModeCenter
-                                                                attachmentSize:CGSizeMake(playerWidth, 50)
-                                                                   alignToFont:[UIFont systemFontOfSize:16]
-                                                                     alignment:YYTextVerticalAlignmentCenter];
+            [self.delegate playAudioWithUrl:[NSURL URLWithString:file.url]];
+//            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//            [btn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+//            btn.frame = CGRectMake(0, 0, 40, 40);
+//            __weak typeof(self) weakSelf = self;
+//            [btn addActionBlock:^{
+//                [weakSelf.delegate playAudioWithUrl:[NSURL URLWithString:file.url]];
+//            }];
+//            attachmentStr = [NSAttributedString yy_attachmentStringWithContent:btn
+//                                                                   contentMode:UIViewContentModeCenter
+//                                                                attachmentSize:btn.frame.size
+//                                                                   alignToFont:[UIFont systemFontOfSize:16]
+//                                                                     alignment:YYTextVerticalAlignmentCenter];
+            
         } else {
             NSString *imgUrl = file.thumbnail_middle;
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
@@ -136,10 +139,11 @@
                                                                    alignToFont:[UIFont systemFontOfSize:16]
                                                                      alignment:YYTextVerticalAlignmentCenter];
         }
-
-        [renderedStr yy_appendString:@"\n"];
-        [renderedStr appendAttributedString:attachmentStr];
-        [renderedStr yy_appendString:@"\n"];
+        if (attachmentStr) {
+            [renderedStr yy_appendString:@"\n"];
+            [renderedStr appendAttributedString:attachmentStr];
+            [renderedStr yy_appendString:@"\n"];
+        }
         return renderedStr;
     }
     if ([tagName isEqualToString:@"mp3"]) {
