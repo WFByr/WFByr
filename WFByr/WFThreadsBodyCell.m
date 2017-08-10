@@ -109,18 +109,19 @@
         NSAttributedString *attachmentStr;
         WFFile *file =  _article.attachment.file[attachmentNo];
         if ([file.name hasSuffix:@"mp3"] || [file.name hasSuffix:@"m4a"]) {
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-            btn.frame = CGRectMake(0, 0, 40, 40);
-            __weak typeof(self) weakSelf = self;
-            [btn addActionBlock:^{
-                [weakSelf.delegate playAudioWithUrl:[NSURL URLWithString:file.url]];
-            }];
-            attachmentStr = [NSAttributedString yy_attachmentStringWithContent:btn
-                                                                   contentMode:UIViewContentModeCenter
-                                                                attachmentSize:btn.frame.size
-                                                                   alignToFont:[UIFont systemFontOfSize:16]
-                                                                     alignment:YYTextVerticalAlignmentCenter];
+            [self.delegate playAudioWithUrl:[NSURL URLWithString:file.url]];
+//            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//            [btn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+//            btn.frame = CGRectMake(0, 0, 40, 40);
+//            __weak typeof(self) weakSelf = self;
+//            [btn addActionBlock:^{
+//                [weakSelf.delegate playAudioWithUrl:[NSURL URLWithString:file.url]];
+//            }];
+//            attachmentStr = [NSAttributedString yy_attachmentStringWithContent:btn
+//                                                                   contentMode:UIViewContentModeCenter
+//                                                                attachmentSize:btn.frame.size
+//                                                                   alignToFont:[UIFont systemFontOfSize:16]
+//                                                                     alignment:YYTextVerticalAlignmentCenter];
             
         } else {
             NSString *imgUrl = file.thumbnail_middle;
@@ -138,10 +139,11 @@
                                                                    alignToFont:[UIFont systemFontOfSize:16]
                                                                      alignment:YYTextVerticalAlignmentCenter];
         }
-
-        [renderedStr yy_appendString:@"\n"];
-        [renderedStr appendAttributedString:attachmentStr];
-        [renderedStr yy_appendString:@"\n"];
+        if (attachmentStr) {
+            [renderedStr yy_appendString:@"\n"];
+            [renderedStr appendAttributedString:attachmentStr];
+            [renderedStr yy_appendString:@"\n"];
+        }
         return renderedStr;
     }
     if ([tagName isEqualToString:@"mp3"]) {
