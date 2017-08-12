@@ -33,5 +33,7 @@ static NSString * const WFByrUserUrl       = @"user";
 static NSString * const WFByrVoteUrl       = @"vote";
 static NSString * const WFByrWidgetUrl     = @"widget";
 
+static NSString * const WFByrTokenKey      = @"oauth_token";
 
+static NSString * WFByrAppKey = @"e0224cd2c58ab14ee3cf7415b9b63659";
 #endif /* WFByrConst_h */

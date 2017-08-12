@@ -54,16 +54,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WFByr/ASDebugVC.m"
-            timestampString = "522952415.976472"
+            filePath = "WFByr/WFNetworkExecutor.m"
+            timestampString = "524250742.415276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-setupTableView"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "+requestWithUrl:parameters:option:complete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WFByr/WFNetworkExecutor.m"
+            timestampString = "524250742.415276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "+requestWithUrl:parameters:option:complete:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

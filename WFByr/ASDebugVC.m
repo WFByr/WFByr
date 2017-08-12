@@ -11,7 +11,7 @@
 #import "ASUserDefaultListVC.h"
 #import <CPDataDrivenLayout/UITableView+CPDataDrivenLayout.h>
 
-@interface ASDebugVC () <UITableViewDelegate, UITableViewDataSource>
+@interface ASDebugVC ()
 
 @property (nonatomic, strong) UITableView *tableView;
 

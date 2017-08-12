@@ -9,6 +9,7 @@
 #import "WFLoginModuleProtocol.h"
 #import "WFLoginModule.h"
 #import "WFLoginVC.h"
+#import "WFOfficialLoginVC.h"
 
 @interface WFLoginModule () <WFLoginModule>
 
@@ -18,7 +19,7 @@
 @implementation WFLoginModule
 
 - (UIViewController*)rootVC {
-    return [WFLoginVC new];
+    return [WFOfficialLoginVC new];
 }
 
 @end
