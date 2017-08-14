@@ -40,6 +40,9 @@
     }
     
     self.navigationItem.titleView = _textField;
+    
+
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)], [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(delete)]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
 }
 
@@ -60,6 +63,11 @@
 - (void)save {
     [[NSUserDefaults standardUserDefaults] setObject:_textView.text forKey:_textField.text];
     wf_showHud(self.view, @"保存成功", 1);
+}
+
+- (void)delete {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:_key];
+    wf_showHud(self.view, @"删除成功", 1);
 }
 /*
 #pragma mark - Navigation

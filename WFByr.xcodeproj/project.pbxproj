@@ -33,7 +33,6 @@
 		A10E2FC41EC5A2160060CC1C /* WFByrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FC31EC5A2160060CC1C /* WFByrTests.m */; };
 		A10E2FCF1EC5A2160060CC1C /* WFByrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E2FCE1EC5A2160060CC1C /* WFByrUITests.m */; };
 		A10E309E1EC5A72C0060CC1C /* WFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E309D1EC5A72C0060CC1C /* WFLoginVC.m */; };
-		A10E30A21EC5A7F00060CC1C /* WFToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30A11EC5A7F00060CC1C /* WFToken.m */; };
 		A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30A41EC5A8020060CC1C /* WFOAth2.m */; };
 		A10E30B41EC5ABD40060CC1C /* WFTop10Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10E30A71EC5ABD40060CC1C /* WFTop10Cell.m */; };
 		A10E30B51EC5ABD40060CC1C /* WFTop10Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10E30A81EC5ABD40060CC1C /* WFTop10Cell.xib */; };
@@ -279,11 +278,14 @@
 		A138AF6E1ED7F99F00070852 /* SectionModule.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A138AF6D1ED7F99F00070852 /* SectionModule.xcassets */; };
 		A138AF731ED816C600070852 /* WFLoginModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A138AF721ED816C600070852 /* WFLoginModule.m */; };
 		A13CE1781F3B865E009792D8 /* UIButton+WFActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */; };
-		A13CE1B51F3F2DDC009792D8 /* WFLoginApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1B41F3F2DDC009792D8 /* WFLoginApi.m */; };
+		A13CE1B51F3F2DDC009792D8 /* WFLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1B41F3F2DDC009792D8 /* WFLoginService.m */; };
 		A13CE1B81F3F2E7E009792D8 /* WFNetworkExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1B71F3F2E7E009792D8 /* WFNetworkExecutor.m */; };
 		A13CE1BB1F3F3F93009792D8 /* AFHTTPSessionManager+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1BA1F3F3F93009792D8 /* AFHTTPSessionManager+Singleton.m */; };
 		A13CE1BE1F3F47C1009792D8 /* WFApiGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1BD1F3F47C1009792D8 /* WFApiGenerator.m */; };
 		A13CE1C11F3F4D44009792D8 /* WFOfficialLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1C01F3F4D44009792D8 /* WFOfficialLoginVC.m */; };
+		A13CE1C41F4043AF009792D8 /* UIColor+WFColors.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1C31F4043AF009792D8 /* UIColor+WFColors.m */; };
+		A13CE1C71F404D41009792D8 /* UIFont+WFFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1C61F404D41009792D8 /* UIFont+WFFonts.m */; };
+		A13CE1CA1F40B329009792D8 /* WFToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A13CE1C91F40B329009792D8 /* WFToken.m */; };
 		A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A162EDCA1EEE408C00338F7E /* WFUserVC.m */; };
 		A162EDCE1EEE40BD00338F7E /* WFMeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A162EDCD1EEE40BD00338F7E /* WFMeModule.m */; };
 		A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A182C71C1EE7AA2D004BB8CB /* WFThread.m */; };
@@ -415,8 +417,6 @@
 		A10E2FD01EC5A2160060CC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A10E309C1EC5A72C0060CC1C /* WFLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginVC.h; sourceTree = "<group>"; };
 		A10E309D1EC5A72C0060CC1C /* WFLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginVC.m; sourceTree = "<group>"; };
-		A10E30A01EC5A7F00060CC1C /* WFToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFToken.h; sourceTree = "<group>"; };
-		A10E30A11EC5A7F00060CC1C /* WFToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFToken.m; sourceTree = "<group>"; };
 		A10E30A31EC5A8020060CC1C /* WFOAth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFOAth2.h; sourceTree = "<group>"; };
 		A10E30A41EC5A8020060CC1C /* WFOAth2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFOAth2.m; sourceTree = "<group>"; };
 		A10E30A71EC5ABD40060CC1C /* WFTop10Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTop10Cell.m; sourceTree = "<group>"; };
@@ -704,8 +704,8 @@
 		A138AF721ED816C600070852 /* WFLoginModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginModule.m; sourceTree = "<group>"; };
 		A13CE1761F3B865E009792D8 /* UIButton+WFActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WFActionBlock.h"; sourceTree = "<group>"; };
 		A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WFActionBlock.m"; sourceTree = "<group>"; };
-		A13CE1B31F3F2DDC009792D8 /* WFLoginApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginApi.h; sourceTree = "<group>"; };
-		A13CE1B41F3F2DDC009792D8 /* WFLoginApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginApi.m; sourceTree = "<group>"; };
+		A13CE1B31F3F2DDC009792D8 /* WFLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLoginService.h; sourceTree = "<group>"; };
+		A13CE1B41F3F2DDC009792D8 /* WFLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLoginService.m; sourceTree = "<group>"; };
 		A13CE1B61F3F2E7E009792D8 /* WFNetworkExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNetworkExecutor.h; sourceTree = "<group>"; };
 		A13CE1B71F3F2E7E009792D8 /* WFNetworkExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNetworkExecutor.m; sourceTree = "<group>"; };
 		A13CE1B91F3F3F93009792D8 /* AFHTTPSessionManager+Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Singleton.h"; sourceTree = "<group>"; };
@@ -714,6 +714,12 @@
 		A13CE1BD1F3F47C1009792D8 /* WFApiGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFApiGenerator.m; sourceTree = "<group>"; };
 		A13CE1BF1F3F4D44009792D8 /* WFOfficialLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFOfficialLoginVC.h; sourceTree = "<group>"; };
 		A13CE1C01F3F4D44009792D8 /* WFOfficialLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFOfficialLoginVC.m; sourceTree = "<group>"; };
+		A13CE1C21F4043AF009792D8 /* UIColor+WFColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WFColors.h"; sourceTree = "<group>"; };
+		A13CE1C31F4043AF009792D8 /* UIColor+WFColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WFColors.m"; sourceTree = "<group>"; };
+		A13CE1C51F404D41009792D8 /* UIFont+WFFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+WFFonts.h"; sourceTree = "<group>"; };
+		A13CE1C61F404D41009792D8 /* UIFont+WFFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+WFFonts.m"; sourceTree = "<group>"; };
+		A13CE1C81F40B329009792D8 /* WFToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFToken.h; sourceTree = "<group>"; };
+		A13CE1C91F40B329009792D8 /* WFToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFToken.m; sourceTree = "<group>"; };
 		A162EDC91EEE408C00338F7E /* WFUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserVC.h; sourceTree = "<group>"; };
 		A162EDCA1EEE408C00338F7E /* WFUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserVC.m; sourceTree = "<group>"; };
 		A162EDCC1EEE40BD00338F7E /* WFMeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFMeModule.h; sourceTree = "<group>"; };
@@ -1449,6 +1455,8 @@
 				75C662061EE2625700D372F7 /* WFCollection.m */,
 				A182C71B1EE7AA2D004BB8CB /* WFThread.h */,
 				A182C71C1EE7AA2D004BB8CB /* WFThread.m */,
+				A13CE1C81F40B329009792D8 /* WFToken.h */,
+				A13CE1C91F40B329009792D8 /* WFToken.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1470,13 +1478,11 @@
 				A138AF5F1ED6D82600070852 /* WFWidgetApi.m */,
 				A10E30A31EC5A8020060CC1C /* WFOAth2.h */,
 				A10E30A41EC5A8020060CC1C /* WFOAth2.m */,
-				A10E30A01EC5A7F00060CC1C /* WFToken.h */,
-				A10E30A11EC5A7F00060CC1C /* WFToken.m */,
 				A138AF641ED6FE3400070852 /* WFByrConst.h */,
 				7587AFF61EE28F9F00C4721E /* WFCollectionApi.h */,
 				7587AFF71EE28F9F00C4721E /* WFCollectionApi.m */,
-				A13CE1B31F3F2DDC009792D8 /* WFLoginApi.h */,
-				A13CE1B41F3F2DDC009792D8 /* WFLoginApi.m */,
+				A13CE1B31F3F2DDC009792D8 /* WFLoginService.h */,
+				A13CE1B41F3F2DDC009792D8 /* WFLoginService.m */,
 				A13CE1B61F3F2E7E009792D8 /* WFNetworkExecutor.h */,
 				A13CE1B71F3F2E7E009792D8 /* WFNetworkExecutor.m */,
 				A13CE1B91F3F3F93009792D8 /* AFHTTPSessionManager+Singleton.h */,
@@ -1531,6 +1537,10 @@
 				75C662091EE26AA900D372F7 /* UIImageView+Corner.m */,
 				A13CE1761F3B865E009792D8 /* UIButton+WFActionBlock.h */,
 				A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */,
+				A13CE1C21F4043AF009792D8 /* UIColor+WFColors.h */,
+				A13CE1C31F4043AF009792D8 /* UIColor+WFColors.m */,
+				A13CE1C51F404D41009792D8 /* UIFont+WFFonts.h */,
+				A13CE1C61F404D41009792D8 /* UIFont+WFFonts.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1680,6 +1690,7 @@
 					A10E2FA51EC5A2160060CC1C = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 9E9C2ZNYDA;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					A10E2FBE1EC5A2160060CC1C = {
@@ -2036,7 +2047,7 @@
 				A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */,
 				A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */,
 				A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */,
-				A13CE1B51F3F2DDC009792D8 /* WFLoginApi.m in Sources */,
+				A13CE1B51F3F2DDC009792D8 /* WFLoginService.m in Sources */,
 				A1FE41E61EEF906000F5DE03 /* WFUserApi.m in Sources */,
 				A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */,
 				A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */,
@@ -2066,6 +2077,7 @@
 				A112B9D81EE13F9D0007A712 /* WFBoardApi.m in Sources */,
 				A10E2FB11EC5A2160060CC1C /* ViewController.m in Sources */,
 				A19A3A541EE68D4300F07346 /* WFFavoriteService.m in Sources */,
+				A13CE1C41F4043AF009792D8 /* UIColor+WFColors.m in Sources */,
 				A112B9B71EE10F280007A712 /* WFSectionModule.m in Sources */,
 				A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */,
 				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
@@ -2097,11 +2109,12 @@
 				A10CED991EDE5D5B0085026B /* ASParser.m in Sources */,
 				A10CED971EDE5D5B0085026B /* ASDebugger.m in Sources */,
 				756D007C1EE1A5720062B2BB /* WFFavoriteVC.m in Sources */,
+				A13CE1CA1F40B329009792D8 /* WFToken.m in Sources */,
 				A10E2FAB1EC5A2160060CC1C /* main.m in Sources */,
+				A13CE1C71F404D41009792D8 /* UIFont+WFFonts.m in Sources */,
 				756D00801EE1A5BD0062B2BB /* WFFavoriteCell.m in Sources */,
 				A1ECB4141ED966D0006DD061 /* WFBoard.m in Sources */,
 				A10CED981EDE5D5B0085026B /* ASLexer.m in Sources */,
-				A10E30A21EC5A7F00060CC1C /* WFToken.m in Sources */,
 				A138AF601ED6D82600070852 /* WFWidgetApi.m in Sources */,
 				A18819C21ED962A500E4F2F4 /* WFThreadsBodyCell.m in Sources */,
 				A1BBDD281F28FCD6000C2D3F /* UITapGestureRecognizer+ASUserInfo.m in Sources */,
@@ -2290,6 +2303,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2308,6 +2322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

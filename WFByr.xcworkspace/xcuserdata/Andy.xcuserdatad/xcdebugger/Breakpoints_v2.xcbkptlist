@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WFByr/WFNetworkExecutor.m"
-            timestampString = "524250742.415276"
+            filePath = "WFByr/WFOfficialLoginVC.m"
+            timestampString = "524416707.696042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "+requestWithUrl:parameters:option:complete:"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-loginBtnClicked"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WFByr/WFNetworkExecutor.m"
-            timestampString = "524250742.415276"
+            filePath = "WFByr/WFLoginService.m"
+            timestampString = "524416747.18719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "+requestWithUrl:parameters:option:complete:"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "+loginWithUserName:password:success:fail:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

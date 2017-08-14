@@ -6,34 +6,35 @@
 //  Copyright © 2017年 andy. All rights reserved.
 //
 
-#import "WFLoginApi.h"
+#import "WFLoginService.h"
 #import "WFNetworkExecutor.h"
 #import "WFByrConst.h"
 #import "WFToken.h"
+#import "YYModel.h"
 
-@implementation WFLoginApi
+@implementation WFLoginService
 
-- (void)loginWithUserName:(NSString *)name password:(NSString *)pwd success:(void (^)())successBlk fail:(void (^)())failBlk {
++ (void)loginWithUserName:(NSString *)name password:(NSString *)pwd
+                  success:(void (^)(NSURLResponse *response, WFToken *token))successBlk
+                     fail:(void (^)(NSURLResponse *response, NSError *error))failBlk {
     NSDictionary *parameters = @{@"source":@"1502546984-1",
                                  @"username":[[name dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0],
                                  @"password":[[pwd dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0],
                                  @"appkey":WFByrAppKey};
     [WFNetworkExecutor requestWithUrl:@"https://bbs.byr.cn/oauth2/official" parameters:parameters option:WFRequestOptionPost complete:^(NSURLResponse *response, WFNetworkResponseObj *obj, NSError *error) {
+//        if (obj.code != 0 && obj.msg) {
+//            error = [NSError errorWithDomain:NSURLErrorDomain code:obj.code userInfo:@{NSLocalizedDescriptionKey:obj.msg}];
+//        }
         if (!error) {
-            WFToken *token = [WFToken shareToken];
-            [token setupWithAccesssToken:[obj valueForKey:@"access_token"]
-                            refreshToken:@""
-                               expiresIn:[[obj valueForKey:@"expires_in"] integerValue]];
+            WFToken *token = [WFToken yy_modelWithJSON:obj];
             if (successBlk) {
-                successBlk();
+                successBlk(response, token);
             }
         } else {
             if (failBlk) {
-                failBlk();
+                failBlk(response, error);
             }
         }
-        
-        
     }];
 }
 

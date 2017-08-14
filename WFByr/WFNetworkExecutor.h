@@ -16,6 +16,9 @@ typedef NS_OPTIONS(NSInteger, WFRequestOption) {
 };
 @interface WFNetworkResponseObj : NSObject
 
+@property (nonatomic, assign) NSInteger code;
+@property (nonatomic, copy) NSString *msg;
+
 @end
 
 @interface WFNetworkExecutor : NSObject

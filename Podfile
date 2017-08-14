@@ -2,6 +2,8 @@ platform :ios, '8.0'
 
 target 'WFByr' do
     use_frameworks!
+    pod 'TextFieldEffects'
+    pod 'FMDB'
     pod 'YYCache'
     pod 'IDMPhotoBrowser'
     pod 'AFNetworking'

@@ -21,7 +21,9 @@
 #import "WFRouter.h"
 #import "WFHelpers.h"
 #import "WFConst.h"
-
+#import "UIColor+WFColors.h"
+#import "UIColor+Hex.h"
+#import "UIFont+WFFonts.h"
 
 
 

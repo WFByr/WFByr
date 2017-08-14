@@ -9,6 +9,10 @@
 #import "WFNetworkExecutor.h"
 #import "AFHTTPSessionManager+Singleton.h"
 #import "WFByrConst.h"
+#import "YYModel.h"
+
+@implementation WFNetworkResponseObj
+@end
 
 @implementation WFNetworkExecutor
 
@@ -32,6 +36,7 @@
             }
         }];
         [task resume];
+        return task;
     } else if (option & WFRequestOptionPost) {
         NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:params error:nil];
         NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -40,10 +45,10 @@
             }
         }];
         [task resume];
+        return task;
     } else {
         return nil;
     }
-    return nil;
 }
 
 @end

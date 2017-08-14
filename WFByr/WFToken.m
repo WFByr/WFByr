@@ -1,9 +1,9 @@
 //
-//  ASByrToken.m
-//  ASByr
+//  WFToken.m
+//  WFByr
 //
-//  Created by andy on 16/3/6.
-//  Copyright © 2016年 andy. All rights reserved.
+//  Created by Andy on 2017/8/14.
+//  Copyright © 2017年 andy. All rights reserved.
 //
 
 #import "WFToken.h"
@@ -12,12 +12,12 @@ NSString * const kAccessTokenKey  = @"access_token";
 NSString * const kRefreshTokenKey = @"refresh_token";
 NSString * const kExpiresInKey    = @"expires_in";
 
-@interface WFToken()
-
-@end
-
-
 @implementation WFToken
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"accessToken" : @"access_token",
+             @"expiresIn": @"expires_in"};
+}
 
 static id _instance;
 
@@ -52,11 +52,13 @@ static id _instance;
     [[NSUserDefaults standardUserDefaults] setObject:self.refreshToken forKey:kExpiresInKey];
 }
 
+
 - (BOOL)valid {
     if (self.accessToken) {
         return YES;
     }
     return NO;
 }
+
 
 @end

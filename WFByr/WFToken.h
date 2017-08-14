@@ -1,19 +1,18 @@
 //
-//  ASByrToken.h
-//  ASByr
+//  WFToken.h
+//  WFByr
 //
-//  Created by andy on 16/3/6.
-//  Copyright © 2016年 andy. All rights reserved.
+//  Created by Andy on 2017/8/14.
+//  Copyright © 2017年 andy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-
 @interface WFToken : NSObject
 
-@property(strong, nonatomic) NSString *accessToken;
-@property(strong, nonatomic) NSString *refreshToken;
-@property(assign, nonatomic) NSInteger expiresIn;
+@property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, assign) NSInteger expiresIn;
+@property (nonatomic, copy) NSString *refreshToken;
 
 + (instancetype)shareToken;
 
@@ -22,5 +21,4 @@
                     expiresIn:(NSInteger)expiresIn;
 
 - (BOOL)valid;
-
 @end
