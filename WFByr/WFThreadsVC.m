@@ -452,7 +452,7 @@ const NSUInteger kReplyRow = 2;
     if (_hud == nil) {
         _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         _hud.mode = MBProgressHUDModeAnnularDeterminate;
-        _hud.label.text = @"Loading";
+        _hud.labelText = @"Loading";
     }
     return _hud;
 }
@@ -461,7 +461,7 @@ const NSUInteger kReplyRow = 2;
     if (_endHud == nil) {
         _endHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         _endHud.mode = MBProgressHUDModeText;
-        _endHud.label.text = @"到底了";
+        _endHud.labelText = @"到底了";
     }
     return _endHud;
 }

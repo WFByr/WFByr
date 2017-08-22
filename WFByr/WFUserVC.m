@@ -13,7 +13,6 @@
 #import "UIImageView+WebCache.h"
 #import "Masonry.h"
 
-
 const CGFloat WFNavigationBarAnimationDuration = 0.5;
 
 const CGFloat WFFaceCoverHeight = 200.0;

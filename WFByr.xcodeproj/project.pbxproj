@@ -14,6 +14,20 @@
 		7587AFFE1EE299CD00C4721E /* WFFavoriteDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7587AFFD1EE299CD00C4721E /* WFFavoriteDataCenter.m */; };
 		75C662071EE2625700D372F7 /* WFCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C662061EE2625700D372F7 /* WFCollection.m */; };
 		75C6620A1EE26AA900D372F7 /* UIImageView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C662091EE26AA900D372F7 /* UIImageView+Corner.m */; };
+		9E11353D1F4733A500297F99 /* WFManagementSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11353C1F4733A500297F99 /* WFManagementSection.m */; };
+		9E1135401F47347400297F99 /* WFManagementRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11353F1F47347400297F99 /* WFManagementRow.m */; };
+		9E1135481F473F0800297F99 /* WFManagementTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1135471F473F0800297F99 /* WFManagementTableViewAdapter.m */; };
+		9E11354C1F47F7FE00297F99 /* WFManagementTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11354B1F47F7FE00297F99 /* WFManagementTableViewHandler.m */; };
+		9E1135521F480BF200297F99 /* WFManagementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1135511F480BF200297F99 /* WFManagementCell.m */; };
+		9E32083D1F445BC10005E71B /* WFProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E32083C1F445BC10005E71B /* WFProfileHeaderView.m */; };
+		9E3208401F445C080005E71B /* WFUserDetailLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E32083F1F445C080005E71B /* WFUserDetailLabel.m */; };
+		9E8F50491F45475B001CAE85 /* UIDevice+WFScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8F50481F45475B001CAE85 /* UIDevice+WFScale.m */; };
+		9E8F504C1F456EAC001CAE85 /* UIView+WFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8F504B1F456EAB001CAE85 /* UIView+WFHelper.m */; };
+		9E928A771F4BF17F00224731 /* WFUserDetailTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E928A761F4BF17F00224731 /* WFUserDetailTableViewAdapter.m */; };
+		9E928A7A1F4BF19300224731 /* WFUserDetailTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E928A791F4BF19300224731 /* WFUserDetailTableViewHandler.m */; };
+		9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */; };
+		9ECE6E4F1F498E6A00C92F1E /* WFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */; };
+		9ECE6E521F49B99400C92F1E /* WFManagementRow+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */; };
 		A10CED7A1ED96EBC0085026B /* WFThreadsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED791ED96EBC0085026B /* WFThreadsModule.m */; };
 		A10CED7E1EDD648F0085026B /* WFKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED7D1EDD648F0085026B /* WFKeyboard.m */; };
 		A10CED811EDD65440085026B /* WFArticleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED801EDD65440085026B /* WFArticleApi.m */; };
@@ -371,6 +385,38 @@
 		75C662061EE2625700D372F7 /* WFCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFCollection.m; sourceTree = "<group>"; };
 		75C662081EE26AA900D372F7 /* UIImageView+Corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Corner.h"; sourceTree = "<group>"; };
 		75C662091EE26AA900D372F7 /* UIImageView+Corner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Corner.m"; sourceTree = "<group>"; };
+		9E11353B1F4733A500297F99 /* WFManagementSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementSection.h; sourceTree = "<group>"; };
+		9E11353C1F4733A500297F99 /* WFManagementSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementSection.m; sourceTree = "<group>"; };
+		9E11353E1F47347400297F99 /* WFManagementRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementRow.h; sourceTree = "<group>"; };
+		9E11353F1F47347400297F99 /* WFManagementRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementRow.m; sourceTree = "<group>"; };
+		9E1135411F47382900297F99 /* WFManagementUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementUtils.h; sourceTree = "<group>"; };
+		9E1135461F473F0800297F99 /* WFManagementTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewAdapter.h; sourceTree = "<group>"; };
+		9E1135471F473F0800297F99 /* WFManagementTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementTableViewAdapter.m; sourceTree = "<group>"; };
+		9E1135491F47F4FB00297F99 /* WFManagementTableViewProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewProtocal.h; sourceTree = "<group>"; };
+		9E11354A1F47F7FE00297F99 /* WFManagementTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewHandler.h; sourceTree = "<group>"; };
+		9E11354B1F47F7FE00297F99 /* WFManagementTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementTableViewHandler.m; sourceTree = "<group>"; };
+		9E11354D1F47FF0200297F99 /* WFManagementTableViewHelperProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewHelperProtocal.h; sourceTree = "<group>"; };
+		9E1135501F480BF200297F99 /* WFManagementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementCell.h; sourceTree = "<group>"; };
+		9E1135511F480BF200297F99 /* WFManagementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementCell.m; sourceTree = "<group>"; };
+		9E32083B1F445BC10005E71B /* WFProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFProfileHeaderView.h; sourceTree = "<group>"; };
+		9E32083C1F445BC10005E71B /* WFProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFProfileHeaderView.m; sourceTree = "<group>"; };
+		9E32083E1F445C080005E71B /* WFUserDetailLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserDetailLabel.h; sourceTree = "<group>"; };
+		9E32083F1F445C080005E71B /* WFUserDetailLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserDetailLabel.m; sourceTree = "<group>"; };
+		9E8F50471F45475B001CAE85 /* UIDevice+WFScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WFScale.h"; sourceTree = "<group>"; };
+		9E8F50481F45475B001CAE85 /* UIDevice+WFScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WFScale.m"; sourceTree = "<group>"; };
+		9E8F504A1F456EAB001CAE85 /* UIView+WFHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WFHelper.h"; sourceTree = "<group>"; };
+		9E8F504B1F456EAB001CAE85 /* UIView+WFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WFHelper.m"; sourceTree = "<group>"; };
+		9E928A751F4BF17F00224731 /* WFUserDetailTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserDetailTableViewAdapter.h; sourceTree = "<group>"; };
+		9E928A761F4BF17F00224731 /* WFUserDetailTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserDetailTableViewAdapter.m; sourceTree = "<group>"; };
+		9E928A781F4BF19300224731 /* WFUserDetailTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserDetailTableViewHandler.h; sourceTree = "<group>"; };
+		9E928A791F4BF19300224731 /* WFUserDetailTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFUserDetailTableViewHandler.m; sourceTree = "<group>"; };
+		9ECE6E481F4906DF00C92F1E /* WFProfileGuestHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFProfileGuestHeaderView.h; sourceTree = "<group>"; };
+		9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFProfileGuestHeaderView.m; sourceTree = "<group>"; };
+		9ECE6E4D1F498E6A00C92F1E /* WFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTableViewCell.h; sourceTree = "<group>"; };
+		9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFTableViewCell.m; sourceTree = "<group>"; };
+		9ECE6E501F49B99400C92F1E /* WFManagementRow+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFManagementRow+Image.h"; sourceTree = "<group>"; };
+		9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFManagementRow+Image.m"; sourceTree = "<group>"; };
+		9ECE6E7E1F4AEBF500C92F1E /* WFManagementTableViewCellProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewCellProtocal.h; sourceTree = "<group>"; };
 		A10CED781ED96EBC0085026B /* WFThreadsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsModule.h; sourceTree = "<group>"; };
 		A10CED791ED96EBC0085026B /* WFThreadsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsModule.m; sourceTree = "<group>"; };
 		A10CED7B1ED96EE60085026B /* WFThreadsModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThreadsModuleProtocol.h; sourceTree = "<group>"; };
@@ -821,6 +867,103 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		9E11353A1F4732AF00297F99 /* ViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				9E11354F1F480BBC00297F99 /* Cell */,
+				9E1135451F473EE400297F99 /* ControllerHelper */,
+				9E1135441F473ED600297F99 /* Model */,
+			);
+			name = ViewAdapter;
+			sourceTree = "<group>";
+		};
+		9E1135441F473ED600297F99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E11353B1F4733A500297F99 /* WFManagementSection.h */,
+				9E11353C1F4733A500297F99 /* WFManagementSection.m */,
+				9E11353E1F47347400297F99 /* WFManagementRow.h */,
+				9E11353F1F47347400297F99 /* WFManagementRow.m */,
+				9E1135411F47382900297F99 /* WFManagementUtils.h */,
+				9ECE6E501F49B99400C92F1E /* WFManagementRow+Image.h */,
+				9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9E1135451F473EE400297F99 /* ControllerHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9E928A801F4BFFDE00224731 /* Handler */,
+				9E928A7F1F4BFFB600224731 /* Adapter */,
+				9E11354E1F47FF4800297F99 /* Protocal */,
+			);
+			name = ControllerHelper;
+			sourceTree = "<group>";
+		};
+		9E11354E1F47FF4800297F99 /* Protocal */ = {
+			isa = PBXGroup;
+			children = (
+				9E11354D1F47FF0200297F99 /* WFManagementTableViewHelperProtocal.h */,
+				9E1135491F47F4FB00297F99 /* WFManagementTableViewProtocal.h */,
+				9ECE6E7E1F4AEBF500C92F1E /* WFManagementTableViewCellProtocal.h */,
+			);
+			name = Protocal;
+			sourceTree = "<group>";
+		};
+		9E11354F1F480BBC00297F99 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E1135501F480BF200297F99 /* WFManagementCell.h */,
+				9E1135511F480BF200297F99 /* WFManagementCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		9E32083A1F445B870005E71B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E32083B1F445BC10005E71B /* WFProfileHeaderView.h */,
+				9E32083C1F445BC10005E71B /* WFProfileHeaderView.m */,
+				9E32083E1F445C080005E71B /* WFUserDetailLabel.h */,
+				9E32083F1F445C080005E71B /* WFUserDetailLabel.m */,
+				9ECE6E481F4906DF00C92F1E /* WFProfileGuestHeaderView.h */,
+				9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9E928A7F1F4BFFB600224731 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				9E1135461F473F0800297F99 /* WFManagementTableViewAdapter.h */,
+				9E1135471F473F0800297F99 /* WFManagementTableViewAdapter.m */,
+				9E928A751F4BF17F00224731 /* WFUserDetailTableViewAdapter.h */,
+				9E928A761F4BF17F00224731 /* WFUserDetailTableViewAdapter.m */,
+			);
+			name = Adapter;
+			sourceTree = "<group>";
+		};
+		9E928A801F4BFFDE00224731 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				9E11354A1F47F7FE00297F99 /* WFManagementTableViewHandler.h */,
+				9E11354B1F47F7FE00297F99 /* WFManagementTableViewHandler.m */,
+				9E928A781F4BF19300224731 /* WFUserDetailTableViewHandler.h */,
+				9E928A791F4BF19300224731 /* WFUserDetailTableViewHandler.m */,
+			);
+			name = Handler;
+			sourceTree = "<group>";
+		};
+		9ECE6E4B1F498E2200C92F1E /* WFUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9ECE6E4D1F498E6A00C92F1E /* WFTableViewCell.h */,
+				9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */,
+			);
+			name = WFUIKit;
+			sourceTree = "<group>";
+		};
 		A10CED771ED96E580085026B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -888,6 +1031,7 @@
 		A10E2FA81EC5A2160060CC1C /* WFByr */ = {
 			isa = PBXGroup;
 			children = (
+				9ECE6E4B1F498E2200C92F1E /* WFUIKit */,
 				A1A50D041EE81ED600C94C44 /* Utils */,
 				A112B8161EDFF0750007A712 /* Resource */,
 				A1EC14961ED9279B00A2AD0B /* Router */,
@@ -1384,6 +1528,8 @@
 		A138AF3E1ED6AC6B00070852 /* MeModule */ = {
 			isa = PBXGroup;
 			children = (
+				9E11353A1F4732AF00297F99 /* ViewAdapter */,
+				9E32083A1F445B870005E71B /* View */,
 				A112B9AA1EDFF9150007A712 /* Resource */,
 				A112B9AD1EDFFA210007A712 /* WFMeVC.h */,
 				A112B9AE1EDFFA210007A712 /* WFMeVC.m */,
@@ -1506,6 +1652,14 @@
 				75C662091EE26AA900D372F7 /* UIImageView+Corner.m */,
 				A13CE1761F3B865E009792D8 /* UIButton+WFActionBlock.h */,
 				A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */,
+				A13CE1C21F4043AF009792D8 /* UIColor+WFColors.h */,
+				A13CE1C31F4043AF009792D8 /* UIColor+WFColors.m */,
+				A13CE1C51F404D41009792D8 /* UIFont+WFFonts.h */,
+				A13CE1C61F404D41009792D8 /* UIFont+WFFonts.m */,
+				9E8F50471F45475B001CAE85 /* UIDevice+WFScale.h */,
+				9E8F50481F45475B001CAE85 /* UIDevice+WFScale.m */,
+				9E8F504A1F456EAB001CAE85 /* UIView+WFHelper.h */,
+				9E8F504B1F456EAB001CAE85 /* UIView+WFHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1655,6 +1809,8 @@
 					A10E2FA51EC5A2160060CC1C = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 9E9C2ZNYDA;
+						DevelopmentTeam = 2LA7DC9MYU;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					A10E2FBE1EC5A2160060CC1C = {
@@ -1993,7 +2149,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2007,7 +2163,10 @@
 				A10CED9D1EDE6B630085026B /* ASTranslater.m in Sources */,
 				A13CE1781F3B865E009792D8 /* UIButton+WFActionBlock.m in Sources */,
 				A1ECB4151ED966D0006DD061 /* WFPagination.m in Sources */,
+				9E3208401F445C080005E71B /* WFUserDetailLabel.m in Sources */,
 				A138AF631ED6D84C00070852 /* WFBaseApi.m in Sources */,
+				9E11353D1F4733A500297F99 /* WFManagementSection.m in Sources */,
+				9E11354C1F47F7FE00297F99 /* WFManagementTableViewHandler.m in Sources */,
 				A182C71D1EE7AA2D004BB8CB /* WFThread.m in Sources */,
 				A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */,
 				A1FE41E61EEF906000F5DE03 /* WFUserApi.m in Sources */,
@@ -2016,9 +2175,11 @@
 				A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */,
 				A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */,
 				A1A469011EE97913006022A5 /* WFSectionListVC.m in Sources */,
+				9ECE6E521F49B99400C92F1E /* WFManagementRow+Image.m in Sources */,
 				A138AF461ED6AE7A00070852 /* WFTop10Module.m in Sources */,
 				A138AF731ED816C600070852 /* WFLoginModule.m in Sources */,
 				A1A468FB1EE941C3006022A5 /* WFSection.m in Sources */,
+				9E32083D1F445BC10005E71B /* WFProfileHeaderView.m in Sources */,
 				A198BFA71F03ECE70051794A /* WFMainModule.m in Sources */,
 				A1C331C31F2B911F00417E47 /* ASUserDefaultListVC.m in Sources */,
 				A138AF531ED6D05400070852 /* WFArticle.m in Sources */,
@@ -2036,11 +2197,14 @@
 				A112B8071EDF291E0007A712 /* WFAttachmentApi.m in Sources */,
 				A112B9D81EE13F9D0007A712 /* WFBoardApi.m in Sources */,
 				A10E2FB11EC5A2160060CC1C /* ViewController.m in Sources */,
+				9ECE6E4F1F498E6A00C92F1E /* WFTableViewCell.m in Sources */,
 				A19A3A541EE68D4300F07346 /* WFFavoriteService.m in Sources */,
 				A112B9B71EE10F280007A712 /* WFSectionModule.m in Sources */,
+				9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */,
 				A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */,
 				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
 				A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */,
+				9E8F50491F45475B001CAE85 /* UIDevice+WFScale.m in Sources */,
 				A1CA63DB1F2E47CB00A867A6 /* WFMp3PlayerView.m in Sources */,
 				A1B75C811EDE97D3008D46DC /* WFBBCodeParser.m in Sources */,
 				A112B8031EDF22930007A712 /* WFEmotionInput.m in Sources */,
@@ -2057,6 +2221,7 @@
 				A112B80D1EDFABD90007A712 /* WFPostModule.m in Sources */,
 				75C662071EE2625700D372F7 /* WFCollection.m in Sources */,
 				A112B8151EDFE5590007A712 /* WFReplyHeader.m in Sources */,
+				9E1135521F480BF200297F99 /* WFManagementCell.m in Sources */,
 				A1A50D031EE81EBD00C94C44 /* WFPostRootVC.m in Sources */,
 				A10CED811EDD65440085026B /* WFArticleApi.m in Sources */,
 				A198BFAE1F03F8390051794A /* WFReachabilityVC.m in Sources */,
@@ -2064,21 +2229,26 @@
 				A138AF5B1ED6D1B300070852 /* WFFile.m in Sources */,
 				A10E30B91EC5ABD40060CC1C /* WFTop10RootVC.m in Sources */,
 				A112B9BB1EE111470007A712 /* WFArticleListVC.m in Sources */,
+				9E928A771F4BF17F00224731 /* WFUserDetailTableViewAdapter.m in Sources */,
 				A10CED991EDE5D5B0085026B /* ASParser.m in Sources */,
 				A10CED971EDE5D5B0085026B /* ASDebugger.m in Sources */,
 				756D007C1EE1A5720062B2BB /* WFFavoriteVC.m in Sources */,
 				A10E2FAB1EC5A2160060CC1C /* main.m in Sources */,
 				756D00801EE1A5BD0062B2BB /* WFFavoriteCell.m in Sources */,
+				9E928A7A1F4BF19300224731 /* WFUserDetailTableViewHandler.m in Sources */,
 				A1ECB4141ED966D0006DD061 /* WFBoard.m in Sources */,
 				A10CED981EDE5D5B0085026B /* ASLexer.m in Sources */,
 				A10E30A21EC5A7F00060CC1C /* WFToken.m in Sources */,
+				9E1135401F47347400297F99 /* WFManagementRow.m in Sources */,
 				A138AF601ED6D82600070852 /* WFWidgetApi.m in Sources */,
 				A18819C21ED962A500E4F2F4 /* WFThreadsBodyCell.m in Sources */,
 				A1BBDD281F28FCD6000C2D3F /* UITapGestureRecognizer+ASUserInfo.m in Sources */,
 				A1C331B31F2B886200417E47 /* ASDebugVC.m in Sources */,
 				7587AFF81EE28F9F00C4721E /* WFCollectionApi.m in Sources */,
 				A10E309E1EC5A72C0060CC1C /* WFLoginVC.m in Sources */,
+				9E8F504C1F456EAC001CAE85 /* UIView+WFHelper.m in Sources */,
 				A138AF4A1ED6B0A000070852 /* WFModuleFactory.m in Sources */,
+				9E1135481F473F0800297F99 /* WFManagementTableViewAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2251,7 +2421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				DEVELOPMENT_TEAM = 2LA7DC9MYU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WFByr/WFPrefixHeader.pch";
 				INFOPLIST_FILE = WFByr/Info.plist;
@@ -2269,7 +2439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				DEVELOPMENT_TEAM = 2LA7DC9MYU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WFByr/WFPrefixHeader.pch";
 				INFOPLIST_FILE = WFByr/Info.plist;

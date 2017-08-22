@@ -12,4 +12,6 @@
 
 - (void)wf_addCorner:(CGFloat)cornerRadius;
 
+- (void)wf_addColorCover:(UIColor *)coverColor;
+
 @end
