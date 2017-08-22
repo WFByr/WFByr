@@ -56,4 +56,14 @@
     return image;
 }
 
+//图标覆盖颜色
+- (void)wf_addColorCover:(UIColor *)coverColor{
+    UIImage * currentImage = [self.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIGraphicsBeginImageContextWithOptions(self.image.size, NO, self.image.scale);
+    [coverColor set];
+    [currentImage drawInRect:self.bounds];
+    currentImage = UIGraphicsGetImageFromCurrentImageContext();
+    self.image = currentImage;
+}
+
 @end

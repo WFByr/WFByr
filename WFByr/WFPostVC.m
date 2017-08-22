@@ -219,13 +219,13 @@
             //sself.ubbParser.attachment = response;
             sself.textView.text = [NSString stringWithFormat:@"%@[upload=%ld][/upload]\n", sself.textView.text, sself.attachment.file.count];
             sself.textView.selectedRange = NSMakeRange(0, 0);
-            [sself.uploadHud hideAnimated:YES];
+            [sself.uploadHud hide:YES];
             wf_showHud(sself.view, @"上传成功", 1.0);
         }
     } failureBlock:^(NSInteger statusCode, id response) {
         __strong typeof(wself)sself = wself;
         if (sself) {
-            [sself.uploadHud hideAnimated:YES];
+            [sself.uploadHud hide:YES];
              wf_showHud(sself.view, [NSString stringWithFormat:@"上传失败，%@", response[@"msg"]], 2.0);
         }
         NSLog(@"%@", response);
@@ -472,7 +472,7 @@
     if (_uploadHud == nil) {
         _uploadHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     }
-    [_uploadHud showAnimated:YES];
+    [_uploadHud show:YES];
     return _uploadHud;
 }
 
@@ -481,7 +481,7 @@
         _postHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         _postHud.mode = MBProgressHUDModeText;
     }
-    [_postHud showAnimated:YES];
+    [_postHud show:YES];
     return _postHud;
 }
 
