@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - CPDataDrivenLayout (0.2.5):
-    - UITableView+FDTemplateLayoutCell (= 1.6)
+    - "UITableView+FDTemplateLayoutCell (= 1.6)"
   - DACircularProgress (2.3.1)
   - FLAnimatedImage (1.0.12)
   - HysteriaPlayer (2.2.2)
@@ -43,7 +43,7 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - TTTAttributedLabel (2.0.0)
-  - UITableView+FDTemplateLayoutCell (1.6)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
   - WMPageController (2.3.0)
   - XXNibBridge (2.3.1)
   - YYCache (1.0.4)
@@ -58,7 +58,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - CPDataDrivenLayout (from `git@github.com:caoping/CPDataDrivenLayout.git`, branch `develop`, tag `0.2.7`)
+  - "CPDataDrivenLayout (from `git@github.com:caoping/CPDataDrivenLayout.git`, branch `develop`, tag `0.2.7`)"
   - FLAnimatedImage
   - HysteriaPlayer
   - IDMPhotoBrowser
@@ -79,16 +79,41 @@ DEPENDENCIES:
   - YYText
   - YYWebImage
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - DACircularProgress
+    - FLAnimatedImage
+    - HysteriaPlayer
+    - IDMPhotoBrowser
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - pop
+    - Reachability
+    - ReactiveCocoa
+    - Reveal-SDK
+    - SDWebImage
+    - TTTAttributedLabel
+    - "UITableView+FDTemplateLayoutCell"
+    - WMPageController
+    - XXNibBridge
+    - YYCache
+    - YYImage
+    - YYModel
+    - YYText
+    - YYWebImage
+
 EXTERNAL SOURCES:
   CPDataDrivenLayout:
     :branch: develop
-    :git: git@github.com:caoping/CPDataDrivenLayout.git
+    :git: "git@github.com:caoping/CPDataDrivenLayout.git"
     :tag: 0.2.7
 
 CHECKOUT OPTIONS:
   CPDataDrivenLayout:
     :commit: 6ecbb75c666fe05224c957fa2b4f4f0357577ca3
-    :git: git@github.com:caoping/CPDataDrivenLayout.git
+    :git: "git@github.com:caoping/CPDataDrivenLayout.git"
     :tag: 0.2.7
 
 SPEC CHECKSUMS:
@@ -107,7 +132,7 @@ SPEC CHECKSUMS:
   Reveal-SDK: 178c927f1a3230648d3a92b96f6e730a35b2750a
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
-  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WMPageController: 9f219bb8912a1a1f51af11fde61e2682a7b7e7f2
   XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -116,6 +141,6 @@ SPEC CHECKSUMS:
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: d7111b2f32396d2cebc3a21b417dc29c703f2bad
+PODFILE CHECKSUM: d9b7bb5ed89cb208e73299565da9326fca897502
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.8.4

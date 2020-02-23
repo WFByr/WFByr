@@ -55,5 +55,5 @@ void wf_showHud(UIView *toView, NSString *text, CGFloat duration) {
     hud.labelText = text;
     hud.labelColor = MAIN_BLUE;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES];
+    [hud  hide:YES afterDelay:duration];
 }

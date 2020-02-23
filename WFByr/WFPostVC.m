@@ -94,7 +94,9 @@
             [self.textView  insertText:[NSString stringWithFormat:@"\n\n【 在 %@ 的大作中提到: 】\n%@", self.replyTo.user.user_name, self.replyTo.content]];
         }
         
-        self.textView.selectedRange = NSMakeRange(input.length, 0);
+        if (input.length > 0) {
+            self.textView.selectedRange = NSMakeRange(input.length, 0);
+        }
     }
     return self;
 }
@@ -472,7 +474,7 @@
     if (_uploadHud == nil) {
         _uploadHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     }
-    [_uploadHud show:YES];
+    [_uploadHud showAnimated:YES whileExecutingBlock:nil];
     return _uploadHud;
 }
 
@@ -481,7 +483,7 @@
         _postHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         _postHud.mode = MBProgressHUDModeText;
     }
-    [_postHud show:YES];
+    [_postHud showAnimated:YES whileExecutingBlock:nil];
     return _postHud;
 }
 
