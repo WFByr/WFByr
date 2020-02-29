@@ -50,7 +50,7 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
         self.tableView.estimatedRowHeight = 100.0;
         self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         [self.tableView setBackgroundColor:[UIColor colorWithRed:0.97 green:0.97 blue:0.96 alpha:1.00]];
-        //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10Cell" bundle:nil] forCellReuseIdentifier:WFTop10CellReuseId];
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:WFTop10SeperatorCellReuseId];
         
@@ -106,7 +106,7 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
     if (indexPath.row % 2 == 0) {
         return UITableViewAutomaticDimension;
     } else {
-        return 6;
+        return WFSeperatorLineHeight;
     }
 }
 
