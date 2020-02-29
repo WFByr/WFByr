@@ -49,7 +49,7 @@ NSString * const WFUrlTemplate = @"http://bbs.byr.cn/oauth2/authorize?response_t
 }
 
 - (BOOL)parseRedirectUri:(NSString *)url {
-    NSLog(@"%@", url);
+    WFLogInfo(@"%@", url);
     NSArray *matches = [self.accessTokenReg matchesInString:url options:0 range:NSMakeRange(0, [url length])];
     if (![matches count]) {
         return NO;
@@ -80,7 +80,7 @@ NSString * const WFUrlTemplate = @"http://bbs.byr.cn/oauth2/authorize?response_t
 }
 
 - (BOOL)test:(NSString *)url {
-    NSLog(@"%@", url);
+    WFLogInfo(@"%@", url);
     return YES;
 }
 @end

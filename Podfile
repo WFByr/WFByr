@@ -10,6 +10,7 @@ target 'WFByr' do
     pod 'YYText'
     pod 'YYModel'
     pod 'YYImage'
+    pod 'Bugly', '2.5.2' 
     pod 'YYWebImage'
     pod 'Reveal-SDK', '4', :configurations => ['Debug']
     pod 'Masonry'

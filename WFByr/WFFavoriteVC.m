@@ -149,23 +149,23 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
 #pragma mark private method
 
 - (void)addCollectArticle:(NSNotification *)notis{
-    NSLog(@"添加通知激活！");
+    WFLogInfo(@"添加通知激活！");
     WFArticle * article = notis.userInfo[@"article"];
     [self.dataCenter.collectionApi addCollectionWithBoard:article.board_name aid:[NSString stringWithFormat:@"%ld", article.group_id] successBlock:^(NSInteger statusCode, id response) {
-        NSLog(@"添加收藏请求成功");
+        WFLogInfo(@"添加收藏请求成功");
     } failureBlock:^(NSInteger statusCode, id response) {
-        NSLog(@"添加收藏请求失败");
+        WFErrorInfo(@"添加收藏请求失败");
     }];
 }
 
 - (void)deleteCollectArticle:(NSNotification *)notis{
-    NSLog(@"删除通知激活！");
+    WFLogInfo(@"删除通知激活！");
     WFArticle * article = notis.userInfo[@"article"];
     [self.dataCenter.collectionApi deleteCollectionWithAid:[NSString stringWithFormat:@"%ld", article.group_id] successBlock:^(NSInteger statusCode, id response) {
-        NSLog(@"删除收藏请求成功.");
+        WFLogInfo(@"删除收藏请求成功.");
         
     } failureBlock:^(NSInteger statusCode, id response) {
-        NSLog(@"删除收藏请求失败. statusCode:%ld",(long)statusCode);
+        WFErrorInfo(@"删除收藏请求失败. statusCode:%ld",(long)statusCode);
     }];
 }
 

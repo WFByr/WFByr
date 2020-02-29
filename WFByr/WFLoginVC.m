@@ -100,9 +100,9 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if ([self.oath parseRedirectUri:webView.request.URL.absoluteString]) {
         [self dismissViewControllerAnimated:YES completion:nil];
-        NSLog(@"success");
+        WFLogInfo(@"success");
     } else {
-        NSLog(@"fail");
+        WFErrorInfo(@"fail");
     }
 }
 

@@ -13,6 +13,7 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Hex.h"
 
+#define WFByrBuglyAPPID @"10d4066b4e"
 static NSString * const WFFontName = @"AvenirNext-Regular";
 
 static NSString * const WFMeFontBoldName = @"PingFangSC-Bold";

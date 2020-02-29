@@ -14,6 +14,7 @@
 		7587AFFE1EE299CD00C4721E /* WFFavoriteDataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7587AFFD1EE299CD00C4721E /* WFFavoriteDataCenter.m */; };
 		75C662071EE2625700D372F7 /* WFCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C662061EE2625700D372F7 /* WFCollection.m */; };
 		75C6620A1EE26AA900D372F7 /* UIImageView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C662091EE26AA900D372F7 /* UIImageView+Corner.m */; };
+		7E8055E96A1E46CDE3F54088 /* libPods-WFByr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17028339E83E4A0B0BAE9258 /* libPods-WFByr.a */; };
 		9E11353D1F4733A500297F99 /* WFManagementSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11353C1F4733A500297F99 /* WFManagementSection.m */; };
 		9E1135401F47347400297F99 /* WFManagementRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11353F1F47347400297F99 /* WFManagementRow.m */; };
 		9E1135481F473F0800297F99 /* WFManagementTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1135471F473F0800297F99 /* WFManagementTableViewAdapter.m */; };
@@ -28,7 +29,6 @@
 		9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */; };
 		9ECE6E4F1F498E6A00C92F1E /* WFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */; };
 		9ECE6E521F49B99400C92F1E /* WFManagementRow+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */; };
-		7E8055E96A1E46CDE3F54088 /* libPods-WFByr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17028339E83E4A0B0BAE9258 /* libPods-WFByr.a */; };
 		A10CED7A1ED96EBC0085026B /* WFThreadsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED791ED96EBC0085026B /* WFThreadsModule.m */; };
 		A10CED7E1EDD648F0085026B /* WFKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED7D1EDD648F0085026B /* WFKeyboard.m */; };
 		A10CED811EDD65440085026B /* WFArticleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED801EDD65440085026B /* WFArticleApi.m */; };
@@ -1652,10 +1652,6 @@
 				75C662091EE26AA900D372F7 /* UIImageView+Corner.m */,
 				A13CE1761F3B865E009792D8 /* UIButton+WFActionBlock.h */,
 				A13CE1771F3B865E009792D8 /* UIButton+WFActionBlock.m */,
-				A13CE1C21F4043AF009792D8 /* UIColor+WFColors.h */,
-				A13CE1C31F4043AF009792D8 /* UIColor+WFColors.m */,
-				A13CE1C51F404D41009792D8 /* UIFont+WFFonts.h */,
-				A13CE1C61F404D41009792D8 /* UIFont+WFFonts.m */,
 				9E8F50471F45475B001CAE85 /* UIDevice+WFScale.h */,
 				9E8F50481F45475B001CAE85 /* UIDevice+WFScale.m */,
 				9E8F504A1F456EAB001CAE85 /* UIView+WFHelper.h */,
@@ -1808,8 +1804,7 @@
 				TargetAttributes = {
 					A10E2FA51EC5A2160060CC1C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9E9C2ZNYDA;
-						DevelopmentTeam = 2LA7DC9MYU;
+						DevelopmentTeam = 293HLYCM6H;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -1827,7 +1822,7 @@
 					};
 					A112B9C01EE1328C0007A712 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9E9C2ZNYDA;
+						DevelopmentTeam = 293HLYCM6H;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -2439,7 +2434,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				DEVELOPMENT_TEAM = 293HLYCM6H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -2512,7 +2507,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				DEVELOPMENT_TEAM = 293HLYCM6H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -2630,7 +2625,7 @@
 		A112B9D01EE1328C0007A712 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				DEVELOPMENT_TEAM = 293HLYCM6H;
 				INFOPLIST_FILE = WFTop10Today/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng.today;
@@ -2642,7 +2637,7 @@
 		A112B9D11EE1328C0007A712 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9E9C2ZNYDA;
+				DEVELOPMENT_TEAM = 293HLYCM6H;
 				INFOPLIST_FILE = WFTop10Today/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng.today;

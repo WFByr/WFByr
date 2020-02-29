@@ -187,11 +187,11 @@
 #pragma  mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    NSLog(@"end");
+    WFLogInfo(@"end");
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"scrolling");
+    WFLogInfo(@"scrolling");
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -230,7 +230,7 @@
             [sself.uploadHud hide:YES];
              wf_showHud(sself.view, [NSString stringWithFormat:@"上传失败，%@", response[@"msg"]], 2.0);
         }
-        NSLog(@"%@", response);
+        WFErrorInfo(@"上传失败 %@", response);
     }];
 
 }
