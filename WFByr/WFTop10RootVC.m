@@ -15,6 +15,9 @@
 #import "WMPageController.h"
 #import "Masonry.h"
 
+static NSInteger const kWFTop10RootVCHorizontolScrollBarRight = 40;
+static   CGFloat const kWFTop10RootVCHorizontolScrollBarHeight = 44.0;
+
 @interface WFTop10RootVC()<WMPageControllerDelegate, WMPageControllerDataSource>
 
 @property(nonatomic, strong) UIBarButtonItem *manageTop10Btn;
@@ -94,6 +97,10 @@
 - (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
     //ASBasicArticleListController* tmp = viewController;
     //[tmp loadIfNotLoaded];
+}
+
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
+    return CGRectMake(0, 0, self.view.frame.size.width - kWFTop10RootVCHorizontolScrollBarRight, kWFTop10RootVCHorizontolScrollBarHeight);
 }
 
 #pragma mark - event reponser

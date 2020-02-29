@@ -6,7 +6,7 @@ target 'WFByr' do
     pod 'IDMPhotoBrowser'
     pod 'AFNetworking'
     pod 'MJRefresh'
-    pod 'WMPageController', '2.3.0'
+    pod 'WMPageController', '2.4.0'
     pod 'YYText'
     pod 'YYModel'
     pod 'YYImage'
