@@ -117,9 +117,7 @@ static   CGFloat const kWFTop10RootVCHorizontolScrollBarHeight = 44.0;
 
 - (UIBarButtonItem *)manageTop10Btn {
     if (_manageTop10Btn == nil) {
-        _manageTop10Btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                        target:self
-                                                                        action:@selector(manageTop10)];
+        _manageTop10Btn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"topics"] style:UIBarButtonItemStylePlain target:self action:@selector(manageTop10)];
     }
     return _manageTop10Btn;
 }

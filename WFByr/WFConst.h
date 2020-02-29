@@ -20,7 +20,7 @@ static NSString * const WFFontName = @"AvenirNext-Regular";
 static NSString * const WFMeFontBoldName = @"PingFangSC-Bold";
 static NSString * const WFMeFontRegularName = @"PingFangSC-Regular";
 static NSInteger const WFSeperatorLineHeight = 6;
-#define MAIN_BLUE [UIColor colorWithRed:0.00 green:0.63 blue:0.95 alpha:1.00]
+#define MAIN_BLUE  [UIColor colorWithHexString:@"0x00A0F2"]
 #define MAIN_GRAY [UIColor colorWithRed:0.76 green:0.76 blue:0.76 alpha:1.00]
 #define FACE_BORDER_COLOR [UIColor colorWithRed:0.827 green:0.827 blue:0.827 alpha:1.00]
 #define WFMAIN_BACKGROUND_COLOR [UIColor colorWithHexString:@"0xf2f2f2"]

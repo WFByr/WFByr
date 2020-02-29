@@ -2,22 +2,21 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "stroke-7_1-2-0_home_256_0_000000_none 3.png",
       "scale" : "1x"
     },
     {
+      "filename" : "home@2x.png",
       "idiom" : "universal",
-      "filename" : "stroke-7_1-2-0_home_256_0_000000_none.png",
       "scale" : "2x"
     },
     {
+      "filename" : "home@3x.png",
       "idiom" : "universal",
-      "filename" : "stroke-7_1-2-0_home_256_0_000000_none 2.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
