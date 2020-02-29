@@ -29,6 +29,7 @@
 		9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */; };
 		9ECE6E4F1F498E6A00C92F1E /* WFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */; };
 		9ECE6E521F49B99400C92F1E /* WFManagementRow+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */; };
+		9EDF5E97240A76DF00BABBFC /* UIView+NoDataDefaultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDF5E96240A76DF00BABBFC /* UIView+NoDataDefaultView.m */; };
 		A10CED7A1ED96EBC0085026B /* WFThreadsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED791ED96EBC0085026B /* WFThreadsModule.m */; };
 		A10CED7E1EDD648F0085026B /* WFKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED7D1EDD648F0085026B /* WFKeyboard.m */; };
 		A10CED811EDD65440085026B /* WFArticleApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CED801EDD65440085026B /* WFArticleApi.m */; };
@@ -417,6 +418,8 @@
 		9ECE6E501F49B99400C92F1E /* WFManagementRow+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFManagementRow+Image.h"; sourceTree = "<group>"; };
 		9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFManagementRow+Image.m"; sourceTree = "<group>"; };
 		9ECE6E7E1F4AEBF500C92F1E /* WFManagementTableViewCellProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewCellProtocal.h; sourceTree = "<group>"; };
+		9EDF5E95240A76DF00BABBFC /* UIView+NoDataDefaultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NoDataDefaultView.h"; sourceTree = "<group>"; };
+		9EDF5E96240A76DF00BABBFC /* UIView+NoDataDefaultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NoDataDefaultView.m"; sourceTree = "<group>"; };
 		A10CED781ED96EBC0085026B /* WFThreadsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFThreadsModule.h; sourceTree = "<group>"; };
 		A10CED791ED96EBC0085026B /* WFThreadsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFThreadsModule.m; sourceTree = "<group>"; };
 		A10CED7B1ED96EE60085026B /* WFThreadsModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThreadsModuleProtocol.h; sourceTree = "<group>"; };
@@ -960,6 +963,8 @@
 			children = (
 				9ECE6E4D1F498E6A00C92F1E /* WFTableViewCell.h */,
 				9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */,
+				9EDF5E95240A76DF00BABBFC /* UIView+NoDataDefaultView.h */,
+				9EDF5E96240A76DF00BABBFC /* UIView+NoDataDefaultView.m */,
 			);
 			name = WFUIKit;
 			sourceTree = "<group>";
@@ -2236,6 +2241,7 @@
 				A1A50D031EE81EBD00C94C44 /* WFPostRootVC.m in Sources */,
 				A10CED811EDD65440085026B /* WFArticleApi.m in Sources */,
 				A198BFAE1F03F8390051794A /* WFReachabilityVC.m in Sources */,
+				9EDF5E97240A76DF00BABBFC /* UIView+NoDataDefaultView.m in Sources */,
 				7587AFFE1EE299CD00C4721E /* WFFavoriteDataCenter.m in Sources */,
 				A138AF5B1ED6D1B300070852 /* WFFile.m in Sources */,
 				A10E30B91EC5ABD40060CC1C /* WFTop10RootVC.m in Sources */,

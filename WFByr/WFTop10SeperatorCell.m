@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self setBackgroundColor:[UIColor clearColor]];
+    [self setBackgroundColor:WFMAIN_BACKGROUND_COLOR];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
