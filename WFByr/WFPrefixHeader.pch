@@ -9,11 +9,14 @@
 #ifndef WFPrefixHeader_pch
 #define WFPrefixHeader_pch
 
-#ifdef DEBUG
-#define NSLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
-#else
-#define NSLog(format, ...)
-#endif
+#import <Bugly/Bugly.h>
+
+// Debug打印本地，不上报
+#define WFLogInfo(format, ...) BLYLogInfo(@"\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+// Debug打印本地&crash时上报warn级别
+#define WFWarnInfo(format, ...) BLYLogWarn(@"\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+// Debug打印本地&crash时上报error级别
+#define WFErrorInfo(format, ...) BLYLogError(@"\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 
 @import UIKit;
 @import Foundation;
@@ -22,9 +25,7 @@
 #import "WFHelpers.h"
 #import "WFConst.h"
 
-#import "UIColor+WFColors.h"
 #import "UIColor+Hex.h"
-#import "UIFont+WFFonts.h"
 #import "UIDevice+WFScale.h"
 #import "UIView+WFHelper.h"
 

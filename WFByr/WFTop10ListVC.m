@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "YYModel.h"
 #import "WFRouter.h"
+#import "UIView+NoDataDefaultView.h"
 
 static NSString * const WFTop10CellReuseId          = @"WFTop10Cell";
 static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
@@ -47,8 +48,9 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 100.0;
+        self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         [self.tableView setBackgroundColor:[UIColor colorWithRed:0.97 green:0.97 blue:0.96 alpha:1.00]];
-        //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10Cell" bundle:nil] forCellReuseIdentifier:WFTop10CellReuseId];
         [self.tableView registerNib:[UINib nibWithNibName:@"WFTop10SeperatorCell" bundle:nil] forCellReuseIdentifier:WFTop10SeperatorCellReuseId];
         
@@ -81,36 +83,36 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
 # pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [self.top10 count] * 2 - 1;
-    return [self.top10 count];
+    return [self.top10 count] * 2 - 1;
+//    return [self.top10 count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFTop10Cell *cell = (WFTop10Cell*)[tableView dequeueReusableCellWithIdentifier:WFTop10CellReuseId];
-    [cell setupWithArticle:self.top10[indexPath.row] num:indexPath.row];
-    return cell;
-//    if (indexPath.row % 2 == 0) {
-//        WFTop10Cell *cell = (WFTop10Cell*)[tableView dequeueReusableCellWithIdentifier:WFTop10CellReuseId];
-//        [cell setupWithArticle:self.top10[indexPath.row / 2] num:indexPath.row / 2 + 1];
-//        return cell;
-//    } else {
-//        WFTop10SeperatorCell *cell = (WFTop10SeperatorCell*)[tableView dequeueReusableCellWithIdentifier:WFTop10SeperatorCellReuseId];
-//        return cell;
-//    }
-//    
+//    WFTop10Cell *cell = (WFTop10Cell*)[tableView dequeueReusableCellWithIdentifier:WFTop10CellReuseId];
+//    [cell setupWithArticle:self.top10[indexPath.row] num:indexPath.row];
+//    return cell;
+    if (indexPath.row % 2 == 0) {
+        WFTop10Cell *cell = (WFTop10Cell*)[tableView dequeueReusableCellWithIdentifier:WFTop10CellReuseId];
+        [cell setupWithArticle:self.top10[indexPath.row / 2] num:indexPath.row / 2 + 1];
+        return cell;
+    } else {
+        WFTop10SeperatorCell *cell = (WFTop10SeperatorCell*)[tableView dequeueReusableCellWithIdentifier:WFTop10SeperatorCellReuseId];
+        return cell;
+    }
+    
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.row % 2 == 0) {
-//        return UITableViewAutomaticDimension;
-//    } else {
-//        return 5;
-//    }
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row % 2 == 0) {
+        return UITableViewAutomaticDimension;
+    } else {
+        return WFSeperatorLineHeight;
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFArticle *targetArticle = self.top10[indexPath.row];
-   // WFArticle *targetArticle = self.top10[indexPath.row / 2];
+//    WFArticle *targetArticle = self.top10[indexPath.row];
+    WFArticle *targetArticle = self.top10[indexPath.row / 2];
     [WFRouter go:@"threads" withParams:@{@"aid":@(targetArticle.aid), @"board":targetArticle.board_name} from:self];
 }
 
@@ -152,6 +154,7 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
 
 - (void)commonResponseRecv:(WFResponse*)response {
     self.top10 = response.reformedData;
+    [self.tableView configNoDataDefaultViewWithViewType:NoDataDefaultViewTypeNoData isHasData:self.top10.count > 0 handle:nil];
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
     _isLoaded = true;

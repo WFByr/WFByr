@@ -42,7 +42,7 @@ NSURL *wf_saveImage(UIImage *image, NSString *name) {
     NSData *data = UIImageJPEGRepresentation(image, 0.7);
     NSError *err3;
     if (![data writeToURL:fileUrl options:NSDataWritingAtomic error:&err3]) {
-        NSLog(@"save error:%@", err3);
+        WFErrorInfo(@"save error:%@", err3);
         return nil;
     }
     
@@ -55,5 +55,5 @@ void wf_showHud(UIView *toView, NSString *text, CGFloat duration) {
     hud.labelText = text;
     hud.labelColor = MAIN_BLUE;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES];
+    [hud  hide:YES afterDelay:duration];
 }

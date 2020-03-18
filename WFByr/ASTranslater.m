@@ -52,12 +52,12 @@ void travelASTTree(ASTNode* root, NSArray<ASAttribute*> *attrs, id<ASTranslaterP
 
 - (void)translate:(NSString *)source withTranslater:(id<ASTranslaterProtocol>)translater{
     if (_isDebugging) {
-        NSLog(@"%@", source);
+        WFLogInfo(@"%@", source);
     }
     NSArray<ASToken*> *tokens = [ASLexer scanSource:source];
     if (_isDebugging) {
         for (ASToken* token in tokens) {
-            NSLog(@"%@,%@", [token class], token.raw);
+            WFWarnInfo(@"token %@, %@", [token class], token.raw);
         }
     }
     ASTNode *root = [ASParser parseTokens:tokens];

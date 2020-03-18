@@ -1,15 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'WFByr' do
-    use_frameworks!
     pod 'YYCache'
     pod 'IDMPhotoBrowser'
     pod 'AFNetworking'
     pod 'MJRefresh'
-    pod 'WMPageController', '2.3.0'
+    pod 'WMPageController', '2.4.0'
     pod 'YYText'
     pod 'YYModel'
     pod 'YYImage'
+    pod 'Bugly', '2.5.2' 
     pod 'YYWebImage'
     pod 'Reveal-SDK', '4', :configurations => ['Debug']
     pod 'Masonry'

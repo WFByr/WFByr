@@ -55,18 +55,18 @@
         NSError *err2;
         [formData appendPartWithFileURL:file name:@"file" error:&err2];
         if (err2) {
-            NSLog(@"err2:%@", err2);
+            WFErrorInfo(@"%s err2:%@", __func__, err2);
         }
         
     } error:&err];
     
     if (err) {
-        NSLog(@"%@", err);
+        WFErrorInfo(@"%s %@", __func__, err);
         return;
     }
     
     NSURLSessionUploadTask *uploadTask = [[WFSessionManager sharedHttpSessionManager] uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"uploading");
+        WFLogInfo(@"%s uploading", __func__);
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             if (failure) {

@@ -147,7 +147,7 @@
         return renderedStr;
     }
     if ([tagName isEqualToString:@"mp3"]) {
-        NSLog(@"mp3:%@", val);
+        WFLogInfo(@"mp3:%@", val);
     }
     return nil;
     

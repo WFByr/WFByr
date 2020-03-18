@@ -15,6 +15,9 @@
 #import "WMPageController.h"
 #import "Masonry.h"
 
+static NSInteger const kWFTop10RootVCHorizontolScrollBarRight = 40;
+static   CGFloat const kWFTop10RootVCHorizontolScrollBarHeight = 44.0;
+
 @interface WFTop10RootVC()<WMPageControllerDelegate, WMPageControllerDataSource>
 
 @property(nonatomic, strong) UIBarButtonItem *manageTop10Btn;
@@ -96,6 +99,10 @@
     //[tmp loadIfNotLoaded];
 }
 
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
+    return CGRectMake(0, 0, self.view.frame.size.width - kWFTop10RootVCHorizontolScrollBarRight, kWFTop10RootVCHorizontolScrollBarHeight);
+}
+
 #pragma mark - event reponser
 
 - (void)manageTop10 {
@@ -110,9 +117,7 @@
 
 - (UIBarButtonItem *)manageTop10Btn {
     if (_manageTop10Btn == nil) {
-        _manageTop10Btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                        target:self
-                                                                        action:@selector(manageTop10)];
+        _manageTop10Btn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"topics"] style:UIBarButtonItemStylePlain target:self action:@selector(manageTop10)];
     }
     return _manageTop10Btn;
 }

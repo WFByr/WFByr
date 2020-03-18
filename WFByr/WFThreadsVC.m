@@ -185,7 +185,7 @@ const NSUInteger kReplyRow = 2;
     }];
    
     UIAlertAction *replyAction = [UIAlertAction actionWithTitle:@"回复" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"reply");
+        WFLogInfo(@"reply");
     }];
     
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -297,7 +297,7 @@ const NSUInteger kReplyRow = 2;
 
 - (void)sendAcionWithInput:(NSString *)input context:(id)context {
     NSInteger reid = ((WFArticle*)context[@"replyTo"]).aid;
-    NSLog(@"%ld", reid);
+    WFLogInfo(@"%s %ld", __func__, reid);
     __weak typeof(self) weakSelf = self;
     [self.articleApi postArticleWithBoard:self.board title:@"" content:input reid:reid successBlock:^(NSInteger statusCode, id response) {
         wf_showHud(weakSelf.view, @"回复成功", 1);

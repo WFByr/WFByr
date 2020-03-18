@@ -33,7 +33,7 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     NSString *testString = @"[img=http://123][/img]asdfasdf[size=16]as[color=#1123]df[url=http://baidu.com]asd[/url]f[/color]ad[/size]asdfasdf";
     
-    NSLog(@"%@", [[ASDebugger new] debug:testString]);
+    WFLogInfo(@"%@", [[ASDebugger new] debug:testString]);
 }
 
 - (void)testPerformanceExample {

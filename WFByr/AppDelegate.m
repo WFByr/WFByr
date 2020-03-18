@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "WFModuleFactory.h"
 #import "WFMainModuleProtocol.h"
+#import "WFConst.h"
 
-
-@interface AppDelegate ()
+@interface AppDelegate ()<BuglyDelegate>
 @end
 
 @implementation AppDelegate
@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    [self setupBugly];
     
     id<WFMainModule> mainModule = [WFModuleFactory moduleWithProtocol:@"WFMainModule"];
     UIViewController *rootVC = [mainModule rootVC];
@@ -58,6 +58,50 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark
+- (void)setupBugly {
+    BuglyConfig *config = [[BuglyConfig alloc] init];
+    
+#if DEBUG
+    config.debugMode = YES;
+    config.consolelogEnable = YES;
+    config.viewControllerTrackingEnable = NO;
+    config.reportLogLevel = BuglyLogLevelVerbose;
+#else
+    config.debugMode = NO;
+    config.consolelogEnable = NO;
+    config.viewControllerTrackingEnable = YES;
+    config.reportLogLevel = BuglyLogLevelWarn;
+#endif
+    
+    // 卡顿监测开关 默认关闭
+    config.blockMonitorEnable = YES;
+        
+    config.blockMonitorTimeout = 1.5;
+        
+    config.channel = @"iOSWFByr";
+        
+    config.delegate = self;
+    
+    [Bugly startWithAppId:WFByrBuglyAPPID
+    #ifdef DEBUG
+            developmentDevice:YES
+    #endif
+                       config:config];
+        
+    [Bugly setUserIdentifier:[UIDevice currentDevice].identifierForVendor.UUIDString?:@""];
+        
+    [Bugly setUserValue:[NSProcessInfo processInfo].processName forKey:@"Process"];
+}
+
+#pragma mark - BuglyDelegate
+- (NSString *)attachmentForException:(NSException *)exception {
+    NSString *attachment = [NSString stringWithFormat:@"(%@:%d) %s %@",[[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, __PRETTY_FUNCTION__, exception];
+    WFLogInfo(@"attachmentforexception %@", attachment);
+    return attachment;
 }
 
 

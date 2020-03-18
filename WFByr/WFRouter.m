@@ -25,7 +25,7 @@ static NSMutableDictionary<NSString*, Class> * routingTable;
 
 + (void)go:(NSString *)url withParams:(NSDictionary *)params from:(UIViewController *)fromVC{
     Class destClass = routingTable[url];
-    NSLog(@"go:%@, %@", url, destClass);
+    WFLogInfo(@"go:%@, %@", url, destClass);
     UIViewController<WFRouterProtocol> *destVC = [[destClass alloc] initWithParams:params];
     if (fromVC && fromVC.navigationController) {
         [fromVC.navigationController pushViewController:destVC animated:YES];

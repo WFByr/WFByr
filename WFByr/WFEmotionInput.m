@@ -119,7 +119,7 @@ const NSInteger kYangcongtou = 3;
         emotionCount = [self.emotionConfig[kYangcongtou][@"count"] floatValue];
         self.selectedSection = kYangcongtou;
     }
-    NSLog(@"%lf", ceil(emotionCount / (kASEmotionCellPerCol * kASEmotionCellPerRow)));
+    WFLogInfo(@"%s %lf", __func__, ceil(emotionCount / (kASEmotionCellPerCol * kASEmotionCellPerRow)));
     [self.pageControl setNumberOfPages:ceil(emotionCount / (kASEmotionCellPerCol * kASEmotionCellPerRow))];
     [self.pageControl setCurrentPage:0];
     UIColor *backgroundColor = [UIColor colorWithRed:0.76 green:0.76 blue:0.76 alpha:1.00];

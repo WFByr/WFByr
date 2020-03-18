@@ -50,10 +50,6 @@
 
 @property (nonatomic, strong) WFEmotionInput *emotionInputView;
 
-@property (nonatomic, strong) MBProgressHUD *uploadHud;
-
-@property (nonatomic, strong) MBProgressHUD *postHud;
-
 @property (nonatomic, strong) WFBoard *postBoard;
 
 @end
@@ -94,7 +90,9 @@
             [self.textView  insertText:[NSString stringWithFormat:@"\n\n【 在 %@ 的大作中提到: 】\n%@", self.replyTo.user.user_name, self.replyTo.content]];
         }
         
-        self.textView.selectedRange = NSMakeRange(input.length, 0);
+        if (input.length > 0) {
+            self.textView.selectedRange = NSMakeRange(input.length, 0);
+        }
     }
     return self;
 }
@@ -185,11 +183,11 @@
 #pragma  mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    NSLog(@"end");
+    WFLogInfo(@"end");
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"scrolling");
+    WFLogInfo(@"scrolling");
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -205,8 +203,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
     [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
     NSString *imageName = [[info objectForKey:UIImagePickerControllerReferenceURL] lastPathComponent];
     NSString *uniqueName = [NSString stringWithFormat:@"%f%@", [NSDate date].timeIntervalSince1970, imageName];
@@ -219,16 +216,16 @@
             //sself.ubbParser.attachment = response;
             sself.textView.text = [NSString stringWithFormat:@"%@[upload=%ld][/upload]\n", sself.textView.text, sself.attachment.file.count];
             sself.textView.selectedRange = NSMakeRange(0, 0);
-            [sself.uploadHud hide:YES];
+            [MBProgressHUD hideHUDForView:sself.view animated:YES];
             wf_showHud(sself.view, @"上传成功", 1.0);
         }
     } failureBlock:^(NSInteger statusCode, id response) {
         __strong typeof(wself)sself = wself;
         if (sself) {
-            [sself.uploadHud hide:YES];
-             wf_showHud(sself.view, [NSString stringWithFormat:@"上传失败，%@", response[@"msg"]], 2.0);
+            [MBProgressHUD hideHUDForView:sself.view animated:YES];
+            wf_showHud(sself.view, [NSString stringWithFormat:@"上传失败 %@", response[@"msg"] ?: @""], 2.0);
         }
-        NSLog(@"%@", response);
+        WFErrorInfo(@"上传失败 %@  responsemessage %@", response, response[@"msg"]);
     }];
 
 }
@@ -465,24 +462,6 @@
         _attachment = [WFAttachment new];
     }
     return _attachment;
-}
-
-
-- (MBProgressHUD*)uploadHud {
-    if (_uploadHud == nil) {
-        _uploadHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    }
-    [_uploadHud show:YES];
-    return _uploadHud;
-}
-
-- (MBProgressHUD*)postHud {
-    if (_postHud == nil) {
-        _postHud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        _postHud.mode = MBProgressHUDModeText;
-    }
-    [_postHud show:YES];
-    return _postHud;
 }
 
 - (WFBBCodeParser*)bbcodeParser {
