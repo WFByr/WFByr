@@ -166,7 +166,8 @@
 #pragma mark -Private Method
 - (void)apiRequestFailure:(NSNotification *)notification {
     // access_token没有过期，直接返回
-    if (![notification.userInfo[WFByrNetworkFailureCodeKey] isEqualToString:WFByrNetworkAccessTokenFailureCode]) {
+    NSString *notificationFailureCodeKey = notification.userInfo[WFByrNetworkFailureCodeKey];
+    if (![notificationFailureCodeKey isEqualToString:WFByrNetworkAccessTokenFailureCode] && ![notificationFailureCodeKey isEqualToString:WFByrNetworkAccessTokenWrongCode]) {
         return;
     }
     
