@@ -57,3 +57,4 @@ void wf_showHud(UIView *toView, NSString *text, CGFloat duration) {
     hud.removeFromSuperViewOnHide = YES;
     [hud  hide:YES afterDelay:duration];
 }
+

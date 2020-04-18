@@ -289,7 +289,7 @@ typedef NS_ENUM(NSUInteger, WFUserProperty) {
 
 - (WFUserApi*)userApi {
     if (_userApi == nil) {
-        _userApi = [[WFUserApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _userApi = [[WFUserApi alloc] init];
         _userApi.responseDelegate = self;
     }
     return _userApi;

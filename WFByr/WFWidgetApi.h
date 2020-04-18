@@ -41,8 +41,6 @@
 
 @property(nonatomic, weak)id<WFWidgetResponseReformer> responseReformer;
 
-- (instancetype)initWithAccessToken:(NSString *)token;
-
 - (void)fetchTop10;
 
 - (void)fetchTop10WithSuccessBlock:(WFSuccessCallback)success

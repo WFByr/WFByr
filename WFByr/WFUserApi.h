@@ -26,8 +26,6 @@
 
 @property (nonatomic, weak) id<WFUserResponseReformer> responseReformer;
 
-- (instancetype)initWithAccessToken:(NSString *)token;
-
 - (void)fetchUserInfo;
 
 - (void)fetchUserInfoWithSuccessBlock:(WFSuccessCallback)success

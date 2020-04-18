@@ -8,13 +8,18 @@
 
 #import "WFBaseApi.h"
 #import "WFByrConst.h"
+#import "WFToken.h"
 
 @implementation WFResponse
 
 
 @end
 
+@interface WFSessionManager ()
 
+@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
+
+@end
 
 @implementation WFSessionManager
 
@@ -22,9 +27,16 @@
     static WFSessionManager * sessionManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:WFByrBaseUrl]];
+        sessionManager = [[WFSessionManager alloc] init];
     });
     return sessionManager;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:WFByrBaseUrl]];
+    }
+    return self;
 }
 
 @end
@@ -36,15 +48,6 @@
 
 @implementation WFBaseApi
 
-
-- (instancetype)initWithAccessToken:(NSString*)accessToken {
-    self = [super init];
-    if (self) {
-        self.accessToken = accessToken ? accessToken : @"";
-    }
-    return self;
-}
-
 - (void)sendRequestWithUrl:(NSString *)urlStr
                     method:(NSString *)method
                     parameters:(id) parameters
@@ -52,28 +55,30 @@
                    failure:(WFFailureCallback)failureCallback{
     
     NSMutableDictionary *params = parameters ? [NSMutableDictionary dictionaryWithDictionary:parameters] : [NSMutableDictionary dictionary];
-    [params setObject:self.accessToken forKey:@"oauth_token"];
+    [params setObject:[WFToken shareToken].accessToken forKey:@"oauth_token"];
     
     WFSessionManager * manager = [WFSessionManager sharedHttpSessionManager];
-    //AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BYR_BASE_URL]];
-    if ([method  isEqual: WFHTTPGet]) {
-        if (![[manager reachabilityManager] isReachable]) {
-            manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    if ([method  isEqual:WFHTTPGet]) {
+        if (![[manager.sessionManager reachabilityManager] isReachable]) {
+            manager.sessionManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
         }
-        [manager GET:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [manager.sessionManager wf_GET:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat] parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (successCallback) {
                     successCallback(response.statusCode, responseObject);
                 }
             });
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error, id responseObject) {
             NSDictionary *json  = nil;
             if ([error.userInfo valueForKey:AFNetworkingOperationFailingURLResponseDataErrorKey] != nil) {
                 json = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:kNilOptions  error:nil];
+            } else {
+                if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                    json = responseObject;
+                }
             }
-            
+        
             NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (failureCallback) {
@@ -83,17 +88,21 @@
         }];
     } else {
         
-        [manager POST:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [manager.sessionManager wf_POST:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat] parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (successCallback) {
                     successCallback(response.statusCode, responseObject);
                 }
             });
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error, id responseObject) {
             NSDictionary *json  = nil;
             if ([error.userInfo valueForKey:AFNetworkingOperationFailingURLResponseDataErrorKey] != nil) {
                 json = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:kNilOptions  error:nil];
+            } else {
+                if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                    json = responseObject;
+                }
             }
             NSHTTPURLResponse *response = (NSHTTPURLResponse*)task.response;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -125,7 +134,7 @@
         [delegate performSelector:callback withObject:byrResponse];
     };
     
-    void (^failureBlock)(NSURLSessionDataTask*, NSError*) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    void (^failureBlock)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error, id _Nullable responseObject) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error, id _Nullable responseObject) {
         NSDictionary *json  = nil;
         if ([error.userInfo valueForKey:AFNetworkingOperationFailingURLResponseDataErrorKey] != nil) {
             json = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:kNilOptions  error:nil];
@@ -143,21 +152,19 @@
     };
     
     NSMutableDictionary *params = parameters ? [NSMutableDictionary dictionaryWithDictionary:parameters] : [NSMutableDictionary dictionary];
-    [params setObject:self.accessToken forKey:@"oauth_token"];
+    [params setObject:[WFToken shareToken].accessToken forKey:@"oauth_token"];
     
     WFSessionManager * manager = [WFSessionManager sharedHttpSessionManager];
 
     //AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BYR_BASE_URL]];
     if ([method  isEqual: WFHTTPGet]) {
-        [manager GET:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat]
+        [manager.sessionManager wf_GET:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat]
           parameters:params
-            progress:nil
              success:successBlock
              failure:failureBlock];
     } else {
-        [manager POST:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat]
+        [manager.sessionManager wf_POST:[NSString stringWithFormat:@"%@%@", urlStr, WFReturnFormat]
            parameters:params
-             progress:nil
               success:successBlock
               failure:failureBlock];
     }

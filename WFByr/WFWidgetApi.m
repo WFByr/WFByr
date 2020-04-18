@@ -45,6 +45,7 @@
         response.isSucceeded = YES;
     } else {
         response.isSucceeded = NO;
+        response.reformedData = response.response;
     }
     return response;
 }
@@ -61,8 +62,8 @@
     WFWidgetReformer *_defaultReformer;
 }
 
-- (instancetype)initWithAccessToken:(NSString *)token {
-    self = [super initWithAccessToken:token];
+- (instancetype)init {
+    self = [super init];
     _defaultReformer = [WFWidgetReformer new];
     self.responseReformer = _defaultReformer;
     return self;

@@ -47,7 +47,7 @@
 
 - (WFCollectionApi*)collectionApi {
     if (_collectionApi == nil) {
-        _collectionApi = [[WFCollectionApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _collectionApi = [[WFCollectionApi alloc] init];
     }
     return _collectionApi;
 }

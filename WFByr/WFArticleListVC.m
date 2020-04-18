@@ -181,7 +181,7 @@
 
 - (WFBoardApi*)boardApi {
     if (_boardApi == nil) {
-        _boardApi = [[WFBoardApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _boardApi = [[WFBoardApi alloc] init];
         _boardApi.responseDelegate = self;
         _boardApi.responseReformer = self;
     }

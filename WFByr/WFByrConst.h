@@ -33,5 +33,9 @@ static NSString * const WFByrUserUrl       = @"user";
 static NSString * const WFByrVoteUrl       = @"vote";
 static NSString * const WFByrWidgetUrl     = @"widget";
 
+static NSString *const WFByrNetworkFailureNotification = @"WFByrNetworkFailureNotification";
+static NSString *const WFByrNetworkAccessTokenFailureCode = @"1703";
+static NSString *const WFByrNetworkFailureCodeKey = @"code";
+
 
 #endif /* WFByrConst_h */

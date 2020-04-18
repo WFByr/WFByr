@@ -23,7 +23,7 @@
 - (instancetype)init{
     if (self = [super init]) {
         _collectionList = [NSMutableArray array];
-        _collectionApi = [[WFCollectionApi alloc]initWithAccessToken:[WFToken shareToken].accessToken];
+        _collectionApi = [[WFCollectionApi alloc] init];
         _page = 0;
         _count = 10;
         _maxPage = 0;
@@ -50,7 +50,9 @@
             }
             WFPagination * pagination = [WFPagination yy_modelWithDictionary:response[@"pagination"]];
             _maxPage = [NSNumber numberWithInteger:pagination.page_all_count];
-        } failureBlock:nil];
+        } failureBlock:^(NSInteger statusCode, id response) {
+            
+        }];
     }];
 
 }

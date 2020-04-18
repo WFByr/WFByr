@@ -11,8 +11,8 @@
 
 @implementation WFCollectionApi
 
-- (instancetype)initWithAccessToken:(NSString *)token {
-    self = [super initWithAccessToken:token];
+- (instancetype)init {
+    self = [super init];
     self.responseDelegate = nil;
     self.responseReformer = nil;
     return self;

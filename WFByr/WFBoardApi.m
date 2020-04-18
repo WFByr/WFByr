@@ -51,8 +51,8 @@
 
 @implementation WFBoardApi
 
-- (instancetype)initWithAccessToken:(NSString *)token {
-    self = [super initWithAccessToken:token];
+- (instancetype)init {
+    self = [super init];
     if (self != nil) {
         _responseReformer = self;
     }

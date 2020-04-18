@@ -17,8 +17,9 @@
 #import "WFFavoriteModuleProtocol.h"
 #import "WFMeModuleProtocol.h"
 #import "WFReachabilityVC.h"
-
+#import "WFByrUIUtils.h"
 #import "WFPostVC.h"
+#import "WFByrConst.h"
 
 #if DEBUG
 #import "ASDebugVC.h"
@@ -131,6 +132,11 @@
 }
 #endif
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(apiRequestFailure:) name:WFByrNetworkFailureNotification object:nil];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (!wf_checkByrReachable()) {
@@ -155,6 +161,23 @@
         }];
     }
     return nil;
+}
+
+#pragma mark -Private Method
+- (void)apiRequestFailure:(NSNotification *)notification {
+    // access_token没有过期，直接返回
+    if (![notification.userInfo[WFByrNetworkFailureCodeKey] isEqualToString:WFByrNetworkAccessTokenFailureCode]) {
+        return;
+    }
+    
+    //已经出现了登陆页面了，直接返回
+    if ([[WFByrUIUtils topViewController] isKindOfClass:[WFLoginVC class]]) {
+        return;
+    }
+    
+    // access_token失效，重新登录
+    id<WFLoginModule> loginModule = [WFModuleFactory moduleWithProtocol:@"WFLoginModule"];
+    [self presentViewController:[loginModule rootVC] animated:YES completion:nil];
 }
 
 @end

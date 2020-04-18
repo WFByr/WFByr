@@ -28,7 +28,7 @@
 #import "UIColor+Hex.h"
 #import "UIDevice+WFScale.h"
 #import "UIView+WFHelper.h"
-
+#import "AFHTTPSessionManager+WFByr.h"
 
 
 #endif /* WFPrefixHeader_pch */

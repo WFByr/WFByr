@@ -39,8 +39,8 @@
     WFArticleReformer *_defaultReformer;
 }
 
-- (instancetype)initWithAccessToken:(NSString *)token {
-    self = [super initWithAccessToken:token];
+- (instancetype)init {
+    self = [super init];
     if (self) {
         _defaultReformer = [WFArticleReformer new];
         self.responseDelegate = nil;

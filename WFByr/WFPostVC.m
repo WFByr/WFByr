@@ -445,14 +445,14 @@
 
 - (WFAttachmentApi*)attachmentApi {
     if (_attachmentApi == nil) {
-        _attachmentApi = [[WFAttachmentApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _attachmentApi = [[WFAttachmentApi alloc] init];
     }
     return _attachmentApi;
 }
 
 - (WFArticleApi*)articleApi {
     if (_articleApi == nil) {
-        _articleApi = [[WFArticleApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _articleApi = [[WFArticleApi alloc] init];
     }
     return _articleApi;
 }
