@@ -27,6 +27,8 @@
 
 @property (strong, nonatomic) NSMutableArray * collectionList;
 
+@property (nonatomic, assign) BOOL isLoaded;    //是否已经加载完全
+
 @end
 
 @implementation WFFavoriteVC
@@ -68,6 +70,14 @@ NSString * const deleteCollectArcNotification = @"com.BUPT.WFByr.WFDeleteCollect
     [RACObserve(self.dataCenter, collectionList) subscribeNext:^(id x) {
         [self updateView];
     }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!self.isLoaded) {
+        [self loadData];
+        self.isLoaded = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

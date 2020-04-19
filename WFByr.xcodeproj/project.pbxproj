@@ -1703,7 +1703,6 @@
 				A10E2FA21EC5A2160060CC1C /* Sources */,
 				A10E2FA31EC5A2160060CC1C /* Frameworks */,
 				A10E2FA41EC5A2160060CC1C /* Resources */,
-				AC1833644DF09C2FD8EBAE46 /* [CP] Embed Pods Frameworks */,
 				A112B9D21EE1328C0007A712 /* Embed App Extensions */,
 				0AF2D4C5D12775C0C6EE5301 /* [CP] Copy Pods Resources */,
 			);
@@ -2072,24 +2071,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WFByr/Pods-WFByr-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC1833644DF09C2FD8EBAE46 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WFByr/Pods-WFByr-frameworks.sh",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-4/iOS/RevealServer.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WFByr/Pods-WFByr-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B73460BB938F3FA9185C23C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2420,7 +2401,7 @@
 				INFOPLIST_FILE = WFByr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng;
+				PRODUCT_BUNDLE_IDENTIFIER = byrbbs.xiangqianli.me;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/FLAnimatedImage/FLAnimatedImage";
@@ -2492,7 +2473,7 @@
 				INFOPLIST_FILE = WFByr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.andysheng;
+				PRODUCT_BUNDLE_IDENTIFIER = byrbbs.xiangqianli.me;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/FLAnimatedImage/FLAnimatedImage";

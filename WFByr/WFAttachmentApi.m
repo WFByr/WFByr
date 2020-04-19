@@ -41,7 +41,7 @@
                           file:(NSURL *)file
                   successBlock:(WFSuccessCallback)success
                   failureBlock:(WFFailureCallback)failure {
-    NSString *url = [NSString stringWithFormat:@"http://bbs.byr.cn/open/attachment/Advertising/add/%ld.json", (long)aid];
+    NSString *url = [NSString stringWithFormat:@"http://bbs.byr.cn/open/attachment/%@/add/%ld.json", board, (long)aid];
     NSDictionary *parameters = @{@"oauth_token":[WFToken shareToken].accessToken};
     
     NSError *err;

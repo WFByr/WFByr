@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const WFByrBaseUrl = @"http://bbs.byr.cn/open/";
+static NSString * const WFByrBaseUrl = @"https://bbs.byr.cn/open/";
 
 static NSString * const WFReturnFormat = @".json";
 

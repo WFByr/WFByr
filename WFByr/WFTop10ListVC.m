@@ -61,6 +61,10 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
 }
 
 #pragma mark - Lifecycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:WFByrLoginFinishNotification object:nil];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];

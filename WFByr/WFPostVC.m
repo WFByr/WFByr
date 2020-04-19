@@ -209,7 +209,8 @@
     NSString *uniqueName = [NSString stringWithFormat:@"%f%@", [NSDate date].timeIntervalSince1970, imageName];
     NSURL *fileUrl = wf_saveImage(img, uniqueName);
     __weak typeof(self)wself = self;
-    [self.attachmentApi addAttachmentWithBoard:self.replyTo.board_name file:fileUrl successBlock:^(NSInteger statusCode, id response) {
+    NSString *boardName = self.self.replyTo.board_name.length > 0 ? self.replyTo.board_name : self.postBoard.name;
+    [self.attachmentApi addAttachmentWithBoard:boardName file:fileUrl successBlock:^(NSInteger statusCode, id response) {
         __strong typeof(wself)sself = wself;
         if (sself) {
             sself.attachment = response;

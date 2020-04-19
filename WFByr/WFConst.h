@@ -21,6 +21,10 @@ static NSString * const WFMeFontBoldName = @"PingFangSC-Bold";
 static NSString * const WFMeFontRegularName = @"PingFangSC-Regular";
 static NSInteger const WFSeperatorLineHeight = 6;
 
+static NSString *const WFByrLoginFinishNotification = @"WFByrLoginFinishNotification";
+static NSString *const WFByrDefaultShowBoardNameKey = @"WFByrDefaultShowBoardNameKey";
+static NSString *const WFByrDefaultShowBoardTitleKey = @"WFByrDefaultShowBoardTitleKey";
+
 #define MAIN_BLUE  [UIColor colorWithHexString:@"0x00A0F2"]
 #define MAIN_GRAY [UIColor colorWithRed:0.76 green:0.76 blue:0.76 alpha:1.00]
 #define FACE_BORDER_COLOR [UIColor colorWithRed:0.827 green:0.827 blue:0.827 alpha:1.00]

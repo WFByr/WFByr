@@ -35,7 +35,7 @@ static inline void addToDataSourceIfAllowed(id obj, NSMutableArray * array, BOOL
     if (row.actionType == WFManagementActionTypeHighLightPush) {
         [self.ownerController setEditing:NO];
     }
-    
+        
     switch (row.settingActionType) {
         case WFManagementSettingActionNone:
             break;
@@ -67,6 +67,7 @@ static inline void addToDataSourceIfAllowed(id obj, NSMutableArray * array, BOOL
         collectSectionRow.imageColor = MAIN_BLUE;
         collectSectionRow.appearanceType = WFRowAppearanceTypeSingleTextImage;
         collectSectionRow.actionType =  WFManagementActionTypeHighLightPush;
+        collectSectionRow.settingActionType = WFManagementSettingActionCollectionSection;
         
         WFManagementRow * emailSectionRow = [[WFManagementRow alloc]init];
         emailSectionRow.newTextUrl = @"站内信";
@@ -74,6 +75,7 @@ static inline void addToDataSourceIfAllowed(id obj, NSMutableArray * array, BOOL
         emailSectionRow.imageColor = MAIN_BLUE;
         emailSectionRow.appearanceType = WFRowAppearanceTypeSingleTextImage;
         emailSectionRow.actionType = WFManagementActionTypeHighLightPush;
+        emailSectionRow.settingActionType = WFManagementSettingActionEmailReply;
         
         WFManagementRow * replySectionRow = [[WFManagementRow alloc]init];
         replySectionRow.newTextUrl = @"回复文章";
@@ -81,6 +83,7 @@ static inline void addToDataSourceIfAllowed(id obj, NSMutableArray * array, BOOL
         replySectionRow.imageName = @"articleReply";
         replySectionRow.appearanceType = WFRowAppearanceTypeSingleTextImage;
         replySectionRow.actionType = WFManagementActionTypeHighLightPush;
+        replySectionRow.settingActionType = WFManagementSettingActionArticleReply;
         
         addToDataSourceIfAllowed(collectSectionRow, section.rows, YES);
         addToDataSourceIfAllowed(emailSectionRow, section.rows, YES);
@@ -94,6 +97,7 @@ static inline void addToDataSourceIfAllowed(id obj, NSMutableArray * array, BOOL
     WFManagementRow * settingEnterRow = [[WFManagementRow alloc]init];
     settingEnterRow.appearanceType = WFRowAppearanceTypeSingleTextImage;
     settingEnterRow.actionType = WFManagementActionTypeHighLightPush;
+    settingEnterRow.settingActionType = WFManagementSettingActionSetting;
     settingEnterRow.imageName = @"setting";
     settingEnterRow.imageColor = MAIN_BLUE;
     settingEnterRow.newTextUrl = @"设置";
@@ -102,18 +106,30 @@ static inline void addToDataSourceIfAllowed(id obj, NSMutableArray * array, BOOL
 }
 
 - (void)pushManagementSettingController{
-    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"功能正在开发中" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [controller addAction:cancelAction];
+    [self.ownerController presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)pushCollectionSectionController{
-    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"功能正在开发中" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [controller addAction:cancelAction];
+    [self.ownerController presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)pushEmailReplyController{
-    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"功能正在开发中" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [controller addAction:cancelAction];
+    [self.ownerController presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)pushArticleReplyController{
-    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"功能正在开发中" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [controller addAction:cancelAction];
+    [self.ownerController presentViewController:controller animated:YES completion:nil];
 }
 @end

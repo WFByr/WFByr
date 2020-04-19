@@ -12,7 +12,6 @@ target 'WFByr' do
     pod 'YYImage'
     pod 'Bugly', '2.5.2' 
     pod 'YYWebImage'
-    pod 'Reveal-SDK', '4', :configurations => ['Debug']
     pod 'Masonry'
     pod 'MBProgressHUD', '0.9.2'
     pod 'TTTAttributedLabel'

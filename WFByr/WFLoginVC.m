@@ -99,7 +99,9 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if ([self.oath parseRedirectUri:webView.request.URL.absoluteString]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:WFByrLoginFinishNotification object:nil userInfo:nil];
+        }];
         WFLogInfo(@"success");
     } else {
         WFErrorInfo(@"fail");
