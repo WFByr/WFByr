@@ -28,6 +28,8 @@
 		9E928A7A1F4BF19300224731 /* WFUserDetailTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E928A791F4BF19300224731 /* WFUserDetailTableViewHandler.m */; };
 		9EA13C4C244AE4F500D2C78A /* AFHTTPSessionManager+WFByr.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C4B244AE4F500D2C78A /* AFHTTPSessionManager+WFByr.m */; };
 		9EA13C4F244B08CD00D2C78A /* WFByrUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C4E244B08CD00D2C78A /* WFByrUIUtils.m */; };
+		9EA13C962454179300D2C78A /* WFMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C952454179300D2C78A /* WFMeSettingViewController.m */; };
+		9EA13C9924541CBD00D2C78A /* WFWebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C9824541CBD00D2C78A /* WFWebviewViewController.m */; };
 		9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */; };
 		9ECE6E4F1F498E6A00C92F1E /* WFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */; };
 		9ECE6E521F49B99400C92F1E /* WFManagementRow+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */; };
@@ -405,6 +407,10 @@
 		9EA13C4B244AE4F500D2C78A /* AFHTTPSessionManager+WFByr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+WFByr.m"; sourceTree = "<group>"; };
 		9EA13C4D244B08CD00D2C78A /* WFByrUIUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFByrUIUtils.h; sourceTree = "<group>"; };
 		9EA13C4E244B08CD00D2C78A /* WFByrUIUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFByrUIUtils.m; sourceTree = "<group>"; };
+		9EA13C942454179300D2C78A /* WFMeSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFMeSettingViewController.h; sourceTree = "<group>"; };
+		9EA13C952454179300D2C78A /* WFMeSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFMeSettingViewController.m; sourceTree = "<group>"; };
+		9EA13C9724541CBD00D2C78A /* WFWebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFWebviewViewController.h; sourceTree = "<group>"; };
+		9EA13C9824541CBD00D2C78A /* WFWebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFWebviewViewController.m; sourceTree = "<group>"; };
 		9ECE6E481F4906DF00C92F1E /* WFProfileGuestHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFProfileGuestHeaderView.h; sourceTree = "<group>"; };
 		9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFProfileGuestHeaderView.m; sourceTree = "<group>"; };
 		9ECE6E4D1F498E6A00C92F1E /* WFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTableViewCell.h; sourceTree = "<group>"; };
@@ -907,6 +913,8 @@
 		9E32083A1F445B870005E71B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9EA13C942454179300D2C78A /* WFMeSettingViewController.h */,
+				9EA13C952454179300D2C78A /* WFMeSettingViewController.m */,
 				9E32083B1F445BC10005E71B /* WFProfileHeaderView.h */,
 				9E32083C1F445BC10005E71B /* WFProfileHeaderView.m */,
 				9E32083E1F445C080005E71B /* WFUserDetailLabel.h */,
@@ -1633,6 +1641,8 @@
 				9EA13C4B244AE4F500D2C78A /* AFHTTPSessionManager+WFByr.m */,
 				9EA13C4D244B08CD00D2C78A /* WFByrUIUtils.h */,
 				9EA13C4E244B08CD00D2C78A /* WFByrUIUtils.m */,
+				9EA13C9724541CBD00D2C78A /* WFWebviewViewController.h */,
+				9EA13C9824541CBD00D2C78A /* WFWebviewViewController.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1762,7 +1772,7 @@
 				TargetAttributes = {
 					A10E2FA51EC5A2160060CC1C = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 293HLYCM6H;
+						DevelopmentTeam = E8LJ49NMXA;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -2108,6 +2118,7 @@
 				A10E30B81EC5ABD40060CC1C /* WFTop10ManageVC.m in Sources */,
 				A1FE41E61EEF906000F5DE03 /* WFUserApi.m in Sources */,
 				A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */,
+				9EA13C962454179300D2C78A /* WFMeSettingViewController.m in Sources */,
 				A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */,
 				A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */,
 				A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */,
@@ -2140,6 +2151,7 @@
 				A112B9B71EE10F280007A712 /* WFSectionModule.m in Sources */,
 				9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */,
 				A112B9AF1EDFFA210007A712 /* WFMeVC.m in Sources */,
+				9EA13C9924541CBD00D2C78A /* WFWebviewViewController.m in Sources */,
 				A138AF5A1ED6D1B300070852 /* WFAttachment.m in Sources */,
 				A138AF4D1ED6B71A00070852 /* WFHelpers.m in Sources */,
 				9E8F50491F45475B001CAE85 /* UIDevice+WFScale.m in Sources */,
@@ -2341,8 +2353,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 293HLYCM6H;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = E8LJ49NMXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -2401,7 +2416,8 @@
 				INFOPLIST_FILE = WFByr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = byrbbs.xiangqianli.me;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.ASByrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/FLAnimatedImage/FLAnimatedImage";
@@ -2415,7 +2431,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 293HLYCM6H;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = E8LJ49NMXA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -2473,7 +2490,8 @@
 				INFOPLIST_FILE = WFByr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = byrbbs.xiangqianli.me;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BUPT.ASByrApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/FLAnimatedImage/FLAnimatedImage";
