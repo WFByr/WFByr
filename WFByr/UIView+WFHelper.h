@@ -10,20 +10,23 @@
 
 @interface UIView (WFHelper)
 
-- (CGFloat)wf_Height;
+@property (nonatomic, assign) CGPoint viewOrigin;
+@property (nonatomic, assign) CGSize  viewSize;
 
-- (CGFloat)wf_Width;
+@property (nonatomic, assign) CGFloat x;
+@property (nonatomic, assign) CGFloat y;
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat height;
 
-- (CGFloat)wf_topY;
+@property (nonatomic, assign) CGFloat top;
+@property (nonatomic, assign) CGFloat bottom;
+@property (nonatomic, assign) CGFloat left;
+@property (nonatomic, assign) CGFloat right;
 
-- (CGFloat)wf_bottomY;
+@property (nonatomic, assign) CGFloat centerX;
+@property (nonatomic, assign) CGFloat centerY;
 
-- (CGFloat)wf_leftX;
+@property (nonatomic, assign) CGSize size;
 
-- (CGFloat)wf_rightX;
-
-- (CGFloat)wf_centerY;
-
-- (CGFloat)wf_centerX;
 
 @end

@@ -31,7 +31,7 @@
 
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, self.wf_Width-10*2, self.wf_Height/2-6)];
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, self.width-10*2, self.height/2-6)];
         _titleLabel.font = [UIFont fontWithName:WFMeFontBoldName size:12];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.numberOfLines = 1;
@@ -41,7 +41,7 @@
 
 - (UILabel *)numberLabel{
     if (!_numberLabel) {
-        _numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, self.wf_Height/2-6, self.wf_Width-10*2, self.wf_Height/2-2)];
+        _numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, self.height/2-6, self.width-10*2, self.height/2-2)];
         _numberLabel.font = [UIFont fontWithName:WFMeFontRegularName size:12];
         _numberLabel.textAlignment = NSTextAlignmentCenter;
         _numberLabel.numberOfLines = 1;

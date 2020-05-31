@@ -15,11 +15,13 @@
 		75C662071EE2625700D372F7 /* WFCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C662061EE2625700D372F7 /* WFCollection.m */; };
 		75C6620A1EE26AA900D372F7 /* UIImageView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C662091EE26AA900D372F7 /* UIImageView+Corner.m */; };
 		7E8055E96A1E46CDE3F54088 /* libPods-WFByr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17028339E83E4A0B0BAE9258 /* libPods-WFByr.a */; };
+		9E0CCE3924741FF30031109B /* WFAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CCE3824741FF30031109B /* WFAlertViewController.m */; };
 		9E11353D1F4733A500297F99 /* WFManagementSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11353C1F4733A500297F99 /* WFManagementSection.m */; };
 		9E1135401F47347400297F99 /* WFManagementRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11353F1F47347400297F99 /* WFManagementRow.m */; };
 		9E1135481F473F0800297F99 /* WFManagementTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1135471F473F0800297F99 /* WFManagementTableViewAdapter.m */; };
 		9E11354C1F47F7FE00297F99 /* WFManagementTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E11354B1F47F7FE00297F99 /* WFManagementTableViewHandler.m */; };
 		9E1135521F480BF200297F99 /* WFManagementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1135511F480BF200297F99 /* WFManagementCell.m */; };
+		9E133DAC247431E5007E13BE /* WFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E133DAB247431E5007E13BE /* WFAlertView.m */; };
 		9E32083D1F445BC10005E71B /* WFProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E32083C1F445BC10005E71B /* WFProfileHeaderView.m */; };
 		9E3208401F445C080005E71B /* WFUserDetailLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E32083F1F445C080005E71B /* WFUserDetailLabel.m */; };
 		9E8F50491F45475B001CAE85 /* UIDevice+WFScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8F50481F45475B001CAE85 /* UIDevice+WFScale.m */; };
@@ -30,6 +32,7 @@
 		9EA13C4F244B08CD00D2C78A /* WFByrUIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C4E244B08CD00D2C78A /* WFByrUIUtils.m */; };
 		9EA13C962454179300D2C78A /* WFMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C952454179300D2C78A /* WFMeSettingViewController.m */; };
 		9EA13C9924541CBD00D2C78A /* WFWebviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA13C9824541CBD00D2C78A /* WFWebviewViewController.m */; };
+		9EBB14E8247EAB1900CA9FA4 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBB14E7247EAB1900CA9FA4 /* NSString+Extension.m */; };
 		9ECE6E4A1F4906DF00C92F1E /* WFProfileGuestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */; };
 		9ECE6E4F1F498E6A00C92F1E /* WFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */; };
 		9ECE6E521F49B99400C92F1E /* WFManagementRow+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE6E511F49B99400C92F1E /* WFManagementRow+Image.m */; };
@@ -378,6 +381,8 @@
 		75C662061EE2625700D372F7 /* WFCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFCollection.m; sourceTree = "<group>"; };
 		75C662081EE26AA900D372F7 /* UIImageView+Corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Corner.h"; sourceTree = "<group>"; };
 		75C662091EE26AA900D372F7 /* UIImageView+Corner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Corner.m"; sourceTree = "<group>"; };
+		9E0CCE3724741FF30031109B /* WFAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFAlertViewController.h; sourceTree = "<group>"; };
+		9E0CCE3824741FF30031109B /* WFAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFAlertViewController.m; sourceTree = "<group>"; };
 		9E11353B1F4733A500297F99 /* WFManagementSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementSection.h; sourceTree = "<group>"; };
 		9E11353C1F4733A500297F99 /* WFManagementSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementSection.m; sourceTree = "<group>"; };
 		9E11353E1F47347400297F99 /* WFManagementRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementRow.h; sourceTree = "<group>"; };
@@ -391,6 +396,8 @@
 		9E11354D1F47FF0200297F99 /* WFManagementTableViewHelperProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFManagementTableViewHelperProtocal.h; sourceTree = "<group>"; };
 		9E1135501F480BF200297F99 /* WFManagementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFManagementCell.h; sourceTree = "<group>"; };
 		9E1135511F480BF200297F99 /* WFManagementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFManagementCell.m; sourceTree = "<group>"; };
+		9E133DAA247431E5007E13BE /* WFAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFAlertView.h; sourceTree = "<group>"; };
+		9E133DAB247431E5007E13BE /* WFAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFAlertView.m; sourceTree = "<group>"; };
 		9E32083B1F445BC10005E71B /* WFProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFProfileHeaderView.h; sourceTree = "<group>"; };
 		9E32083C1F445BC10005E71B /* WFProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFProfileHeaderView.m; sourceTree = "<group>"; };
 		9E32083E1F445C080005E71B /* WFUserDetailLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFUserDetailLabel.h; sourceTree = "<group>"; };
@@ -411,6 +418,8 @@
 		9EA13C952454179300D2C78A /* WFMeSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFMeSettingViewController.m; sourceTree = "<group>"; };
 		9EA13C9724541CBD00D2C78A /* WFWebviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFWebviewViewController.h; sourceTree = "<group>"; };
 		9EA13C9824541CBD00D2C78A /* WFWebviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFWebviewViewController.m; sourceTree = "<group>"; };
+		9EBB14E6247EAB1900CA9FA4 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		9EBB14E7247EAB1900CA9FA4 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		9ECE6E481F4906DF00C92F1E /* WFProfileGuestHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFProfileGuestHeaderView.h; sourceTree = "<group>"; };
 		9ECE6E491F4906DF00C92F1E /* WFProfileGuestHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFProfileGuestHeaderView.m; sourceTree = "<group>"; };
 		9ECE6E4D1F498E6A00C92F1E /* WFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFTableViewCell.h; sourceTree = "<group>"; };
@@ -954,6 +963,10 @@
 				9ECE6E4E1F498E6A00C92F1E /* WFTableViewCell.m */,
 				9EDF5E95240A76DF00BABBFC /* UIView+NoDataDefaultView.h */,
 				9EDF5E96240A76DF00BABBFC /* UIView+NoDataDefaultView.m */,
+				9E0CCE3724741FF30031109B /* WFAlertViewController.h */,
+				9E0CCE3824741FF30031109B /* WFAlertViewController.m */,
+				9E133DAA247431E5007E13BE /* WFAlertView.h */,
+				9E133DAB247431E5007E13BE /* WFAlertView.m */,
 			);
 			name = WFUIKit;
 			sourceTree = "<group>";
@@ -1643,6 +1656,8 @@
 				9EA13C4E244B08CD00D2C78A /* WFByrUIUtils.m */,
 				9EA13C9724541CBD00D2C78A /* WFWebviewViewController.h */,
 				9EA13C9824541CBD00D2C78A /* WFWebviewViewController.m */,
+				9EBB14E6247EAB1900CA9FA4 /* NSString+Extension.h */,
+				9EBB14E7247EAB1900CA9FA4 /* NSString+Extension.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -2119,6 +2134,7 @@
 				A1FE41E61EEF906000F5DE03 /* WFUserApi.m in Sources */,
 				A162EDCB1EEE408C00338F7E /* WFUserVC.m in Sources */,
 				9EA13C962454179300D2C78A /* WFMeSettingViewController.m in Sources */,
+				9EBB14E8247EAB1900CA9FA4 /* NSString+Extension.m in Sources */,
 				A10E30A51EC5A8020060CC1C /* WFOAth2.m in Sources */,
 				A10CED881EDD75570085026B /* UIAlertController+Extension.m in Sources */,
 				A1EC14991ED927D900A2AD0B /* WFRouter.m in Sources */,
@@ -2162,11 +2178,13 @@
 				A112B7FC1EDF21DA0007A712 /* WFAccessoryView.m in Sources */,
 				A162EDCE1EEE40BD00338F7E /* WFMeModule.m in Sources */,
 				A10E30BA1EC5ABD40060CC1C /* WFTop10SeperatorCell.m in Sources */,
+				9E0CCE3924741FF30031109B /* WFAlertViewController.m in Sources */,
 				A1A468F41EE940C5006022A5 /* WFSectionCell.m in Sources */,
 				A112B9DD1EE146470007A712 /* WFArticleCell.m in Sources */,
 				A10E2FAE1EC5A2160060CC1C /* AppDelegate.m in Sources */,
 				A18819C51ED962A500E4F2F4 /* WFThreadsReplyCell.m in Sources */,
 				A138AF5C1ED6D1B300070852 /* WFUser.m in Sources */,
+				9E133DAC247431E5007E13BE /* WFAlertView.m in Sources */,
 				A18819C41ED962A500E4F2F4 /* WFThreadsVC.m in Sources */,
 				A112B80D1EDFABD90007A712 /* WFPostModule.m in Sources */,
 				75C662071EE2625700D372F7 /* WFCollection.m in Sources */,

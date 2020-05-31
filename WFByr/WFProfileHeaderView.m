@@ -40,12 +40,12 @@
         _profileBackgroundView = backgroundView;
         [self addSubview:_profileBackgroundView];
         
-        UIButton * profileBackgroundButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, _profileBackgroundView.wf_Width, 83*WFHeightScale)];
+        UIButton * profileBackgroundButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, _profileBackgroundView.width, 83*WFHeightScale)];
         profileBackgroundButton.backgroundColor = [UIColor whiteColor];
         [_profileBackgroundView addSubview:profileBackgroundButton];
         
         _horizontalSeperatorLayer = [CALayer layer];
-        _horizontalSeperatorLayer.frame = CGRectMake(0, profileBackgroundButton.wf_bottomY, WFSCREEN_W, WFOnePixelHeight);
+        _horizontalSeperatorLayer.frame = CGRectMake(0, profileBackgroundButton.bottom, WFSCREEN_W, WFOnePixelHeight);
         [_horizontalSeperatorLayer setBackgroundColor:FACE_BORDER_COLOR.CGColor];
         [self.layer addSublayer:_horizontalSeperatorLayer];
         
@@ -53,31 +53,31 @@
         _avatarView = avatarView;
         [_profileBackgroundView addSubview:_avatarView];
         
-        UILabel * userIdLabel = [[UILabel alloc]initWithFrame:CGRectMake(_avatarView.wf_rightX + 10 * WFHeightScale, _avatarView.wf_topY + 8 * WFHeightScale, 190, 20)];
+        UILabel * userIdLabel = [[UILabel alloc]initWithFrame:CGRectMake(_avatarView.right + 10 * WFHeightScale, _avatarView.top + 8 * WFHeightScale, 190, 20)];
         userIdLabel.font = [UIFont fontWithName:WFMeFontBoldName size:16];
         _userIdLabel = userIdLabel;
         [_profileBackgroundView addSubview:_userIdLabel];
         
-        UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(_userIdLabel.wf_leftX, _avatarView.wf_centerY + 3*WFHeightScale, 190, 20)];
+        UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(_userIdLabel.left, _avatarView.centerY + 3*WFHeightScale, 190, 20)];
         nameLabel.font = [UIFont fontWithName:WFMeFontRegularName size:12];
         _nameLabel = nameLabel;
         [_profileBackgroundView addSubview:_nameLabel];
         
-        WFUserDetailLabel * lifeCountLabel = [[WFUserDetailLabel alloc]initWithFrame:CGRectMake(0, 83 * WFHeightScale, self.wf_Width/3, 52*WFHeightScale)];
+        WFUserDetailLabel * lifeCountLabel = [[WFUserDetailLabel alloc]initWithFrame:CGRectMake(0, 83 * WFHeightScale, self.width/3, 52*WFHeightScale)];
         _lifeCountLabel = lifeCountLabel;
         [_profileBackgroundView addSubview:_lifeCountLabel];
         
         
-        WFUserDetailLabel * articleCountLabel = [[WFUserDetailLabel alloc]initWithFrame:CGRectMake(_lifeCountLabel.wf_rightX, 83*WFHeightScale, self.wf_Width/3, 52*WFHeightScale)];
+        WFUserDetailLabel * articleCountLabel = [[WFUserDetailLabel alloc]initWithFrame:CGRectMake(_lifeCountLabel.right, 83*WFHeightScale, self.width/3, 52*WFHeightScale)];
         _articleCountLabel = articleCountLabel;
         [_profileBackgroundView addSubview:_articleCountLabel];
         
-        WFUserDetailLabel * virtualCountLabel = [[WFUserDetailLabel alloc]initWithFrame:CGRectMake(_articleCountLabel.wf_rightX, 83*WFHeightScale, self.wf_Width/3, 52*WFHeightScale)];
+        WFUserDetailLabel * virtualCountLabel = [[WFUserDetailLabel alloc]initWithFrame:CGRectMake(_articleCountLabel.right, 83*WFHeightScale, self.width/3, 52*WFHeightScale)];
         _virtualCountLabel = virtualCountLabel;
         [_profileBackgroundView addSubview:_virtualCountLabel];
         
         UIImageView * arrowView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"me_arrow"]];
-        arrowView.frame = CGRectMake(profileBackgroundButton.wf_Width - 14 - [self wf_padding_rightToContent], (profileBackgroundButton.wf_Height-14)/2,14, 14);
+        arrowView.frame = CGRectMake(profileBackgroundButton.width - 14 - [self wf_padding_rightToContent], (profileBackgroundButton.height-14)/2,14, 14);
         [_profileBackgroundView addSubview:arrowView];
     }
     return self;

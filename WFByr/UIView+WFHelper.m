@@ -10,36 +10,137 @@
 
 @implementation UIView (WFHelper)
 
-- (CGFloat)wf_Width{
-    return self.frame.size.width;
+- (CGPoint)viewOrigin {
+    
+    return self.frame.origin;
 }
 
-- (CGFloat)wf_Height{
-    return self.frame.size.height;
+- (void)setViewOrigin:(CGPoint)viewOrigin {
+    CGRect newFrame = self.frame;
+    newFrame.origin = viewOrigin;
+    self.frame      = newFrame;
 }
 
-- (CGFloat)wf_topY{
-    return self.frame.origin.y;
+- (CGSize)viewSize {
+    return self.frame.size;
 }
 
-- (CGFloat)wf_bottomY{
-    return self.frame.origin.y + self.frame.size.height;
+- (void)setViewSize:(CGSize)viewSize {
+    CGRect newFrame = self.frame;
+    newFrame.size   = viewSize;
+    self.frame      = newFrame;
 }
 
-- (CGFloat)wf_leftX{
+- (CGFloat)x {
     return self.frame.origin.x;
 }
 
-- (CGFloat)wf_rightX{
+- (void)setX:(CGFloat)x {
+    CGRect newFrame   = self.frame;
+    newFrame.origin.x = x;
+    self.frame        = newFrame;
+}
+
+- (CGFloat)y {
+    return self.frame.origin.y;
+}
+
+- (void)setY:(CGFloat)y {
+    CGRect newFrame   = self.frame;
+    newFrame.origin.y = y;
+    self.frame        = newFrame;
+}
+
+- (CGFloat)width {
+    return CGRectGetWidth(self.bounds);
+}
+
+- (void)setWidth:(CGFloat)width {
+    CGRect newFrame     = self.frame;
+    newFrame.size.width = width;
+    self.frame          = newFrame;
+}
+
+- (CGFloat)height {
+    return CGRectGetHeight(self.bounds);
+}
+
+- (void)setHeight:(CGFloat)height {
+    
+    CGRect newFrame      = self.frame;
+    newFrame.size.height = height;
+    self.frame           = newFrame;
+}
+
+- (CGFloat)top {
+    return self.frame.origin.y;
+}
+
+- (void)setTop:(CGFloat)top {
+    CGRect newFrame   = self.frame;
+    newFrame.origin.y = top;
+    self.frame        = newFrame;
+}
+
+- (CGFloat)bottom {
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setBottom:(CGFloat)bottom {
+    CGRect newFrame   = self.frame;
+    newFrame.origin.y = bottom - self.frame.size.height;
+    self.frame        = newFrame;
+}
+
+- (CGFloat)left {
+    return self.frame.origin.x;
+}
+
+- (void)setLeft:(CGFloat)left {
+    CGRect newFrame   = self.frame;
+    newFrame.origin.x = left;
+    self.frame        = newFrame;
+}
+
+- (CGFloat)right {
     return self.frame.origin.x + self.frame.size.width;
 }
 
-- (CGFloat)wf_centerY{
+- (void)setRight:(CGFloat)right {
+    CGRect newFrame   = self.frame;
+    newFrame.origin.x = right - self.frame.size.width;
+    self.frame        = newFrame;
+}
+
+- (CGFloat)centerX {
+    return self.center.x;
+}
+
+- (void)setCenterX:(CGFloat)centerX {
+    CGPoint newCenter = self.center;
+    newCenter.x       = centerX;
+    self.center       = newCenter;
+}
+
+- (CGFloat)centerY {
     return self.center.y;
 }
 
-- (CGFloat)wf_centerX{
-    return self.center.x;
+- (void)setCenterY:(CGFloat)centerY {
+    CGPoint newCenter = self.center;
+    newCenter.y       = centerY;
+    self.center       = newCenter;
 }
+
+- (void)setSize:(CGSize)size {
+    CGRect newFrame = self.frame;
+    newFrame.size = size;
+    self.frame = newFrame;
+}
+
+- (CGSize)size {
+    return self.frame.size;
+}
+
 
 @end

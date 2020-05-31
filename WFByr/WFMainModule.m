@@ -101,6 +101,7 @@
 
 @end
 
+
 @interface WFTabBarController : UITabBarController <UITabBarControllerDelegate>
 
 @end
@@ -164,6 +165,7 @@
 }
 
 #pragma mark -Private Method
+
 - (void)apiRequestFailure:(NSNotification *)notification {
     // access_token没有过期，直接返回
     NSString *notificationFailureCodeKey = notification.userInfo[WFByrNetworkFailureCodeKey];

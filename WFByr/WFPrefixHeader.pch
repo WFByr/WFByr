@@ -28,6 +28,7 @@
 #import "UIColor+Hex.h"
 #import "UIDevice+WFScale.h"
 #import "UIView+WFHelper.h"
+#import "NSString+Extension.h"
 #import "AFHTTPSessionManager+WFByr.h"
 
 
