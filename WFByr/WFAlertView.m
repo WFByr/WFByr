@@ -180,6 +180,7 @@ static const NSInteger WFAlertViewButtonTag = 0x6667;
     
     CGFloat messageHeight = [message.string heightByWidth:(self.width - 35.5) font:_detailLabel.font lineSpacing:[NSParagraphStyle defaultParagraphStyle].lineSpacing alignment:NSTextAlignmentCenter lineBreakMode:NSLineBreakByCharWrapping];
     [_detailLabel setSize:CGSizeMake(self.width - 35.5, messageHeight)];
+    _detailLabel.contentSize = CGSizeMake(self.width - 35.5, messageHeight);
     _detailLabel.left = 20;
     [_detailLabel setAttributedText:message];
     
@@ -227,10 +228,11 @@ static const NSInteger WFAlertViewButtonTag = 0x6667;
     
     [_titleLabel setCenterX:self.width/2];
     
-    if (!_messageScrollView) {
-        _detailLabel.top = _titleLabel.bottom + 3.5;
+    if (_messageScrollView) {
+        _messageScrollView.top = _titleLabel.bottom + 3.5;
+        _detailLabel.top = 0;
     } else {
-        _detailLabel.top = _messageScrollView.top;
+        _detailLabel.top = _titleLabel.bottom + 3.5;
     }
     
     _buttonContentView.bottom = self.height - 16;
@@ -240,6 +242,7 @@ static const NSInteger WFAlertViewButtonTag = 0x6667;
 - (UIScrollView *)messageScrollView{
     if (!_messageScrollView) {
         _messageScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, _titleLabel.bottom + 3.5, self.width, WFAlertViewMaxMessageHeight)];
+        _messageScrollView.bounces = NO;
     }
     return _messageScrollView;
 }

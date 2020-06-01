@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIViewController *)topViewController;
 
+// iPhone X刘海屏适配，可适配至iPhone XS Max
++ (BOOL)isiPhoneXModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

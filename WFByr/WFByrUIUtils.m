@@ -31,4 +31,12 @@
     }
 }
 
++ (BOOL)isiPhoneXModel {
+    return WFSCREEN_H > 736;
+}
+
++ (BOOL)isiPhoneXBefore {
+    return WFSCREEN_H <= 736;
+}
+
 @end

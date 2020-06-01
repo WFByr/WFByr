@@ -124,7 +124,7 @@
         make.width.equalTo(self.textView.mas_width);
         make.height.equalTo(@(30));
         make.centerX.equalTo(self.textView);
-        make.top.equalTo(self.scrollView.mas_top).offset(8);
+        make.top.equalTo(self.scrollView.mas_top).offset(8 + WFByrIPhoneXTopGap);
     }];
     
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
