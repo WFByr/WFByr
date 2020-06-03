@@ -111,6 +111,7 @@ static const NSInteger WFAlertViewButtonTag = 0x6667;
     button.tag = WFAlertViewButtonTag + _buttonArray.count + 1;
     switch (action.style) {
         case UIAlertActionStyleDefault:
+            [button setTitleColor:MAIN_GRAY forState:UIControlStateNormal];
         case UIAlertActionStyleCancel:
             [button.titleLabel setFont:[UIFont systemFontOfSize:18]];
             break;

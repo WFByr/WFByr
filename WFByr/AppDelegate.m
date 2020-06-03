@@ -75,11 +75,11 @@ static NSString *const WFByrUserAgreedPrivacyArchiveKey = @"WFByrUserAgreedPriva
 - (void)showPrivacyAlertOnVCIfNeed:(UIViewController *)rootVC {
     
     BOOL privacyAgree = [[NSUserDefaults standardUserDefaults] boolForKey:WFByrUserAgreedPrivacyArchiveKey];
-//    if (privacyAgree) {
-//        return;
-//    }
+    if (privacyAgree) {
+        return;
+    }
     
-    NSMutableAttributedString *alertMessageStr = [[NSMutableAttributedString alloc] initWithString:@"感谢您选择远邮APP！我们非常重视您的个人信息和隐私保护。为了更好地保障您的个人权益，在您使用我们的产品掐，请务必审慎阅读《隐私政策》内的所有条款。如您对以上协议有任何疑问，可发邮件至jessicaleech7@gmail.com进行反馈。您点击\"同意并继续\"的行为即表示您已阅读完毕并同意以上协议的全部内容。"];
+    NSMutableAttributedString *alertMessageStr = [[NSMutableAttributedString alloc] initWithString:@"感谢您选择远邮APP！我们非常重视您的个人信息和隐私保护。为了更好地保障您的个人权益，在您使用我们的产品掐，请务必审慎阅读《隐私政策》内的所有条款。如您对以上协议有 任何疑问，可发邮件至jessicaleech7@gmail.com进行反馈。您点击\"同意并继续\"的行为即表示您已阅读完毕并同意以上协议的全部内容。"];
     NSRange highlightRange = [[alertMessageStr string] rangeOfString:@"《隐私政策》"];
     [alertMessageStr addAttribute:NSLinkAttributeName value:@"https://xiangqian.space/privacy" range:highlightRange];
     [alertMessageStr addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:highlightRange];
@@ -92,12 +92,12 @@ static NSString *const WFByrUserAgreedPrivacyArchiveKey = @"WFByrUserAgreedPriva
         [alertController dismissViewControllerAnimated:NO completion:nil];
     }];
     
-    WFAlertAction *disagreeAction = [WFAlertAction actionWithTitle:@"不同意" style:WFAlertActionStyleCancel handler:^(WFAlertAction * _Nonnull action) {
+    WFAlertAction *disagreeAction = [WFAlertAction actionWithTitle:@"不同意" style:WFAlertActionStyleDefault handler:^(WFAlertAction * _Nonnull action) {
         exit(0);
     }];
     
-    [alertController addAction:agreeAction];
     [alertController addAction:disagreeAction];
+    [alertController addAction:agreeAction];
     [rootVC presentViewController:alertController animated:NO completion:nil];
 }
 
