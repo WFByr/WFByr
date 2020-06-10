@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UIColor+Hex.h"
+#import "WFByrUIUtils.h"
 
 #define WFByrBuglyAPPID @"10d4066b4e"
 
@@ -20,6 +21,14 @@ static NSString * const WFFontName = @"AvenirNext-Regular";
 static NSString * const WFMeFontBoldName = @"PingFangSC-Bold";
 static NSString * const WFMeFontRegularName = @"PingFangSC-Regular";
 static NSInteger const WFSeperatorLineHeight = 6;
+
+static NSString *const WFByrLoginFinishNotification = @"WFByrLoginFinishNotification";
+static NSString *const WFByrDefaultShowBoardNameKey = @"WFByrDefaultShowBoardNameKey";
+static NSString *const WFByrDefaultShowBoardTitleKey = @"WFByrDefaultShowBoardTitleKey";
+
+#define WFByrIPhoneXTopGap ([WFByrUIUtils isiPhoneXModel] ? 20 : 0)
+#define WFByrIPhoneXBottomGap ([WFByrUIUtils isiPhoneXModel] ? 24 : 0)
+
 #define MAIN_BLUE  [UIColor colorWithHexString:@"0x00A0F2"]
 #define MAIN_GRAY [UIColor colorWithRed:0.76 green:0.76 blue:0.76 alpha:1.00]
 #define FACE_BORDER_COLOR [UIColor colorWithRed:0.827 green:0.827 blue:0.827 alpha:1.00]

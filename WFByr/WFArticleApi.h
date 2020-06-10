@@ -39,9 +39,6 @@
 
 @property(nonatomic, weak)id<WFArticleResponseReformer> responseReformer;
 
-- (instancetype)initWithAccessToken:(NSString *)token;
-
-
 - (void)fetchArticleWithBoard:(NSString *)board
                           aid:(NSInteger)aid;
 

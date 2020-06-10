@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "WFToken.h"
 #import "AFNetworking.h"
+#import "AFHTTPSessionManager+WFByr.h"
+
 
 typedef void (^WFSuccessCallback)(NSInteger statusCode, id response);
 typedef void (^WFFailureCallback)(NSInteger statusCode, id response);
@@ -26,7 +27,9 @@ typedef void (^WFFailureCallback)(NSInteger statusCode, id response);
 
 @end
 
-@interface WFSessionManager : AFHTTPSessionManager
+@interface WFSessionManager : NSObject
+
+@property (nonatomic, strong, readonly) AFHTTPSessionManager *sessionManager;
 
 + (WFSessionManager *)sharedHttpSessionManager;
 
@@ -34,9 +37,6 @@ typedef void (^WFFailureCallback)(NSInteger statusCode, id response);
 
 @interface WFBaseApi : NSObject
 
-@property(strong, nonatomic) NSString *accessToken;
-
-- (instancetype)initWithAccessToken:(NSString*)accessToken;
 
 - (WFResponse*)sendRequestWithUrl:(NSString *) urlStr
                     method:(NSString *) method

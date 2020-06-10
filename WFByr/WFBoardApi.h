@@ -34,19 +34,9 @@
 
 @interface WFBoardApi : WFBaseApi
 
-/**
- *  <#Description#>
- *
- *  @param token byr accesstoken
- *
- *  @return void
- */
 @property(nonatomic, weak)id<WFBoardResponseDelegate> responseDelegate;
 
 @property(nonatomic, weak)id<WFBoardResponseReformer> responseReformer;
-
-- (instancetype)initWithAccessToken:(NSString *)token;
-
 
 - (void)fetchBoard:(NSString *)name pageNumber:(NSInteger)page;
 

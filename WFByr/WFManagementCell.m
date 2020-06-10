@@ -52,7 +52,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    _seperatorLineView.frame = CGRectMake([self wf_padding_leftToContent], self.wf_Height, self.wf_Width - [self wf_padding_leftToContent], WFOnePixelHeight);
+    _seperatorLineView.frame = CGRectMake([self wf_padding_leftToContent], self.height, self.width - [self wf_padding_leftToContent], WFOnePixelHeight);
 }
 
 - (void)setAppearanceType:(WFRowAppearanceType)appearanceType{
@@ -90,12 +90,12 @@
     _backgroundView = backgroundView;
     [self addSubview:_backgroundView];
     
-    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(paddingLeftToContent, (self.wf_Height - imageViewWidth)/2, imageViewWidth, imageViewWidth)];
+    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(paddingLeftToContent, (self.height - imageViewWidth)/2, imageViewWidth, imageViewWidth)];
     imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _tipImageView = imageView;
     [_backgroundView addSubview:_tipImageView];
     
-    UILabel * newtextLabel = [[UILabel alloc]initWithFrame:CGRectMake(_tipImageView.wf_rightX + paddingTopToContent, 0, 190, self.wf_Height)];
+    UILabel * newtextLabel = [[UILabel alloc]initWithFrame:CGRectMake(_tipImageView.right + paddingTopToContent, 0, 190, self.height)];
     [newtextLabel setFont:[UIFont fontWithName:WFFontName size:15]];
     newtextLabel.textAlignment = NSTextAlignmentLeft;
     _newtextLabel = newtextLabel;

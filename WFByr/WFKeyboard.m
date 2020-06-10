@@ -8,11 +8,8 @@
 
 #import "WFKeyboard.h"
 
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-
+static const NSInteger WFKeyboardHeight = 42;
 @interface WFKeyboard()
-
 
 @end
 
@@ -20,7 +17,7 @@
 @implementation WFKeyboard
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 40, SCREEN_WIDTH, 40)];
+    self = [super initWithFrame:CGRectMake(0, WFSCREEN_H - WFKeyboardHeight - WFByrIPhoneXBottomGap, WFSCREEN_W, WFKeyboardHeight + WFByrIPhoneXBottomGap)];
     if (self) {
         [self setupUI];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
@@ -29,6 +26,7 @@
 }
 
 - (void)setupUI {
+    self.backgroundColor = [UIColor whiteColor];
     // add subviews into inputview
     [self addSubview:self.textView];
     [self addSubview:self.sendBtn];
@@ -44,13 +42,13 @@
     
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(8);
-        make.bottom.equalTo(self).offset(-8);
+        make.bottom.equalTo(self).offset(- 8 - WFByrIPhoneXBottomGap);
         make.leading.equalTo(self).offset(8);
     }];
     
     [self.moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(8);
-        make.bottom.equalTo(self.mas_bottom).offset(-8);
+        make.bottom.equalTo(self.mas_bottom).offset(-8 - WFByrIPhoneXBottomGap);
         make.leading.equalTo(self.textView.mas_trailing).offset(8);
         make.width.equalTo(self.moreBtn.mas_height);
     }];
@@ -58,7 +56,7 @@
     [self.sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).offset(8);
         make.trailing.equalTo(self.mas_trailing).offset(-8);
-        make.bottom.equalTo(self.mas_bottom).offset(-8);
+        make.bottom.equalTo(self.mas_bottom).offset(-8 - WFByrIPhoneXBottomGap);
         make.leading.equalTo(self.moreBtn.mas_trailing).offset(8);
     }];
     
@@ -90,9 +88,6 @@
 
 - (void)hide {
     [self.textView resignFirstResponder];
-    CGRect frame = self.frame;
-    frame.origin.y = SCREEN_HEIGHT - 40;
-    self.frame = frame;
 }
 
 - (void)sendBtnClick {
@@ -108,6 +103,10 @@
     [self.delegate moreAction:[tmp copy]];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+}
+
 #pragma mark - getters and setters
 
 - (UITextView *)textView {
@@ -115,7 +114,8 @@
         _textView = [[UITextView alloc] init];
         [_textView setFont:[UIFont systemFontOfSize:15.0]];
         [_textView.layer setBorderWidth:1.0];
-        [_textView.layer setCornerRadius:2.0];
+        [_textView.layer setCornerRadius:4.0];
+        [_textView.layer setBorderColor:MAIN_BLUE.CGColor];
     }
     return _textView;
 }
@@ -129,6 +129,7 @@
                        forState:UIControlStateHighlighted];
         [_sendBtn setTitleColor:MAIN_BLUE forState:UIControlStateNormal];
         [_sendBtn.layer setCornerRadius:2.0];
+        
     }
     return _sendBtn;
 }

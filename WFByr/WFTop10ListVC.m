@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "YYModel.h"
 #import "WFRouter.h"
+#import "WFByrConst.h"
 #import "UIView+NoDataDefaultView.h"
 
 static NSString * const WFTop10CellReuseId          = @"WFTop10Cell";
@@ -60,13 +61,17 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
 }
 
 #pragma mark - Lifecycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:WFByrLoginFinishNotification object:nil];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(moreData)];
     self.tableView.mj_footer.hidden = YES;
     
-    self.widgerApi = [[WFWidgetApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+    self.widgerApi = [[WFWidgetApi alloc] init];
     self.widgerApi.responseDelegate = self;
     
     [super viewWillAppear:animated];
@@ -153,7 +158,13 @@ static NSString * const WFTop10SeperatorCellReuseId = @"WFTop10SeperatorCell";
 }
 
 - (void)commonResponseRecv:(WFResponse*)response {
-    self.top10 = response.reformedData;
+    if (response.isSucceeded) {
+        self.top10 = response.reformedData;
+    } else {
+        if ([response.reformedData isKindOfClass:[NSDictionary class]]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:WFByrNetworkFailureNotification object:nil userInfo:response.reformedData];
+        }
+    }
     [self.tableView configNoDataDefaultViewWithViewType:NoDataDefaultViewTypeNoData isHasData:self.top10.count > 0 handle:nil];
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];

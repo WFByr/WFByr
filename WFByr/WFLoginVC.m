@@ -11,10 +11,11 @@
 #import "WFOAth2.h"
 #import "WFToken.h"
 #import "Masonry.h"
+#import <WebKit/WebKit.h>
 
-@interface WFLoginVC()<UIWebViewDelegate>
+@interface WFLoginVC()<WKUIDelegate, WKNavigationDelegate>
 
-@property(nonatomic, strong) UIWebView *webview;
+@property(nonatomic, strong) WKWebView *webview;
 
 @property(nonatomic, strong) WFOAth2 * oath;
 
@@ -37,6 +38,7 @@
     return self;
 }
 
+
 # pragma mark - life cycle
 
 - (void)viewDidLoad {
@@ -50,9 +52,11 @@
 }
 
 - (void)setupWebview {
-    self.webview = [[UIWebView alloc] init];
-    self.webview.delegate = self;
+    self.webview = [[WKWebView alloc] init];
+    self.webview.navigationDelegate = self;
+    self.webview.UIDelegate = self;
     [self.webview loadRequest:[NSURLRequest requestWithURL:[self.oath oathUrl]]];
+
     [self.view addSubview:self.webview];
     [self.webview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
@@ -95,21 +99,17 @@
     [self.webview reload];
 }
 
-#pragma mark - UIWebViewDelegate
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    if ([self.oath parseRedirectUri:webView.request.URL.absoluteString]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    if ([self.oath parseRedirectUri:webView.URL.absoluteString]) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:WFByrLoginFinishNotification object:nil userInfo:nil];
+        }];
         WFLogInfo(@"success");
     } else {
         WFErrorInfo(@"fail");
     }
 }
-
-
-
-
-
 
 
 @end

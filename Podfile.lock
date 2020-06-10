@@ -36,7 +36,6 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - Reveal-SDK (4)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
@@ -69,7 +68,6 @@ DEPENDENCIES:
   - MJRefresh
   - Reachability
   - ReactiveCocoa (~> 2.5)
-  - Reveal-SDK (= 4)
   - SDWebImage
   - SDWebImage/GIF
   - TTTAttributedLabel
@@ -95,7 +93,6 @@ SPEC REPOS:
     - pop
     - Reachability
     - ReactiveCocoa
-    - Reveal-SDK
     - SDWebImage
     - TTTAttributedLabel
     - "UITableView+FDTemplateLayoutCell"
@@ -133,7 +130,6 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  Reveal-SDK: 178c927f1a3230648d3a92b96f6e730a35b2750a
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
@@ -145,6 +141,6 @@ SPEC CHECKSUMS:
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: a5077e6b7acee5e82629fd2b91a11866fc271019
+PODFILE CHECKSUM: f80b98630a54fa0c0212be9eab6fa40d7f5213a4
 
 COCOAPODS: 1.8.4

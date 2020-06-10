@@ -13,11 +13,6 @@
 
 @implementation WFAttachmentApi
 
-- (WFAttachmentApi*)initWithAccessToken:(NSString *)token {
-    self = [super initWithAccessToken:token];
-    return self;
-}
-
 - (void)fetchAttachmentWithBoard:(NSString *)board
                     successBlock:(WFSuccessCallback)success
                     failureBlock:(WFFailureCallback)failure {
@@ -46,8 +41,8 @@
                           file:(NSURL *)file
                   successBlock:(WFSuccessCallback)success
                   failureBlock:(WFFailureCallback)failure {
-    NSString *url = [NSString stringWithFormat:@"http://bbs.byr.cn/open/attachment/Advertising/add/%ld.json", (long)aid];
-    NSDictionary *parameters = @{@"oauth_token":self.accessToken};
+    NSString *url = [NSString stringWithFormat:@"http://bbs.byr.cn/open/attachment/%@/add/%ld.json", board, (long)aid];
+    NSDictionary *parameters = @{@"oauth_token":[WFToken shareToken].accessToken};
     
     NSError *err;
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -65,7 +60,7 @@
         return;
     }
     
-    NSURLSessionUploadTask *uploadTask = [[WFSessionManager sharedHttpSessionManager] uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
+    NSURLSessionUploadTask *uploadTask = [[WFSessionManager sharedHttpSessionManager].sessionManager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
         WFLogInfo(@"%s uploading", __func__);
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (error) {

@@ -29,9 +29,6 @@
 @property(nonatomic, weak)id<WFCollectionResponseDelegate> responseDelegate;
 @property(nonatomic, weak)id<WFCollectionResponseReformer> responseReformer;
 
-
-- (instancetype)initWithAccessToken:(NSString *)token;
-
 - (void)fetchCollectionsWithCount:(NSInteger)count page:(NSInteger)page SuccessBlock:(WFSuccessCallback)success
                      failureBlock:(WFFailureCallback)failure;
 

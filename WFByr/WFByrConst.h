@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const WFByrBaseUrl = @"http://bbs.byr.cn/open/";
+static NSString * const WFByrBaseUrl = @"https://bbs.byr.cn/open/";
 
 static NSString * const WFReturnFormat = @".json";
 
@@ -32,6 +32,11 @@ static NSString * const WFByrSearchUrl     = @"search";
 static NSString * const WFByrUserUrl       = @"user";
 static NSString * const WFByrVoteUrl       = @"vote";
 static NSString * const WFByrWidgetUrl     = @"widget";
+
+static NSString *const WFByrNetworkFailureNotification = @"WFByrNetworkFailureNotification";
+static NSString *const WFByrNetworkAccessTokenFailureCode = @"1703";    //oauth_token已过期
+static NSString *const WFByrNetworkAccessTokenWrongCode = @"1702";    //非法的oauth_token
+static NSString *const WFByrNetworkFailureCodeKey = @"code";
 
 
 #endif /* WFByrConst_h */

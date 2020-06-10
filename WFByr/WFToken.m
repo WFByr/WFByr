@@ -34,8 +34,8 @@ static id _instance;
 - (instancetype)initFromStorage {
     self = [super init];
     if (self) {
-        self.accessToken  = [[NSUserDefaults standardUserDefaults] objectForKey:kAccessTokenKey];
-        self.refreshToken = [[NSUserDefaults standardUserDefaults] objectForKey:kRefreshTokenKey];
+        self.accessToken  = [[NSUserDefaults standardUserDefaults] stringForKey:kAccessTokenKey] ?: @"";
+        self.refreshToken = [[NSUserDefaults standardUserDefaults] stringForKey:kRefreshTokenKey] ?: @"";
         self.expiresIn    = [[NSUserDefaults standardUserDefaults] integerForKey:kExpiresInKey];
     }
     return self;
@@ -44,8 +44,8 @@ static id _instance;
 - (void)setupWithAccesssToken:(NSString *)accessToken
                  refreshToken:(NSString*)refreshToken
                     expiresIn:(NSInteger)expiresIn {
-    self.accessToken = accessToken;
-    self.refreshToken = refreshToken;
+    self.accessToken = accessToken ?: @"";
+    self.refreshToken = refreshToken ?: @"";
     self.expiresIn = expiresIn;
     [[NSUserDefaults standardUserDefaults] setObject:self.accessToken  forKey:kAccessTokenKey];
     [[NSUserDefaults standardUserDefaults] setInteger:self.expiresIn   forKey:kRefreshTokenKey];

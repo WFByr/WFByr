@@ -29,8 +29,8 @@
     WFUserResponseReformer *_defaultReformer;
 }
 
-- (instancetype)initWithAccessToken:(NSString *)token {
-    self = [super initWithAccessToken:token];
+- (instancetype)init {
+    self = [super init];
     _defaultReformer = [WFUserResponseReformer new];
     self.responseReformer = _defaultReformer;
     return self;

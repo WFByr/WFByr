@@ -12,8 +12,6 @@
 
 @interface WFAttachmentApi : WFBaseApi
 
-- (WFAttachmentApi*)initWithAccessToken:(NSString*)token;
-
 - (void)fetchAttachmentWithBoard:(NSString*)board
                     successBlock:(WFSuccessCallback)success
                     failureBlock:(WFFailureCallback)failure;

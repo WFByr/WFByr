@@ -10,5 +10,5 @@
 
 @interface WFArticleListVC : UIViewController
 
-- (instancetype)initWithBoardName:(NSString*)name;
+- (instancetype)initWithBoardName:(NSString*)name boardTitle:(NSString *)boardTitle;
 @end

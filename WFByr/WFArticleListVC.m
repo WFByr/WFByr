@@ -28,6 +28,7 @@
 @property(strong, nonatomic) WFBoard * lastViewBoard;
 @property(strong, nonatomic) WFBoardApi * boardApi;
 @property(copy, nonatomic) NSString *boardName;
+@property (copy, nonatomic) NSString *boardTitle;
 @property(assign, nonatomic) NSInteger page;
 @property(assign, nonatomic) BOOL firstLoaded;
 
@@ -38,11 +39,12 @@
     BOOL _isLoaded;
 }
 
-- (instancetype)initWithBoardName:(NSString*)name {
+- (instancetype)initWithBoardName:(NSString*)name boardTitle:(NSString *)boardTitle {
     self = [super init];
     if (self != nil) {
         self.boardName = name;
-        self.navigationItem.title = name;
+        self.boardTitle = boardTitle;
+        self.navigationItem.title = boardTitle;
         _isLoaded = false;
     }
     return self;
@@ -116,7 +118,8 @@
     WFBoard *pickedBoard = [info objectForKey:WFBoardPickerBoardKey];
     self.boardName = pickedBoard.name;
     self.navigationItem.title = pickedBoard.desc;
-    
+    [[NSUserDefaults standardUserDefaults] setObject:pickedBoard.name?:@"" forKey:WFByrDefaultShowBoardNameKey];
+    [[NSUserDefaults standardUserDefaults] setObject:pickedBoard.desc?:@"" forKey:WFByrDefaultShowBoardTitleKey];
     //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     [self loadData];
 }
@@ -181,7 +184,7 @@
 
 - (WFBoardApi*)boardApi {
     if (_boardApi == nil) {
-        _boardApi = [[WFBoardApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _boardApi = [[WFBoardApi alloc] init];
         _boardApi.responseDelegate = self;
         _boardApi.responseReformer = self;
     }

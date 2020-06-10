@@ -90,6 +90,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView reloadData];
     WFManagementSection * sectionItem = [self.dataSource objectAtIndex:indexPath.section];
     WFManagementRow * rowItem = [sectionItem.rows objectAtIndex:indexPath.row];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -166,7 +168,7 @@
 
 - (WFUserApi*)userApi {
     if (_userApi == nil) {
-        _userApi = [[WFUserApi alloc] initWithAccessToken:[WFToken shareToken].accessToken];
+        _userApi = [[WFUserApi alloc] init];
         _userApi.responseDelegate = self;
     }
     return _userApi;
